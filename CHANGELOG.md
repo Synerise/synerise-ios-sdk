@@ -3,6 +3,14 @@ All notable changes to this project will be documented in this file.
 
 Note that Objective-C class names are prefixed by `SNR`. In the changelog below, these are names used in Swift, without the prefix.
 
+## [4.17.0] - 2024-04-19
+
+### Changed
+- Change of repository address from https://github.com/Synerise/ios-sdk to https://github.com/Synerise/synerise-ios-sdk for future releases.
+- Improvements to stability.
+
+
+
 ## [4.17.0] - 2024-04-26
 
 ### Fixed
@@ -12,7 +20,6 @@ Note that Objective-C class names are prefixed by `SNR`. In the changelog below,
 - `Synerise.settings.tracker.eventsTriggeringFlush` option in settings to let you set the list of event actions which will trigger instant sending of all events in the queue. The default array contains only push event's actions.
 
 ### Changed
-- All events connected with push campaigns will flush the queue and send events immediately.
 - Improvements to push notifications registration.
 - Improvements to stability.
 
