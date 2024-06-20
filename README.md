@@ -14,7 +14,7 @@
 ## About
 [Synerise](https://www.synerise.com) SDK for iOS.
 
-> ⚠️ For versions prior to 4.17.1, please refer to this repository: [Synerise iOS SDK](https://github.com/synerise/ios-sdk)
+> ⚠️ For versions prior to 4.17.1, please refer to this repository: [iOS SDK](https://github.com/synerise/ios-sdk)
 
 ## Documentation
 Most up-to-date documentation is available at [Developer Guide - Mobile SDK](https://hub.synerise.com/developers/mobile-sdk).
