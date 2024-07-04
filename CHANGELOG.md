@@ -3,6 +3,19 @@ All notable changes to this project will be documented in this file.
 
 Note that Objective-C class names are prefixed by `SNR`. In the changelog below, these are names used in Swift, without the prefix.
 
+## [4.18.0] - 2024-07-04
+
+### Added
+- We added a`testDelivery` and `journeyId` parameters to tracked notification events (`push.view`, `push.click`, and so on). It describes if the notification was sent as a test notification from a campaign.
+- We added a new `Content.generateDocument(apiQuery:success:failure:)` method. It is analogous to `Client.generateDocument(slug:success:failure:)`, but can contain more context parameters provided in a query object.
+- We added a new `Content.generateScreenView(apiQuery:success:failure:)` method. It is analogous to `Client.generateScreenView(feedSlug:success:failure:)`, but can contain more context parameters provided in a query object.
+- Anchors from Drag & Drop Builder in the In-App editor are interpreted as URL or as deeplink depending on the value.
+
+### Changed
+- We added validation of reserved parameters in events. Now, if a parameter is forbidden, it is removed from the parameters and a log is printed.
+- Improvements to stability.
+
+
 ## [4.17.1] - 2024-06-19
 
 ### Changed

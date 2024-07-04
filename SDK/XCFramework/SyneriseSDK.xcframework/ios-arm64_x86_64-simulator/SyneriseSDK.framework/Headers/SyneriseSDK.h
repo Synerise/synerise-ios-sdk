@@ -36,8 +36,10 @@
 #import <SyneriseSDK/SNRApiQuerySortingOrder.h>
 #import <SyneriseSDK/SNRClientEventsApiQuery.h>
 #import <SyneriseSDK/SNRPromotionsApiQuery.h>
+#import <SyneriseSDK/SNRDocumentApiQuery.h>
 #import <SyneriseSDK/SNRDocumentsApiQuery.h>
 #import <SyneriseSDK/SNRRecommendationOptions.h>
+#import <SyneriseSDK/SNRScreenViewApiQuery.h>
 
 // Exceptions
 #import <SyneriseSDK/SNRExceptionHandler.h>
