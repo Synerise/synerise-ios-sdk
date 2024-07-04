@@ -14,8 +14,8 @@ let package = Package(
     targets: [
         .binaryTarget(
             name: "SyneriseSDK",
-            url: "https://github.com/Synerise/synerise-ios-sdk/releases/download/4.17.1/SyneriseSDK.xcframework.zip",
-            checksum: "721e2688643ba9d9001b8c285bef3ad49cf99addf648d30434f12d426f5347c5"
+            url: "https://github.com/Synerise/synerise-ios-sdk/releases/download/4.18.0/SyneriseSDK.xcframework.zip",
+            checksum: "fe532bd269aaff6e95ed3093bbb6e9fa50f56ff04859581335e749f9e0f52247"
         )
     ]
 )

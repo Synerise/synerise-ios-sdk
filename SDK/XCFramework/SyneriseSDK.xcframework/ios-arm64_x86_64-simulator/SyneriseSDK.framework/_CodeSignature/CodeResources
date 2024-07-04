@@ -126,7 +126,7 @@
 		</data>
 		<key>Headers/SNRContent.h</key>
 		<data>
-		aKyPOKeLK9mBx0PLZpQgy2Cshl0=
+		LYEvkU1yXN+fL7moTqkHxc2F7CY=
 		</data>
 		<key>Headers/SNRContentWidget.h</key>
 		<data>
@@ -195,6 +195,10 @@
 		<key>Headers/SNRDocument.h</key>
 		<data>
 		nl5Kw6ADH/ld9OFqKzRgiLiFCME=
+		</data>
+		<key>Headers/SNRDocumentApiQuery.h</key>
+		<data>
+		+tgEad6Ue3rJ1pQEK4wiN+TLN1M=
 		</data>
 		<key>Headers/SNRDocumentsApiQuery.h</key>
 		<data>
@@ -436,6 +440,10 @@
 		<data>
 		r5wuPjT5/mnTnZ+tFk6nJWonETg=
 		</data>
+		<key>Headers/SNRScreenViewApiQuery.h</key>
+		<data>
+		tvyGklqMQvE7SWPEZjWaGOVjPCw=
+		</data>
 		<key>Headers/SNRScreenViewAudience.h</key>
 		<data>
 		1fxk34NBw2tQnOn4rHxPx6+zmC0=
@@ -530,11 +538,11 @@
 		</data>
 		<key>Headers/SyneriseSDK.h</key>
 		<data>
-		zowrkh+xjie7iKcGNAk335lB3p0=
+		8AxRfCqwO3zPbpzSMgOdDQSy/Tg=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		VM2H7RhsU7vN2Ooptl8SzE9zRc0=
+		uI8f4hkBkYPfj2N5TzJq4rVoqt4=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -955,11 +963,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			aKyPOKeLK9mBx0PLZpQgy2Cshl0=
+			LYEvkU1yXN+fL7moTqkHxc2F7CY=
 			</data>
 			<key>hash2</key>
 			<data>
-			hwVwF/iVr6N29PUk4m3yk4BKZn6W26DtSkFGA72sbRg=
+			ppZJQN0vzzwGVvyxkiLykcZ+3jzuubObq8U6Bvsc5VE=
 			</data>
 		</dict>
 		<key>Headers/SNRContentWidget.h</key>
@@ -1147,6 +1155,17 @@
 			<key>hash2</key>
 			<data>
 			cxsj1byWO/jaXKU2o4jEabV9Tl1cq0eMaaFEvMUuSEk=
+			</data>
+		</dict>
+		<key>Headers/SNRDocumentApiQuery.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			+tgEad6Ue3rJ1pQEK4wiN+TLN1M=
+			</data>
+			<key>hash2</key>
+			<data>
+			jLonzvjDT7JF7u/2lsCdcLUYrW9MqoO6/ORFQmEfdr0=
 			</data>
 		</dict>
 		<key>Headers/SNRDocumentsApiQuery.h</key>
@@ -1809,6 +1828,17 @@
 			L9PQZMBlH2HepmuhUo1+JFDtsMaC8eQn2X4llQmYL6Y=
 			</data>
 		</dict>
+		<key>Headers/SNRScreenViewApiQuery.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			tvyGklqMQvE7SWPEZjWaGOVjPCw=
+			</data>
+			<key>hash2</key>
+			<data>
+			4Qy9mIsVq2AuB+JYHiEFt3QedOjPZNp+7J9S1AvOdYU=
+			</data>
+		</dict>
 		<key>Headers/SNRScreenViewAudience.h</key>
 		<dict>
 			<key>hash</key>
@@ -2066,11 +2096,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			zowrkh+xjie7iKcGNAk335lB3p0=
+			8AxRfCqwO3zPbpzSMgOdDQSy/Tg=
 			</data>
 			<key>hash2</key>
 			<data>
-			NyAVGq8blxu+9C8QMl7SbxCKwHer+eadTSNlGdPC4kU=
+			18JPrMlzVqO7q1Lyb4UlrYRPjwVqlUUaciNV2ukaFds=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

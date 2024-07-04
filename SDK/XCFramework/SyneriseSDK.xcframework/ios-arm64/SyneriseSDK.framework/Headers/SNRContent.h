@@ -7,11 +7,13 @@
 //
 
 @class SNRDocument;
+@class SNRDocumentApiQuery;
 @class SNRDocumentsApiQuery;
 @class SNRRecommendationOptions;
 @class SNRRecommendationResponse;
 @class SNRScreenViewResponse;
 @class SNRScreenView;
+@class SNRScreenViewApiQuery;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -49,6 +51,16 @@ NS_SWIFT_NAME(Content)
                  success:(void (^)(SNRDocument *document))success
                  failure:(void (^)(SNRApiError *error))failure NS_SWIFT_NAME(generateDocument(slug:success:failure:));
 
+/**
+ * Generates the document that is defined for parameters provided in the query object.
+ *
+ * @param apiQuery `SNRDocumentApiQuery` object responsible for storing all query parameters.
+ * @param success A block object to be executed when the operation finishes successfully.
+ * @param failure A block object to be executed when the operation finishes unsuccessfully.
+ */
++ (void)generateDocumentWithApiQuery:(SNRDocumentApiQuery *)apiQuery
+                             success:(void (^)(SNRDocument *document))success
+                             failure:(void (^)(SNRApiError *error))failure NS_SWIFT_NAME(generateDocument(apiQuery:success:failure:));
 
 /**
  * Gets documents that are defined for parameters provided in the query object.
@@ -108,6 +120,17 @@ NS_SWIFT_NAME(Content)
 + (void)generateScreenView:(NSString *)feedSlug
                    success:(void (^)(SNRScreenView *screenView))success
                    failure:(void (^)(SNRApiError *error))failure NS_SWIFT_NAME(generateScreenView(feedSlug:success:failure:));
+
+/**
+ * Generates customer's highest-priority screen view campaign that is defined for parameters provided in the query object.
+ *
+ * @param apiQuery `SNRScreenViewApiQuery` object responsible for storing all query parameters.
+ * @param success A block object to be executed when the operation finishes successfully.
+ * @param failure A block object to be executed when the operation finishes unsuccessfully.
+ */
++ (void)generateScreenViewWithApiQuery:(SNRScreenViewApiQuery *)apiQuery
+                               success:(void (^)(SNRScreenView *screenView))success
+                               failure:(void (^)(SNRApiError *error))failure NS_SWIFT_NAME(generateScreenView(apiQuery:success:failure:));
 
 @end
 
