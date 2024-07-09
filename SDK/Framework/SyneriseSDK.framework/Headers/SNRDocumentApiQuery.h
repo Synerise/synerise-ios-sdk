@@ -6,19 +6,9 @@
 //  Copyright (c) 2024 Synerise. All rights reserved.
 //
 
+#import <SyneriseSDK/SNRRecommendationOptions.h>
+
 NS_ASSUME_NONNULL_BEGIN
-
-/**
- * @enum SNRDocumentFiltersJoinerRule
- */
-
-typedef NS_ENUM(NSUInteger, SNRDocumentFiltersJoinerRule) {
-    SNRDocumentFiltersJoinerRuleAnd,
-    SNRDocumentFiltersJoinerRuleOr,
-    SNRDocumentFiltersJoinerRuleReplace
-} NS_SWIFT_NAME(DocumentFiltersJoinerRule);
-
-NSString * SNR_DocumentFiltersJoinerRuleToString(SNRDocumentFiltersJoinerRule rule);
 
 /**
  * @class SNRDocumentApiQuery
@@ -27,17 +17,16 @@ NSString * SNR_DocumentFiltersJoinerRuleToString(SNRDocumentFiltersJoinerRule ru
 NS_SWIFT_NAME(DocumentApiQuery)
 @interface SNRDocumentApiQuery : NSObject
 
-@property (copy, nonatomic, nullable, readonly) NSString *slug;
-
+@property (copy, nonatomic, nonnull, readonly) NSString *slug;
 
 @property (copy, nonatomic, nullable, readwrite) NSString *productId;
 @property (copy, nonatomic, nullable, readwrite) NSArray<NSString *> *itemsIds;
 @property (copy, nonatomic, nullable, readwrite) NSArray<NSString *> *itemsExcluded;
 
 @property (copy, nonatomic, nullable, readwrite) NSString *additionalFilters;
-@property (assign, nonatomic, readwrite) SNRDocumentFiltersJoinerRule filtersJoiner;
+@property (assign, nonatomic, readwrite) SNRRecommendationFiltersJoinerRule filtersJoiner;
 @property (copy, nonatomic, nullable, readwrite) NSString *additionalElasticFilters;
-@property (assign, nonatomic, readwrite) SNRDocumentFiltersJoinerRule elasticFiltersJoiner;
+@property (assign, nonatomic, readwrite) SNRRecommendationFiltersJoinerRule elasticFiltersJoiner;
 
 @property (copy, nonatomic, nullable, readwrite) NSArray<NSString *> *displayAttribute;
 @property (assign, nonatomic, readwrite) BOOL includeContextItems;
