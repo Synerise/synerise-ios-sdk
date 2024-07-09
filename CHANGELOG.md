@@ -3,6 +3,14 @@ All notable changes to this project will be documented in this file.
 
 Note that Objective-C class names are prefixed by `SNR`. In the changelog below, these are names used in Swift, without the prefix.
 
+## [4.18.1] - 2024-07-09
+
+### Changed
+- The `filtersJoiner` and `elasticFiltersJoiner` properties in `DocumentApiQuery` class should be `RecommendationFiltersJoinerRule` type instead of `DocumentFiltersJoinerRule`. `DocumentFiltersJoinerRule` is removed.
+- Nullability of the `slug` property in `DocumentApiQuery` model.
+- Improvements to stability.
+
+
 ## [4.18.0] - 2024-07-04
 
 ### Added
