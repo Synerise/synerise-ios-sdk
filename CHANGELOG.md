@@ -3,6 +3,14 @@ All notable changes to this project will be documented in this file.
 
 Note that Objective-C class names are prefixed by `SNR`. In the changelog below, these are names used in Swift, without the prefix.
 
+## [4.18.1] - 2024-07-15
+
+### Changed
+- Nullability of the `feedSlug` property in a `ScreenViewApiQuery` model.
+- Nullability of the `productID` property in constructor of a `ScreenViewApiQuery` model.
+- Improvements to stability.
+
+
 ## [4.18.1] - 2024-07-09
 
 ### Changed

@@ -15,13 +15,13 @@ NS_ASSUME_NONNULL_BEGIN
 NS_SWIFT_NAME(ScreenViewApiQuery)
 @interface SNRScreenViewApiQuery : NSObject
 
-@property (copy, nonatomic, nullable, readwrite) NSString *feedSlug;
+@property (copy, nonatomic, nonnull, readwrite) NSString *feedSlug;
 @property (copy, nonatomic, nullable, readwrite) NSString *productID;
 
 + (instancetype)new NS_UNAVAILABLE;
 - (instancetype)init NS_UNAVAILABLE;
 
-- (instancetype)initWithFeedSlug:(NSString *)feedSlug productID:(NSString *)productID;
+- (instancetype)initWithFeedSlug:(NSString *)feedSlug productID:(nullable NSString *)productID;
 
 @end
 
