@@ -442,7 +442,7 @@
 		</data>
 		<key>Headers/SNRScreenViewApiQuery.h</key>
 		<data>
-		tvyGklqMQvE7SWPEZjWaGOVjPCw=
+		m1WLhjjM7jMWXxlgRL1ErBQcP/I=
 		</data>
 		<key>Headers/SNRScreenViewAudience.h</key>
 		<data>
@@ -542,7 +542,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		kNnhJi0en9XRLSuKfsZ2djbsIYw=
+		PJPgZAS96a74Qj/omipsy+zLsCY=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -1832,11 +1832,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			tvyGklqMQvE7SWPEZjWaGOVjPCw=
+			m1WLhjjM7jMWXxlgRL1ErBQcP/I=
 			</data>
 			<key>hash2</key>
 			<data>
-			4Qy9mIsVq2AuB+JYHiEFt3QedOjPZNp+7J9S1AvOdYU=
+			ei1duAfVP1FRkPQDTIyJNgd81WJgJbhNDFTdWwUgS68=
 			</data>
 		</dict>
 		<key>Headers/SNRScreenViewAudience.h</key>
