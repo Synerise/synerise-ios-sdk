@@ -248,6 +248,10 @@
 		<data>
 		iyx+EXw81OFqDbfzgEDySZsNIVI=
 		</data>
+		<key>Headers/SNRInitializationConfig.h</key>
+		<data>
+		uw+ub39HpRI/2F+DrsPJxZvO5tc=
+		</data>
 		<key>Headers/SNRInjector.h</key>
 		<data>
 		ZyAUwwUZA+GTm81aefaNojeqdVw=
@@ -474,7 +478,7 @@
 		</data>
 		<key>Headers/SNRSynerise.h</key>
 		<data>
-		Hw457sqUGCpeHWfQF1Sf190pG1k=
+		jecSA+x7f8z/gCgrCOi0nsJUxPk=
 		</data>
 		<key>Headers/SNRSyneriseActivity.h</key>
 		<data>
@@ -538,11 +542,11 @@
 		</data>
 		<key>Headers/SyneriseSDK.h</key>
 		<data>
-		8AxRfCqwO3zPbpzSMgOdDQSy/Tg=
+		ln7q2k3J7aI4cRNEff387fOoeK4=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		PJPgZAS96a74Qj/omipsy+zLsCY=
+		cz2LxPYU7GhXn5uen+ASKIYGkUY=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -1300,6 +1304,17 @@
 			hsKe0KkXzCho9JWlHNvugGekd3nm457dbH8+B8Zhelc=
 			</data>
 		</dict>
+		<key>Headers/SNRInitializationConfig.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			uw+ub39HpRI/2F+DrsPJxZvO5tc=
+			</data>
+			<key>hash2</key>
+			<data>
+			dCOMNfPk+13tION7ItoriyOSvbFB1EFuczzcG0sY2Zw=
+			</data>
+		</dict>
 		<key>Headers/SNRInjector.h</key>
 		<dict>
 			<key>hash</key>
@@ -1920,11 +1935,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Hw457sqUGCpeHWfQF1Sf190pG1k=
+			jecSA+x7f8z/gCgrCOi0nsJUxPk=
 			</data>
 			<key>hash2</key>
 			<data>
-			yEYVStDyPE1oaaOSlwYaqU3CkZrwLKwln7lRrtX9oJ8=
+			Cvl8BFGquiSoU6y8eQUpqMTw55EMz9f04PrOJxEw7IA=
 			</data>
 		</dict>
 		<key>Headers/SNRSyneriseActivity.h</key>
@@ -2096,11 +2111,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			8AxRfCqwO3zPbpzSMgOdDQSy/Tg=
+			ln7q2k3J7aI4cRNEff387fOoeK4=
 			</data>
 			<key>hash2</key>
 			<data>
-			18JPrMlzVqO7q1Lyb4UlrYRPjwVqlUUaciNV2ukaFds=
+			uRgCF5LzQZEpr/MFI2LmJUpgLJ7v8gh3VAKZKm54MnI=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
