@@ -6,6 +6,7 @@
 //  Copyright (c) 2024 Synerise. All rights reserved.
 //
 
+#import <SyneriseSDK/SNRInitializationConfig.h>
 #import <SyneriseSDK/SNRSyneriseActivity.h>
 #import <SyneriseSDK/SNRHostApplicationType.h>
 #import <SyneriseSDK/SNRNotificationInfo.h>
@@ -147,7 +148,7 @@ NS_SWIFT_NAME(Synerise)
 /**
  * Initializes Synerise SDK.
  *
- * @param clientApiKey Synerise Profile API Key (formerly Client API Key).
+ * @param clientApiKey Synerise Profile API key (formerly Client API key).
  *
  * @note This method needs to be called before any other method of Synerise SDK and only once during application lifecycle.
  */
@@ -156,7 +157,7 @@ NS_SWIFT_NAME(Synerise)
 /**
  * Initializes Synerise SDK with custom environment settings.
  *
- * @param clientApiKey Synerise Profile API Key (formerly Client API Key).
+ * @param clientApiKey Synerise Profile API key (formerly Client API key).
  * @param baseUrl Synerise API custom environment base URL.
  *
  * @note This method needs to be called before any other method of Synerise SDK and only once during application lifecycle.
@@ -164,11 +165,19 @@ NS_SWIFT_NAME(Synerise)
 + (void)initializeWithClientApiKey:(NSString *)clientApiKey andBaseUrl:(nullable NSString *)baseUrl NS_SWIFT_NAME(initialize(clientApiKey:baseUrl:));
 
 /**
- * Changes Profile API Key dynamically.
+ * Changes the Profile API key dynamically.
  *
- * @param clientApiKey Synerise Profile API Key (formerly Client API Key).
+ * @param clientApiKey Synerise Profile API key (formerly Client API key).
  */
 + (void)changeClientApiKey:(NSString *)clientApiKey;
+
+/**
+ * Changes the Profile API key dynamically.
+ *
+ * @param clientApiKey Synerise Profile API key (formerly Client API key).
+ * @param config The configuration of the SDK after API key change.
+ */
++ (void)changeClientApiKey:(NSString *)clientApiKey config:(nullable SNRInitializationConfig *)config;
 
 /**
  * Sets salt string for request validation.

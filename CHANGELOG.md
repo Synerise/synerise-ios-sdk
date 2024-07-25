@@ -3,19 +3,34 @@ All notable changes to this project will be documented in this file.
 
 Note that Objective-C class names are prefixed by `SNR`. In the changelog below, these are names used in Swift, without the prefix.
 
+## [4.19.0] - 2024-07-25
+
+### Fixed
+- Potential issues with Simple Authentication requests.
+- Potential issue with slow SDK initialization.
+
+### Added
+- We added a new `Synerise.changeClientApiKey(_:config:)` method. It is analogous to `Synerise.changeClientApiKey(slug:success:failure:)`, but allows adding some initialization parameters.
+- We added new parameters to the `push.click` event: `clickSource`, `actionType`, `url` and `actionButtonTitle`.
+
+### Changed
+- `requestValidationSalt` (Simple Auth) is cleared when  `Synerise.changeClientApiKey(_:config:)` and `Synerise.changeClientApiKey(_:)` methods are invoked without suitable config.
+- Improvements to stability.
+
+
 ## [4.18.2] - 2024-07-15
 
 ### Changed
-- Nullability of the `feedSlug` property in a `ScreenViewApiQuery` model.
-- Nullability of the `productID` property in constructor of a `ScreenViewApiQuery` model.
+- Nullability of the `feedSlug` property in the `ScreenViewApiQuery` model.
+- Nullability of the `productID` property in constructor of the `ScreenViewApiQuery` model.
 - Improvements to stability.
 
 
 ## [4.18.1] - 2024-07-09
 
 ### Changed
-- The `filtersJoiner` and `elasticFiltersJoiner` properties in `DocumentApiQuery` class should be `RecommendationFiltersJoinerRule` type instead of `DocumentFiltersJoinerRule`. `DocumentFiltersJoinerRule` is removed.
-- Nullability of the `slug` property in `DocumentApiQuery` model.
+- The `filtersJoiner` and `elasticFiltersJoiner` properties in the `DocumentApiQuery` class should be `RecommendationFiltersJoinerRule` type instead of `DocumentFiltersJoinerRule`. `DocumentFiltersJoinerRule` is removed.
+- Nullability of the `slug` property in the `DocumentApiQuery` model.
 - Improvements to stability.
 
 

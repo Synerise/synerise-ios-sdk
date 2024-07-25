@@ -14,6 +14,7 @@
 #import <CommonCrypto/CommonCrypto.h>
 
 #import <SyneriseSDK/SNRSynerise.h>
+#import <SyneriseSDK/SNRInitializationConfig.h>
 
 // Settings
 #import <SyneriseSDK/SNRSettings.h>
