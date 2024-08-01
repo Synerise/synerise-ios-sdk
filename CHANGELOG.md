@@ -3,6 +3,14 @@ All notable changes to this project will be documented in this file.
 
 Note that Objective-C class names are prefixed by `SNR`. In the changelog below, these are names used in Swift, without the prefix.
 
+## [4.19.1] - 2024-08-01
+
+### Fixed
+- LICENSE file path in CocoaPods podspec file.
+
+### Changed
+- Improvements to stability.
+
 ## [4.19.0] - 2024-07-25
 
 ### Fixed
