@@ -20,12 +20,12 @@ NS_SWIFT_NAME(ProductViewedEvent)
 @interface SNRProductViewedEvent : SNREvent
 
 - (instancetype)initWithLabel:(NSString *)label
-                          productName:(NSString *)productName
-                   productId:(NSString *)productId
+                  productName:(NSString *)productName
+                    productId:(NSString *)productId
                     andParams:(nullable SNRTrackerParams *)params NS_SWIFT_NAME(init(label:productName:productId:params:));
 
 - (instancetype)initWithLabel:(NSString *)label
-                          productName:(NSString *)productName
+                  productName:(NSString *)productName
                    productId:(NSString *)productId NS_SWIFT_NAME(init(label:productName:productId:));
 
 - (void)setIsRecommended:(BOOL)isRecommended;

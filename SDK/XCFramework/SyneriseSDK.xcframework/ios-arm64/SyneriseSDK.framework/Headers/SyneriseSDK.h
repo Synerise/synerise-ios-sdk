@@ -16,16 +16,6 @@
 #import <SyneriseSDK/SNRSynerise.h>
 #import <SyneriseSDK/SNRInitializationConfig.h>
 
-// Settings
-#import <SyneriseSDK/SNRSettings.h>
-#import <SyneriseSDK/SNRGeneralSettings.h>
-#import <SyneriseSDK/SNRNotificationsSettings.h>
-#import <SyneriseSDK/SNRInAppMessagingSettings.h>
-#import <SyneriseSDK/SNRTrackerSettings.h>
-#import <SyneriseSDK/SNRTrackerAutoTrackingSettings.h>
-#import <SyneriseSDK/SNRTrackerDeclarativeTrackingSettings.h>
-#import <SyneriseSDK/SNRInjectorSettings.h>
-
 // Modules
 #import <SyneriseSDK/SNRTracker.h>
 #import <SyneriseSDK/SNRClient.h>
