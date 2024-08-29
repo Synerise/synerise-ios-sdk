@@ -1,0 +1,304 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.10 (swiftlang-5.10.0.13 clang-1500.3.9.4)
+// swift-module-flags: -target arm64-apple-ios9.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name SyneriseSDK
+import CoreTelephony
+import Foundation
+import Swift
+@_exported import SyneriseSDK
+import UIKit
+import UserNotifications
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+@_inheritsConvenienceInitializers @objc(_SNR_SyneriseFrameworkInfoProvider) public class _SNR_SyneriseFrameworkInfoProvider : ObjectiveC.NSObject {
+  @objc public static func bundleIdentifier() -> Swift.String
+  @objc public static func SDKVersion() -> Swift.String
+  @objc public static func SDKPluginVersion() -> Swift.String?
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc(SNRTrackerAutoTrackMode) public enum TrackerAutoTrackMode : Swift.Int {
+  @available(*, deprecated)
+  case eager
+  case plain
+  case fine
+  case disabled
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_inheritsConvenienceInitializers @objc(SNRTrackerAutoTrackingSettings) public class TrackerAutoTrackingSettings : ObjectiveC.NSObject {
+  @objc public var enabled: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc public var mode: SyneriseSDK.TrackerAutoTrackMode {
+    @objc get
+    @objc set
+  }
+  @objc public var excludedClasses: [Swift.AnyClass] {
+    @objc get
+    @objc set
+  }
+  @objc public var excludedViewTags: [Swift.Int] {
+    @objc get
+    @objc set
+  }
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(SNRInjectorSettings) public class InjectorSettings : ObjectiveC.NSObject {
+  @objc public var automatic: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc override dynamic public init()
+  @objc deinit
+}
+public typealias SNRPublicKeyPinningAlgorithm = Swift.String
+public typealias SNRLocalizableStringKey = Swift.String
+public let SNR_LOCALIZABLE_STRING_KEY_OK: Swift.String
+public let SNR_LOCALIZABLE_STRING_KEY_CANCEL: Swift.String
+@_inheritsConvenienceInitializers @objc(SNRGeneralSettings) public class GeneralSettings : ObjectiveC.NSObject {
+  @objc public var enabled: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc public var appGroupIdentifier: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc public var keychainGroupIdentifier: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc public var minTokenRefreshInterval: Foundation.TimeInterval {
+    @objc get
+    @objc set
+  }
+  @objc public var SSLPinningPinset: [Swift.String]? {
+    @objc get
+    @objc set
+  }
+  @objc public var SSLPinningPublicKeySupportedAlgorithms: [SyneriseSDK.SNRPublicKeyPinningAlgorithm]?
+  @objc public var shouldDestroySessionOnApiKeyChange: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc public var localizable: [SyneriseSDK.SNRLocalizableStringKey : Swift.String]? {
+    @objc get
+    @objc set
+  }
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(SNRTrackerSettings) public class TrackerSettings : ObjectiveC.NSObject {
+  @objc final public let autoTracking: SyneriseSDK.TrackerAutoTrackingSettings
+  @objc final public let tracking: SyneriseSDK.TrackerDeclarativeTrackingSettings
+  @objc public var minBatchSize: Swift.Int {
+    @objc get
+    @objc set
+  }
+  @objc public var maxBatchSize: Swift.Int {
+    @objc get
+    @objc set
+  }
+  @objc public var autoFlushTimeout: Foundation.TimeInterval {
+    @objc get
+    @objc set
+  }
+  @objc public var isBackendTimeSyncRequired: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc public var eventsTriggeringFlush: [Swift.String] {
+    @objc get
+    @objc set
+  }
+  @objc public var locationAutomatic: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(_SNR_MiscUtils) public class _SNR_MiscUtils : ObjectiveC.NSObject {
+  @objc public static func makeNotificationUserInfoMutable(_ userInfo: [Swift.AnyHashable : Any]) -> Foundation.NSMutableDictionary
+  @objc(currencySymbolFromCurrencyCode:) public static func currencySymbol(from currencyCode: Swift.String?) -> Swift.String
+  @objc public static func cleanupDictionary(_ dictionary: [Swift.String : Any]) -> [Swift.String : Any]
+  @objc public static func cleanupLegacyDictionary(_ dictionary: Foundation.NSDictionary) -> Foundation.NSDictionary
+  @objc public static func cleanupStringToAsciiEncoding(_ string: Swift.String?) -> Swift.String
+  @objc public static func isUUID(_ string: Swift.String?) -> Swift.Bool
+  @objc public static func isURL(_ string: Swift.String) -> Swift.Bool
+  @objc public static func userLocalizedString(_ key: Swift.String) -> Swift.String
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(_SNR_DeviceInfoProvider) public class _SNR_DeviceInfoProvider : ObjectiveC.NSObject {
+  @objc public static func deviceID() -> Swift.String
+  @objc public static func deviceModel() -> Swift.String
+  @objc public static func deviceManufacturer() -> Swift.String
+  @objc public static func deviceType() -> Swift.String
+  @objc public static func deviceResolution() -> Swift.String
+  @objc public static func operatingSystem() -> Swift.String
+  @objc public static func operatingSystemVersion() -> Swift.String
+  @objc public static func operatingSystemLanguage() -> Swift.String?
+  @objc public static func isPhone() -> Swift.Bool
+  @objc public static func isTablet() -> Swift.Bool
+  @objc public static func isDeviceWithNotch() -> Swift.Bool
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(_SNR_MobileOperatorInfoProvider) public class _SNR_MobileOperatorInfoProvider : ObjectiveC.NSObject {
+  @objc public static func carrierName() -> Swift.String?
+  @objc public static func carrierCountry() -> Swift.String?
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(_SNR_Constants) public class _SNR_Constants : ObjectiveC.NSObject {
+  @objc public static func LOCALIZABLE_STRING_KEY_OK() -> Swift.String
+  @objc public static func LOCALIZABLE_STRING_KEY_CANCEL() -> Swift.String
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(_SNR_ImageProvider) public class _SNR_ImageProvider : ObjectiveC.NSObject {
+  @objc public static let shared: SyneriseSDK._SNR_ImageProvider
+  @objc(getCachedImageForURL:) public func getCachedImage(for url: Foundation.URL) -> UIKit.UIImage?
+  @objc(downloadImageSynchronouslyFromURL:) public func downloadImageSynchronously(from url: Foundation.URL) -> UIKit.UIImage?
+  @objc(downloadAndCacheImageSynchronouslyFromURL:) public func downloadAndCacheImageSynchronously(from url: Foundation.URL) -> Swift.Bool
+  @objc(downloadImageAsynchronouslyFromURL:completionBlock:) public func downloadImageAsynchronously(from url: Foundation.URL, completion: @escaping (UIKit.UIImage?, (any Swift.Error)?) -> Swift.Void)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(_SNR_DelegateUtils) public class _SNR_DelegateUtils : ObjectiveC.NSObject {
+  @objc public static func object(_ object: Any?, conformsTo protocol: ObjectiveC.`Protocol`) -> Swift.Bool
+  @objc public static func delegate(_ delegate: Any?, respondsTo selector: ObjectiveC.Selector) -> Swift.Bool
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(SNRNotificationsSettings) public class NotificationsSettings : ObjectiveC.NSObject {
+  @objc public var enabled: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc public var disableInAppAlerts: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc public var encryption: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(SNRSettings) public class Settings : ObjectiveC.NSObject {
+  @objc final public let sdk: SyneriseSDK.GeneralSettings
+  @objc final public let notifications: SyneriseSDK.NotificationsSettings
+  @objc final public let tracker: SyneriseSDK.TrackerSettings
+  @objc final public let inAppMessaging: SyneriseSDK.InAppMessagingSettings
+  @objc final public let injector: SyneriseSDK.InjectorSettings
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(_SNR_Logger) public class _SNR_Logger : ObjectiveC.NSObject {
+  @objc public static func setUserDebugModeEnabled(_ enabled: Swift.Bool)
+  @objc public static func setFileLoggingModeEnabled(_ enabled: Swift.Bool)
+  @objc public static func setExtensionModeEnabled(_ enabled: Swift.Bool)
+  @objc public static func userDebug(_ message: Swift.String)
+  @objc public static func userInfo(_ message: Swift.String)
+  @objc public static func userWarning(_ message: Swift.String)
+  @objc public static func userError(_ message: Swift.String)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(SNRTrackerDeclarativeTrackingSettings) public class TrackerDeclarativeTrackingSettings : ObjectiveC.NSObject {
+  @objc public var enabled: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(_SNR_ClientApplicationInfoProvider) public class _SNR_ClientApplicationInfoProvider : ObjectiveC.NSObject {
+  @objc public static func applicationName() -> Swift.String?
+  @objc public static func applicationType() -> Swift.String
+  @objc public static func applicationVersion() -> Swift.String?
+  @objc public static func build() -> Swift.String?
+  @objc public static func arePushNotificationsEnabled() -> Swift.Bool
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(_SNR) public class _SNR : ObjectiveC.NSObject {
+  @objc public static var Constants: SyneriseSDK._SNR_Constants.Type {
+    @objc get
+  }
+  @objc public static var Logger: SyneriseSDK._SNR_Logger.Type {
+    @objc get
+  }
+  @objc public static var SyneriseFrameworkInfoProvider: SyneriseSDK._SNR_SyneriseFrameworkInfoProvider.Type {
+    @objc get
+  }
+  @objc public static var ClientApplicationInfoProvider: SyneriseSDK._SNR_ClientApplicationInfoProvider.Type {
+    @objc get
+  }
+  @objc public static var DeviceInfoProvider: SyneriseSDK._SNR_DeviceInfoProvider.Type {
+    @objc get
+  }
+  @objc public static var MobileOperatorInfoProvider: SyneriseSDK._SNR_MobileOperatorInfoProvider.Type {
+    @objc get
+  }
+  @objc public static var ImageProviderSingleton: SyneriseSDK._SNR_ImageProvider {
+    @objc get
+  }
+  @objc public static var ImageProviderNewInstance: SyneriseSDK._SNR_ImageProvider {
+    @objc get
+  }
+  @objc public static var DispatchUtils: SyneriseSDK._SNR_DispatchUtils.Type {
+    @objc get
+  }
+  @objc public static var DelegateUtils: SyneriseSDK._SNR_DelegateUtils.Type {
+    @objc get
+  }
+  @objc public static var MiscUtils: SyneriseSDK._SNR_MiscUtils.Type {
+    @objc get
+  }
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(SNRInAppMessagingSettings) public class InAppMessagingSettings : ObjectiveC.NSObject {
+  @objc public var checkGlobalControlGroupsOnDefinitionsFetch: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc public var maxDefinitionUpdateIntervalLimit: Foundation.TimeInterval {
+    @objc get
+    @objc set
+  }
+  @objc public var renderingTimeout: Foundation.TimeInterval {
+    @objc get
+    @objc set
+  }
+  @objc public var shouldSendInAppCappingEvent: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(_SNR_DispatchUtils) public class _SNR_DispatchUtils : ObjectiveC.NSObject {
+  @objc public static func dispatchSyncBlockOnMainThread(_ block: @escaping () -> Swift.Void)
+  @objc public static func dispatchSyncBlockOnMainThread(_ block: @escaping () -> Swift.Void, ifMetCondition condition: Swift.Bool)
+  @objc public static func dispatchSyncBlock(_ block: @escaping () -> Swift.Void, onQueue queue: Dispatch.DispatchQueue)
+  @objc public static func dispatchAsyncBlockOnMainThread(_ block: @escaping () -> Swift.Void)
+  @objc public static func dispatchAsyncBlockOnMainThread(_ block: @escaping () -> Swift.Void, ifMetCondition condition: Swift.Bool)
+  @objc public static func dispatchAsyncBlockOnMainThread(_ block: @escaping () -> Swift.Void, withDelay delay: Foundation.TimeInterval)
+  @objc public static func dispatchAsyncBlockOnBackgroundThread(_ block: @escaping () -> Swift.Void)
+  @objc public static func dispatchAsyncBlockOnBackgroundThread(_ block: @escaping () -> Swift.Void, ifMetCondition condition: Swift.Bool)
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension SyneriseSDK.TrackerAutoTrackMode : Swift.Equatable {}
+extension SyneriseSDK.TrackerAutoTrackMode : Swift.Hashable {}
+extension SyneriseSDK.TrackerAutoTrackMode : Swift.RawRepresentable {}

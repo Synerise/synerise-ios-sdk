@@ -3,6 +3,14 @@ All notable changes to this project will be documented in this file.
 
 Note that Objective-C class names are prefixed by `SNR`. In the changelog below, these are names used in Swift, without the prefix.
 
+## [4.20.0] - 2024-08-29
+
+IMPORTANT: In this version of the Synerise SDK, we have initiated the migration from Objective-C to Swift. This will happen step by step, starting with this release. Our main goal is to keep everything fully compatible with previous versions. It means we want to have identical interfaces and methods, so your current code using the Synerise SDK shouldn’t need any changes. We are working hard to make the transition smooth, but please be cautious when updating, and let us know if you notice any issues.
+
+### Changed
+- Improvements to stability.
+
+
 ## [4.19.1] - 2024-08-01
 
 ### Fixed
@@ -10,6 +18,7 @@ Note that Objective-C class names are prefixed by `SNR`. In the changelog below,
 
 ### Changed
 - Improvements to stability.
+
 
 ## [4.19.0] - 2024-07-25
 

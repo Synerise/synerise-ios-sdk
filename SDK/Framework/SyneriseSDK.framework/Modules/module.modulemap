@@ -4,3 +4,8 @@ framework module SyneriseSDK {
 
   module * { export * }
 }
+
+module SyneriseSDK.Swift {
+  header "SyneriseSDK-Swift.h"
+  requires objc
+}
