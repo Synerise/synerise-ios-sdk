@@ -6,6 +6,7 @@
 //  Copyright (c) 2024 Synerise. All rights reserved.
 //
 
+#import <UserNotifications/UserNotifications.h>
 #import <SyneriseSDK/SNRInitializationConfig.h>
 #import <SyneriseSDK/SNRSyneriseActivity.h>
 #import <SyneriseSDK/SNRHostApplicationType.h>
@@ -232,6 +233,15 @@ NS_SWIFT_NAME(Synerise)
  * @param delegate An object that implement SNRNotificationDelegate protocol.
  */
 + (void)setNotificationDelegate:(id<SNRNotificationDelegate>)delegate;
+
+/**
+ * Sets the notification categories (including Synerise categories) that your app supports.
+ *
+ * @param notificationCategories A set of objects containing all the actions displayed in the notification interface.
+ *
+ * @note All notification categories must be supported by the app to function properly.
+ */
++ (void)setNotificationCategories:(NSSet<UNNotificationCategory *> *)notificationCategories NS_SWIFT_NAME(setNotificationCategories(_:)) API_AVAILABLE(ios(10.0));
 
 /**
  * Checks if notification's sender is Synerise.

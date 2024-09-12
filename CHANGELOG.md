@@ -3,6 +3,20 @@ All notable changes to this project will be documented in this file.
 
 Note that Objective-C class names are prefixed by `SNR`. In the changelog below, these are names used in Swift, without the prefix.
 
+## [4.21.0] - 2024-09-12
+
+### Fixed
+- Some potential issues with notification processing in `NotificationServiceExtension`. We recommend using the new method for setting notification categories (see below).
+
+### Added
+- `Synerise.setNotificationCategories(_:)` method. The new method maintains temporary Synerise notification categories and saves new categories while respecting old categories.
+- `Synerise.settings.inAppMessaging.contentBaseUrl` option in settings to let you set the base URL to use for all relative URLs in an in-app message's creation.
+
+### Changed
+- Optimization of the In-app messaging module (variants are no longer assigned once more when the profile's UUID changes).
+- Improvements to stability.
+
+
 ## [4.20.0] - 2024-08-29
 
 IMPORTANT: In this version of the Synerise SDK, we have initiated the migration from Objective-C to Swift. This will happen step by step, starting with this release. Our main goal is to keep everything fully compatible with previous versions. It means we want to have identical interfaces and methods, so your current code using the Synerise SDK shouldn’t need any changes. We are working hard to make the transition smooth, but please be cautious when updating, and let us know if you notice any issues.
