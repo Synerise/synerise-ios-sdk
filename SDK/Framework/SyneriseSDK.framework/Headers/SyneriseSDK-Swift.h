@@ -304,13 +304,36 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 SWIFT_CLASS_NAMED("GeneralSettings")
 @interface SNRGeneralSettings : NSObject
+/// This parameter specifies if all of the SDK functionalities are enabled.
+/// The default value is true.
 @property (nonatomic) BOOL enabled;
+/// This parameter identifies the app group that your app and its extensions belong to.
+/// This property is required to allow the SDK to share data with the Host App and its extensions.
+/// The default value is nil.
 @property (nonatomic, copy) NSString * _Nullable appGroupIdentifier;
+/// This parameter identifies the keychain group that your app and its extensions belong to.
+/// This property is required to allow the SDK to share sensitive data with the Host App and its extensions.
+/// The default value is nil.
 @property (nonatomic, copy) NSString * _Nullable keychainGroupIdentifier;
+/// This parameter sets a time counting backwards from expiration time, within which an authentication token will be automatically refreshed by the SDK.
+/// That minimum value for this parameter is 1800 seconds (30 minutes).
+/// The default value is 1800 seconds (30 minutes).
 @property (nonatomic) NSTimeInterval minTokenRefreshInterval;
+/// This parameter sets an array of SSL pins, where each pin is a base64-encoded SHA-256 hash of a certificate’s SPKI.
+/// These SSL pins are used when you use a custom URL for the Synerise API.
+/// The default value is an empty array.
 @property (nonatomic, copy) NSArray<NSString *> * _Nullable SSLPinningPinset;
+/// This parameter specifies the supported algorithms for generating the SSL pins’ certificates.
+/// This option is only required for proper SSL Pinning support for system versions before iOS 10.
+/// The default value is an array containing the <code>kSNRPublicKeyPinningAlgorithmRsa2048</code> values.
 @property (nonatomic, copy) NSArray<NSString *> * _Nullable SSLPinningPublicKeySupportedAlgorithms;
+/// This parameter specifies if a session should be destroyed after Profile API key (formerly Client API Key) changes.
+/// The default value is true.
 @property (nonatomic) BOOL shouldDestroySessionOnApiKeyChange;
+/// This parameter specifies the localization of some strings occurring in the SDK.
+/// When this option isn’t used, the SDK uses default strings.
+/// We recommend updating the property when you change the language in the Host App.
+/// The default value is nil.
 @property (nonatomic, copy) NSDictionary<NSString *, NSString *> * _Nullable localizable;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -318,9 +341,33 @@ SWIFT_CLASS_NAMED("GeneralSettings")
 
 SWIFT_CLASS_NAMED("InAppMessagingSettings")
 @interface SNRInAppMessagingSettings : NSObject
+/// This parameter specifies if global control groups should be checked immediately after in-app definitions are fetched.
+/// The default value is false.
 @property (nonatomic) BOOL checkGlobalControlGroupsOnDefinitionsFetch;
+/// This parameter sets the maximum interval between automatic In-app definition updates.
+/// The minimum value for this parameter is 600 seconds (10 minutes).
+/// The default value is 600 seconds (10 minutes).
 @property (nonatomic) NSTimeInterval maxDefinitionUpdateIntervalLimit;
+/// <ul>
+///   <li>
+///     This parameter sets the document’s base URL under which a web view will be created to show the in-app message.
+///   </li>
+///   <li>
+///     It specifies the base URL to use for all relative URLs in an in-app message’s creation.
+///   </li>
+///   <li>
+///   </li>
+///   <li>
+///     The default value is nil.
+///   </li>
+/// </ul>
+@property (nonatomic, copy) NSString * _Nullable contentBaseUrl;
+/// This parameter sets a timeout for In-app message rendering.
+/// The minimum value for this parameter is 1 second.
+/// The default value is 5 seconds.
 @property (nonatomic) NSTimeInterval renderingTimeout;
+/// This parameter specifies if the SDK should send the <code>inApp.capping</code> event.
+/// The default value is true.
 @property (nonatomic) BOOL shouldSendInAppCappingEvent;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -328,6 +375,8 @@ SWIFT_CLASS_NAMED("InAppMessagingSettings")
 
 SWIFT_CLASS_NAMED("InjectorSettings")
 @interface SNRInjectorSettings : NSObject
+/// This parameter specifies if Synerise Mobile Campaigns are processed automatically or not.
+/// The default value is false.
 @property (nonatomic) BOOL automatic;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -335,9 +384,16 @@ SWIFT_CLASS_NAMED("InjectorSettings")
 
 SWIFT_CLASS_NAMED("NotificationsSettings")
 @interface SNRNotificationsSettings : NSObject
+/// This parameter specifies if handling notifications by the SDK is enabled.
+/// The default value is true.
 @property (nonatomic) BOOL enabled;
+/// This parameter determines if the SDK displays an additional alert in the application after receiving a notification.
+/// The default value is true.
 @property (nonatomic) BOOL disableInAppAlerts;
-@property (nonatomic) BOOL encryption;
+/// This parameter specifies if notifications from Synerise should be encrypted.
+/// iOS 10 or newer is required for this option.
+/// The default value is false.
+@property (nonatomic) BOOL encryption SWIFT_AVAILABILITY(ios,introduced=10.0);
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -359,18 +415,28 @@ SWIFT_CLASS_NAMED("Settings")
 @end
 
 typedef SWIFT_ENUM_NAMED(NSInteger, SNRTrackerAutoTrackMode, "TrackerAutoTrackMode", open) {
+/// Auto-Tracking is set to on touch events only.
   SNRTrackerAutoTrackModeEager = 0,
+/// Auto-Tracking is set to track screen-visits only.
   SNRTrackerAutoTrackModePlain = 1,
+/// Auto-Tracking is set to attached to nearly everything in your app (even to activities and the <code>viewDidAppear:</code> method which records <code>screen.view</code> events).
   SNRTrackerAutoTrackModeFine = 2,
+/// Auto-Tracking is disabled.
   SNRTrackerAutoTrackModeDisabled = 3,
 };
 
 
 SWIFT_CLASS_NAMED("TrackerAutoTrackingSettings")
 @interface SNRTrackerAutoTrackingSettings : NSObject
+/// This parameter specifies if AutoTracking is enabled.
+/// The default value is true.
 @property (nonatomic) BOOL enabled;
+/// This parameter sets the mode of AutoTracking.
+/// The default value is <code>SNRTrackerAutoTrackModeDisabled</code>.
 @property (nonatomic) enum SNRTrackerAutoTrackMode mode;
+/// This parameter sets classes excluded from Auto-Tracking.
 @property (nonatomic, copy) NSArray<Class> * _Nonnull excludedClasses;
+/// This parameter sets view tags excluded from Auto-Tracking.
 @property (nonatomic, copy) NSArray<NSNumber *> * _Nonnull excludedViewTags;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -378,6 +444,8 @@ SWIFT_CLASS_NAMED("TrackerAutoTrackingSettings")
 
 SWIFT_CLASS_NAMED("TrackerDeclarativeTrackingSettings")
 @interface SNRTrackerDeclarativeTrackingSettings : NSObject
+/// This parameter specifies if declarative tracking is enabled.
+/// The default value is true.
 @property (nonatomic) BOOL enabled;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -385,13 +453,33 @@ SWIFT_CLASS_NAMED("TrackerDeclarativeTrackingSettings")
 
 SWIFT_CLASS_NAMED("TrackerSettings")
 @interface SNRTrackerSettings : NSObject
+/// Auto-Tracking settings of the Tracker module.
 @property (nonatomic, readonly, strong) SNRTrackerAutoTrackingSettings * _Nonnull autoTracking;
+/// Declarative-Tracking  settings of the Tracker module.
 @property (nonatomic, readonly, strong) SNRTrackerDeclarativeTrackingSettings * _Nonnull tracking;
-@property (nonatomic) NSInteger minBatchSize;
-@property (nonatomic) NSInteger maxBatchSize;
-@property (nonatomic) NSTimeInterval autoFlushTimeout;
+/// This parameter specifies if events should be sent when server time synchronization has failed.
+/// The default value is true (events are sent if synchronization fails).
 @property (nonatomic) BOOL isBackendTimeSyncRequired;
+/// This parameter sets the minimum number of events in queue required to send them.
+/// Adding any event to queue runs auto flush, in which case the SDK attempts to send the queue regardless if the minimum number of events is queued.
+/// The maximum value for this parameter is 100.
+/// The default value is 10.
+@property (nonatomic) NSInteger minBatchSize;
+/// This parameter sets the maximum number of events which may be sent in a single batch.
+/// The maximum value for this parameter is 100.
+/// The default value is 100.
+@property (nonatomic) NSInteger maxBatchSize;
+/// This parameter sets the time required before the SDK attempts to send the event queue.
+/// Provide the timeout in seconds.
+/// Adding any event to queue runs auto flush, in which case the SDK attempts to send the queue regardless if the minimum number of events is queued.
+/// The minimum value for this parameter is 0.5f.
+/// The default value is 5 seconds.
+@property (nonatomic) NSTimeInterval autoFlushTimeout;
+/// This parameter sets an array of event ‘action’ values which trigger the flush mechanism.
+/// The default value is an array of event ‘action’ values. Default array contains only push event’s actions.
 @property (nonatomic, copy) NSArray<NSString *> * _Nonnull eventsTriggeringFlush;
+/// This parameter specifies if sending location events is automatic.
+/// The default value is false.
 @property (nonatomic) BOOL locationAutomatic;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
@@ -499,8 +587,6 @@ SWIFT_CLASS_NAMED("_SNR_DispatchUtils")
 
 SWIFT_CLASS_NAMED("_SNR_ImageProvider")
 @interface _SNR_ImageProvider : NSObject
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) _SNR_ImageProvider * _Nonnull shared;)
-+ (_SNR_ImageProvider * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
 - (UIImage * _Nullable)getCachedImageForURL:(NSURL * _Nonnull)url SWIFT_WARN_UNUSED_RESULT;
 - (UIImage * _Nullable)downloadImageSynchronouslyFromURL:(NSURL * _Nonnull)url SWIFT_WARN_UNUSED_RESULT;
 - (BOOL)downloadAndCacheImageSynchronouslyFromURL:(NSURL * _Nonnull)url SWIFT_WARN_UNUSED_RESULT;

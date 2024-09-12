@@ -247,6 +247,7 @@
             "deprecated": true,
             "declAttributes": [
               "Available",
+              "RawDocComment",
               "ObjC"
             ],
             "fixedbinaryorder": 0
@@ -288,6 +289,7 @@
             "mangledName": "$s11SyneriseSDK20TrackerAutoTrackModeO5plainyA2CmF",
             "moduleName": "SyneriseSDK",
             "declAttributes": [
+              "RawDocComment",
               "ObjC"
             ],
             "fixedbinaryorder": 1
@@ -329,6 +331,7 @@
             "mangledName": "$s11SyneriseSDK20TrackerAutoTrackModeO4fineyA2CmF",
             "moduleName": "SyneriseSDK",
             "declAttributes": [
+              "RawDocComment",
               "ObjC"
             ],
             "fixedbinaryorder": 2
@@ -370,6 +373,7 @@
             "mangledName": "$s11SyneriseSDK20TrackerAutoTrackModeO8disabledyA2CmF",
             "moduleName": "SyneriseSDK",
             "declAttributes": [
+              "RawDocComment",
               "ObjC"
             ],
             "fixedbinaryorder": 3
@@ -608,7 +612,8 @@
             "moduleName": "SyneriseSDK",
             "declAttributes": [
               "AccessControl",
-              "ObjC"
+              "ObjC",
+              "RawDocComment"
             ],
             "accessors": [
               {
@@ -710,7 +715,8 @@
             "moduleName": "SyneriseSDK",
             "declAttributes": [
               "AccessControl",
-              "ObjC"
+              "ObjC",
+              "RawDocComment"
             ],
             "accessors": [
               {
@@ -834,7 +840,8 @@
             "moduleName": "SyneriseSDK",
             "declAttributes": [
               "AccessControl",
-              "ObjC"
+              "ObjC",
+              "RawDocComment"
             ],
             "accessors": [
               {
@@ -1440,7 +1447,8 @@
             "moduleName": "SyneriseSDK",
             "declAttributes": [
               "AccessControl",
-              "ObjC"
+              "ObjC",
+              "RawDocComment"
             ],
             "accessors": [
               {
@@ -1552,7 +1560,8 @@
             "moduleName": "SyneriseSDK",
             "declAttributes": [
               "AccessControl",
-              "ObjC"
+              "ObjC",
+              "RawDocComment"
             ],
             "accessors": [
               {
@@ -1656,7 +1665,8 @@
             "moduleName": "SyneriseSDK",
             "declAttributes": [
               "AccessControl",
-              "ObjC"
+              "ObjC",
+              "RawDocComment"
             ],
             "accessors": [
               {
@@ -1760,7 +1770,8 @@
             "moduleName": "SyneriseSDK",
             "declAttributes": [
               "AccessControl",
-              "ObjC"
+              "ObjC",
+              "RawDocComment"
             ],
             "accessors": [
               {
@@ -1898,7 +1909,8 @@
               "HasInitialValue",
               "HasStorage",
               "AccessControl",
-              "ObjC"
+              "ObjC",
+              "RawDocComment"
             ],
             "hasStorage": true,
             "accessors": [
@@ -2021,7 +2033,8 @@
             "moduleName": "SyneriseSDK",
             "declAttributes": [
               "AccessControl",
-              "ObjC"
+              "ObjC",
+              "RawDocComment"
             ],
             "accessors": [
               {
@@ -2131,7 +2144,8 @@
             "moduleName": "SyneriseSDK",
             "declAttributes": [
               "AccessControl",
-              "ObjC"
+              "ObjC",
+              "RawDocComment"
             ],
             "accessors": [
               {
@@ -2373,7 +2387,8 @@
               "Final",
               "HasStorage",
               "AccessControl",
-              "ObjC"
+              "ObjC",
+              "RawDocComment"
             ],
             "isLet": true,
             "hasStorage": true,
@@ -2423,7 +2438,8 @@
               "Final",
               "HasStorage",
               "AccessControl",
-              "ObjC"
+              "ObjC",
+              "RawDocComment"
             ],
             "isLet": true,
             "hasStorage": true,
@@ -2450,6 +2466,95 @@
                   "ObjC"
                 ],
                 "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "isBackendTimeSyncRequired",
+            "printedName": "isBackendTimeSyncRequired",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@SyneriseSDK@objc(cs)SNRTrackerSettings(py)isBackendTimeSyncRequired",
+            "mangledName": "$s11SyneriseSDK15TrackerSettingsC25isBackendTimeSyncRequiredSbvp",
+            "moduleName": "SyneriseSDK",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@SyneriseSDK@objc(cs)SNRTrackerSettings(im)isBackendTimeSyncRequired",
+                "mangledName": "$s11SyneriseSDK15TrackerSettingsC25isBackendTimeSyncRequiredSbvg",
+                "moduleName": "SyneriseSDK",
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@SyneriseSDK@objc(cs)SNRTrackerSettings(im)setIsBackendTimeSyncRequired:",
+                "mangledName": "$s11SyneriseSDK15TrackerSettingsC25isBackendTimeSyncRequiredSbvs",
+                "moduleName": "SyneriseSDK",
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11SyneriseSDK15TrackerSettingsC25isBackendTimeSyncRequiredSbvM",
+                "mangledName": "$s11SyneriseSDK15TrackerSettingsC25isBackendTimeSyncRequiredSbvM",
+                "moduleName": "SyneriseSDK",
+                "implicit": true,
+                "accessorKind": "_modify"
               }
             ]
           },
@@ -2560,7 +2665,8 @@
             "moduleName": "SyneriseSDK",
             "declAttributes": [
               "AccessControl",
-              "ObjC"
+              "ObjC",
+              "RawDocComment"
             ],
             "accessors": [
               {
@@ -2648,7 +2754,8 @@
             "moduleName": "SyneriseSDK",
             "declAttributes": [
               "AccessControl",
-              "ObjC"
+              "ObjC",
+              "RawDocComment"
             ],
             "accessors": [
               {
@@ -2720,94 +2827,6 @@
           },
           {
             "kind": "Var",
-            "name": "isBackendTimeSyncRequired",
-            "printedName": "isBackendTimeSyncRequired",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Bool",
-                "printedName": "Swift.Bool",
-                "usr": "s:Sb"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "c:@M@SyneriseSDK@objc(cs)SNRTrackerSettings(py)isBackendTimeSyncRequired",
-            "mangledName": "$s11SyneriseSDK15TrackerSettingsC25isBackendTimeSyncRequiredSbvp",
-            "moduleName": "SyneriseSDK",
-            "declAttributes": [
-              "AccessControl",
-              "ObjC"
-            ],
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Bool",
-                    "printedName": "Swift.Bool",
-                    "usr": "s:Sb"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@M@SyneriseSDK@objc(cs)SNRTrackerSettings(im)isBackendTimeSyncRequired",
-                "mangledName": "$s11SyneriseSDK15TrackerSettingsC25isBackendTimeSyncRequiredSbvg",
-                "moduleName": "SyneriseSDK",
-                "declAttributes": [
-                  "ObjC"
-                ],
-                "accessorKind": "get"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Set",
-                "printedName": "Set()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Bool",
-                    "printedName": "Swift.Bool",
-                    "usr": "s:Sb"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@M@SyneriseSDK@objc(cs)SNRTrackerSettings(im)setIsBackendTimeSyncRequired:",
-                "mangledName": "$s11SyneriseSDK15TrackerSettingsC25isBackendTimeSyncRequiredSbvs",
-                "moduleName": "SyneriseSDK",
-                "declAttributes": [
-                  "ObjC"
-                ],
-                "accessorKind": "set"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Modify",
-                "printedName": "Modify()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:11SyneriseSDK15TrackerSettingsC25isBackendTimeSyncRequiredSbvM",
-                "mangledName": "$s11SyneriseSDK15TrackerSettingsC25isBackendTimeSyncRequiredSbvM",
-                "moduleName": "SyneriseSDK",
-                "implicit": true,
-                "accessorKind": "_modify"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
             "name": "eventsTriggeringFlush",
             "printedName": "eventsTriggeringFlush",
             "children": [
@@ -2832,7 +2851,8 @@
             "moduleName": "SyneriseSDK",
             "declAttributes": [
               "AccessControl",
-              "ObjC"
+              "ObjC",
+              "RawDocComment"
             ],
             "accessors": [
               {
@@ -2936,7 +2956,8 @@
             "moduleName": "SyneriseSDK",
             "declAttributes": [
               "AccessControl",
-              "ObjC"
+              "ObjC",
+              "RawDocComment"
             ],
             "accessors": [
               {
@@ -4245,59 +4266,6 @@
         "printedName": "_SNR_ImageProvider",
         "children": [
           {
-            "kind": "Var",
-            "name": "shared",
-            "printedName": "shared",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "_SNR_ImageProvider",
-                "printedName": "SyneriseSDK._SNR_ImageProvider",
-                "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_ImageProvider"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_ImageProvider(cpy)shared",
-            "mangledName": "$s11SyneriseSDK18_SNR_ImageProviderC6sharedACvpZ",
-            "moduleName": "SyneriseSDK",
-            "static": true,
-            "declAttributes": [
-              "HasInitialValue",
-              "Final",
-              "HasStorage",
-              "AccessControl",
-              "ObjC"
-            ],
-            "isLet": true,
-            "hasStorage": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "_SNR_ImageProvider",
-                    "printedName": "SyneriseSDK._SNR_ImageProvider",
-                    "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_ImageProvider"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_ImageProvider(cm)shared",
-                "mangledName": "$s11SyneriseSDK18_SNR_ImageProviderC6sharedACvgZ",
-                "moduleName": "SyneriseSDK",
-                "static": true,
-                "implicit": true,
-                "declAttributes": [
-                  "Final",
-                  "ObjC"
-                ],
-                "accessorKind": "get"
-              }
-            ]
-          },
-          {
             "kind": "Function",
             "name": "getCachedImage",
             "printedName": "getCachedImage(for:)",
@@ -4906,7 +4874,8 @@
             "moduleName": "SyneriseSDK",
             "declAttributes": [
               "AccessControl",
-              "ObjC"
+              "ObjC",
+              "RawDocComment"
             ],
             "accessors": [
               {
@@ -4992,9 +4961,12 @@
             "usr": "c:@M@SyneriseSDK@objc(cs)SNRNotificationsSettings(py)encryption",
             "mangledName": "$s11SyneriseSDK21NotificationsSettingsC10encryptionSbvp",
             "moduleName": "SyneriseSDK",
+            "intro_iOS": "10.0",
             "declAttributes": [
               "AccessControl",
-              "ObjC"
+              "ObjC",
+              "Available",
+              "RawDocComment"
             ],
             "accessors": [
               {
@@ -5060,6 +5032,10 @@
                 "mangledName": "$s11SyneriseSDK21NotificationsSettingsC10encryptionSbvM",
                 "moduleName": "SyneriseSDK",
                 "implicit": true,
+                "intro_iOS": "10.0",
+                "declAttributes": [
+                  "Available"
+                ],
                 "accessorKind": "_modify"
               }
             ]
@@ -7218,7 +7194,8 @@
             "moduleName": "SyneriseSDK",
             "declAttributes": [
               "AccessControl",
-              "ObjC"
+              "ObjC",
+              "RawDocComment"
             ],
             "accessors": [
               {
@@ -7290,6 +7267,119 @@
           },
           {
             "kind": "Var",
+            "name": "contentBaseUrl",
+            "printedName": "contentBaseUrl",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@SyneriseSDK@objc(cs)SNRInAppMessagingSettings(py)contentBaseUrl",
+            "mangledName": "$s11SyneriseSDK22InAppMessagingSettingsC14contentBaseUrlSSSgvp",
+            "moduleName": "SyneriseSDK",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@SyneriseSDK@objc(cs)SNRInAppMessagingSettings(im)contentBaseUrl",
+                "mangledName": "$s11SyneriseSDK22InAppMessagingSettingsC14contentBaseUrlSSSgvg",
+                "moduleName": "SyneriseSDK",
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@SyneriseSDK@objc(cs)SNRInAppMessagingSettings(im)setContentBaseUrl:",
+                "mangledName": "$s11SyneriseSDK22InAppMessagingSettingsC14contentBaseUrlSSSgvs",
+                "moduleName": "SyneriseSDK",
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11SyneriseSDK22InAppMessagingSettingsC14contentBaseUrlSSSgvM",
+                "mangledName": "$s11SyneriseSDK22InAppMessagingSettingsC14contentBaseUrlSSSgvM",
+                "moduleName": "SyneriseSDK",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
             "name": "renderingTimeout",
             "printedName": "renderingTimeout",
             "children": [
@@ -7306,7 +7396,8 @@
             "moduleName": "SyneriseSDK",
             "declAttributes": [
               "AccessControl",
-              "ObjC"
+              "ObjC",
+              "RawDocComment"
             ],
             "accessors": [
               {
@@ -7394,7 +7485,8 @@
             "moduleName": "SyneriseSDK",
             "declAttributes": [
               "AccessControl",
-              "ObjC"
+              "ObjC",
+              "RawDocComment"
             ],
             "accessors": [
               {
@@ -8023,56 +8115,56 @@
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/TrackerAutoTrackingSettings.swift",
       "kind": "IntegerLiteral",
-      "offset": 286,
+      "offset": 433,
       "length": 5,
       "value": "1"
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/TrackerAutoTrackingSettings.swift",
       "kind": "IntegerLiteral",
-      "offset": 301,
+      "offset": 627,
       "length": 4,
       "value": "2"
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/TrackerAutoTrackingSettings.swift",
       "kind": "IntegerLiteral",
-      "offset": 315,
+      "offset": 696,
       "length": 8,
       "value": "3"
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/TrackerAutoTrackingSettings.swift",
       "kind": "IntegerLiteral",
-      "offset": 286,
+      "offset": 433,
       "length": 5,
       "value": "1"
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/TrackerAutoTrackingSettings.swift",
       "kind": "IntegerLiteral",
-      "offset": 301,
+      "offset": 627,
       "length": 4,
       "value": "2"
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/TrackerAutoTrackingSettings.swift",
       "kind": "IntegerLiteral",
-      "offset": 315,
+      "offset": 696,
       "length": 8,
       "value": "3"
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsService.swift",
       "kind": "BooleanLiteral",
-      "offset": 294,
+      "offset": 302,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsService.swift",
       "kind": "BooleanLiteral",
-      "offset": 343,
+      "offset": 351,
       "length": 5,
       "value": "false"
     },
@@ -8254,21 +8346,28 @@
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
       "kind": "StringLiteral",
-      "offset": 2098,
+      "offset": 2096,
+      "length": 33,
+      "value": "\"SNRInAppMessagingContentBaseUrl\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
+      "kind": "StringLiteral",
+      "offset": 2178,
       "length": 35,
       "value": "\"SNRInAppMessagingRenderingTimeout\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
       "kind": "StringLiteral",
-      "offset": 2193,
+      "offset": 2273,
       "length": 46,
       "value": "\"SNRInAppMessagingShouldSendInAppCappingEvent\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
       "kind": "StringLiteral",
-      "offset": 2276,
+      "offset": 2356,
       "length": 25,
       "value": "\"SNRInjectorAutomaticKey\""
     },
@@ -8401,42 +8500,42 @@
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Debug\/Logger.swift",
       "kind": "BooleanLiteral",
-      "offset": 396,
+      "offset": 391,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Debug\/Logger.swift",
       "kind": "BooleanLiteral",
-      "offset": 452,
+      "offset": 447,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Debug\/Logger.swift",
       "kind": "BooleanLiteral",
-      "offset": 506,
+      "offset": 501,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Debug\/Logger.swift",
       "kind": "StringLiteral",
-      "offset": 561,
+      "offset": 556,
       "length": 9,
       "value": "\"snr_log\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Debug\/Logger.swift",
       "kind": "BooleanLiteral",
-      "offset": 622,
+      "offset": 617,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Debug\/Logger.swift",
       "kind": "StringLiteral",
-      "offset": 727,
+      "offset": 722,
       "length": 41,
       "value": "\"com.synerise.sdk.queue.debug.filelogger\""
     },
@@ -8590,21 +8689,21 @@
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
       "kind": "FloatLiteral",
-      "offset": 1896,
+      "offset": 1945,
       "length": 3,
       "value": "5.0"
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
       "kind": "BooleanLiteral",
-      "offset": 1955,
+      "offset": 2004,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
       "kind": "BooleanLiteral",
-      "offset": 2031,
+      "offset": 2080,
       "length": 5,
       "value": "false"
     }

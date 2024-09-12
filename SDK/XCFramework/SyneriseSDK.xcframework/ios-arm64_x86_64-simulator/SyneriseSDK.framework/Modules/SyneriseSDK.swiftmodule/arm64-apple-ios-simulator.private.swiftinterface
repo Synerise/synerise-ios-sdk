@@ -97,6 +97,10 @@ public let SNR_LOCALIZABLE_STRING_KEY_CANCEL: Swift.String
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(SNRTrackerSettings) public class TrackerSettings : ObjectiveC.NSObject {
   @objc final public let autoTracking: SyneriseSDK.TrackerAutoTrackingSettings
   @objc final public let tracking: SyneriseSDK.TrackerDeclarativeTrackingSettings
+  @objc public var isBackendTimeSyncRequired: Swift.Bool {
+    @objc get
+    @objc set
+  }
   @objc public var minBatchSize: Swift.Int {
     @objc get
     @objc set
@@ -106,10 +110,6 @@ public let SNR_LOCALIZABLE_STRING_KEY_CANCEL: Swift.String
     @objc set
   }
   @objc public var autoFlushTimeout: Foundation.TimeInterval {
-    @objc get
-    @objc set
-  }
-  @objc public var isBackendTimeSyncRequired: Swift.Bool {
     @objc get
     @objc set
   }
@@ -163,7 +163,6 @@ public let SNR_LOCALIZABLE_STRING_KEY_CANCEL: Swift.String
   @objc deinit
 }
 @_inheritsConvenienceInitializers @objc(_SNR_ImageProvider) public class _SNR_ImageProvider : ObjectiveC.NSObject {
-  @objc public static let shared: SyneriseSDK._SNR_ImageProvider
   @objc(getCachedImageForURL:) public func getCachedImage(for url: Foundation.URL) -> UIKit.UIImage?
   @objc(downloadImageSynchronouslyFromURL:) public func downloadImageSynchronously(from url: Foundation.URL) -> UIKit.UIImage?
   @objc(downloadAndCacheImageSynchronouslyFromURL:) public func downloadAndCacheImageSynchronously(from url: Foundation.URL) -> Swift.Bool
@@ -186,6 +185,7 @@ public let SNR_LOCALIZABLE_STRING_KEY_CANCEL: Swift.String
     @objc get
     @objc set
   }
+  @available(iOS 10.0, *)
   @objc public var encryption: Swift.Bool {
     @objc get
     @objc set
@@ -273,6 +273,10 @@ public let SNR_LOCALIZABLE_STRING_KEY_CANCEL: Swift.String
     @objc set
   }
   @objc public var maxDefinitionUpdateIntervalLimit: Foundation.TimeInterval {
+    @objc get
+    @objc set
+  }
+  @objc public var contentBaseUrl: Swift.String? {
     @objc get
     @objc set
   }

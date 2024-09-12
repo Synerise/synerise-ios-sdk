@@ -458,7 +458,7 @@
 		</data>
 		<key>Headers/SNRSynerise.h</key>
 		<data>
-		jecSA+x7f8z/gCgrCOi0nsJUxPk=
+		fF0hIraRlSGXnLCiBFiOvCMfdbk=
 		</data>
 		<key>Headers/SNRSyneriseActivity.h</key>
 		<data>
@@ -510,7 +510,7 @@
 		</data>
 		<key>Headers/SyneriseSDK-Swift.h</key>
 		<data>
-		RyaAHL25nFqTpmeegp1lVxs1yLE=
+		7wf/1x+LRYHKsotypU39iFhsvtw=
 		</data>
 		<key>Headers/SyneriseSDK.h</key>
 		<data>
@@ -518,47 +518,47 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		FWMkjzgbHIt1gsM0Az/GiB9gVME=
+		r8qf6jV81nnRZ2HiUjK9A/oRq3c=
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		NT/sg1IbMNk2eYPH6woj8S10uYw=
+		38k4IigVtFgrvYOkG1aZCg5YmJk=
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		R0yCQZVeVNyAsRo8AkgSuSUlzrc=
+		q90Wlhm17P0zN6MlNjqyWsirPe0=
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		R1RJlAm3NrZTaI/VEwPjGLK9+qs=
+		+uTKperbPp8+YoeaKEdldbUUNhg=
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		R0yCQZVeVNyAsRo8AkgSuSUlzrc=
+		q90Wlhm17P0zN6MlNjqyWsirPe0=
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		nNN+zkcxuaO1VFCLl9OCCcYkAP8=
+		s+S8nHsKwbAP0Pq/wrlILHh8wOM=
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		NT/sg1IbMNk2eYPH6woj8S10uYw=
+		38k4IigVtFgrvYOkG1aZCg5YmJk=
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		28ZaqawjMMRWhAc04KN+FUdQpxc=
+		R5h+YOtr/GJI8K1vKKzpFTDLsLI=
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		Z7n1jJejWbhcFJX0NCzJwOtBFVs=
+		cTsjrA09TK43Opx/Isdq+3DEvcU=
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		28ZaqawjMMRWhAc04KN+FUdQpxc=
+		R5h+YOtr/GJI8K1vKKzpFTDLsLI=
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		noFLmqUxXErVRKD2wQcGJJZH9O8=
+		hP/sB2qGXjqtLjUudZuIByyFRlE=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -570,51 +570,11 @@
 		</data>
 		<key>SNRInAppDataModelScheme.momd/SNRInAppDataScheme.mom</key>
 		<data>
-		4kTl4T7gh6JaX9yYiqsyjDMsnCI=
+		SqZeT8oJZ//UsZ7YDvssOGZMXqw=
 		</data>
 		<key>SNRInAppDataModelScheme.momd/VersionInfo.plist</key>
 		<data>
-		qe+MbgCJTWWlxZ3mdBuAkLXfH8Q=
-		</data>
-		<key>SNRInjectorTemplateBannerViewController.nib</key>
-		<data>
-		8FwPAU0wJyxvYIN/fyej/lQs/FU=
-		</data>
-		<key>SNRInjectorTemplateColorAsBackgroundView.nib/objects-11.0+.nib</key>
-		<data>
-		BLIUfViDlg5z5DYjc26zGuSIM6s=
-		</data>
-		<key>SNRInjectorTemplateColorAsBackgroundView.nib/runtime.nib</key>
-		<data>
-		LpmbBPcK89ZZwSXQj2yFHh6iHcM=
-		</data>
-		<key>SNRInjectorTemplateImageAsBackgroundView.nib</key>
-		<data>
-		KcZgx0sNUt27sH3Uce4cqfuLqSk=
-		</data>
-		<key>SNRInjectorTemplateImageWithTextAtopView.nib/objects-11.0+.nib</key>
-		<data>
-		sFw3Uiv7Iy2uWOmVkNzCWFPXXCQ=
-		</data>
-		<key>SNRInjectorTemplateImageWithTextAtopView.nib/runtime.nib</key>
-		<data>
-		KS3Tj6dtMy2SgOzVFXcmo7VnOks=
-		</data>
-		<key>SNRInjectorTemplateImageWithTextBelowView.nib/objects-11.0+.nib</key>
-		<data>
-		ieeYSiWVbhAWUDxwMbpeoBZkMUQ=
-		</data>
-		<key>SNRInjectorTemplateImageWithTextBelowView.nib/runtime.nib</key>
-		<data>
-		2Sn5nPYIvsJzTjqNmeszHCuJTvI=
-		</data>
-		<key>SNRInjectorWalkthroughViewController.nib/objects-11.0+.nib</key>
-		<data>
-		P35Jh9xKHYFzy4xPwu1QVOpNYOg=
-		</data>
-		<key>SNRInjectorWalkthroughViewController.nib/runtime.nib</key>
-		<data>
-		ncqnmo3iRm2h2+GrnEK8C4Lt8b0=
+		wdCiaxcvOrHo7pVFOwmeVprvxO4=
 		</data>
 		<key>SNRTrackerEvents.momd/TrackerEvents.mom</key>
 		<data>
@@ -1892,11 +1852,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			jecSA+x7f8z/gCgrCOi0nsJUxPk=
+			fF0hIraRlSGXnLCiBFiOvCMfdbk=
 			</data>
 			<key>hash2</key>
 			<data>
-			Cvl8BFGquiSoU6y8eQUpqMTw55EMz9f04PrOJxEw7IA=
+			id72YaOINfdujQDgxnk0WjUhVqT+YoZvSozrSwcWkoQ=
 			</data>
 		</dict>
 		<key>Headers/SNRSyneriseActivity.h</key>
@@ -2035,11 +1995,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			RyaAHL25nFqTpmeegp1lVxs1yLE=
+			7wf/1x+LRYHKsotypU39iFhsvtw=
 			</data>
 			<key>hash2</key>
 			<data>
-			tzm+Ca+9/X1un7G3y+IZc4TZu3OA3c89STGmlwYIXWg=
+			hys6YiIunCQ7ZuhIudrrsduTfZKX3TiWI2HD4MisDuE=
 			</data>
 		</dict>
 		<key>Headers/SyneriseSDK.h</key>
@@ -2057,110 +2017,110 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			NT/sg1IbMNk2eYPH6woj8S10uYw=
+			38k4IigVtFgrvYOkG1aZCg5YmJk=
 			</data>
 			<key>hash2</key>
 			<data>
-			+Yme6fSqVgrKhJ0mpuav2tbGwHqJF0d4y1TxO1e6ZTo=
+			dR/W0667xw/W194dLE/qrdAFhyJC3xnQnnk182YhXFs=
 			</data>
 		</dict>
 		<key>Modules/SyneriseSDK.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			R0yCQZVeVNyAsRo8AkgSuSUlzrc=
+			q90Wlhm17P0zN6MlNjqyWsirPe0=
 			</data>
 			<key>hash2</key>
 			<data>
-			CGJDkXOMkfH4hPK2r0SWCMFQq1QC9hagIN6OrDMWPfQ=
+			0qmP5kndSI+eHMz8vQCKE5JGE8L6j+NsjQ8aTdVenwE=
 			</data>
 		</dict>
 		<key>Modules/SyneriseSDK.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			R1RJlAm3NrZTaI/VEwPjGLK9+qs=
+			+uTKperbPp8+YoeaKEdldbUUNhg=
 			</data>
 			<key>hash2</key>
 			<data>
-			gL7S/Y+pTB8iRcgrAjY+M9AMAmydLf3j+6frftrlieE=
+			t+F0k4HICjg2qruNk08OdZ3vHIxNCFimTEKPAflmD6A=
 			</data>
 		</dict>
 		<key>Modules/SyneriseSDK.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			R0yCQZVeVNyAsRo8AkgSuSUlzrc=
+			q90Wlhm17P0zN6MlNjqyWsirPe0=
 			</data>
 			<key>hash2</key>
 			<data>
-			CGJDkXOMkfH4hPK2r0SWCMFQq1QC9hagIN6OrDMWPfQ=
+			0qmP5kndSI+eHMz8vQCKE5JGE8L6j+NsjQ8aTdVenwE=
 			</data>
 		</dict>
 		<key>Modules/SyneriseSDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			nNN+zkcxuaO1VFCLl9OCCcYkAP8=
+			s+S8nHsKwbAP0Pq/wrlILHh8wOM=
 			</data>
 			<key>hash2</key>
 			<data>
-			YwGm3ShltiLAwyODE2LGsPjwAER4/bF1RkwUuvzpWYk=
+			4e2k6BRhEHZkNERop++RsReEOboxhVmHr9KcEHBoJ0I=
 			</data>
 		</dict>
 		<key>Modules/SyneriseSDK.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			NT/sg1IbMNk2eYPH6woj8S10uYw=
+			38k4IigVtFgrvYOkG1aZCg5YmJk=
 			</data>
 			<key>hash2</key>
 			<data>
-			+Yme6fSqVgrKhJ0mpuav2tbGwHqJF0d4y1TxO1e6ZTo=
+			dR/W0667xw/W194dLE/qrdAFhyJC3xnQnnk182YhXFs=
 			</data>
 		</dict>
 		<key>Modules/SyneriseSDK.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			28ZaqawjMMRWhAc04KN+FUdQpxc=
+			R5h+YOtr/GJI8K1vKKzpFTDLsLI=
 			</data>
 			<key>hash2</key>
 			<data>
-			Vrkn9fKi1LLJ51OPn2IkkUUE7V4X/qJ27/QnH0eZY5w=
+			oXzzt/JC3chEDadjTmciD9qFAsaqaPbxEfOHFyo7wgs=
 			</data>
 		</dict>
 		<key>Modules/SyneriseSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Z7n1jJejWbhcFJX0NCzJwOtBFVs=
+			cTsjrA09TK43Opx/Isdq+3DEvcU=
 			</data>
 			<key>hash2</key>
 			<data>
-			dNlwOUoyL2hu6K1xXb+RzkwjRiSogUtJIRbBF+WhNas=
+			mOZTcMH56pZzuKw9PgUIR6juqu7syfZcVw81d2d11YA=
 			</data>
 		</dict>
 		<key>Modules/SyneriseSDK.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			28ZaqawjMMRWhAc04KN+FUdQpxc=
+			R5h+YOtr/GJI8K1vKKzpFTDLsLI=
 			</data>
 			<key>hash2</key>
 			<data>
-			Vrkn9fKi1LLJ51OPn2IkkUUE7V4X/qJ27/QnH0eZY5w=
+			oXzzt/JC3chEDadjTmciD9qFAsaqaPbxEfOHFyo7wgs=
 			</data>
 		</dict>
 		<key>Modules/SyneriseSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			noFLmqUxXErVRKD2wQcGJJZH9O8=
+			hP/sB2qGXjqtLjUudZuIByyFRlE=
 			</data>
 			<key>hash2</key>
 			<data>
-			2jAMqka7fc998AD9GLEVkqhJivDTJlWqyTLjbmAFPc8=
+			ClYYLZ6TxZqiU1+c6CZpOCfqYn3HAXFZlZio7RIV2Ig=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -2189,132 +2149,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			4kTl4T7gh6JaX9yYiqsyjDMsnCI=
+			SqZeT8oJZ//UsZ7YDvssOGZMXqw=
 			</data>
 			<key>hash2</key>
 			<data>
-			NbXSqnCKgAkvzOsqLTemlwUPe4Df8kZUbXpqRondb54=
+			FEU2UGJtSbbd3edY/PWFpPywr2mlJ2uLH8QJAptZqSU=
 			</data>
 		</dict>
 		<key>SNRInAppDataModelScheme.momd/VersionInfo.plist</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			qe+MbgCJTWWlxZ3mdBuAkLXfH8Q=
+			wdCiaxcvOrHo7pVFOwmeVprvxO4=
 			</data>
 			<key>hash2</key>
 			<data>
-			dQn/j1gXQYl72StuAhXXXrCOrTMr8d0T4XJtHOTZPME=
-			</data>
-		</dict>
-		<key>SNRInjectorTemplateBannerViewController.nib</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			8FwPAU0wJyxvYIN/fyej/lQs/FU=
-			</data>
-			<key>hash2</key>
-			<data>
-			pAoraZylohSVhkVoOn4sNg60nKikdcuzsCbRBtbDzXQ=
-			</data>
-		</dict>
-		<key>SNRInjectorTemplateColorAsBackgroundView.nib/objects-11.0+.nib</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			BLIUfViDlg5z5DYjc26zGuSIM6s=
-			</data>
-			<key>hash2</key>
-			<data>
-			5MZq83NkoUkM2/hE1ukccLwJl5+JPu6qUF1m/bfbi6Y=
-			</data>
-		</dict>
-		<key>SNRInjectorTemplateColorAsBackgroundView.nib/runtime.nib</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			LpmbBPcK89ZZwSXQj2yFHh6iHcM=
-			</data>
-			<key>hash2</key>
-			<data>
-			B59QpezESCSlT0vZUbCdMk4iQyfXFsxfr4EwIaIh0ks=
-			</data>
-		</dict>
-		<key>SNRInjectorTemplateImageAsBackgroundView.nib</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			KcZgx0sNUt27sH3Uce4cqfuLqSk=
-			</data>
-			<key>hash2</key>
-			<data>
-			rNFIaquGM7SkXRs3Q9zMbtiWJF4ZT2KQi7A9Uq49boc=
-			</data>
-		</dict>
-		<key>SNRInjectorTemplateImageWithTextAtopView.nib/objects-11.0+.nib</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			sFw3Uiv7Iy2uWOmVkNzCWFPXXCQ=
-			</data>
-			<key>hash2</key>
-			<data>
-			wJU/+WD+wvnqGQSj6fuuz9N2lz+PUjZmT3lexY32djk=
-			</data>
-		</dict>
-		<key>SNRInjectorTemplateImageWithTextAtopView.nib/runtime.nib</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			KS3Tj6dtMy2SgOzVFXcmo7VnOks=
-			</data>
-			<key>hash2</key>
-			<data>
-			hz+FEpmK1P1nfH5h1e3GmQ1QTOWj774YhlTpkHq4Il0=
-			</data>
-		</dict>
-		<key>SNRInjectorTemplateImageWithTextBelowView.nib/objects-11.0+.nib</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			ieeYSiWVbhAWUDxwMbpeoBZkMUQ=
-			</data>
-			<key>hash2</key>
-			<data>
-			UXgLbzgVjUo+nsTV8FfFp9kZ9RZeeVhxPkG0bGVfcB4=
-			</data>
-		</dict>
-		<key>SNRInjectorTemplateImageWithTextBelowView.nib/runtime.nib</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			2Sn5nPYIvsJzTjqNmeszHCuJTvI=
-			</data>
-			<key>hash2</key>
-			<data>
-			97rBcKLtXqX3yoRjJdbHQptFCT03olcflOhg4+R7TUk=
-			</data>
-		</dict>
-		<key>SNRInjectorWalkthroughViewController.nib/objects-11.0+.nib</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			P35Jh9xKHYFzy4xPwu1QVOpNYOg=
-			</data>
-			<key>hash2</key>
-			<data>
-			+4bUj6lMMBbG0NGglu+/5d7TqTDOAiy8Joz4HT4ctUo=
-			</data>
-		</dict>
-		<key>SNRInjectorWalkthroughViewController.nib/runtime.nib</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			ncqnmo3iRm2h2+GrnEK8C4Lt8b0=
-			</data>
-			<key>hash2</key>
-			<data>
-			0SlEQ+mM+03SjMKw8/imJdn4FiJwhyVfIUn8/IDS3g0=
+			vbXVygz0Zdo/q39fyEocC9hGP0wTYHQwIphjbsWWg0Q=
 			</data>
 		</dict>
 		<key>SNRTrackerEvents.momd/TrackerEvents.mom</key>
