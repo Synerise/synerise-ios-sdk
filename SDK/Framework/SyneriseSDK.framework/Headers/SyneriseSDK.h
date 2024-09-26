@@ -92,6 +92,7 @@
 #import <SyneriseSDK/SNRClientRegisterAccountContext.h>
 #import <SyneriseSDK/SNRClientAuthenticationContext.h>
 #import <SyneriseSDK/SNRClientConditionalAuthenticationContext.h>
+#import <SyneriseSDK/SNRClientSimpleAuthenticationData.h>
 #import <SyneriseSDK/SNRClientOAuthAuthenticationContext.h>
 #import <SyneriseSDK/SNRClientFacebookAuthenticationContext.h>
 #import <SyneriseSDK/SNRClientAppleSignInAuthenticationContext.h>
@@ -99,9 +100,9 @@
 #import <SyneriseSDK/SNRClientConditionalAuthResult.h>
 #import <SyneriseSDK/SNRClientPasswordResetRequestContext.h>
 #import <SyneriseSDK/SNRClientPasswordResetConfirmationContext.h>
-#import <SyneriseSDK/SNRClientUpdateAccountContext.h>
-#import <SyneriseSDK/SNRClientSimpleAuthenticationData.h>
 #import <SyneriseSDK/SNRClientAccountInformation.h>
+#import <SyneriseSDK/SNRClientUpdateAccountBasicInformationContext.h>
+#import <SyneriseSDK/SNRClientUpdateAccountContext.h>
 #import <SyneriseSDK/SNRClientEventData.h>
 #import <SyneriseSDK/SNRTokenOrigin.h>
 #import <SyneriseSDK/SNRToken.h>

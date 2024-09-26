@@ -3,6 +3,19 @@ All notable changes to this project will be documented in this file.
 
 Note that Objective-C class names are prefixed by `SNR`. In the changelog below, these are names used in Swift, without the prefix.
 
+## [4.22.0] - 2024-09-26
+
+### Fixed
+- Some potential issues with possible database corruption.
+
+### Added
+- `Client.updateAccountBasicInformation(context:success:failure:)` method. The new method updates anonymous users.
+- `ClientUpdateAccountBasicInformationContext` model correlated with the new `Client.updateAccountBasicInformation(context:success:failure:)` method.
+
+### Changed
+- Optimization of the In-app messaging module.
+
+
 ## [4.21.0] - 2024-09-12
 
 ### Fixed

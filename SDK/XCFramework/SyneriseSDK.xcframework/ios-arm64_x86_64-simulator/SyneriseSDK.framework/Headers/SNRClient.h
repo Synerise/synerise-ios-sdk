@@ -23,6 +23,7 @@
 @class SNRClientSimpleAuthenticationData;
 @class SNRClientAccountInformation;
 @class SNRClientEventData;
+@class SNRClientUpdateAccountBasicInformationContext;
 @class SNRClientUpdateAccountContext;
 @class SNRClientPasswordResetRequestContext;
 @class SNRClientPasswordResetConfirmationContext;
@@ -428,6 +429,17 @@ NS_SWIFT_NAME(Client)
 + (void)getEventsWithApiQuery:(SNRClientEventsApiQuery *)apiQuery
                       success:(void (^)(NSArray<SNRClientEventData *> *events))success
                       failure:(void (^)(SNRApiError *error))failure NS_SWIFT_NAME(getEvents(apiQuery:success:failure:));
+
+/**
+ * Updates a profile's account basic information.
+ *
+ * @param context `SNRClientUpdateAccountBasicInformationContext` object with account basic information to be modified. Fields that are not provided are not modified.
+ * @param success A block object to be executed when the operation finishes successfully.
+ * @param failure A block object to be executed when the operation finishes unsuccessfully.
+ */
++ (void)updateAccountBasicInformation:(SNRClientUpdateAccountBasicInformationContext *)context
+                              success:(void (^)(BOOL isSuccess))success
+                              failure:(void (^)(SNRApiError *error))failure NS_SWIFT_NAME(updateAccountBasicInformation(context:success:failure:));
 
 /**
  * Updates a customer's account information.
