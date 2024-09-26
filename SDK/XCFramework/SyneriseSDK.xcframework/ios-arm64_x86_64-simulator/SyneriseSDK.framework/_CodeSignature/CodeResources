@@ -42,7 +42,7 @@
 		</data>
 		<key>Headers/SNRClient.h</key>
 		<data>
-		yF5MhcXVgSf9yLSr59rRw6rgDrI=
+		r3zflNOIopzyUGoKlL3gKpHz8sI=
 		</data>
 		<key>Headers/SNRClientAccountInformation.h</key>
 		<data>
@@ -119,6 +119,10 @@
 		<key>Headers/SNRClientSimpleAuthenticationData.h</key>
 		<data>
 		fT3gp/+DyBvvWzXRhGIAW/1pMhw=
+		</data>
+		<key>Headers/SNRClientUpdateAccountBasicInformationContext.h</key>
+		<data>
+		xDJIsZq5iiNa3xmlDEk4kc/ro40=
 		</data>
 		<key>Headers/SNRClientUpdateAccountContext.h</key>
 		<data>
@@ -514,11 +518,11 @@
 		</data>
 		<key>Headers/SyneriseSDK.h</key>
 		<data>
-		71+rfAjYFk3mpQtUHfyKAr31Vx8=
+		Ao6ugA6s0mvFM85XsnWdR7n6pug=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		r8qf6jV81nnRZ2HiUjK9A/oRq3c=
+		fyyGmdJykyvWgbo8CCt6tdKpmX4=
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
@@ -708,11 +712,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			yF5MhcXVgSf9yLSr59rRw6rgDrI=
+			r3zflNOIopzyUGoKlL3gKpHz8sI=
 			</data>
 			<key>hash2</key>
 			<data>
-			KoRQ6d9VV16CSQg7xLCd6FWNCRwbhnSlkXmNxnWUb7o=
+			9Ryr42J5hA1bk52eT9QhW0/mFheW73ErlSEhvtRSzDE=
 			</data>
 		</dict>
 		<key>Headers/SNRClientAccountInformation.h</key>
@@ -922,6 +926,17 @@
 			<key>hash2</key>
 			<data>
 			3T9bVh+QuYZdHFtUU/O6u9b4O0gUOC1oHLl3vhS2+JE=
+			</data>
+		</dict>
+		<key>Headers/SNRClientUpdateAccountBasicInformationContext.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			xDJIsZq5iiNa3xmlDEk4kc/ro40=
+			</data>
+			<key>hash2</key>
+			<data>
+			qGOf5cjv8O8VYO6iRpbwU6m8K5HCvtOMME8bSQA0s4U=
 			</data>
 		</dict>
 		<key>Headers/SNRClientUpdateAccountContext.h</key>
@@ -2006,11 +2021,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			71+rfAjYFk3mpQtUHfyKAr31Vx8=
+			Ao6ugA6s0mvFM85XsnWdR7n6pug=
 			</data>
 			<key>hash2</key>
 			<data>
-			Ko2J1pgjqaBqHPMpJN3/RiaSS5qr+Js/4ySI8fevWcU=
+			MDz2ZmQUYFnKynS/w9WRDEst0c+/fpUREbh6bO180mQ=
 			</data>
 		</dict>
 		<key>Modules/SyneriseSDK.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
