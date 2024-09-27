@@ -17,6 +17,7 @@ Note that Objective-C class names are prefixed by `SNR`. In the changelog below,
 
 
 ## [4.21.0] - 2024-09-12
+!!! THIS VERSION HAS BEEN REMOVED DUE TO THE POSSIBILITY OF POTENTIAL ISSUES OF IN-APP MESSAGES PROCESSING !!!
 
 ### Fixed
 - Some potential issues with notification processing in `NotificationServiceExtension`. We recommend using the new method for setting notification categories (see below).
