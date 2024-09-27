@@ -16,7 +16,7 @@ Note that Objective-C class names are prefixed by `SNR`. In the changelog below,
 - Optimization of the In-app messaging module.
 
 
-## [4.21.0] - 2024-09-12
+## [4.21.0] - 2024-09-12 - REMOVED
 !!! THIS VERSION HAS BEEN REMOVED DUE TO THE POSSIBILITY OF POTENTIAL ISSUES OF IN-APP MESSAGES PROCESSING !!!
 
 ### Fixed
