@@ -495,6 +495,7 @@ SWIFT_CLASS_NAMED("TrackerSettings")
 @class _SNR_DispatchUtils;
 @class _SNR_DelegateUtils;
 @class _SNR_MiscUtils;
+@class _SNR_BackgroundTaskManager;
 
 SWIFT_CLASS_NAMED("_SNR")
 @interface _SNR : NSObject
@@ -520,7 +521,18 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) SWIFT_METATYPE(_SNR_
 + (SWIFT_METATYPE(_SNR_DelegateUtils) _Nonnull)DelegateUtils SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) SWIFT_METATYPE(_SNR_MiscUtils) _Nonnull MiscUtils;)
 + (SWIFT_METATYPE(_SNR_MiscUtils) _Nonnull)MiscUtils SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) _SNR_BackgroundTaskManager * _Nonnull BackgroundTaskManagerSingleton SWIFT_AVAILABILITY(ios,introduced=13);)
++ (_SNR_BackgroundTaskManager * _Nonnull)BackgroundTaskManagerSingleton SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS_NAMED("_SNR_BackgroundTaskManager") SWIFT_AVAILABILITY(ios,introduced=13)
+@interface _SNR_BackgroundTaskManager : NSObject
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+- (void)setBackgroundTaskIdentifiers:(NSArray<NSString *> * _Nonnull)identifiers;
+- (void)registerMainBackgroundTaskWithHandler:(void (^ _Nonnull)(void))handler;
 @end
 
 

@@ -1,6 +1,7 @@
 // swift-interface-format-version: 1.0
 // swift-compiler-version: Apple Swift version 5.10 (swiftlang-5.10.0.13 clang-1500.3.9.4)
 // swift-module-flags: -target x86_64-apple-ios9.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name SyneriseSDK
+import BackgroundTasks
 import CoreTelephony
 import Foundation
 import Swift
@@ -176,6 +177,12 @@ public let SNR_LOCALIZABLE_STRING_KEY_CANCEL: Swift.String
   @objc override dynamic public init()
   @objc deinit
 }
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @available(iOS 13, *)
+@objc(_SNR_BackgroundTaskManager) public class _SNR_BackgroundTaskManager : ObjectiveC.NSObject {
+  @objc deinit
+  @objc(setBackgroundTaskIdentifiers:) public func setBackgroundTaskIdentifiers(_ identifiers: [Swift.String])
+  @objc(registerMainBackgroundTaskWithHandler:) public func registerMainBackgroundTask(handler: @escaping () -> Swift.Void)
+}
 @_inheritsConvenienceInitializers @objc(SNRNotificationsSettings) public class NotificationsSettings : ObjectiveC.NSObject {
   @objc public var enabled: Swift.Bool {
     @objc get
@@ -262,6 +269,10 @@ public let SNR_LOCALIZABLE_STRING_KEY_CANCEL: Swift.String
     @objc get
   }
   @objc public static var MiscUtils: SyneriseSDK._SNR_MiscUtils.Type {
+    @objc get
+  }
+  @available(iOS 13, *)
+  @objc public static var BackgroundTaskManagerSingleton: SyneriseSDK._SNR_BackgroundTaskManager {
     @objc get
   }
   @objc override dynamic public init()

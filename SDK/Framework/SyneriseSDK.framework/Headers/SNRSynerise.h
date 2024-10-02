@@ -21,6 +21,17 @@ FOUNDATION_EXPORT NSString * const SNRSyneriseBundleIdentifier;
 FOUNDATION_EXPORT NSString * const SNRSyneriseVersion;
 
 /**
+ * @enum SNRPushNotificationsRegistrationOrigin
+ */
+
+typedef NS_ENUM(NSUInteger, SNRPushNotificationsRegistrationOrigin) {
+    SNRPushNotificationsRegistrationOriginAppStarted,
+    SNRPushNotificationsRegistrationOriginClientContextChange,
+    SNRPushNotificationsRegistrationOriginSecurityReason,
+    SNRPushNotificationsRegistrationOriginPeriodicJob
+} NS_SWIFT_NAME(PushNotificationsRegistrationOrigin);
+
+/**
  * @protocol SNRSyneriseDelegate
  *
  * A delegate to handle actions from the Synerise SDK.
@@ -49,8 +60,18 @@ NS_SWIFT_NAME(SyneriseDelegate)
  * This method is called when Synerise needs registration for Push Notifications.
  *
  * @note You should invoke the `[SNRClient registerForPush:success:failure:]` method again.
+ * @note This method is invoked when the `SNR_registerForPushNotificationsIsNeededByOrigin:` method is not implemented.
  */
 - (void)SNR_registerForPushNotificationsIsNeeded NS_SWIFT_NAME(snr_registerForPushNotificationsIsNeeded());
+
+/**
+ * This method is called when Synerise needs registration for Push Notifications.
+ *
+ * @param origin Origin of the push notifications registration from the SDK.
+ *
+ * @note You should invoke the `[SNRClient registerForPush:success:failure:]` method again.
+ */
+- (void)SNR_registerForPushNotificationsIsNeededByOrigin:(SNRPushNotificationsRegistrationOrigin)origin NS_SWIFT_NAME(snr_registerForPushNotificationsIsNeeded(origin:));
 
 /**
  * This method is called when Synerise handles URL action from campaign activities.
@@ -147,6 +168,20 @@ NS_SWIFT_NAME(Synerise)
 - (instancetype)init NS_UNAVAILABLE;
 
 /**
+ * Sets object for Synerise delegate methods.
+ *
+ * @param delegate An object that implement SNRSyneriseDelegate protocol.
+ */
++ (void)setDelegate:(id<SNRSyneriseDelegate>)delegate;
+
+/**
+ * Sets object for notification delegate methods.
+ *
+ * @param delegate An object that implement SNRNotificationDelegate protocol.
+ */
++ (void)setNotificationDelegate:(id<SNRNotificationDelegate>)delegate;
+
+/**
  * Initializes Synerise SDK.
  *
  * @param clientApiKey Synerise Profile API key (formerly Client API key).
@@ -221,20 +256,6 @@ NS_SWIFT_NAME(Synerise)
 + (void)setCrashHandlingEnabled:(BOOL)enabled;
 
 /**
- * Sets object for Synerise delegate methods.
- *
- * @param delegate An object that implement SNRSyneriseDelegate protocol.
- */
-+ (void)setDelegate:(id<SNRSyneriseDelegate>)delegate;
-
-/**
- * Sets object for notification delegate methods.
- *
- * @param delegate An object that implement SNRNotificationDelegate protocol.
- */
-+ (void)setNotificationDelegate:(id<SNRNotificationDelegate>)delegate;
-
-/**
  * Sets the notification categories (including Synerise categories) that your app supports.
  *
  * @param notificationCategories A set of objects containing all the actions displayed in the notification interface.
@@ -242,6 +263,13 @@ NS_SWIFT_NAME(Synerise)
  * @note All notification categories must be supported by the app to function properly.
  */
 + (void)setNotificationCategories:(NSSet<UNNotificationCategory *> *)notificationCategories NS_SWIFT_NAME(setNotificationCategories(_:)) API_AVAILABLE(ios(10.0));
+
+/**
+ * Sets identifiers for Background Tasks processing.
+ *
+ * @param identifiers Identifiers for background task registered in the host appliaction.
+ */
++ (void)setBackgroundTaskIdentifiers:(NSArray<NSString *> *)identifiers;
 
 /**
  * Checks if notification's sender is Synerise.
