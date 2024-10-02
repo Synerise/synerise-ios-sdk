@@ -3,6 +3,17 @@ All notable changes to this project will be documented in this file.
 
 Note that Objective-C class names are prefixed by `SNR`. In the changelog below, these are names used in Swift, without the prefix.
 
+## [4.23.0] - 2024-10-02
+
+### Added
+- `Synerise.setBackgroundTaskIdentifiers(_:)` method. The new method registers background tasks in the SDK, which will enable registration for push notifications every 20 days when the application is not launched.
+- `snr_registerForPushNotificationsIsNeeded(origin:)` method in `SyneriseDelegate`. If implemented, the new method is invoked instead of `snr_registerForPushNotificationsIsNeeded()`.
+- `PushNotificationsRegistrationOrigin` enum.
+
+### Changed
+- Improvements to stability.
+
+
 ## [4.22.0] - 2024-09-26
 
 ### Fixed
@@ -16,8 +27,7 @@ Note that Objective-C class names are prefixed by `SNR`. In the changelog below,
 - Optimization of the In-app messaging module.
 
 
-## [4.21.0] - 2024-09-12 - REMOVED
-!!! THIS VERSION HAS BEEN REMOVED DUE TO POTENTIAL ISSUES WITH IN-APP MESSAGE PROCESSING !!!
+## [4.21.0] - 2024-09-12
 
 ### Fixed
 - Some potential issues with notification processing in `NotificationServiceExtension`. We recommend using the new method for setting notification categories (see below).
