@@ -1,6 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.10 (swiftlang-5.10.0.13 clang-1500.3.9.4)
+// swift-compiler-version: Apple Swift version 6.0 effective-5.10 (swiftlang-6.0.0.9.10 clang-1600.0.26.2)
 // swift-module-flags: -target x86_64-apple-ios9.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name SyneriseSDK
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface
 import BackgroundTasks
 import CoreTelephony
 import Foundation
@@ -60,8 +61,6 @@ import _SwiftConcurrencyShims
 }
 public typealias SNRPublicKeyPinningAlgorithm = Swift.String
 public typealias SNRLocalizableStringKey = Swift.String
-public let SNR_LOCALIZABLE_STRING_KEY_OK: Swift.String
-public let SNR_LOCALIZABLE_STRING_KEY_CANCEL: Swift.String
 @_inheritsConvenienceInitializers @objc(SNRGeneralSettings) public class GeneralSettings : ObjectiveC.NSObject {
   @objc public var enabled: Swift.Bool {
     @objc get
@@ -132,6 +131,10 @@ public let SNR_LOCALIZABLE_STRING_KEY_CANCEL: Swift.String
   @objc public static func cleanupStringToAsciiEncoding(_ string: Swift.String?) -> Swift.String
   @objc public static func isUUID(_ string: Swift.String?) -> Swift.Bool
   @objc public static func isURL(_ string: Swift.String) -> Swift.Bool
+  @objc public static func usesSDKHybridPlugin() -> Swift.Bool
+  @objc public static func usesReactNativePlugin() -> Swift.Bool
+  @objc public static func usesFlutterPlugin() -> Swift.Bool
+  @objc public static func usesXamarinPlugin() -> Swift.Bool
   @objc public static func userLocalizedString(_ key: Swift.String) -> Swift.String
   @objc override dynamic public init()
   @objc deinit
@@ -158,8 +161,8 @@ public let SNR_LOCALIZABLE_STRING_KEY_CANCEL: Swift.String
   @objc deinit
 }
 @_inheritsConvenienceInitializers @objc(_SNR_Constants) public class _SNR_Constants : ObjectiveC.NSObject {
-  @objc public static func LOCALIZABLE_STRING_KEY_OK() -> Swift.String
-  @objc public static func LOCALIZABLE_STRING_KEY_CANCEL() -> Swift.String
+  @objc public static func LOCALIZABLE_STRING_KEY_OK() -> SyneriseSDK.SNRLocalizableStringKey
+  @objc public static func LOCALIZABLE_STRING_KEY_CANCEL() -> SyneriseSDK.SNRLocalizableStringKey
   @objc override dynamic public init()
   @objc deinit
 }
@@ -217,6 +220,7 @@ public let SNR_LOCALIZABLE_STRING_KEY_CANCEL: Swift.String
   @objc public static func userInfo(_ message: Swift.String)
   @objc public static func userWarning(_ message: Swift.String)
   @objc public static func userError(_ message: Swift.String)
+  @objc public static func userFatalError(_ message: Swift.String)
   @objc override dynamic public init()
   @objc deinit
 }

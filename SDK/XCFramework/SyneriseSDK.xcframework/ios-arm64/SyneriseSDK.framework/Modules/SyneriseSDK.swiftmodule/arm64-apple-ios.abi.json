@@ -1,8 +1,8 @@
 {
   "ABIRoot": {
     "kind": "Root",
-    "name": "TopLevel",
-    "printedName": "TopLevel",
+    "name": "SyneriseSDK",
+    "printedName": "SyneriseSDK",
     "children": [
       {
         "kind": "Import",
@@ -142,6 +142,20 @@
           "ObjectiveC.NSObject"
         ],
         "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
           {
             "kind": "Conformance",
             "name": "Equatable",
@@ -462,6 +476,20 @@
         ],
         "enumRawTypeName": "Int",
         "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
           {
             "kind": "Conformance",
             "name": "Equatable",
@@ -971,6 +999,20 @@
         "conformances": [
           {
             "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
             "name": "Equatable",
             "printedName": "Equatable",
             "usr": "s:SQ",
@@ -1168,6 +1210,20 @@
         "conformances": [
           {
             "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
             "name": "Equatable",
             "printedName": "Equatable",
             "usr": "s:SQ",
@@ -1235,96 +1291,6 @@
         "moduleName": "SyneriseSDK",
         "declAttributes": [
           "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Var",
-        "name": "SNR_LOCALIZABLE_STRING_KEY_OK",
-        "printedName": "SNR_LOCALIZABLE_STRING_KEY_OK",
-        "children": [
-          {
-            "kind": "TypeNominal",
-            "name": "String",
-            "printedName": "Swift.String",
-            "usr": "s:SS"
-          }
-        ],
-        "declKind": "Var",
-        "usr": "s:11SyneriseSDK29SNR_LOCALIZABLE_STRING_KEY_OKSSvp",
-        "mangledName": "$s11SyneriseSDK29SNR_LOCALIZABLE_STRING_KEY_OKSSvp",
-        "moduleName": "SyneriseSDK",
-        "declAttributes": [
-          "HasInitialValue",
-          "HasStorage",
-          "AccessControl"
-        ],
-        "isLet": true,
-        "hasStorage": true,
-        "accessors": [
-          {
-            "kind": "Accessor",
-            "name": "Get",
-            "printedName": "Get()",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              }
-            ],
-            "declKind": "Accessor",
-            "usr": "s:11SyneriseSDK29SNR_LOCALIZABLE_STRING_KEY_OKSSvg",
-            "mangledName": "$s11SyneriseSDK29SNR_LOCALIZABLE_STRING_KEY_OKSSvg",
-            "moduleName": "SyneriseSDK",
-            "implicit": true,
-            "accessorKind": "get"
-          }
-        ]
-      },
-      {
-        "kind": "Var",
-        "name": "SNR_LOCALIZABLE_STRING_KEY_CANCEL",
-        "printedName": "SNR_LOCALIZABLE_STRING_KEY_CANCEL",
-        "children": [
-          {
-            "kind": "TypeNominal",
-            "name": "String",
-            "printedName": "Swift.String",
-            "usr": "s:SS"
-          }
-        ],
-        "declKind": "Var",
-        "usr": "s:11SyneriseSDK33SNR_LOCALIZABLE_STRING_KEY_CANCELSSvp",
-        "mangledName": "$s11SyneriseSDK33SNR_LOCALIZABLE_STRING_KEY_CANCELSSvp",
-        "moduleName": "SyneriseSDK",
-        "declAttributes": [
-          "HasInitialValue",
-          "HasStorage",
-          "AccessControl"
-        ],
-        "isLet": true,
-        "hasStorage": true,
-        "accessors": [
-          {
-            "kind": "Accessor",
-            "name": "Get",
-            "printedName": "Get()",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              }
-            ],
-            "declKind": "Accessor",
-            "usr": "s:11SyneriseSDK33SNR_LOCALIZABLE_STRING_KEY_CANCELSSvg",
-            "mangledName": "$s11SyneriseSDK33SNR_LOCALIZABLE_STRING_KEY_CANCELSSvg",
-            "moduleName": "SyneriseSDK",
-            "implicit": true,
-            "accessorKind": "get"
-          }
         ]
       },
       {
@@ -2303,6 +2269,20 @@
         "conformances": [
           {
             "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
             "name": "Equatable",
             "printedName": "Equatable",
             "usr": "s:SQ",
@@ -3046,6 +3026,20 @@
         "conformances": [
           {
             "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
             "name": "Equatable",
             "printedName": "Equatable",
             "usr": "s:SQ",
@@ -3397,6 +3391,102 @@
           },
           {
             "kind": "Function",
+            "name": "usesSDKHybridPlugin",
+            "printedName": "usesSDKHybridPlugin()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_MiscUtils(cm)usesSDKHybridPlugin",
+            "mangledName": "$s11SyneriseSDK14_SNR_MiscUtilsC19usesSDKHybridPluginSbyFZ",
+            "moduleName": "SyneriseSDK",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "usesReactNativePlugin",
+            "printedName": "usesReactNativePlugin()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_MiscUtils(cm)usesReactNativePlugin",
+            "mangledName": "$s11SyneriseSDK14_SNR_MiscUtilsC21usesReactNativePluginSbyFZ",
+            "moduleName": "SyneriseSDK",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "usesFlutterPlugin",
+            "printedName": "usesFlutterPlugin()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_MiscUtils(cm)usesFlutterPlugin",
+            "mangledName": "$s11SyneriseSDK14_SNR_MiscUtilsC17usesFlutterPluginSbyFZ",
+            "moduleName": "SyneriseSDK",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "usesXamarinPlugin",
+            "printedName": "usesXamarinPlugin()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_MiscUtils(cm)usesXamarinPlugin",
+            "mangledName": "$s11SyneriseSDK14_SNR_MiscUtilsC17usesXamarinPluginSbyFZ",
+            "moduleName": "SyneriseSDK",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
             "name": "userLocalizedString",
             "printedName": "userLocalizedString(_:)",
             "children": [
@@ -3467,6 +3557,20 @@
           "ObjectiveC.NSObject"
         ],
         "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
           {
             "kind": "Conformance",
             "name": "Equatable",
@@ -3857,6 +3961,20 @@
         "conformances": [
           {
             "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
             "name": "Equatable",
             "printedName": "Equatable",
             "usr": "s:SQ",
@@ -4037,6 +4155,20 @@
         "conformances": [
           {
             "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
             "name": "Equatable",
             "printedName": "Equatable",
             "usr": "s:SQ",
@@ -4192,6 +4324,20 @@
           "ObjectiveC.NSObject"
         ],
         "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
           {
             "kind": "Conformance",
             "name": "Equatable",
@@ -4488,6 +4634,20 @@
         "conformances": [
           {
             "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
             "name": "Equatable",
             "printedName": "Equatable",
             "usr": "s:SQ",
@@ -4683,6 +4843,20 @@
         "conformances": [
           {
             "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
             "name": "Equatable",
             "printedName": "Equatable",
             "usr": "s:SQ",
@@ -4870,6 +5044,20 @@
           "ObjectiveC.NSObject"
         ],
         "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
           {
             "kind": "Conformance",
             "name": "Equatable",
@@ -5253,6 +5441,20 @@
         "conformances": [
           {
             "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
             "name": "Equatable",
             "printedName": "Equatable",
             "usr": "s:SQ",
@@ -5627,6 +5829,20 @@
         "conformances": [
           {
             "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
             "name": "Equatable",
             "printedName": "Equatable",
             "usr": "s:SQ",
@@ -5916,6 +6132,35 @@
             "funcSelfKind": "NonMutating"
           },
           {
+            "kind": "Function",
+            "name": "userFatalError",
+            "printedName": "userFatalError(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_Logger(cm)userFatalError:",
+            "mangledName": "$s11SyneriseSDK11_SNR_LoggerC14userFatalErroryySSFZ",
+            "moduleName": "SyneriseSDK",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
             "kind": "Constructor",
             "name": "init",
             "printedName": "init()",
@@ -5957,6 +6202,20 @@
           "ObjectiveC.NSObject"
         ],
         "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
           {
             "kind": "Conformance",
             "name": "Equatable",
@@ -6154,6 +6413,20 @@
           "ObjectiveC.NSObject"
         ],
         "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
           {
             "kind": "Conformance",
             "name": "Equatable",
@@ -6424,6 +6697,20 @@
           "ObjectiveC.NSObject"
         ],
         "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
           {
             "kind": "Conformance",
             "name": "Equatable",
@@ -7243,6 +7530,20 @@
         "conformances": [
           {
             "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
             "name": "Equatable",
             "printedName": "Equatable",
             "usr": "s:SQ",
@@ -7820,6 +8121,20 @@
         "conformances": [
           {
             "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
             "name": "Equatable",
             "printedName": "Equatable",
             "usr": "s:SQ",
@@ -8279,6 +8594,20 @@
         "conformances": [
           {
             "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
             "name": "Equatable",
             "printedName": "Equatable",
             "usr": "s:SQ",
@@ -8333,644 +8662,588 @@
   },
   "ConstValues": [
     {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/TrackerAutoTrackingSettings.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/TrackerAutoTrackingSettings.swift",
       "kind": "IntegerLiteral",
       "offset": 433,
       "length": 5,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/TrackerAutoTrackingSettings.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/TrackerAutoTrackingSettings.swift",
       "kind": "IntegerLiteral",
       "offset": 627,
       "length": 4,
       "value": "2"
     },
     {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/TrackerAutoTrackingSettings.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/TrackerAutoTrackingSettings.swift",
       "kind": "IntegerLiteral",
       "offset": 696,
       "length": 8,
       "value": "3"
     },
     {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/TrackerAutoTrackingSettings.swift",
-      "kind": "IntegerLiteral",
-      "offset": 433,
-      "length": 5,
-      "value": "1"
-    },
-    {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/TrackerAutoTrackingSettings.swift",
-      "kind": "IntegerLiteral",
-      "offset": 627,
-      "length": 4,
-      "value": "2"
-    },
-    {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/TrackerAutoTrackingSettings.swift",
-      "kind": "IntegerLiteral",
-      "offset": 696,
-      "length": 8,
-      "value": "3"
-    },
-    {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsService.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsService.swift",
       "kind": "BooleanLiteral",
       "offset": 302,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsService.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsService.swift",
       "kind": "BooleanLiteral",
       "offset": 351,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/GeneralSettings.swift",
-      "kind": "StringLiteral",
-      "offset": 323,
-      "length": 27,
-      "value": "\"SNRLocalizableStringKeyOK\""
-    },
-    {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/GeneralSettings.swift",
-      "kind": "StringLiteral",
-      "offset": 423,
-      "length": 31,
-      "value": "\"SNRLocalizableStringKeyCancel\""
-    },
-    {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
       "kind": "StringLiteral",
       "offset": 202,
       "length": 22,
       "value": "\"SNRGeneralEnabledKey\""
     },
     {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
       "kind": "StringLiteral",
       "offset": 264,
       "length": 33,
       "value": "\"SNRGeneralAppGroupIdentifierKey\""
     },
     {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
       "kind": "StringLiteral",
       "offset": 342,
       "length": 38,
       "value": "\"SNRGeneralKeychainGroupIdentifierKey\""
     },
     {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
       "kind": "StringLiteral",
       "offset": 425,
       "length": 38,
       "value": "\"SNRGeneralMinTokenRefreshIntervalKey\""
     },
     {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
       "kind": "StringLiteral",
       "offset": 501,
       "length": 31,
       "value": "\"SNRGeneralSSLPinningPinsetKey\""
     },
     {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
       "kind": "StringLiteral",
       "offset": 588,
       "length": 49,
       "value": "\"SNRGeneralShouldDestroySessionOnApiKeyChangeKey\""
     },
     {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
       "kind": "StringLiteral",
       "offset": 670,
       "length": 23,
       "value": "\"SNRGeneralLocalizable\""
     },
     {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
       "kind": "StringLiteral",
       "offset": 737,
       "length": 28,
       "value": "\"SNRNotificationsEnabledKey\""
     },
     {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
       "kind": "StringLiteral",
       "offset": 815,
       "length": 39,
       "value": "\"SNRNotificationsDisableInAppAlertsKey\""
     },
     {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
       "kind": "StringLiteral",
       "offset": 896,
       "length": 31,
       "value": "\"SNRNotificationsEncryptionKey\""
     },
     {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
       "kind": "StringLiteral",
       "offset": 970,
       "length": 27,
       "value": "\"SNRTrackerMinBatchSizeKey\""
     },
     {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
       "kind": "StringLiteral",
       "offset": 1035,
       "length": 27,
       "value": "\"SNRTrackerMaxBatchSizeKey\""
     },
     {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
       "kind": "StringLiteral",
       "offset": 1104,
       "length": 31,
       "value": "\"SNRTrackerAutoFlushTimeoutKey\""
     },
     {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
       "kind": "StringLiteral",
       "offset": 1184,
       "length": 38,
       "value": "\"SNRTrackerBackendTimeSyncRequiredKey\""
     },
     {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
       "kind": "StringLiteral",
       "offset": 1269,
       "length": 36,
       "value": "\"SNRTrackerEventsTriggeringFlushKey\""
     },
     {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
       "kind": "StringLiteral",
       "offset": 1348,
       "length": 32,
       "value": "\"SNRTrackerLocationAutomaticKey\""
     },
     {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
       "kind": "StringLiteral",
       "offset": 1423,
       "length": 34,
       "value": "\"SNRTrackerAutoTrackingEnabledKey\""
     },
     {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
       "kind": "StringLiteral",
       "offset": 1492,
       "length": 31,
       "value": "\"SNRTrackerAutoTrackingModeKey\""
     },
     {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
       "kind": "StringLiteral",
       "offset": 1569,
       "length": 42,
       "value": "\"SNRTrackerAutoTrackingExcludedClassesKey\""
     },
     {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
       "kind": "StringLiteral",
       "offset": 1658,
       "length": 43,
       "value": "\"SNRTrackerAutoTrackingExcludedViewTagsKey\""
     },
     {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
       "kind": "StringLiteral",
       "offset": 1751,
       "length": 41,
       "value": "\"SNRTrackerDeclarativeTrackingEnabledKey\""
     },
     {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
       "kind": "StringLiteral",
       "offset": 1872,
       "length": 61,
       "value": "\"SNRInAppMessagingCheckGlobalControlGroupsOnDefinitionsFetch\""
     },
     {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
       "kind": "StringLiteral",
       "offset": 1998,
       "length": 51,
       "value": "\"SNRInAppMessagingMaxDefinitionUpdateIntervalLimit\""
     },
     {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
       "kind": "StringLiteral",
       "offset": 2096,
       "length": 33,
       "value": "\"SNRInAppMessagingContentBaseUrl\""
     },
     {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
       "kind": "StringLiteral",
       "offset": 2178,
       "length": 35,
       "value": "\"SNRInAppMessagingRenderingTimeout\""
     },
     {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
       "kind": "StringLiteral",
       "offset": 2273,
       "length": 46,
       "value": "\"SNRInAppMessagingShouldSendInAppCappingEvent\""
     },
     {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
       "kind": "StringLiteral",
       "offset": 2356,
       "length": 25,
       "value": "\"SNRInjectorAutomaticKey\""
     },
     {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Providers\/DeviceInfoProvider.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Providers\/DeviceInfoProvider.swift",
       "kind": "StringLiteral",
       "offset": 199,
       "length": 12,
       "value": "\"SMARTPHONE\""
     },
     {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Providers\/DeviceInfoProvider.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Providers\/DeviceInfoProvider.swift",
       "kind": "StringLiteral",
       "offset": 247,
       "length": 8,
       "value": "\"TABLET\""
     },
     {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Providers\/DeviceInfoProvider.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Providers\/DeviceInfoProvider.swift",
       "kind": "StringLiteral",
       "offset": 297,
       "length": 14,
       "value": "\"UNRECOGNIZED\""
     },
     {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Providers\/DeviceInfoProvider.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Providers\/DeviceInfoProvider.swift",
       "kind": "StringLiteral",
       "offset": 354,
       "length": 7,
       "value": "\"Apple\""
     },
     {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Providers\/ImageProvider.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Providers\/ImageProvider.swift",
       "kind": "FloatLiteral",
       "offset": 215,
       "length": 4,
       "value": "15.0"
     },
     {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Managers\/BackgroundTaskManager.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Managers\/BackgroundTaskManager.swift",
       "kind": "IntegerLiteral",
       "offset": 246,
       "length": 2,
       "value": "60"
     },
     {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Managers\/BackgroundTaskManager.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Managers\/BackgroundTaskManager.swift",
       "kind": "IntegerLiteral",
       "offset": 251,
       "length": 2,
       "value": "60"
     },
     {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Managers\/BackgroundTaskManager.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Managers\/BackgroundTaskManager.swift",
       "kind": "IntegerLiteral",
       "offset": 256,
       "length": 2,
       "value": "24"
     },
     {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Managers\/BackgroundTaskManager.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Managers\/BackgroundTaskManager.swift",
       "kind": "IntegerLiteral",
       "offset": 261,
       "length": 2,
       "value": "20"
     },
     {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Managers\/BackgroundTaskManager.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Managers\/BackgroundTaskManager.swift",
       "kind": "Array",
       "offset": 521,
       "length": 2,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Managers\/BackgroundTaskManager.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Managers\/BackgroundTaskManager.swift",
       "kind": "Array",
       "offset": 588,
       "length": 2,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Managers\/BackgroundTaskManager.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Managers\/BackgroundTaskManager.swift",
       "kind": "Array",
       "offset": 654,
       "length": 2,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Common\/Constants\/SyneriseNotificationName.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Common\/Constants\/SyneriseNotificationName.swift",
       "kind": "StringLiteral",
       "offset": 230,
       "length": 41,
       "value": "\"SNRSyneriseBeforeLaunchNotificationName\""
     },
     {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Common\/Constants\/SyneriseNotificationName.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Common\/Constants\/SyneriseNotificationName.swift",
       "kind": "StringLiteral",
       "offset": 298,
       "length": 37,
       "value": "\"SNRSyneriseLaunchedNotificationName\""
     },
     {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Common\/Constants\/SyneriseNotificationName.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Common\/Constants\/SyneriseNotificationName.swift",
       "kind": "StringLiteral",
       "offset": 371,
       "length": 46,
       "value": "\"SNRSyneriseSettingsDidChangeNotificationName\""
     },
     {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Common\/Constants\/SyneriseNotificationPayloadKey.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Common\/Constants\/SyneriseNotificationPayloadKey.swift",
       "kind": "StringLiteral",
       "offset": 233,
       "length": 5,
       "value": "\"aps\""
     },
     {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Common\/Constants\/SyneriseNotificationPayloadKey.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Common\/Constants\/SyneriseNotificationPayloadKey.swift",
       "kind": "StringLiteral",
       "offset": 262,
       "length": 7,
       "value": "\"alert\""
     },
     {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Debug\/Logger.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Debug\/Logger.swift",
       "kind": "StringLiteral",
       "offset": 199,
       "length": 7,
       "value": "\"DEBUG\""
     },
     {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Debug\/Logger.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Debug\/Logger.swift",
       "kind": "StringLiteral",
       "offset": 223,
       "length": 6,
       "value": "\"INFO\""
     },
     {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Debug\/Logger.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Debug\/Logger.swift",
       "kind": "StringLiteral",
       "offset": 249,
       "length": 9,
       "value": "\"WARNING\""
     },
     {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Debug\/Logger.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Debug\/Logger.swift",
       "kind": "StringLiteral",
       "offset": 276,
       "length": 7,
       "value": "\"ERROR\""
     },
     {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Debug\/Logger.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Debug\/Logger.swift",
       "kind": "StringLiteral",
-      "offset": 199,
-      "length": 7,
-      "value": "\"DEBUG\""
+      "offset": 306,
+      "length": 13,
+      "value": "\"FATAL ERROR\""
     },
     {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Debug\/Logger.swift",
-      "kind": "StringLiteral",
-      "offset": 223,
-      "length": 6,
-      "value": "\"INFO\""
-    },
-    {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Debug\/Logger.swift",
-      "kind": "StringLiteral",
-      "offset": 249,
-      "length": 9,
-      "value": "\"WARNING\""
-    },
-    {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Debug\/Logger.swift",
-      "kind": "StringLiteral",
-      "offset": 276,
-      "length": 7,
-      "value": "\"ERROR\""
-    },
-    {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Debug\/Logger.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Debug\/Logger.swift",
       "kind": "BooleanLiteral",
-      "offset": 391,
+      "offset": 427,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Debug\/Logger.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Debug\/Logger.swift",
       "kind": "BooleanLiteral",
-      "offset": 447,
+      "offset": 483,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Debug\/Logger.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Debug\/Logger.swift",
       "kind": "BooleanLiteral",
-      "offset": 501,
+      "offset": 537,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Debug\/Logger.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Debug\/Logger.swift",
       "kind": "StringLiteral",
-      "offset": 556,
+      "offset": 592,
       "length": 9,
       "value": "\"snr_log\""
     },
     {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Debug\/Logger.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Debug\/Logger.swift",
       "kind": "BooleanLiteral",
-      "offset": 617,
+      "offset": 653,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Debug\/Logger.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Debug\/Logger.swift",
       "kind": "StringLiteral",
-      "offset": 722,
+      "offset": 758,
       "length": 41,
       "value": "\"com.synerise.sdk.queue.debug.filelogger\""
     },
     {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
       "kind": "BooleanLiteral",
       "offset": 235,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
       "kind": "IntegerLiteral",
       "offset": 410,
       "length": 2,
       "value": "30"
     },
     {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
       "kind": "FloatLiteral",
       "offset": 415,
       "length": 4,
       "value": "60.0"
     },
     {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
       "kind": "BooleanLiteral",
       "offset": 482,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
       "kind": "Dictionary",
       "offset": 705,
       "length": 3,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
       "kind": "BooleanLiteral",
       "offset": 782,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
       "kind": "BooleanLiteral",
       "offset": 833,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
       "kind": "BooleanLiteral",
       "offset": 877,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
       "kind": "IntegerLiteral",
       "offset": 954,
       "length": 2,
       "value": "10"
     },
     {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
       "kind": "IntegerLiteral",
       "offset": 996,
       "length": 3,
       "value": "100"
     },
     {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
       "kind": "FloatLiteral",
       "offset": 1052,
       "length": 3,
       "value": "5.0"
     },
     {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
       "kind": "BooleanLiteral",
       "offset": 1107,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
       "kind": "Array",
       "offset": 1165,
       "length": 82,
       "value": "[\"push.view\", \"push.openInApp\", \"push.click\", \"push.button.click\", \"push.dismiss\"]"
     },
     {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
       "kind": "BooleanLiteral",
       "offset": 1293,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
       "kind": "BooleanLiteral",
       "offset": 1377,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
       "kind": "Array",
       "offset": 1497,
       "length": 2,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
       "kind": "Array",
       "offset": 1549,
       "length": 2,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
       "kind": "BooleanLiteral",
       "offset": 1636,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
       "kind": "BooleanLiteral",
       "offset": 1760,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
       "kind": "IntegerLiteral",
       "offset": 1834,
       "length": 2,
       "value": "10"
     },
     {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
       "kind": "FloatLiteral",
       "offset": 1839,
       "length": 4,
       "value": "60.0"
     },
     {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
       "kind": "FloatLiteral",
       "offset": 1945,
       "length": 3,
       "value": "5.0"
     },
     {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
       "kind": "BooleanLiteral",
       "offset": 2004,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/kurzy\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
       "kind": "BooleanLiteral",
       "offset": 2080,
       "length": 5,

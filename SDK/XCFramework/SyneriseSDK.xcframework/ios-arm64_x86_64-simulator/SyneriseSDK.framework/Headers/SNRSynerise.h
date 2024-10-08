@@ -21,6 +21,16 @@ FOUNDATION_EXPORT NSString * const SNRSyneriseBundleIdentifier;
 FOUNDATION_EXPORT NSString * const SNRSyneriseVersion;
 
 /**
+ * @const SNRLocalizableStringKey
+ */
+
+NS_SWIFT_NAME(SNRLocalizableStringKey)
+typedef NSString * SNRLocalizableStringKey;
+
+FOUNDATION_EXPORT SNRLocalizableStringKey const SNR_LOCALIZABLE_STRING_KEY_OK;
+FOUNDATION_EXPORT SNRLocalizableStringKey const SNR_LOCALIZABLE_STRING_KEY_CANCEL;
+
+/**
  * @enum SNRPushNotificationsRegistrationOrigin
  */
 

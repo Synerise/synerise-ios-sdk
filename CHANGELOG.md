@@ -3,6 +3,19 @@ All notable changes to this project will be documented in this file.
 
 Note that Objective-C class names are prefixed by `SNR`. In the changelog below, these are names used in Swift, without the prefix.
 
+## [4.23.1] - 2024-10-08
+
+### Fixed
+- Visibility of the `SNRLocalizableStringKey` constants in Objective-C apps using the SDK.
+
+### Changed
+- Behavior of the SDK when a module method is invoked before the SDK initialization. In debug builds, it throws an exception (as before) and on release, it logs an error to console.
+- Background Tasks feature is manually blocked in hybrid plugins (React Native, Flutter).
+
+### Changed
+- Improvements to stability.
+
+
 ## [4.23.0] - 2024-10-02
 
 ### Added
