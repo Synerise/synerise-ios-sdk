@@ -3,6 +3,12 @@ All notable changes to this project will be documented in this file.
 
 Note that Objective-C class names are prefixed by `SNR`. In the changelog below, these are names used in Swift, without the prefix.
 
+## [4.23.2] - 2024-10-14
+
+### Fixed
+- Optimization of the registration for push notifications process. The cache for that request was erroneously removed in version 4.23.0.
+
+
 ## [4.23.1] - 2024-10-08
 
 ### Fixed
