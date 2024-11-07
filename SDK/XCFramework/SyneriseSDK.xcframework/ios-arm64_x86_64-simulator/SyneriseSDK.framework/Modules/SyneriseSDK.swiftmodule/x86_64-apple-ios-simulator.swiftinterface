@@ -124,6 +124,7 @@ public typealias SNRLocalizableStringKey = Swift.String
   @objc deinit
 }
 @_inheritsConvenienceInitializers @objc(_SNR_MiscUtils) public class _SNR_MiscUtils : ObjectiveC.NSObject {
+  @objc public static func isApplicationInBackground() -> Swift.Bool
   @objc public static func makeNotificationUserInfoMutable(_ userInfo: [Swift.AnyHashable : Any]) -> Foundation.NSMutableDictionary
   @objc(currencySymbolFromCurrencyCode:) public static func currencySymbol(from currencyCode: Swift.String?) -> Swift.String
   @objc public static func cleanupDictionary(_ dictionary: [Swift.String : Any]) -> [Swift.String : Any]

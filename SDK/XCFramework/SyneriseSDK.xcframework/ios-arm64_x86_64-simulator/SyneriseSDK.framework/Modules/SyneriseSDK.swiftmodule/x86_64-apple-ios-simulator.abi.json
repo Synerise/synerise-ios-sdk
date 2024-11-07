@@ -3116,6 +3116,31 @@
         "children": [
           {
             "kind": "Function",
+            "name": "isApplicationInBackground",
+            "printedName": "isApplicationInBackground()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_MiscUtils(cm)isApplicationInBackground",
+            "mangledName": "$s11SyneriseSDK14_SNR_MiscUtilsC25isApplicationInBackgroundSbyFZ",
+            "moduleName": "SyneriseSDK",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
             "name": "makeNotificationUserInfoMutable",
             "printedName": "makeNotificationUserInfoMutable(_:)",
             "children": [
@@ -3153,8 +3178,7 @@
             "declAttributes": [
               "Final",
               "AccessControl",
-              "ObjC",
-              "RawDocComment"
+              "ObjC"
             ],
             "funcSelfKind": "NonMutating"
           },
