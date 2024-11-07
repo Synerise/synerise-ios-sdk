@@ -628,6 +628,7 @@ SWIFT_CLASS_NAMED("_SNR_Logger")
 
 SWIFT_CLASS_NAMED("_SNR_MiscUtils")
 @interface _SNR_MiscUtils : NSObject
++ (BOOL)isApplicationInBackground SWIFT_WARN_UNUSED_RESULT;
 + (NSMutableDictionary * _Nonnull)makeNotificationUserInfoMutable:(NSDictionary * _Nonnull)userInfo SWIFT_WARN_UNUSED_RESULT;
 + (NSString * _Nonnull)currencySymbolFromCurrencyCode:(NSString * _Nullable)currencyCode SWIFT_WARN_UNUSED_RESULT;
 + (NSDictionary<NSString *, id> * _Nonnull)cleanupDictionary:(NSDictionary<NSString *, id> * _Nonnull)dictionary SWIFT_WARN_UNUSED_RESULT;

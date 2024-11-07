@@ -3,6 +3,12 @@ All notable changes to this project will be documented in this file.
 
 Note that Objective-C class names are prefixed by `SNR`. In the changelog below, these are names used in Swift, without the prefix.
 
+## [4.23.3] - 2024-11-07
+
+### Fixed
+- Potential issues with checking if the app is launched in the background. The SDK set the background mode to true on `UIScene` and SwiftUI based apps. It could cause the app to freeze.
+
+
 ## [4.23.2] - 2024-10-14
 
 ### Fixed
