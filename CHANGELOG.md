@@ -11,11 +11,15 @@ Note that Objective-C class names are prefixed by `SNR`. In the changelog below,
 
 ## [4.23.2] - 2024-10-14
 
+!!! THIS VERSION HAS BEEN REMOVED DUE TO POTENTIAL ISSUES WITH CHECKING IF THE APP IS LAUNCHED IN THE BACKGROUND (AFFECTS `UIScene` AND SwiftUI BASED APPS). USE VERSION 4.23.3 !!!
+
 ### Fixed
 - Optimization of the registration for push notifications process. The cache for that request was erroneously removed in version 4.23.0.
 
 
 ## [4.23.1] - 2024-10-08
+
+!!! THIS VERSION HAS BEEN REMOVED DUE TO POTENTIAL ISSUES WITH CHECKING IF THE APP IS LAUNCHED IN THE BACKGROUND (AFFECTS `UIScene` AND SwiftUI BASED APPS). USE VERSION 4.23.3 !!!
 
 ### Fixed
 - Visibility of the `SNRLocalizableStringKey` constants in Objective-C apps using the SDK.
@@ -29,6 +33,8 @@ Note that Objective-C class names are prefixed by `SNR`. In the changelog below,
 
 
 ## [4.23.0] - 2024-10-02
+
+!!! THIS VERSION HAS BEEN REMOVED DUE TO POTENTIAL ISSUES WITH CHECKING IF THE APP IS LAUNCHED IN THE BACKGROUND (AFFECTS `UIScene` AND SwiftUI BASED APPS). USE VERSION 4.23.3 !!!
 
 ### Added
 - `Synerise.setBackgroundTaskIdentifiers(_:)` method. The new method registers background tasks in the SDK, which will enable registration for push notifications every 20 days when the application is not launched.
@@ -53,6 +59,8 @@ Note that Objective-C class names are prefixed by `SNR`. In the changelog below,
 
 
 ## [4.21.0] - 2024-09-12
+
+!!! THIS VERSION HAS BEEN REMOVED DUE TO POTENTIAL ISSUES WITH IN-APP MESSAGE PROCESSING !!!
 
 ### Fixed
 - Some potential issues with notification processing in `NotificationServiceExtension`. We recommend using the new method for setting notification categories (see below).
