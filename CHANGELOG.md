@@ -9,7 +9,7 @@ Note that Objective-C class names are prefixed by `SNR`. In the changelog below,
 - Potential issues with checking if the app is launched in the background. The SDK set the background mode to true on `UIScene` and SwiftUI based apps. It could cause the app to freeze.
 
 
-## [4.23.2] - 2024-10-14
+## [4.23.2] - 2024-10-14 - REMOVED
 
 !!! THIS VERSION HAS BEEN REMOVED DUE TO POTENTIAL ISSUES WITH CHECKING IF THE APP IS LAUNCHED IN THE BACKGROUND (AFFECTS `UIScene` AND SwiftUI BASED APPS). USE VERSION 4.23.3 !!!
 
@@ -17,7 +17,7 @@ Note that Objective-C class names are prefixed by `SNR`. In the changelog below,
 - Optimization of the registration for push notifications process. The cache for that request was erroneously removed in version 4.23.0.
 
 
-## [4.23.1] - 2024-10-08
+## [4.23.1] - 2024-10-08 - REMOVED
 
 !!! THIS VERSION HAS BEEN REMOVED DUE TO POTENTIAL ISSUES WITH CHECKING IF THE APP IS LAUNCHED IN THE BACKGROUND (AFFECTS `UIScene` AND SwiftUI BASED APPS). USE VERSION 4.23.3 !!!
 
@@ -32,7 +32,7 @@ Note that Objective-C class names are prefixed by `SNR`. In the changelog below,
 - Improvements to stability.
 
 
-## [4.23.0] - 2024-10-02
+## [4.23.0] - 2024-10-02 - REMOVED
 
 !!! THIS VERSION HAS BEEN REMOVED DUE TO POTENTIAL ISSUES WITH CHECKING IF THE APP IS LAUNCHED IN THE BACKGROUND (AFFECTS `UIScene` AND SwiftUI BASED APPS). USE VERSION 4.23.3 !!!
 
@@ -58,7 +58,7 @@ Note that Objective-C class names are prefixed by `SNR`. In the changelog below,
 - Optimization of the In-app messaging module.
 
 
-## [4.21.0] - 2024-09-12
+## [4.21.0] - 2024-09-12 - REMOVED
 
 !!! THIS VERSION HAS BEEN REMOVED DUE TO POTENTIAL ISSUES WITH IN-APP MESSAGE PROCESSING !!!
 
