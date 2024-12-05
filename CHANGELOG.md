@@ -3,6 +3,17 @@ All notable changes to this project will be documented in this file.
 
 Note that Objective-C class names are prefixed by `SNR`. In the changelog below, these are names used in Swift, without the prefix.
 
+## [4.23.4] - 2024-12-05
+
+### Fixed
+- Optimization of the In-app messaging module (definitions are assigned to a specific Synerise API key).
+- Potential issue with removing variants from cache when the campaign is paused.
+- Potential issue and exception when `UnitPrice` model initializes with incorrect `NSLocale` object or when the system's current locale returns corrupted data.
+
+### Changed
+- Improvements to stability.
+
+
 ## [4.23.3] - 2024-11-07
 
 ### Fixed
