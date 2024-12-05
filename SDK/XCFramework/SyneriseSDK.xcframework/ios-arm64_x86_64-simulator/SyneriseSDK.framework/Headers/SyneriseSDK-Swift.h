@@ -285,6 +285,8 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 @import ObjectiveC;
 #endif
 
+#import <SyneriseSDK/SyneriseSDK.h>
+
 #endif
 #pragma clang diagnostic ignored "-Wproperty-attribute-mismatch"
 #pragma clang diagnostic ignored "-Wduplicate-method-arg"
@@ -401,6 +403,21 @@ SWIFT_CLASS_NAMED("NotificationsSettings")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+typedef SWIFT_ENUM(NSInteger, SNRClientUUIDChangeSignalReason, open) {
+  SNRClientUUIDChangeSignalReasonAuthentication = 0,
+  SNRClientUUIDChangeSignalReasonRegeneration = 1,
+};
+
+typedef SWIFT_ENUM(NSInteger, SNRClientUUIDChangeSignalState, open) {
+  SNRClientUUIDChangeSignalStateBefore = 0,
+  SNRClientUUIDChangeSignalStateAfter = 1,
+};
+
+typedef SWIFT_ENUM(NSInteger, SNRSyneriseReinitializationSignalState, open) {
+  SNRSyneriseReinitializationSignalStateBefore = 0,
+  SNRSyneriseReinitializationSignalStateAfter = 1,
+};
+
 @class SNRTrackerSettings;
 
 SWIFT_CLASS_NAMED("Settings")
@@ -496,9 +513,16 @@ SWIFT_CLASS_NAMED("TrackerSettings")
 @class _SNR_DeviceInfoProvider;
 @class _SNR_MobileOperatorInfoProvider;
 @class _SNR_ImageProvider;
+@class _SNR_ClientSignInSignal;
+@class _SNR_ClientSignOutSignal;
+@class _SNR_ClientUUIDChangeSignal;
+@class _SNR_DataInconsistencySignal;
+@class _SNR_PushRegistrationRequiredSignal;
+@class _SNR_SyneriseReinitializationSignal;
 @class _SNR_DispatchUtils;
 @class _SNR_DelegateUtils;
 @class _SNR_MiscUtils;
+@class _SNR_ClientManager;
 @class _SNR_BackgroundTaskManager;
 
 SWIFT_CLASS_NAMED("_SNR")
@@ -519,12 +543,26 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) _SNR_ImagePr
 + (_SNR_ImageProvider * _Nonnull)ImageProviderSingleton SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) _SNR_ImageProvider * _Nonnull ImageProviderNewInstance;)
 + (_SNR_ImageProvider * _Nonnull)ImageProviderNewInstance SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) _SNR_ClientSignInSignal * _Nonnull ClientSignInSignalSingleton;)
++ (_SNR_ClientSignInSignal * _Nonnull)ClientSignInSignalSingleton SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) _SNR_ClientSignOutSignal * _Nonnull ClientSignOutSignalSingleton;)
++ (_SNR_ClientSignOutSignal * _Nonnull)ClientSignOutSignalSingleton SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) _SNR_ClientUUIDChangeSignal * _Nonnull ClientUUIDChangeSignalSingleton;)
++ (_SNR_ClientUUIDChangeSignal * _Nonnull)ClientUUIDChangeSignalSingleton SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) _SNR_DataInconsistencySignal * _Nonnull DataInconsistencySignalSingleton;)
++ (_SNR_DataInconsistencySignal * _Nonnull)DataInconsistencySignalSingleton SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) _SNR_PushRegistrationRequiredSignal * _Nonnull PushRegistrationRequiredSignalSingleton;)
++ (_SNR_PushRegistrationRequiredSignal * _Nonnull)PushRegistrationRequiredSignalSingleton SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) _SNR_SyneriseReinitializationSignal * _Nonnull SyneriseReinitializationSignalSingleton;)
++ (_SNR_SyneriseReinitializationSignal * _Nonnull)SyneriseReinitializationSignalSingleton SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) SWIFT_METATYPE(_SNR_DispatchUtils) _Nonnull DispatchUtils;)
 + (SWIFT_METATYPE(_SNR_DispatchUtils) _Nonnull)DispatchUtils SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) SWIFT_METATYPE(_SNR_DelegateUtils) _Nonnull DelegateUtils;)
 + (SWIFT_METATYPE(_SNR_DelegateUtils) _Nonnull)DelegateUtils SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) SWIFT_METATYPE(_SNR_MiscUtils) _Nonnull MiscUtils;)
 + (SWIFT_METATYPE(_SNR_MiscUtils) _Nonnull)MiscUtils SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) _SNR_ClientManager * _Nonnull ClientManagerSingleton;)
++ (_SNR_ClientManager * _Nonnull)ClientManagerSingleton SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) _SNR_BackgroundTaskManager * _Nonnull BackgroundTaskManagerSingleton SWIFT_AVAILABILITY(ios,introduced=13);)
 + (_SNR_BackgroundTaskManager * _Nonnull)BackgroundTaskManagerSingleton SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
@@ -540,6 +578,14 @@ SWIFT_CLASS_NAMED("_SNR_BackgroundTaskManager") SWIFT_AVAILABILITY(ios,introduce
 @end
 
 
+SWIFT_CLASS_NAMED("_SNR_BaseSignal")
+@interface _SNR_BaseSignal : NSObject
+- (void)addReceiver:(id _Nonnull)receiver;
+- (void)removeReceiver:(id _Nonnull)receiver;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
 SWIFT_CLASS_NAMED("_SNR_ClientApplicationInfoProvider")
 @interface _SNR_ClientApplicationInfoProvider : NSObject
 + (NSString * _Nullable)applicationName SWIFT_WARN_UNUSED_RESULT;
@@ -550,11 +596,84 @@ SWIFT_CLASS_NAMED("_SNR_ClientApplicationInfoProvider")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class _SNR_ClientModel;
+@class NSUUID;
+
+SWIFT_CLASS_NAMED("_SNR_ClientManager")
+@interface _SNR_ClientManager : NSObject
+@property (nonatomic, strong) _SNR_ClientModel * _Null_unspecified client;
++ (void)setRecoveredClientUUID:(NSUUID * _Nullable)uuid;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+- (void)setClientId:(NSString * _Nullable)clientId;
+- (void)setCustomIdentifier:(NSString * _Nullable)customIdentifier;
+- (void)setCustomEmail:(NSString * _Nullable)customEmail;
+- (void)setClientLogin:(NSString * _Nullable)clientLogin;
+- (void)setClientUUID:(NSUUID * _Nullable)uuid;
+- (void)setNewAnonymousClient;
+- (void)setNewAnonymousClientWithClientIdentifier:(NSString * _Nullable)clientIdentifier;
+- (void)setNewClientWithRecoveredClientUUID:(NSUUID * _Nonnull)clientUUID;
+- (void)setNewInitialAnonymousClient;
+- (NSString * _Nonnull)getUUIDStringForAuthenticationWithAuthID:(NSString * _Nonnull)authID SWIFT_WARN_UNUSED_RESULT;
+- (NSString * _Nonnull)prepareSigningWithLogin:(NSString * _Nullable)login SWIFT_WARN_UNUSED_RESULT;
+- (NSString * _Nonnull)prepareSigningWithLogin:(NSString * _Nullable)login orUUIDString:(NSString * _Nullable)UUIDString SWIFT_WARN_UNUSED_RESULT;
+- (void)signingSuccess;
+- (void)signingFailure;
+@end
+
+
+SWIFT_CLASS_NAMED("_SNR_ClientModel")
+@interface _SNR_ClientModel : NSObject
+@property (nonatomic, copy) NSString * _Nullable clientId;
+@property (nonatomic, copy) NSUUID * _Nonnull uuid;
+@property (nonatomic, copy) NSString * _Nullable login;
+@property (nonatomic, copy) NSString * _Nullable identifier;
+@property (nonatomic, copy) NSString * _Nullable customIdentifier;
+@property (nonatomic, copy) NSString * _Nullable customEmail;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+- (NSString * _Nonnull)getUUIDString SWIFT_WARN_UNUSED_RESULT;
+- (NSDictionary<NSString *, id> * _Nonnull)toDictionary SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
+SWIFT_CLASS_NAMED("_SNR_ClientSignInSignal")
+@interface _SNR_ClientSignInSignal : _SNR_BaseSignal
+- (void)notifySignIn;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS_NAMED("_SNR_ClientSignOutSignal")
+@interface _SNR_ClientSignOutSignal : _SNR_BaseSignal
+@property (nonatomic, readonly, copy) NSString * _Nonnull REASON_KEY;
+- (void)notifySignOutWithReason:(enum SNRClientSessionEndReason)reason;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS_NAMED("_SNR_ClientUUIDChangeSignal")
+@interface _SNR_ClientUUIDChangeSignal : _SNR_BaseSignal
+@property (nonatomic, readonly, copy) NSString * _Nonnull STATE_KEY;
+@property (nonatomic, readonly, copy) NSString * _Nonnull CURRENT_UUID_KEY;
+@property (nonatomic, readonly, copy) NSString * _Nonnull REASON_KEY;
+- (void)notifyUUIDChangedIsBeforeCurrentUUIDString:(NSString * _Nonnull)currentUUIDString;
+- (void)notifyUUIDChangedWithReason:(enum SNRClientUUIDChangeSignalReason)reason;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
 
 SWIFT_CLASS_NAMED("_SNR_Constants")
 @interface _SNR_Constants : NSObject
 + (NSString * _Nonnull)LOCALIZABLE_STRING_KEY_OK SWIFT_WARN_UNUSED_RESULT;
 + (NSString * _Nonnull)LOCALIZABLE_STRING_KEY_CANCEL SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS_NAMED("_SNR_DataInconsistencySignal")
+@interface _SNR_DataInconsistencySignal : _SNR_BaseSignal
+- (void)notifyDataInconsistency;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -587,6 +706,7 @@ SWIFT_CLASS_NAMED("_SNR_DeviceInfoProvider")
 
 SWIFT_CLASS_NAMED("_SNR_DispatchUtils")
 @interface _SNR_DispatchUtils : NSObject
++ (dispatch_queue_t _Nonnull)getKeychainProcessingQueue SWIFT_WARN_UNUSED_RESULT;
 + (void)dispatchSyncBlockOnMainThread:(void (^ _Nonnull)(void))block;
 + (void)dispatchSyncBlockOnMainThread:(void (^ _Nonnull)(void))block ifMetCondition:(BOOL)condition;
 + (void)dispatchSyncBlock:(void (^ _Nonnull)(void))block onQueue:(dispatch_queue_t _Nonnull)queue;
@@ -653,11 +773,34 @@ SWIFT_CLASS_NAMED("_SNR_MobileOperatorInfoProvider")
 @end
 
 
+SWIFT_CLASS_NAMED("_SNR_PushRegistrationRequiredSignal")
+@interface _SNR_PushRegistrationRequiredSignal : _SNR_BaseSignal
+- (void)notifyPushRegistrationIsNeeded;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_PROTOCOL_NAMED("_SNR_SignalReceivable")
+@protocol _SNR_SignalReceivable
+- (void)signalReceived:(_SNR_BaseSignal * _Nonnull)_ parameters:(NSDictionary<NSString *, id> * _Nonnull)parameters;
+@end
+
+
 SWIFT_CLASS_NAMED("_SNR_SyneriseFrameworkInfoProvider")
 @interface _SNR_SyneriseFrameworkInfoProvider : NSObject
++ (void)setSharedModeEnabled:(BOOL)enabled;
 + (NSString * _Nonnull)bundleIdentifier SWIFT_WARN_UNUSED_RESULT;
 + (NSString * _Nonnull)SDKVersion SWIFT_WARN_UNUSED_RESULT;
 + (NSString * _Nullable)SDKPluginVersion SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS_NAMED("_SNR_SyneriseReinitializationSignal")
+@interface _SNR_SyneriseReinitializationSignal : _SNR_BaseSignal
+@property (nonatomic, readonly, copy) NSString * _Nonnull STATE_KEY;
+- (void)notifyReinitializationIsBefore;
+- (void)notifyReinitializationIsAfter;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -956,6 +1099,8 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 @import ObjectiveC;
 #endif
 
+#import <SyneriseSDK/SyneriseSDK.h>
+
 #endif
 #pragma clang diagnostic ignored "-Wproperty-attribute-mismatch"
 #pragma clang diagnostic ignored "-Wduplicate-method-arg"
@@ -1072,6 +1217,21 @@ SWIFT_CLASS_NAMED("NotificationsSettings")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+typedef SWIFT_ENUM(NSInteger, SNRClientUUIDChangeSignalReason, open) {
+  SNRClientUUIDChangeSignalReasonAuthentication = 0,
+  SNRClientUUIDChangeSignalReasonRegeneration = 1,
+};
+
+typedef SWIFT_ENUM(NSInteger, SNRClientUUIDChangeSignalState, open) {
+  SNRClientUUIDChangeSignalStateBefore = 0,
+  SNRClientUUIDChangeSignalStateAfter = 1,
+};
+
+typedef SWIFT_ENUM(NSInteger, SNRSyneriseReinitializationSignalState, open) {
+  SNRSyneriseReinitializationSignalStateBefore = 0,
+  SNRSyneriseReinitializationSignalStateAfter = 1,
+};
+
 @class SNRTrackerSettings;
 
 SWIFT_CLASS_NAMED("Settings")
@@ -1167,9 +1327,16 @@ SWIFT_CLASS_NAMED("TrackerSettings")
 @class _SNR_DeviceInfoProvider;
 @class _SNR_MobileOperatorInfoProvider;
 @class _SNR_ImageProvider;
+@class _SNR_ClientSignInSignal;
+@class _SNR_ClientSignOutSignal;
+@class _SNR_ClientUUIDChangeSignal;
+@class _SNR_DataInconsistencySignal;
+@class _SNR_PushRegistrationRequiredSignal;
+@class _SNR_SyneriseReinitializationSignal;
 @class _SNR_DispatchUtils;
 @class _SNR_DelegateUtils;
 @class _SNR_MiscUtils;
+@class _SNR_ClientManager;
 @class _SNR_BackgroundTaskManager;
 
 SWIFT_CLASS_NAMED("_SNR")
@@ -1190,12 +1357,26 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) _SNR_ImagePr
 + (_SNR_ImageProvider * _Nonnull)ImageProviderSingleton SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) _SNR_ImageProvider * _Nonnull ImageProviderNewInstance;)
 + (_SNR_ImageProvider * _Nonnull)ImageProviderNewInstance SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) _SNR_ClientSignInSignal * _Nonnull ClientSignInSignalSingleton;)
++ (_SNR_ClientSignInSignal * _Nonnull)ClientSignInSignalSingleton SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) _SNR_ClientSignOutSignal * _Nonnull ClientSignOutSignalSingleton;)
++ (_SNR_ClientSignOutSignal * _Nonnull)ClientSignOutSignalSingleton SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) _SNR_ClientUUIDChangeSignal * _Nonnull ClientUUIDChangeSignalSingleton;)
++ (_SNR_ClientUUIDChangeSignal * _Nonnull)ClientUUIDChangeSignalSingleton SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) _SNR_DataInconsistencySignal * _Nonnull DataInconsistencySignalSingleton;)
++ (_SNR_DataInconsistencySignal * _Nonnull)DataInconsistencySignalSingleton SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) _SNR_PushRegistrationRequiredSignal * _Nonnull PushRegistrationRequiredSignalSingleton;)
++ (_SNR_PushRegistrationRequiredSignal * _Nonnull)PushRegistrationRequiredSignalSingleton SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) _SNR_SyneriseReinitializationSignal * _Nonnull SyneriseReinitializationSignalSingleton;)
++ (_SNR_SyneriseReinitializationSignal * _Nonnull)SyneriseReinitializationSignalSingleton SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) SWIFT_METATYPE(_SNR_DispatchUtils) _Nonnull DispatchUtils;)
 + (SWIFT_METATYPE(_SNR_DispatchUtils) _Nonnull)DispatchUtils SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) SWIFT_METATYPE(_SNR_DelegateUtils) _Nonnull DelegateUtils;)
 + (SWIFT_METATYPE(_SNR_DelegateUtils) _Nonnull)DelegateUtils SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) SWIFT_METATYPE(_SNR_MiscUtils) _Nonnull MiscUtils;)
 + (SWIFT_METATYPE(_SNR_MiscUtils) _Nonnull)MiscUtils SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) _SNR_ClientManager * _Nonnull ClientManagerSingleton;)
++ (_SNR_ClientManager * _Nonnull)ClientManagerSingleton SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) _SNR_BackgroundTaskManager * _Nonnull BackgroundTaskManagerSingleton SWIFT_AVAILABILITY(ios,introduced=13);)
 + (_SNR_BackgroundTaskManager * _Nonnull)BackgroundTaskManagerSingleton SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
@@ -1211,6 +1392,14 @@ SWIFT_CLASS_NAMED("_SNR_BackgroundTaskManager") SWIFT_AVAILABILITY(ios,introduce
 @end
 
 
+SWIFT_CLASS_NAMED("_SNR_BaseSignal")
+@interface _SNR_BaseSignal : NSObject
+- (void)addReceiver:(id _Nonnull)receiver;
+- (void)removeReceiver:(id _Nonnull)receiver;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
 SWIFT_CLASS_NAMED("_SNR_ClientApplicationInfoProvider")
 @interface _SNR_ClientApplicationInfoProvider : NSObject
 + (NSString * _Nullable)applicationName SWIFT_WARN_UNUSED_RESULT;
@@ -1221,11 +1410,84 @@ SWIFT_CLASS_NAMED("_SNR_ClientApplicationInfoProvider")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class _SNR_ClientModel;
+@class NSUUID;
+
+SWIFT_CLASS_NAMED("_SNR_ClientManager")
+@interface _SNR_ClientManager : NSObject
+@property (nonatomic, strong) _SNR_ClientModel * _Null_unspecified client;
++ (void)setRecoveredClientUUID:(NSUUID * _Nullable)uuid;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+- (void)setClientId:(NSString * _Nullable)clientId;
+- (void)setCustomIdentifier:(NSString * _Nullable)customIdentifier;
+- (void)setCustomEmail:(NSString * _Nullable)customEmail;
+- (void)setClientLogin:(NSString * _Nullable)clientLogin;
+- (void)setClientUUID:(NSUUID * _Nullable)uuid;
+- (void)setNewAnonymousClient;
+- (void)setNewAnonymousClientWithClientIdentifier:(NSString * _Nullable)clientIdentifier;
+- (void)setNewClientWithRecoveredClientUUID:(NSUUID * _Nonnull)clientUUID;
+- (void)setNewInitialAnonymousClient;
+- (NSString * _Nonnull)getUUIDStringForAuthenticationWithAuthID:(NSString * _Nonnull)authID SWIFT_WARN_UNUSED_RESULT;
+- (NSString * _Nonnull)prepareSigningWithLogin:(NSString * _Nullable)login SWIFT_WARN_UNUSED_RESULT;
+- (NSString * _Nonnull)prepareSigningWithLogin:(NSString * _Nullable)login orUUIDString:(NSString * _Nullable)UUIDString SWIFT_WARN_UNUSED_RESULT;
+- (void)signingSuccess;
+- (void)signingFailure;
+@end
+
+
+SWIFT_CLASS_NAMED("_SNR_ClientModel")
+@interface _SNR_ClientModel : NSObject
+@property (nonatomic, copy) NSString * _Nullable clientId;
+@property (nonatomic, copy) NSUUID * _Nonnull uuid;
+@property (nonatomic, copy) NSString * _Nullable login;
+@property (nonatomic, copy) NSString * _Nullable identifier;
+@property (nonatomic, copy) NSString * _Nullable customIdentifier;
+@property (nonatomic, copy) NSString * _Nullable customEmail;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+- (NSString * _Nonnull)getUUIDString SWIFT_WARN_UNUSED_RESULT;
+- (NSDictionary<NSString *, id> * _Nonnull)toDictionary SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
+SWIFT_CLASS_NAMED("_SNR_ClientSignInSignal")
+@interface _SNR_ClientSignInSignal : _SNR_BaseSignal
+- (void)notifySignIn;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS_NAMED("_SNR_ClientSignOutSignal")
+@interface _SNR_ClientSignOutSignal : _SNR_BaseSignal
+@property (nonatomic, readonly, copy) NSString * _Nonnull REASON_KEY;
+- (void)notifySignOutWithReason:(enum SNRClientSessionEndReason)reason;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS_NAMED("_SNR_ClientUUIDChangeSignal")
+@interface _SNR_ClientUUIDChangeSignal : _SNR_BaseSignal
+@property (nonatomic, readonly, copy) NSString * _Nonnull STATE_KEY;
+@property (nonatomic, readonly, copy) NSString * _Nonnull CURRENT_UUID_KEY;
+@property (nonatomic, readonly, copy) NSString * _Nonnull REASON_KEY;
+- (void)notifyUUIDChangedIsBeforeCurrentUUIDString:(NSString * _Nonnull)currentUUIDString;
+- (void)notifyUUIDChangedWithReason:(enum SNRClientUUIDChangeSignalReason)reason;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
 
 SWIFT_CLASS_NAMED("_SNR_Constants")
 @interface _SNR_Constants : NSObject
 + (NSString * _Nonnull)LOCALIZABLE_STRING_KEY_OK SWIFT_WARN_UNUSED_RESULT;
 + (NSString * _Nonnull)LOCALIZABLE_STRING_KEY_CANCEL SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS_NAMED("_SNR_DataInconsistencySignal")
+@interface _SNR_DataInconsistencySignal : _SNR_BaseSignal
+- (void)notifyDataInconsistency;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -1258,6 +1520,7 @@ SWIFT_CLASS_NAMED("_SNR_DeviceInfoProvider")
 
 SWIFT_CLASS_NAMED("_SNR_DispatchUtils")
 @interface _SNR_DispatchUtils : NSObject
++ (dispatch_queue_t _Nonnull)getKeychainProcessingQueue SWIFT_WARN_UNUSED_RESULT;
 + (void)dispatchSyncBlockOnMainThread:(void (^ _Nonnull)(void))block;
 + (void)dispatchSyncBlockOnMainThread:(void (^ _Nonnull)(void))block ifMetCondition:(BOOL)condition;
 + (void)dispatchSyncBlock:(void (^ _Nonnull)(void))block onQueue:(dispatch_queue_t _Nonnull)queue;
@@ -1324,11 +1587,34 @@ SWIFT_CLASS_NAMED("_SNR_MobileOperatorInfoProvider")
 @end
 
 
+SWIFT_CLASS_NAMED("_SNR_PushRegistrationRequiredSignal")
+@interface _SNR_PushRegistrationRequiredSignal : _SNR_BaseSignal
+- (void)notifyPushRegistrationIsNeeded;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_PROTOCOL_NAMED("_SNR_SignalReceivable")
+@protocol _SNR_SignalReceivable
+- (void)signalReceived:(_SNR_BaseSignal * _Nonnull)_ parameters:(NSDictionary<NSString *, id> * _Nonnull)parameters;
+@end
+
+
 SWIFT_CLASS_NAMED("_SNR_SyneriseFrameworkInfoProvider")
 @interface _SNR_SyneriseFrameworkInfoProvider : NSObject
++ (void)setSharedModeEnabled:(BOOL)enabled;
 + (NSString * _Nonnull)bundleIdentifier SWIFT_WARN_UNUSED_RESULT;
 + (NSString * _Nonnull)SDKVersion SWIFT_WARN_UNUSED_RESULT;
 + (NSString * _Nullable)SDKPluginVersion SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS_NAMED("_SNR_SyneriseReinitializationSignal")
+@interface _SNR_SyneriseReinitializationSignal : _SNR_BaseSignal
+@property (nonatomic, readonly, copy) NSString * _Nonnull STATE_KEY;
+- (void)notifyReinitializationIsBefore;
+- (void)notifyReinitializationIsAfter;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 

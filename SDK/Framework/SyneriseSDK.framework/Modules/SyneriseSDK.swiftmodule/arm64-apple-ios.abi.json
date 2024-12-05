@@ -21,6 +21,35 @@
         "children": [
           {
             "kind": "Function",
+            "name": "setSharedModeEnabled",
+            "printedName": "setSharedModeEnabled(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_SyneriseFrameworkInfoProvider(cm)setSharedModeEnabled:",
+            "mangledName": "$s11SyneriseSDK05_SNR_A21FrameworkInfoProviderC20setSharedModeEnabledyySbFZ",
+            "moduleName": "SyneriseSDK",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
             "name": "bundleIdentifier",
             "printedName": "bundleIdentifier()",
             "children": [
@@ -39,8 +68,7 @@
             "declAttributes": [
               "Final",
               "AccessControl",
-              "ObjC",
-              "RawDocComment"
+              "ObjC"
             ],
             "funcSelfKind": "NonMutating"
           },
@@ -1074,6 +1102,264 @@
       },
       {
         "kind": "TypeDecl",
+        "name": "_SNR_SignalReceivable",
+        "printedName": "_SNR_SignalReceivable",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "signalReceived",
+            "printedName": "signalReceived(_:parameters:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "_SNR_BaseSignal",
+                "printedName": "SyneriseSDK._SNR_BaseSignal",
+                "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_BaseSignal"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Dictionary",
+                "printedName": "[Swift.String : Any]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ],
+                "usr": "s:SD"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@SyneriseSDK@objc(pl)_SNR_SignalReceivable(im)signalReceived:parameters:",
+            "mangledName": "$s11SyneriseSDK21_SNR_SignalReceivableP14signalReceived_10parametersyAA01_c5_BaseD0C_SDySSypGtF",
+            "moduleName": "SyneriseSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : SyneriseSDK._SNR_SignalReceivable>",
+            "sugared_genericSig": "<Self where Self : SyneriseSDK._SNR_SignalReceivable>",
+            "protocolReq": true,
+            "declAttributes": [
+              "ObjC"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "c:@M@SyneriseSDK@objc(pl)_SNR_SignalReceivable",
+        "mangledName": "$s11SyneriseSDK21_SNR_SignalReceivableP",
+        "moduleName": "SyneriseSDK",
+        "genericSig": "<τ_0_0 : AnyObject>",
+        "sugared_genericSig": "<Self : AnyObject>",
+        "objc_name": "_SNR_SignalReceivable",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "_SNR_BaseSignal",
+        "printedName": "_SNR_BaseSignal",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "addReceiver",
+            "printedName": "addReceiver(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "ProtocolComposition",
+                "printedName": "AnyObject"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_BaseSignal(im)addReceiver:",
+            "mangledName": "$s11SyneriseSDK15_SNR_BaseSignalC11addReceiveryyyXlF",
+            "moduleName": "SyneriseSDK",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "removeReceiver",
+            "printedName": "removeReceiver(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "ProtocolComposition",
+                "printedName": "AnyObject"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_BaseSignal(im)removeReceiver:",
+            "mangledName": "$s11SyneriseSDK15_SNR_BaseSignalC14removeReceiveryyyXlF",
+            "moduleName": "SyneriseSDK",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "_SNR_BaseSignal",
+                "printedName": "SyneriseSDK._SNR_BaseSignal",
+                "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_BaseSignal"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_BaseSignal(im)init",
+            "mangledName": "$s11SyneriseSDK15_SNR_BaseSignalCACycfc",
+            "moduleName": "SyneriseSDK",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_BaseSignal",
+        "mangledName": "$s11SyneriseSDK15_SNR_BaseSignalC",
+        "moduleName": "SyneriseSDK",
+        "objc_name": "_SNR_BaseSignal",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "SyneriseSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
         "name": "InjectorSettings",
         "printedName": "InjectorSettings",
         "children": [
@@ -1271,6 +1557,26 @@
             "usr": "s:s28CustomDebugStringConvertibleP",
             "mangledName": "$ss28CustomDebugStringConvertibleP"
           }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "SyneriseSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "SyneriseSDK",
+        "declAttributes": [
+          "RawDocComment"
         ]
       },
       {
@@ -4060,6 +4366,26 @@
       },
       {
         "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "SyneriseSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "SyneriseSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
         "name": "CoreTelephony",
         "printedName": "CoreTelephony",
         "declKind": "Import",
@@ -4411,6 +4737,16 @@
             "usr": "s:s28CustomDebugStringConvertibleP",
             "mangledName": "$ss28CustomDebugStringConvertibleP"
           }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "SyneriseSDK",
+        "declAttributes": [
+          "RawDocComment"
         ]
       },
       {
@@ -4962,6 +5298,26 @@
       },
       {
         "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "SyneriseSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "SyneriseSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
         "name": "BackgroundTasks",
         "printedName": "BackgroundTasks",
         "declKind": "Import",
@@ -5131,6 +5487,16 @@
             "usr": "s:s28CustomDebugStringConvertibleP",
             "mangledName": "$ss28CustomDebugStringConvertibleP"
           }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "SyneriseSDK",
+        "declAttributes": [
+          "RawDocComment"
         ]
       },
       {
@@ -5539,6 +5905,986 @@
         ]
       },
       {
+        "kind": "TypeDecl",
+        "name": "SNRClientUUIDChangeSignalState",
+        "printedName": "SNRClientUUIDChangeSignalState",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "before",
+            "printedName": "before",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(SyneriseSDK.SNRClientUUIDChangeSignalState.Type) -> SyneriseSDK.SNRClientUUIDChangeSignalState",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "SNRClientUUIDChangeSignalState",
+                    "printedName": "SyneriseSDK.SNRClientUUIDChangeSignalState",
+                    "usr": "c:@M@SyneriseSDK@E@SNRClientUUIDChangeSignalState"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "SyneriseSDK.SNRClientUUIDChangeSignalState.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "SNRClientUUIDChangeSignalState",
+                        "printedName": "SyneriseSDK.SNRClientUUIDChangeSignalState",
+                        "usr": "c:@M@SyneriseSDK@E@SNRClientUUIDChangeSignalState"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@SyneriseSDK@E@SNRClientUUIDChangeSignalState@SNRClientUUIDChangeSignalStateBefore",
+            "mangledName": "$s11SyneriseSDK30SNRClientUUIDChangeSignalStateO6beforeyA2CmF",
+            "moduleName": "SyneriseSDK",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 0
+          },
+          {
+            "kind": "Var",
+            "name": "after",
+            "printedName": "after",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(SyneriseSDK.SNRClientUUIDChangeSignalState.Type) -> SyneriseSDK.SNRClientUUIDChangeSignalState",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "SNRClientUUIDChangeSignalState",
+                    "printedName": "SyneriseSDK.SNRClientUUIDChangeSignalState",
+                    "usr": "c:@M@SyneriseSDK@E@SNRClientUUIDChangeSignalState"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "SyneriseSDK.SNRClientUUIDChangeSignalState.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "SNRClientUUIDChangeSignalState",
+                        "printedName": "SyneriseSDK.SNRClientUUIDChangeSignalState",
+                        "usr": "c:@M@SyneriseSDK@E@SNRClientUUIDChangeSignalState"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@SyneriseSDK@E@SNRClientUUIDChangeSignalState@SNRClientUUIDChangeSignalStateAfter",
+            "mangledName": "$s11SyneriseSDK30SNRClientUUIDChangeSignalStateO5afteryA2CmF",
+            "moduleName": "SyneriseSDK",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 1
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(rawValue:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "SyneriseSDK.SNRClientUUIDChangeSignalState?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "SNRClientUUIDChangeSignalState",
+                    "printedName": "SyneriseSDK.SNRClientUUIDChangeSignalState",
+                    "usr": "c:@M@SyneriseSDK@E@SNRClientUUIDChangeSignalState"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:11SyneriseSDK30SNRClientUUIDChangeSignalStateO8rawValueACSgSi_tcfc",
+            "mangledName": "$s11SyneriseSDK30SNRClientUUIDChangeSignalStateO8rawValueACSgSi_tcfc",
+            "moduleName": "SyneriseSDK",
+            "implicit": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "rawValue",
+            "printedName": "rawValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11SyneriseSDK30SNRClientUUIDChangeSignalStateO8rawValueSivp",
+            "mangledName": "$s11SyneriseSDK30SNRClientUUIDChangeSignalStateO8rawValueSivp",
+            "moduleName": "SyneriseSDK",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11SyneriseSDK30SNRClientUUIDChangeSignalStateO8rawValueSivg",
+                "mangledName": "$s11SyneriseSDK30SNRClientUUIDChangeSignalStateO8rawValueSivg",
+                "moduleName": "SyneriseSDK",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "c:@M@SyneriseSDK@E@SNRClientUUIDChangeSignalState",
+        "mangledName": "$s11SyneriseSDK30SNRClientUUIDChangeSignalStateO",
+        "moduleName": "SyneriseSDK",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC"
+        ],
+        "enumRawTypeName": "Int",
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "RawRepresentable",
+            "printedName": "RawRepresentable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "RawValue",
+                "printedName": "RawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:SY",
+            "mangledName": "$sSY"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "SNRClientUUIDChangeSignalReason",
+        "printedName": "SNRClientUUIDChangeSignalReason",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "authentication",
+            "printedName": "authentication",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(SyneriseSDK.SNRClientUUIDChangeSignalReason.Type) -> SyneriseSDK.SNRClientUUIDChangeSignalReason",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "SNRClientUUIDChangeSignalReason",
+                    "printedName": "SyneriseSDK.SNRClientUUIDChangeSignalReason",
+                    "usr": "c:@M@SyneriseSDK@E@SNRClientUUIDChangeSignalReason"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "SyneriseSDK.SNRClientUUIDChangeSignalReason.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "SNRClientUUIDChangeSignalReason",
+                        "printedName": "SyneriseSDK.SNRClientUUIDChangeSignalReason",
+                        "usr": "c:@M@SyneriseSDK@E@SNRClientUUIDChangeSignalReason"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@SyneriseSDK@E@SNRClientUUIDChangeSignalReason@SNRClientUUIDChangeSignalReasonAuthentication",
+            "mangledName": "$s11SyneriseSDK31SNRClientUUIDChangeSignalReasonO14authenticationyA2CmF",
+            "moduleName": "SyneriseSDK",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 0
+          },
+          {
+            "kind": "Var",
+            "name": "regeneration",
+            "printedName": "regeneration",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(SyneriseSDK.SNRClientUUIDChangeSignalReason.Type) -> SyneriseSDK.SNRClientUUIDChangeSignalReason",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "SNRClientUUIDChangeSignalReason",
+                    "printedName": "SyneriseSDK.SNRClientUUIDChangeSignalReason",
+                    "usr": "c:@M@SyneriseSDK@E@SNRClientUUIDChangeSignalReason"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "SyneriseSDK.SNRClientUUIDChangeSignalReason.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "SNRClientUUIDChangeSignalReason",
+                        "printedName": "SyneriseSDK.SNRClientUUIDChangeSignalReason",
+                        "usr": "c:@M@SyneriseSDK@E@SNRClientUUIDChangeSignalReason"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@SyneriseSDK@E@SNRClientUUIDChangeSignalReason@SNRClientUUIDChangeSignalReasonRegeneration",
+            "mangledName": "$s11SyneriseSDK31SNRClientUUIDChangeSignalReasonO12regenerationyA2CmF",
+            "moduleName": "SyneriseSDK",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 1
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(rawValue:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "SyneriseSDK.SNRClientUUIDChangeSignalReason?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "SNRClientUUIDChangeSignalReason",
+                    "printedName": "SyneriseSDK.SNRClientUUIDChangeSignalReason",
+                    "usr": "c:@M@SyneriseSDK@E@SNRClientUUIDChangeSignalReason"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:11SyneriseSDK31SNRClientUUIDChangeSignalReasonO8rawValueACSgSi_tcfc",
+            "mangledName": "$s11SyneriseSDK31SNRClientUUIDChangeSignalReasonO8rawValueACSgSi_tcfc",
+            "moduleName": "SyneriseSDK",
+            "implicit": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "rawValue",
+            "printedName": "rawValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11SyneriseSDK31SNRClientUUIDChangeSignalReasonO8rawValueSivp",
+            "mangledName": "$s11SyneriseSDK31SNRClientUUIDChangeSignalReasonO8rawValueSivp",
+            "moduleName": "SyneriseSDK",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11SyneriseSDK31SNRClientUUIDChangeSignalReasonO8rawValueSivg",
+                "mangledName": "$s11SyneriseSDK31SNRClientUUIDChangeSignalReasonO8rawValueSivg",
+                "moduleName": "SyneriseSDK",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "c:@M@SyneriseSDK@E@SNRClientUUIDChangeSignalReason",
+        "mangledName": "$s11SyneriseSDK31SNRClientUUIDChangeSignalReasonO",
+        "moduleName": "SyneriseSDK",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC"
+        ],
+        "enumRawTypeName": "Int",
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "RawRepresentable",
+            "printedName": "RawRepresentable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "RawValue",
+                "printedName": "RawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:SY",
+            "mangledName": "$sSY"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "_SNR_ClientUUIDChangeSignal",
+        "printedName": "_SNR_ClientUUIDChangeSignal",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "STATE_KEY",
+            "printedName": "STATE_KEY",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_ClientUUIDChangeSignal(py)STATE_KEY",
+            "mangledName": "$s11SyneriseSDK27_SNR_ClientUUIDChangeSignalC9STATE_KEYSSvp",
+            "moduleName": "SyneriseSDK",
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_ClientUUIDChangeSignal(im)STATE_KEY",
+                "mangledName": "$s11SyneriseSDK27_SNR_ClientUUIDChangeSignalC9STATE_KEYSSvg",
+                "moduleName": "SyneriseSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "CURRENT_UUID_KEY",
+            "printedName": "CURRENT_UUID_KEY",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_ClientUUIDChangeSignal(py)CURRENT_UUID_KEY",
+            "mangledName": "$s11SyneriseSDK27_SNR_ClientUUIDChangeSignalC16CURRENT_UUID_KEYSSvp",
+            "moduleName": "SyneriseSDK",
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_ClientUUIDChangeSignal(im)CURRENT_UUID_KEY",
+                "mangledName": "$s11SyneriseSDK27_SNR_ClientUUIDChangeSignalC16CURRENT_UUID_KEYSSvg",
+                "moduleName": "SyneriseSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "REASON_KEY",
+            "printedName": "REASON_KEY",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_ClientUUIDChangeSignal(py)REASON_KEY",
+            "mangledName": "$s11SyneriseSDK27_SNR_ClientUUIDChangeSignalC10REASON_KEYSSvp",
+            "moduleName": "SyneriseSDK",
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_ClientUUIDChangeSignal(im)REASON_KEY",
+                "mangledName": "$s11SyneriseSDK27_SNR_ClientUUIDChangeSignalC10REASON_KEYSSvg",
+                "moduleName": "SyneriseSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "notifyUUIDChangedIsBefore",
+            "printedName": "notifyUUIDChangedIsBefore(currentUUIDString:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_ClientUUIDChangeSignal(im)notifyUUIDChangedIsBeforeCurrentUUIDString:",
+            "mangledName": "$s11SyneriseSDK27_SNR_ClientUUIDChangeSignalC25notifyUUIDChangedIsBefore17currentUUIDStringySS_tF",
+            "moduleName": "SyneriseSDK",
+            "objc_name": "notifyUUIDChangedIsBeforeCurrentUUIDString:",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "notifyUUIDChanged",
+            "printedName": "notifyUUIDChanged(withReason:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "SNRClientUUIDChangeSignalReason",
+                "printedName": "SyneriseSDK.SNRClientUUIDChangeSignalReason",
+                "usr": "c:@M@SyneriseSDK@E@SNRClientUUIDChangeSignalReason"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_ClientUUIDChangeSignal(im)notifyUUIDChangedWithReason:",
+            "mangledName": "$s11SyneriseSDK27_SNR_ClientUUIDChangeSignalC17notifyUUIDChanged10withReasonyAA09SNRClientefJ0O_tF",
+            "moduleName": "SyneriseSDK",
+            "objc_name": "notifyUUIDChangedWithReason:",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "_SNR_ClientUUIDChangeSignal",
+                "printedName": "SyneriseSDK._SNR_ClientUUIDChangeSignal",
+                "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_ClientUUIDChangeSignal"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_ClientUUIDChangeSignal(im)init",
+            "mangledName": "$s11SyneriseSDK27_SNR_ClientUUIDChangeSignalCACycfc",
+            "moduleName": "SyneriseSDK",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_ClientUUIDChangeSignal",
+        "mangledName": "$s11SyneriseSDK27_SNR_ClientUUIDChangeSignalC",
+        "moduleName": "SyneriseSDK",
+        "objc_name": "_SNR_ClientUUIDChangeSignal",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC"
+        ],
+        "superclassUsr": "c:@M@SyneriseSDK@objc(cs)_SNR_BaseSignal",
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "SyneriseSDK._SNR_BaseSignal",
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "SyneriseSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "SyneriseSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "_SNR_ClientSignOutSignal",
+        "printedName": "_SNR_ClientSignOutSignal",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "REASON_KEY",
+            "printedName": "REASON_KEY",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_ClientSignOutSignal(py)REASON_KEY",
+            "mangledName": "$s11SyneriseSDK24_SNR_ClientSignOutSignalC10REASON_KEYSSvp",
+            "moduleName": "SyneriseSDK",
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_ClientSignOutSignal(im)REASON_KEY",
+                "mangledName": "$s11SyneriseSDK24_SNR_ClientSignOutSignalC10REASON_KEYSSvg",
+                "moduleName": "SyneriseSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "notifySignOut",
+            "printedName": "notifySignOut(withReason:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "ClientSessionEndReason",
+                "printedName": "SyneriseSDK.ClientSessionEndReason",
+                "usr": "c:@E@SNRClientSessionEndReason"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_ClientSignOutSignal(im)notifySignOutWithReason:",
+            "mangledName": "$s11SyneriseSDK24_SNR_ClientSignOutSignalC06notifyeF010withReasonySo019SNRClientSessionEndJ0V_tF",
+            "moduleName": "SyneriseSDK",
+            "objc_name": "notifySignOutWithReason:",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "_SNR_ClientSignOutSignal",
+                "printedName": "SyneriseSDK._SNR_ClientSignOutSignal",
+                "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_ClientSignOutSignal"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_ClientSignOutSignal(im)init",
+            "mangledName": "$s11SyneriseSDK24_SNR_ClientSignOutSignalCACycfc",
+            "moduleName": "SyneriseSDK",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_ClientSignOutSignal",
+        "mangledName": "$s11SyneriseSDK24_SNR_ClientSignOutSignalC",
+        "moduleName": "SyneriseSDK",
+        "objc_name": "_SNR_ClientSignOutSignal",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC"
+        ],
+        "superclassUsr": "c:@M@SyneriseSDK@objc(cs)_SNR_BaseSignal",
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "SyneriseSDK._SNR_BaseSignal",
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
         "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
@@ -5934,6 +7280,1621 @@
         "moduleName": "SyneriseSDK",
         "declAttributes": [
           "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "SNRSyneriseReinitializationSignalState",
+        "printedName": "SNRSyneriseReinitializationSignalState",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "before",
+            "printedName": "before",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(SyneriseSDK.SNRSyneriseReinitializationSignalState.Type) -> SyneriseSDK.SNRSyneriseReinitializationSignalState",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "SNRSyneriseReinitializationSignalState",
+                    "printedName": "SyneriseSDK.SNRSyneriseReinitializationSignalState",
+                    "usr": "c:@M@SyneriseSDK@E@SNRSyneriseReinitializationSignalState"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "SyneriseSDK.SNRSyneriseReinitializationSignalState.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "SNRSyneriseReinitializationSignalState",
+                        "printedName": "SyneriseSDK.SNRSyneriseReinitializationSignalState",
+                        "usr": "c:@M@SyneriseSDK@E@SNRSyneriseReinitializationSignalState"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@SyneriseSDK@E@SNRSyneriseReinitializationSignalState@SNRSyneriseReinitializationSignalStateBefore",
+            "mangledName": "$s11SyneriseSDK38SNRSyneriseReinitializationSignalStateO6beforeyA2CmF",
+            "moduleName": "SyneriseSDK",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 0
+          },
+          {
+            "kind": "Var",
+            "name": "after",
+            "printedName": "after",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(SyneriseSDK.SNRSyneriseReinitializationSignalState.Type) -> SyneriseSDK.SNRSyneriseReinitializationSignalState",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "SNRSyneriseReinitializationSignalState",
+                    "printedName": "SyneriseSDK.SNRSyneriseReinitializationSignalState",
+                    "usr": "c:@M@SyneriseSDK@E@SNRSyneriseReinitializationSignalState"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "SyneriseSDK.SNRSyneriseReinitializationSignalState.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "SNRSyneriseReinitializationSignalState",
+                        "printedName": "SyneriseSDK.SNRSyneriseReinitializationSignalState",
+                        "usr": "c:@M@SyneriseSDK@E@SNRSyneriseReinitializationSignalState"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@SyneriseSDK@E@SNRSyneriseReinitializationSignalState@SNRSyneriseReinitializationSignalStateAfter",
+            "mangledName": "$s11SyneriseSDK38SNRSyneriseReinitializationSignalStateO5afteryA2CmF",
+            "moduleName": "SyneriseSDK",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 1
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(rawValue:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "SyneriseSDK.SNRSyneriseReinitializationSignalState?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "SNRSyneriseReinitializationSignalState",
+                    "printedName": "SyneriseSDK.SNRSyneriseReinitializationSignalState",
+                    "usr": "c:@M@SyneriseSDK@E@SNRSyneriseReinitializationSignalState"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:11SyneriseSDK38SNRSyneriseReinitializationSignalStateO8rawValueACSgSi_tcfc",
+            "mangledName": "$s11SyneriseSDK38SNRSyneriseReinitializationSignalStateO8rawValueACSgSi_tcfc",
+            "moduleName": "SyneriseSDK",
+            "implicit": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "rawValue",
+            "printedName": "rawValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11SyneriseSDK38SNRSyneriseReinitializationSignalStateO8rawValueSivp",
+            "mangledName": "$s11SyneriseSDK38SNRSyneriseReinitializationSignalStateO8rawValueSivp",
+            "moduleName": "SyneriseSDK",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11SyneriseSDK38SNRSyneriseReinitializationSignalStateO8rawValueSivg",
+                "mangledName": "$s11SyneriseSDK38SNRSyneriseReinitializationSignalStateO8rawValueSivg",
+                "moduleName": "SyneriseSDK",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "c:@M@SyneriseSDK@E@SNRSyneriseReinitializationSignalState",
+        "mangledName": "$s11SyneriseSDK38SNRSyneriseReinitializationSignalStateO",
+        "moduleName": "SyneriseSDK",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC"
+        ],
+        "enumRawTypeName": "Int",
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "RawRepresentable",
+            "printedName": "RawRepresentable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "RawValue",
+                "printedName": "RawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:SY",
+            "mangledName": "$sSY"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "_SNR_SyneriseReinitializationSignal",
+        "printedName": "_SNR_SyneriseReinitializationSignal",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "STATE_KEY",
+            "printedName": "STATE_KEY",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_SyneriseReinitializationSignal(py)STATE_KEY",
+            "mangledName": "$s11SyneriseSDK05_SNR_A22ReinitializationSignalC9STATE_KEYSSvp",
+            "moduleName": "SyneriseSDK",
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_SyneriseReinitializationSignal(im)STATE_KEY",
+                "mangledName": "$s11SyneriseSDK05_SNR_A22ReinitializationSignalC9STATE_KEYSSvg",
+                "moduleName": "SyneriseSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "notifyReinitializationIsBefore",
+            "printedName": "notifyReinitializationIsBefore()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_SyneriseReinitializationSignal(im)notifyReinitializationIsBefore",
+            "mangledName": "$s11SyneriseSDK05_SNR_A22ReinitializationSignalC06notifyD8IsBeforeyyF",
+            "moduleName": "SyneriseSDK",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "notifyReinitializationIsAfter",
+            "printedName": "notifyReinitializationIsAfter()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_SyneriseReinitializationSignal(im)notifyReinitializationIsAfter",
+            "mangledName": "$s11SyneriseSDK05_SNR_A22ReinitializationSignalC06notifyD7IsAfteryyF",
+            "moduleName": "SyneriseSDK",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "_SNR_SyneriseReinitializationSignal",
+                "printedName": "SyneriseSDK._SNR_SyneriseReinitializationSignal",
+                "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_SyneriseReinitializationSignal"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_SyneriseReinitializationSignal(im)init",
+            "mangledName": "$s11SyneriseSDK05_SNR_A22ReinitializationSignalCACycfc",
+            "moduleName": "SyneriseSDK",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_SyneriseReinitializationSignal",
+        "mangledName": "$s11SyneriseSDK05_SNR_A22ReinitializationSignalC",
+        "moduleName": "SyneriseSDK",
+        "objc_name": "_SNR_SyneriseReinitializationSignal",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC"
+        ],
+        "superclassUsr": "c:@M@SyneriseSDK@objc(cs)_SNR_BaseSignal",
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "SyneriseSDK._SNR_BaseSignal",
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "SyneriseSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "SyneriseSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "SyneriseSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "_SNR_ClientSignInSignal",
+        "printedName": "_SNR_ClientSignInSignal",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "notifySignIn",
+            "printedName": "notifySignIn()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_ClientSignInSignal(im)notifySignIn",
+            "mangledName": "$s11SyneriseSDK23_SNR_ClientSignInSignalC06notifyeF0yyF",
+            "moduleName": "SyneriseSDK",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "_SNR_ClientSignInSignal",
+                "printedName": "SyneriseSDK._SNR_ClientSignInSignal",
+                "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_ClientSignInSignal"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_ClientSignInSignal(im)init",
+            "mangledName": "$s11SyneriseSDK23_SNR_ClientSignInSignalCACycfc",
+            "moduleName": "SyneriseSDK",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_ClientSignInSignal",
+        "mangledName": "$s11SyneriseSDK23_SNR_ClientSignInSignalC",
+        "moduleName": "SyneriseSDK",
+        "objc_name": "_SNR_ClientSignInSignal",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC"
+        ],
+        "superclassUsr": "c:@M@SyneriseSDK@objc(cs)_SNR_BaseSignal",
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "SyneriseSDK._SNR_BaseSignal",
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "SyneriseSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "_SNR_ClientManager",
+        "printedName": "_SNR_ClientManager",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "client",
+            "printedName": "client",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ImplicitlyUnwrappedOptional",
+                "printedName": "SyneriseSDK._SNR_ClientModel?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "_SNR_ClientModel",
+                    "printedName": "SyneriseSDK._SNR_ClientModel",
+                    "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_ClientModel"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_ClientManager(py)client",
+            "mangledName": "$s11SyneriseSDK18_SNR_ClientManagerC6clientAA01_c1_D5ModelCSgvp",
+            "moduleName": "SyneriseSDK",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ImplicitlyUnwrappedOptional",
+                    "printedName": "SyneriseSDK._SNR_ClientModel?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "_SNR_ClientModel",
+                        "printedName": "SyneriseSDK._SNR_ClientModel",
+                        "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_ClientModel"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_ClientManager(im)client",
+                "mangledName": "$s11SyneriseSDK18_SNR_ClientManagerC6clientAA01_c1_D5ModelCSgvg",
+                "moduleName": "SyneriseSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ImplicitlyUnwrappedOptional",
+                    "printedName": "SyneriseSDK._SNR_ClientModel?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "_SNR_ClientModel",
+                        "printedName": "SyneriseSDK._SNR_ClientModel",
+                        "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_ClientModel"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_ClientManager(im)setClient:",
+                "mangledName": "$s11SyneriseSDK18_SNR_ClientManagerC6clientAA01_c1_D5ModelCSgvs",
+                "moduleName": "SyneriseSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11SyneriseSDK18_SNR_ClientManagerC6clientAA01_c1_D5ModelCSgvM",
+                "mangledName": "$s11SyneriseSDK18_SNR_ClientManagerC6clientAA01_c1_D5ModelCSgvM",
+                "moduleName": "SyneriseSDK",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "setRecoveredClientUUID",
+            "printedName": "setRecoveredClientUUID(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Foundation.UUID?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UUID",
+                    "printedName": "Foundation.UUID",
+                    "usr": "s:10Foundation4UUIDV"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_ClientManager(cm)setRecoveredClientUUID:",
+            "mangledName": "$s11SyneriseSDK18_SNR_ClientManagerC012setRecoveredD4UUIDyy10Foundation0H0VSgFZ",
+            "moduleName": "SyneriseSDK",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "setClientId",
+            "printedName": "setClientId(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_ClientManager(im)setClientId:",
+            "mangledName": "$s11SyneriseSDK18_SNR_ClientManagerC03setD2IdyySSSgF",
+            "moduleName": "SyneriseSDK",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "setCustomIdentifier",
+            "printedName": "setCustomIdentifier(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_ClientManager(im)setCustomIdentifier:",
+            "mangledName": "$s11SyneriseSDK18_SNR_ClientManagerC19setCustomIdentifieryySSSgF",
+            "moduleName": "SyneriseSDK",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "setCustomEmail",
+            "printedName": "setCustomEmail(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_ClientManager(im)setCustomEmail:",
+            "mangledName": "$s11SyneriseSDK18_SNR_ClientManagerC14setCustomEmailyySSSgF",
+            "moduleName": "SyneriseSDK",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "setClientLogin",
+            "printedName": "setClientLogin(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_ClientManager(im)setClientLogin:",
+            "mangledName": "$s11SyneriseSDK18_SNR_ClientManagerC03setD5LoginyySSSgF",
+            "moduleName": "SyneriseSDK",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "setClientUUID",
+            "printedName": "setClientUUID(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Foundation.UUID?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UUID",
+                    "printedName": "Foundation.UUID",
+                    "usr": "s:10Foundation4UUIDV"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_ClientManager(im)setClientUUID:",
+            "mangledName": "$s11SyneriseSDK18_SNR_ClientManagerC03setD4UUIDyy10Foundation0G0VSgF",
+            "moduleName": "SyneriseSDK",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "setNewAnonymousClient",
+            "printedName": "setNewAnonymousClient()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_ClientManager(im)setNewAnonymousClient",
+            "mangledName": "$s11SyneriseSDK18_SNR_ClientManagerC015setNewAnonymousD0yyF",
+            "moduleName": "SyneriseSDK",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "setNewAnonymousClientWithClientIdentifier",
+            "printedName": "setNewAnonymousClientWithClientIdentifier(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_ClientManager(im)setNewAnonymousClientWithClientIdentifier:",
+            "mangledName": "$s11SyneriseSDK18_SNR_ClientManagerC015setNewAnonymousd4WithD10IdentifieryySSSgF",
+            "moduleName": "SyneriseSDK",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "setNewClientWithRecoveredClientUUID",
+            "printedName": "setNewClientWithRecoveredClientUUID(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UUID",
+                "printedName": "Foundation.UUID",
+                "usr": "s:10Foundation4UUIDV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_ClientManager(im)setNewClientWithRecoveredClientUUID:",
+            "mangledName": "$s11SyneriseSDK18_SNR_ClientManagerC06setNewd13WithRecoveredD4UUIDyy10Foundation0J0VF",
+            "moduleName": "SyneriseSDK",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "setNewInitialAnonymousClient",
+            "printedName": "setNewInitialAnonymousClient()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_ClientManager(im)setNewInitialAnonymousClient",
+            "mangledName": "$s11SyneriseSDK18_SNR_ClientManagerC022setNewInitialAnonymousD0yyF",
+            "moduleName": "SyneriseSDK",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "getUUIDStringForAuthentication",
+            "printedName": "getUUIDStringForAuthentication(withAuthID:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_ClientManager(im)getUUIDStringForAuthenticationWithAuthID:",
+            "mangledName": "$s11SyneriseSDK18_SNR_ClientManagerC30getUUIDStringForAuthentication10withAuthIDS2S_tF",
+            "moduleName": "SyneriseSDK",
+            "objc_name": "getUUIDStringForAuthenticationWithAuthID:",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "prepareSigning",
+            "printedName": "prepareSigning(withLogin:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_ClientManager(im)prepareSigningWithLogin:",
+            "mangledName": "$s11SyneriseSDK18_SNR_ClientManagerC14prepareSigning9withLoginS2SSg_tF",
+            "moduleName": "SyneriseSDK",
+            "objc_name": "prepareSigningWithLogin:",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "prepareSigning",
+            "printedName": "prepareSigning(withLogin:orUUIDString:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_ClientManager(im)prepareSigningWithLogin:orUUIDString:",
+            "mangledName": "$s11SyneriseSDK18_SNR_ClientManagerC14prepareSigning9withLogin12orUUIDStringS2SSg_AGtF",
+            "moduleName": "SyneriseSDK",
+            "objc_name": "prepareSigningWithLogin:orUUIDString:",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "signingSuccess",
+            "printedName": "signingSuccess()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_ClientManager(im)signingSuccess",
+            "mangledName": "$s11SyneriseSDK18_SNR_ClientManagerC14signingSuccessyyF",
+            "moduleName": "SyneriseSDK",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "signingFailure",
+            "printedName": "signingFailure()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_ClientManager(im)signingFailure",
+            "mangledName": "$s11SyneriseSDK18_SNR_ClientManagerC14signingFailureyyF",
+            "moduleName": "SyneriseSDK",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_ClientManager",
+        "mangledName": "$s11SyneriseSDK18_SNR_ClientManagerC",
+        "moduleName": "SyneriseSDK",
+        "objc_name": "_SNR_ClientManager",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "hasMissingDesignatedInitializers": true,
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "SyneriseSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "SyneriseSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "SyneriseSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "SyneriseSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "_SNR_DataInconsistencySignal",
+        "printedName": "_SNR_DataInconsistencySignal",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "notifyDataInconsistency",
+            "printedName": "notifyDataInconsistency()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_DataInconsistencySignal(im)notifyDataInconsistency",
+            "mangledName": "$s11SyneriseSDK28_SNR_DataInconsistencySignalC06notifydE0yyF",
+            "moduleName": "SyneriseSDK",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "_SNR_DataInconsistencySignal",
+                "printedName": "SyneriseSDK._SNR_DataInconsistencySignal",
+                "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_DataInconsistencySignal"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_DataInconsistencySignal(im)init",
+            "mangledName": "$s11SyneriseSDK28_SNR_DataInconsistencySignalCACycfc",
+            "moduleName": "SyneriseSDK",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_DataInconsistencySignal",
+        "mangledName": "$s11SyneriseSDK28_SNR_DataInconsistencySignalC",
+        "moduleName": "SyneriseSDK",
+        "objc_name": "_SNR_DataInconsistencySignal",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC"
+        ],
+        "superclassUsr": "c:@M@SyneriseSDK@objc(cs)_SNR_BaseSignal",
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "SyneriseSDK._SNR_BaseSignal",
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "SyneriseSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "SyneriseSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "_SNR_PushRegistrationRequiredSignal",
+        "printedName": "_SNR_PushRegistrationRequiredSignal",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "notifyPushRegistrationIsNeeded",
+            "printedName": "notifyPushRegistrationIsNeeded()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_PushRegistrationRequiredSignal(im)notifyPushRegistrationIsNeeded",
+            "mangledName": "$s11SyneriseSDK35_SNR_PushRegistrationRequiredSignalC06notifydE8IsNeededyyF",
+            "moduleName": "SyneriseSDK",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "_SNR_PushRegistrationRequiredSignal",
+                "printedName": "SyneriseSDK._SNR_PushRegistrationRequiredSignal",
+                "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_PushRegistrationRequiredSignal"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_PushRegistrationRequiredSignal(im)init",
+            "mangledName": "$s11SyneriseSDK35_SNR_PushRegistrationRequiredSignalCACycfc",
+            "moduleName": "SyneriseSDK",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_PushRegistrationRequiredSignal",
+        "mangledName": "$s11SyneriseSDK35_SNR_PushRegistrationRequiredSignalC",
+        "moduleName": "SyneriseSDK",
+        "objc_name": "_SNR_PushRegistrationRequiredSignal",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC"
+        ],
+        "superclassUsr": "c:@M@SyneriseSDK@objc(cs)_SNR_BaseSignal",
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "SyneriseSDK._SNR_BaseSignal",
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
         ]
       },
       {
@@ -6500,6 +9461,1166 @@
             "usr": "s:s28CustomDebugStringConvertibleP",
             "mangledName": "$ss28CustomDebugStringConvertibleP"
           }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "SyneriseSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "SyneriseSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "ClientModelUUIDOrigin",
+        "printedName": "ClientModelUUIDOrigin",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "generated",
+            "printedName": "generated",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(SyneriseSDK.ClientModelUUIDOrigin.Type) -> SyneriseSDK.ClientModelUUIDOrigin",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ClientModelUUIDOrigin",
+                    "printedName": "SyneriseSDK.ClientModelUUIDOrigin",
+                    "usr": "s:11SyneriseSDK21ClientModelUUIDOriginO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "SyneriseSDK.ClientModelUUIDOrigin.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ClientModelUUIDOrigin",
+                        "printedName": "SyneriseSDK.ClientModelUUIDOrigin",
+                        "usr": "s:11SyneriseSDK21ClientModelUUIDOriginO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:11SyneriseSDK21ClientModelUUIDOriginO9generatedyA2CmF",
+            "mangledName": "$s11SyneriseSDK21ClientModelUUIDOriginO9generatedyA2CmF",
+            "moduleName": "SyneriseSDK"
+          },
+          {
+            "kind": "Var",
+            "name": "injected",
+            "printedName": "injected",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(SyneriseSDK.ClientModelUUIDOrigin.Type) -> SyneriseSDK.ClientModelUUIDOrigin",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ClientModelUUIDOrigin",
+                    "printedName": "SyneriseSDK.ClientModelUUIDOrigin",
+                    "usr": "s:11SyneriseSDK21ClientModelUUIDOriginO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "SyneriseSDK.ClientModelUUIDOrigin.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ClientModelUUIDOrigin",
+                        "printedName": "SyneriseSDK.ClientModelUUIDOrigin",
+                        "usr": "s:11SyneriseSDK21ClientModelUUIDOriginO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:11SyneriseSDK21ClientModelUUIDOriginO8injectedyA2CmF",
+            "mangledName": "$s11SyneriseSDK21ClientModelUUIDOriginO8injectedyA2CmF",
+            "moduleName": "SyneriseSDK"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(rawValue:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "SyneriseSDK.ClientModelUUIDOrigin?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ClientModelUUIDOrigin",
+                    "printedName": "SyneriseSDK.ClientModelUUIDOrigin",
+                    "usr": "s:11SyneriseSDK21ClientModelUUIDOriginO"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:11SyneriseSDK21ClientModelUUIDOriginO8rawValueACSgSS_tcfc",
+            "mangledName": "$s11SyneriseSDK21ClientModelUUIDOriginO8rawValueACSgSS_tcfc",
+            "moduleName": "SyneriseSDK",
+            "implicit": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "rawValue",
+            "printedName": "rawValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11SyneriseSDK21ClientModelUUIDOriginO8rawValueSSvp",
+            "mangledName": "$s11SyneriseSDK21ClientModelUUIDOriginO8rawValueSSvp",
+            "moduleName": "SyneriseSDK",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11SyneriseSDK21ClientModelUUIDOriginO8rawValueSSvg",
+                "mangledName": "$s11SyneriseSDK21ClientModelUUIDOriginO8rawValueSSvg",
+                "moduleName": "SyneriseSDK",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "s:11SyneriseSDK21ClientModelUUIDOriginO",
+        "mangledName": "$s11SyneriseSDK21ClientModelUUIDOriginO",
+        "moduleName": "SyneriseSDK",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "enumRawTypeName": "String",
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "RawRepresentable",
+            "printedName": "RawRepresentable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "RawValue",
+                "printedName": "RawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:SY",
+            "mangledName": "$sSY"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "_SNR_ClientModel",
+        "printedName": "_SNR_ClientModel",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "clientId",
+            "printedName": "clientId",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_ClientModel(py)clientId",
+            "mangledName": "$s11SyneriseSDK16_SNR_ClientModelC8clientIdSSSgvp",
+            "moduleName": "SyneriseSDK",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_ClientModel(im)clientId",
+                "mangledName": "$s11SyneriseSDK16_SNR_ClientModelC8clientIdSSSgvg",
+                "moduleName": "SyneriseSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_ClientModel(im)setClientId:",
+                "mangledName": "$s11SyneriseSDK16_SNR_ClientModelC8clientIdSSSgvs",
+                "moduleName": "SyneriseSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11SyneriseSDK16_SNR_ClientModelC8clientIdSSSgvM",
+                "mangledName": "$s11SyneriseSDK16_SNR_ClientModelC8clientIdSSSgvM",
+                "moduleName": "SyneriseSDK",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "uuid",
+            "printedName": "uuid",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "UUID",
+                "printedName": "Foundation.UUID",
+                "usr": "s:10Foundation4UUIDV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_ClientModel(py)uuid",
+            "mangledName": "$s11SyneriseSDK16_SNR_ClientModelC4uuid10Foundation4UUIDVvp",
+            "moduleName": "SyneriseSDK",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UUID",
+                    "printedName": "Foundation.UUID",
+                    "usr": "s:10Foundation4UUIDV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_ClientModel(im)uuid",
+                "mangledName": "$s11SyneriseSDK16_SNR_ClientModelC4uuid10Foundation4UUIDVvg",
+                "moduleName": "SyneriseSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UUID",
+                    "printedName": "Foundation.UUID",
+                    "usr": "s:10Foundation4UUIDV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_ClientModel(im)setUuid:",
+                "mangledName": "$s11SyneriseSDK16_SNR_ClientModelC4uuid10Foundation4UUIDVvs",
+                "moduleName": "SyneriseSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11SyneriseSDK16_SNR_ClientModelC4uuid10Foundation4UUIDVvM",
+                "mangledName": "$s11SyneriseSDK16_SNR_ClientModelC4uuid10Foundation4UUIDVvM",
+                "moduleName": "SyneriseSDK",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "uuidOrigin",
+            "printedName": "uuidOrigin",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ClientModelUUIDOrigin",
+                "printedName": "SyneriseSDK.ClientModelUUIDOrigin",
+                "usr": "s:11SyneriseSDK21ClientModelUUIDOriginO"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11SyneriseSDK16_SNR_ClientModelC10uuidOriginAA0dE10UUIDOriginOvp",
+            "mangledName": "$s11SyneriseSDK16_SNR_ClientModelC10uuidOriginAA0dE10UUIDOriginOvp",
+            "moduleName": "SyneriseSDK",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ClientModelUUIDOrigin",
+                    "printedName": "SyneriseSDK.ClientModelUUIDOrigin",
+                    "usr": "s:11SyneriseSDK21ClientModelUUIDOriginO"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11SyneriseSDK16_SNR_ClientModelC10uuidOriginAA0dE10UUIDOriginOvg",
+                "mangledName": "$s11SyneriseSDK16_SNR_ClientModelC10uuidOriginAA0dE10UUIDOriginOvg",
+                "moduleName": "SyneriseSDK",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ClientModelUUIDOrigin",
+                    "printedName": "SyneriseSDK.ClientModelUUIDOrigin",
+                    "usr": "s:11SyneriseSDK21ClientModelUUIDOriginO"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11SyneriseSDK16_SNR_ClientModelC10uuidOriginAA0dE10UUIDOriginOvs",
+                "mangledName": "$s11SyneriseSDK16_SNR_ClientModelC10uuidOriginAA0dE10UUIDOriginOvs",
+                "moduleName": "SyneriseSDK",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11SyneriseSDK16_SNR_ClientModelC10uuidOriginAA0dE10UUIDOriginOvM",
+                "mangledName": "$s11SyneriseSDK16_SNR_ClientModelC10uuidOriginAA0dE10UUIDOriginOvM",
+                "moduleName": "SyneriseSDK",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "login",
+            "printedName": "login",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_ClientModel(py)login",
+            "mangledName": "$s11SyneriseSDK16_SNR_ClientModelC5loginSSSgvp",
+            "moduleName": "SyneriseSDK",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_ClientModel(im)login",
+                "mangledName": "$s11SyneriseSDK16_SNR_ClientModelC5loginSSSgvg",
+                "moduleName": "SyneriseSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_ClientModel(im)setLogin:",
+                "mangledName": "$s11SyneriseSDK16_SNR_ClientModelC5loginSSSgvs",
+                "moduleName": "SyneriseSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11SyneriseSDK16_SNR_ClientModelC5loginSSSgvM",
+                "mangledName": "$s11SyneriseSDK16_SNR_ClientModelC5loginSSSgvM",
+                "moduleName": "SyneriseSDK",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "identifier",
+            "printedName": "identifier",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_ClientModel(py)identifier",
+            "mangledName": "$s11SyneriseSDK16_SNR_ClientModelC10identifierSSSgvp",
+            "moduleName": "SyneriseSDK",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_ClientModel(im)identifier",
+                "mangledName": "$s11SyneriseSDK16_SNR_ClientModelC10identifierSSSgvg",
+                "moduleName": "SyneriseSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_ClientModel(im)setIdentifier:",
+                "mangledName": "$s11SyneriseSDK16_SNR_ClientModelC10identifierSSSgvs",
+                "moduleName": "SyneriseSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11SyneriseSDK16_SNR_ClientModelC10identifierSSSgvM",
+                "mangledName": "$s11SyneriseSDK16_SNR_ClientModelC10identifierSSSgvM",
+                "moduleName": "SyneriseSDK",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "customIdentifier",
+            "printedName": "customIdentifier",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_ClientModel(py)customIdentifier",
+            "mangledName": "$s11SyneriseSDK16_SNR_ClientModelC16customIdentifierSSSgvp",
+            "moduleName": "SyneriseSDK",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_ClientModel(im)customIdentifier",
+                "mangledName": "$s11SyneriseSDK16_SNR_ClientModelC16customIdentifierSSSgvg",
+                "moduleName": "SyneriseSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_ClientModel(im)setCustomIdentifier:",
+                "mangledName": "$s11SyneriseSDK16_SNR_ClientModelC16customIdentifierSSSgvs",
+                "moduleName": "SyneriseSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11SyneriseSDK16_SNR_ClientModelC16customIdentifierSSSgvM",
+                "mangledName": "$s11SyneriseSDK16_SNR_ClientModelC16customIdentifierSSSgvM",
+                "moduleName": "SyneriseSDK",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "customEmail",
+            "printedName": "customEmail",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_ClientModel(py)customEmail",
+            "mangledName": "$s11SyneriseSDK16_SNR_ClientModelC11customEmailSSSgvp",
+            "moduleName": "SyneriseSDK",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_ClientModel(im)customEmail",
+                "mangledName": "$s11SyneriseSDK16_SNR_ClientModelC11customEmailSSSgvg",
+                "moduleName": "SyneriseSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_ClientModel(im)setCustomEmail:",
+                "mangledName": "$s11SyneriseSDK16_SNR_ClientModelC11customEmailSSSgvs",
+                "moduleName": "SyneriseSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11SyneriseSDK16_SNR_ClientModelC11customEmailSSSgvM",
+                "mangledName": "$s11SyneriseSDK16_SNR_ClientModelC11customEmailSSSgvM",
+                "moduleName": "SyneriseSDK",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "getUUIDString",
+            "printedName": "getUUIDString()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_ClientModel(im)getUUIDString",
+            "mangledName": "$s11SyneriseSDK16_SNR_ClientModelC13getUUIDStringSSyF",
+            "moduleName": "SyneriseSDK",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "toDictionary",
+            "printedName": "toDictionary()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Dictionary",
+                "printedName": "[Swift.String : Any]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ],
+                "usr": "s:SD"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_ClientModel(im)toDictionary",
+            "mangledName": "$s11SyneriseSDK16_SNR_ClientModelC12toDictionarySDySSypGyF",
+            "moduleName": "SyneriseSDK",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_ClientModel",
+        "mangledName": "$s11SyneriseSDK16_SNR_ClientModelC",
+        "moduleName": "SyneriseSDK",
+        "objc_name": "_SNR_ClientModel",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "hasMissingDesignatedInitializers": true,
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "SyneriseSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "SyneriseSDK",
+        "declAttributes": [
+          "RawDocComment"
         ]
       },
       {
@@ -7274,6 +11395,295 @@
           },
           {
             "kind": "Var",
+            "name": "ClientSignInSignalSingleton",
+            "printedName": "ClientSignInSignalSingleton",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "_SNR_ClientSignInSignal",
+                "printedName": "SyneriseSDK._SNR_ClientSignInSignal",
+                "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_ClientSignInSignal"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@SyneriseSDK@objc(cs)_SNR(cpy)ClientSignInSignalSingleton",
+            "mangledName": "$s11SyneriseSDK4_SNRC27ClientSignInSignalSingletonAA01_c1_defG0CvpZ",
+            "moduleName": "SyneriseSDK",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "_SNR_ClientSignInSignal",
+                    "printedName": "SyneriseSDK._SNR_ClientSignInSignal",
+                    "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_ClientSignInSignal"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@SyneriseSDK@objc(cs)_SNR(cm)ClientSignInSignalSingleton",
+                "mangledName": "$s11SyneriseSDK4_SNRC27ClientSignInSignalSingletonAA01_c1_defG0CvgZ",
+                "moduleName": "SyneriseSDK",
+                "static": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "ClientSignOutSignalSingleton",
+            "printedName": "ClientSignOutSignalSingleton",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "_SNR_ClientSignOutSignal",
+                "printedName": "SyneriseSDK._SNR_ClientSignOutSignal",
+                "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_ClientSignOutSignal"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@SyneriseSDK@objc(cs)_SNR(cpy)ClientSignOutSignalSingleton",
+            "mangledName": "$s11SyneriseSDK4_SNRC28ClientSignOutSignalSingletonAA01_c1_defG0CvpZ",
+            "moduleName": "SyneriseSDK",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "_SNR_ClientSignOutSignal",
+                    "printedName": "SyneriseSDK._SNR_ClientSignOutSignal",
+                    "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_ClientSignOutSignal"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@SyneriseSDK@objc(cs)_SNR(cm)ClientSignOutSignalSingleton",
+                "mangledName": "$s11SyneriseSDK4_SNRC28ClientSignOutSignalSingletonAA01_c1_defG0CvgZ",
+                "moduleName": "SyneriseSDK",
+                "static": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "ClientUUIDChangeSignalSingleton",
+            "printedName": "ClientUUIDChangeSignalSingleton",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "_SNR_ClientUUIDChangeSignal",
+                "printedName": "SyneriseSDK._SNR_ClientUUIDChangeSignal",
+                "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_ClientUUIDChangeSignal"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@SyneriseSDK@objc(cs)_SNR(cpy)ClientUUIDChangeSignalSingleton",
+            "mangledName": "$s11SyneriseSDK4_SNRC31ClientUUIDChangeSignalSingletonAA01_c1_deF0CvpZ",
+            "moduleName": "SyneriseSDK",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "_SNR_ClientUUIDChangeSignal",
+                    "printedName": "SyneriseSDK._SNR_ClientUUIDChangeSignal",
+                    "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_ClientUUIDChangeSignal"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@SyneriseSDK@objc(cs)_SNR(cm)ClientUUIDChangeSignalSingleton",
+                "mangledName": "$s11SyneriseSDK4_SNRC31ClientUUIDChangeSignalSingletonAA01_c1_deF0CvgZ",
+                "moduleName": "SyneriseSDK",
+                "static": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "DataInconsistencySignalSingleton",
+            "printedName": "DataInconsistencySignalSingleton",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "_SNR_DataInconsistencySignal",
+                "printedName": "SyneriseSDK._SNR_DataInconsistencySignal",
+                "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_DataInconsistencySignal"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@SyneriseSDK@objc(cs)_SNR(cpy)DataInconsistencySignalSingleton",
+            "mangledName": "$s11SyneriseSDK4_SNRC32DataInconsistencySignalSingletonAA01_c1_deF0CvpZ",
+            "moduleName": "SyneriseSDK",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "_SNR_DataInconsistencySignal",
+                    "printedName": "SyneriseSDK._SNR_DataInconsistencySignal",
+                    "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_DataInconsistencySignal"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@SyneriseSDK@objc(cs)_SNR(cm)DataInconsistencySignalSingleton",
+                "mangledName": "$s11SyneriseSDK4_SNRC32DataInconsistencySignalSingletonAA01_c1_deF0CvgZ",
+                "moduleName": "SyneriseSDK",
+                "static": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "PushRegistrationRequiredSignalSingleton",
+            "printedName": "PushRegistrationRequiredSignalSingleton",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "_SNR_PushRegistrationRequiredSignal",
+                "printedName": "SyneriseSDK._SNR_PushRegistrationRequiredSignal",
+                "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_PushRegistrationRequiredSignal"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@SyneriseSDK@objc(cs)_SNR(cpy)PushRegistrationRequiredSignalSingleton",
+            "mangledName": "$s11SyneriseSDK4_SNRC39PushRegistrationRequiredSignalSingletonAA01_c1_defG0CvpZ",
+            "moduleName": "SyneriseSDK",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "_SNR_PushRegistrationRequiredSignal",
+                    "printedName": "SyneriseSDK._SNR_PushRegistrationRequiredSignal",
+                    "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_PushRegistrationRequiredSignal"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@SyneriseSDK@objc(cs)_SNR(cm)PushRegistrationRequiredSignalSingleton",
+                "mangledName": "$s11SyneriseSDK4_SNRC39PushRegistrationRequiredSignalSingletonAA01_c1_defG0CvgZ",
+                "moduleName": "SyneriseSDK",
+                "static": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "SyneriseReinitializationSignalSingleton",
+            "printedName": "SyneriseReinitializationSignalSingleton",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "_SNR_SyneriseReinitializationSignal",
+                "printedName": "SyneriseSDK._SNR_SyneriseReinitializationSignal",
+                "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_SyneriseReinitializationSignal"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@SyneriseSDK@objc(cs)_SNR(cpy)SyneriseReinitializationSignalSingleton",
+            "mangledName": "$s11SyneriseSDK4_SNRC0A31ReinitializationSignalSingletonAA01_c1_adE0CvpZ",
+            "moduleName": "SyneriseSDK",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "_SNR_SyneriseReinitializationSignal",
+                    "printedName": "SyneriseSDK._SNR_SyneriseReinitializationSignal",
+                    "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_SyneriseReinitializationSignal"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@SyneriseSDK@objc(cs)_SNR(cm)SyneriseReinitializationSignalSingleton",
+                "mangledName": "$s11SyneriseSDK4_SNRC0A31ReinitializationSignalSingletonAA01_c1_adE0CvgZ",
+                "moduleName": "SyneriseSDK",
+                "static": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
             "name": "DispatchUtils",
             "printedName": "DispatchUtils",
             "children": [
@@ -7461,6 +11871,55 @@
           },
           {
             "kind": "Var",
+            "name": "ClientManagerSingleton",
+            "printedName": "ClientManagerSingleton",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "_SNR_ClientManager",
+                "printedName": "SyneriseSDK._SNR_ClientManager",
+                "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_ClientManager"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@SyneriseSDK@objc(cs)_SNR(cpy)ClientManagerSingleton",
+            "mangledName": "$s11SyneriseSDK4_SNRC22ClientManagerSingletonAA01_c1_dE0CvpZ",
+            "moduleName": "SyneriseSDK",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "_SNR_ClientManager",
+                    "printedName": "SyneriseSDK._SNR_ClientManager",
+                    "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_ClientManager"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@SyneriseSDK@objc(cs)_SNR(cm)ClientManagerSingleton",
+                "mangledName": "$s11SyneriseSDK4_SNRC22ClientManagerSingletonAA01_c1_dE0CvgZ",
+                "moduleName": "SyneriseSDK",
+                "static": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
             "name": "BackgroundTaskManagerSingleton",
             "printedName": "BackgroundTaskManagerSingleton",
             "children": [
@@ -7481,8 +11940,7 @@
               "Final",
               "AccessControl",
               "ObjC",
-              "Available",
-              "RawDocComment"
+              "Available"
             ],
             "accessors": [
               {
@@ -7615,6 +12073,16 @@
             "usr": "s:s28CustomDebugStringConvertibleP",
             "mangledName": "$ss28CustomDebugStringConvertibleP"
           }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "SyneriseSDK",
+        "declAttributes": [
+          "RawDocComment"
         ]
       },
       {
@@ -8219,10 +12687,105 @@
         ]
       },
       {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "SyneriseSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "SyneriseSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
         "kind": "TypeDecl",
         "name": "_SNR_DispatchUtils",
         "printedName": "_SNR_DispatchUtils",
         "children": [
+          {
+            "kind": "Function",
+            "name": "getKeychainProcessingQueue",
+            "printedName": "getKeychainProcessingQueue()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "DispatchQueue",
+                "printedName": "Dispatch.DispatchQueue",
+                "usr": "c:objc(cs)OS_dispatch_queue"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_DispatchUtils(cm)getKeychainProcessingQueue",
+            "mangledName": "$s11SyneriseSDK18_SNR_DispatchUtilsC26getKeychainProcessingQueueSo17OS_dispatch_queueCyFZ",
+            "moduleName": "SyneriseSDK",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "synchronized",
+            "printedName": "synchronized(_:closure:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "GenericTypeParam",
+                "printedName": "τ_0_0"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "ProtocolComposition",
+                "printedName": "AnyObject"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "() -> τ_0_0",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "τ_0_0"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "typeAttributes": [
+                  "noescape"
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:11SyneriseSDK18_SNR_DispatchUtilsC12synchronized_7closurexyXl_xyXEtlFZ",
+            "mangledName": "$s11SyneriseSDK18_SNR_DispatchUtilsC12synchronized_7closurexyXl_xyXEtlFZ",
+            "moduleName": "SyneriseSDK",
+            "genericSig": "<τ_0_0>",
+            "sugared_genericSig": "<T>",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "DiscardableResult"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
           {
             "kind": "Function",
             "name": "dispatchSyncBlockOnMainThread",
@@ -8259,8 +12822,7 @@
             "declAttributes": [
               "Final",
               "AccessControl",
-              "ObjC",
-              "RawDocComment"
+              "ObjC"
             ],
             "funcSelfKind": "NonMutating"
           },
@@ -8680,11 +13242,28 @@
             "mangledName": "$ss28CustomDebugStringConvertibleP"
           }
         ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "SyneriseSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
       }
     ],
     "json_format_version": 8
   },
   "ConstValues": [
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Providers\/SyneriseFrameworkInfoProvider.swift",
+      "kind": "BooleanLiteral",
+      "offset": 317,
+      "length": 5,
+      "value": "false"
+    },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/TrackerAutoTrackingSettings.swift",
       "kind": "IntegerLiteral",
@@ -8707,6 +13286,13 @@
       "value": "3"
     },
     {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Signals\/BaseSignal.swift",
+      "kind": "Array",
+      "offset": 420,
+      "length": 2,
+      "value": "[]"
+    },
+    {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsService.swift",
       "kind": "BooleanLiteral",
       "offset": 302,
@@ -8719,6 +13305,13 @@
       "offset": 351,
       "length": 5,
       "value": "false"
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/Wrappers\/FileStorage.swift",
+      "kind": "StringLiteral",
+      "offset": 202,
+      "length": 5,
+      "value": "\"snr\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
@@ -8938,11 +13531,102 @@
       "value": "\"Apple\""
     },
     {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/Persistent\/DataProvider\/SystemDataProvider.swift",
+      "kind": "StringLiteral",
+      "offset": 208,
+      "length": 40,
+      "value": "\"SNRSyneriseLauncherFirstLaunchCacheKey\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/Persistent\/DataProvider\/SystemDataProvider.swift",
+      "kind": "StringLiteral",
+      "offset": 291,
+      "length": 27,
+      "value": "\"snr.SDKInstallationHashUD\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/Persistent\/DataProvider\/SystemDataProvider.swift",
+      "kind": "StringLiteral",
+      "offset": 360,
+      "length": 26,
+      "value": "\"snr.SDKInstallationHashK\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/Persistent\/DataProvider\/SystemDataProvider.swift",
+      "kind": "StringLiteral",
+      "offset": 431,
+      "length": 29,
+      "value": "\"snr.SDKMajorVersionUpgraded\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/Persistent\/DataProvider\/SystemDataProvider.swift",
+      "kind": "StringLiteral",
+      "offset": 496,
+      "length": 16,
+      "value": "\"SDKLastVersion\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/Persistent\/DataProvider\/SystemDataProvider.swift",
+      "kind": "StringLiteral",
+      "offset": 551,
+      "length": 19,
+      "value": "\"SDKCurrentVersion\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/Persistent\/DataProvider\/SystemDataProvider.swift",
+      "kind": "StringLiteral",
+      "offset": 611,
+      "length": 25,
+      "value": "\"snr.HostApplicationType\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/Persistent\/DataProvider\/SystemDataProvider.swift",
+      "kind": "StringLiteral",
+      "offset": 689,
+      "length": 37,
+      "value": "\"snr.HostApplicationSDKPluginVersion\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/Persistent\/DataProvider\/SystemDataProvider.swift",
+      "kind": "StringLiteral",
+      "offset": 766,
+      "length": 24,
+      "value": "\"snr.ExecutedMigrations\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/Persistent\/DataProvider\/SystemDataProvider.swift",
+      "kind": "StringLiteral",
+      "offset": 828,
+      "length": 22,
+      "value": "\"snr.LastClientApiKey\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/Persistent\/DataProvider\/SystemDataProvider.swift",
+      "kind": "StringLiteral",
+      "offset": 886,
+      "length": 20,
+      "value": "\"snr.LastBaseApiUrl\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/Persistent\/DataProvider\/SystemDataProvider.swift",
+      "kind": "StringLiteral",
+      "offset": 948,
+      "length": 26,
+      "value": "\"snr.EventsStoreCurrentID\""
+    },
+    {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Providers\/ImageProvider.swift",
       "kind": "FloatLiteral",
       "offset": 215,
       "length": 4,
       "value": "15.0"
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/Temporary\/Cache\/ModelCache.swift",
+      "kind": "StringLiteral",
+      "offset": 212,
+      "length": 5,
+      "value": "\"snr\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Managers\/BackgroundTaskManager.swift",
@@ -8994,6 +13678,55 @@
       "value": "[]"
     },
     {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Signals\/ClientUUIDChangeSignal.swift",
+      "kind": "IntegerLiteral",
+      "offset": 230,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Signals\/ClientUUIDChangeSignal.swift",
+      "kind": "IntegerLiteral",
+      "offset": 241,
+      "length": 5,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Signals\/ClientUUIDChangeSignal.swift",
+      "kind": "IntegerLiteral",
+      "offset": 333,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Signals\/ClientUUIDChangeSignal.swift",
+      "kind": "IntegerLiteral",
+      "offset": 344,
+      "length": 12,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Signals\/ClientUUIDChangeSignal.swift",
+      "kind": "StringLiteral",
+      "offset": 493,
+      "length": 35,
+      "value": "\"SNRClientUUIDChangeSignalStateKey\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Signals\/ClientUUIDChangeSignal.swift",
+      "kind": "StringLiteral",
+      "offset": 569,
+      "length": 41,
+      "value": "\"SNRClientUUIDChangeSignalCurrentUUIDKey\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Signals\/ClientUUIDChangeSignal.swift",
+      "kind": "StringLiteral",
+      "offset": 645,
+      "length": 36,
+      "value": "\"SNRClientUUIDChangeSignalReasonKey\""
+    },
+    {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Common\/Constants\/SyneriseNotificationName.swift",
       "kind": "StringLiteral",
       "offset": 230,
@@ -9013,6 +13746,83 @@
       "offset": 371,
       "length": 46,
       "value": "\"SNRSyneriseSettingsDidChangeNotificationName\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Signals\/ClientSignalOutSignal.swift",
+      "kind": "StringLiteral",
+      "offset": 277,
+      "length": 33,
+      "value": "\"SNRClientSignOutSignalReasonKey\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/DataSourceDependencies.swift",
+      "kind": "StringLiteral",
+      "offset": 242,
+      "length": 18,
+      "value": "\"com.synerise.sdk\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/DataSourceDependencies.swift",
+      "kind": "StringLiteral",
+      "offset": 312,
+      "length": 26,
+      "value": "\"com.synerise.SyneriseSDK\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/DataSourceDependencies.swift",
+      "kind": "StringLiteral",
+      "offset": 389,
+      "length": 33,
+      "value": "\"com.synerise.SyneriseSDK.shared\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Signals\/SyneriseReinitializationSignal.swift",
+      "kind": "IntegerLiteral",
+      "offset": 246,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Signals\/SyneriseReinitializationSignal.swift",
+      "kind": "IntegerLiteral",
+      "offset": 257,
+      "length": 5,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Signals\/SyneriseReinitializationSignal.swift",
+      "kind": "StringLiteral",
+      "offset": 415,
+      "length": 43,
+      "value": "\"SNRSyneriseReinitializationSignalStateKey\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/Persistent\/DataProvider\/ClientDataProvider.swift",
+      "kind": "StringLiteral",
+      "offset": 208,
+      "length": 16,
+      "value": "\"snr.ClientData\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/DataSource.swift",
+      "kind": "BooleanLiteral",
+      "offset": 511,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Main\/ClientManagement\/ClientUUIDGenerator.swift",
+      "kind": "BooleanLiteral",
+      "offset": 226,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Main\/ClientManagement\/ClientUUIDGenerator.swift",
+      "kind": "BooleanLiteral",
+      "offset": 268,
+      "length": 5,
+      "value": "false"
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Common\/Constants\/SyneriseNotificationPayloadKey.swift",
@@ -9104,6 +13914,90 @@
       "offset": 758,
       "length": 41,
       "value": "\"com.synerise.sdk.queue.debug.filelogger\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Main\/ClientManagement\/ClientModel.swift",
+      "kind": "StringLiteral",
+      "offset": 173,
+      "length": 10,
+      "value": "\"clientId\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Main\/ClientManagement\/ClientModel.swift",
+      "kind": "StringLiteral",
+      "offset": 214,
+      "length": 6,
+      "value": "\"uuid\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Main\/ClientManagement\/ClientModel.swift",
+      "kind": "StringLiteral",
+      "offset": 251,
+      "length": 12,
+      "value": "\"uuidOrigin\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Main\/ClientManagement\/ClientModel.swift",
+      "kind": "StringLiteral",
+      "offset": 289,
+      "length": 7,
+      "value": "\"login\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Main\/ClientManagement\/ClientModel.swift",
+      "kind": "StringLiteral",
+      "offset": 326,
+      "length": 12,
+      "value": "\"identifier\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Main\/ClientManagement\/ClientModel.swift",
+      "kind": "StringLiteral",
+      "offset": 375,
+      "length": 18,
+      "value": "\"customIdentifier\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Main\/ClientManagement\/ClientModel.swift",
+      "kind": "StringLiteral",
+      "offset": 425,
+      "length": 13,
+      "value": "\"customEmail\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Main\/ClientManagement\/ClientModel.swift",
+      "kind": "StringLiteral",
+      "offset": 505,
+      "length": 36,
+      "value": "\"kSNRClientModelUUIDOriginGenerated\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Main\/ClientManagement\/ClientModel.swift",
+      "kind": "StringLiteral",
+      "offset": 562,
+      "length": 35,
+      "value": "\"kSNRClientModelUUIDOriginInjected\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/Temporary\/Cache\/ObjectCache.swift",
+      "kind": "StringLiteral",
+      "offset": 222,
+      "length": 5,
+      "value": "\"snr\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/Persistent\/DataProvider\/SecurityDataProvider.swift",
+      "kind": "StringLiteral",
+      "offset": 211,
+      "length": 18,
+      "value": "\"snr.SecretKey256\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/Persistent\/DataProvider\/SecurityDataProvider.swift",
+      "kind": "StringLiteral",
+      "offset": 280,
+      "length": 35,
+      "value": "\"snr.NotificationEncryptionEnabled\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
@@ -9272,6 +14166,62 @@
       "offset": 2080,
       "length": 5,
       "value": "false"
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/Temporary\/Cache\/PlistCache.swift",
+      "kind": "StringLiteral",
+      "offset": 209,
+      "length": 18,
+      "value": "\"SNRPlistCacheKey\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/Persistent\/DataProvider\/CampaignDataProvider.swift",
+      "kind": "StringLiteral",
+      "offset": 216,
+      "length": 23,
+      "value": "\"snr.LastWalkthroughID\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/Persistent\/DataProvider\/CampaignDataProvider.swift",
+      "kind": "StringLiteral",
+      "offset": 294,
+      "length": 39,
+      "value": "\"snr.LastInAppDefinitionsLoadTimestamp\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/Persistent\/DataProvider\/AuthCredentialProvider.swift",
+      "kind": "StringLiteral",
+      "offset": 216,
+      "length": 21,
+      "value": "\"snr.AnonymousApiKey\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/Persistent\/DataProvider\/AuthCredentialProvider.swift",
+      "kind": "StringLiteral",
+      "offset": 276,
+      "length": 23,
+      "value": "\"snr.AnonymousApiToken\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/Persistent\/DataProvider\/AuthCredentialProvider.swift",
+      "kind": "StringLiteral",
+      "offset": 333,
+      "length": 18,
+      "value": "\"snr.ClientApiKey\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/Persistent\/DataProvider\/AuthCredentialProvider.swift",
+      "kind": "StringLiteral",
+      "offset": 387,
+      "length": 20,
+      "value": "\"snr.ClientApiToken\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Utils\/DispatchUtils.swift",
+      "kind": "StringLiteral",
+      "offset": 243,
+      "length": 44,
+      "value": "\"com.synerise.sdk.queue.keychain.processing\""
     }
   ]
 }

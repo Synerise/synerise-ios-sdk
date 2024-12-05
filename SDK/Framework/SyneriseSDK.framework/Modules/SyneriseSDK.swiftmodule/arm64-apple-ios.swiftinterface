@@ -13,6 +13,7 @@ import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
 @_inheritsConvenienceInitializers @objc(_SNR_SyneriseFrameworkInfoProvider) public class _SNR_SyneriseFrameworkInfoProvider : ObjectiveC.NSObject {
+  @objc public static func setSharedModeEnabled(_ enabled: Swift.Bool)
   @objc public static func bundleIdentifier() -> Swift.String
   @objc public static func SDKVersion() -> Swift.String
   @objc public static func SDKPluginVersion() -> Swift.String?
@@ -48,6 +49,15 @@ import _SwiftConcurrencyShims
     @objc get
     @objc set
   }
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc(_SNR_SignalReceivable) public protocol _SNR_SignalReceivable {
+  @objc func signalReceived(_: SyneriseSDK._SNR_BaseSignal, parameters: [Swift.String : Any])
+}
+@_inheritsConvenienceInitializers @objc(_SNR_BaseSignal) public class _SNR_BaseSignal : ObjectiveC.NSObject {
+  @objc public func addReceiver(_ receiver: Swift.AnyObject)
+  @objc public func removeReceiver(_ receiver: Swift.AnyObject)
   @objc override dynamic public init()
   @objc deinit
 }
@@ -204,12 +214,95 @@ public typealias SNRLocalizableStringKey = Swift.String
   @objc override dynamic public init()
   @objc deinit
 }
+@objc public enum SNRClientUUIDChangeSignalState : Swift.Int {
+  case before = 0
+  case after
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum SNRClientUUIDChangeSignalReason : Swift.Int {
+  case authentication = 0
+  case regeneration
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_inheritsConvenienceInitializers @objc(_SNR_ClientUUIDChangeSignal) public class _SNR_ClientUUIDChangeSignal : SyneriseSDK._SNR_BaseSignal {
+  @objc final public let STATE_KEY: Swift.String
+  @objc final public let CURRENT_UUID_KEY: Swift.String
+  @objc final public let REASON_KEY: Swift.String
+  @objc public func notifyUUIDChangedIsBefore(currentUUIDString: Swift.String)
+  @objc public func notifyUUIDChanged(withReason reason: SyneriseSDK.SNRClientUUIDChangeSignalReason)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(_SNR_ClientSignOutSignal) public class _SNR_ClientSignOutSignal : SyneriseSDK._SNR_BaseSignal {
+  @objc final public let REASON_KEY: Swift.String
+  @objc public func notifySignOut(withReason reason: SyneriseSDK.ClientSessionEndReason)
+  @objc override dynamic public init()
+  @objc deinit
+}
 @_inheritsConvenienceInitializers @objc(SNRSettings) public class Settings : ObjectiveC.NSObject {
   @objc final public let sdk: SyneriseSDK.GeneralSettings
   @objc final public let notifications: SyneriseSDK.NotificationsSettings
   @objc final public let tracker: SyneriseSDK.TrackerSettings
   @objc final public let inAppMessaging: SyneriseSDK.InAppMessagingSettings
   @objc final public let injector: SyneriseSDK.InjectorSettings
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public enum SNRSyneriseReinitializationSignalState : Swift.Int {
+  case before = 0
+  case after
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_inheritsConvenienceInitializers @objc(_SNR_SyneriseReinitializationSignal) public class _SNR_SyneriseReinitializationSignal : SyneriseSDK._SNR_BaseSignal {
+  @objc final public let STATE_KEY: Swift.String
+  @objc public func notifyReinitializationIsBefore()
+  @objc public func notifyReinitializationIsAfter()
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(_SNR_ClientSignInSignal) public class _SNR_ClientSignInSignal : SyneriseSDK._SNR_BaseSignal {
+  @objc public func notifySignIn()
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(_SNR_ClientManager) public class _SNR_ClientManager : ObjectiveC.NSObject {
+  @objc public var client: SyneriseSDK._SNR_ClientModel!
+  @objc public static func setRecoveredClientUUID(_ uuid: Foundation.UUID?)
+  @objc public func setClientId(_ clientId: Swift.String?)
+  @objc public func setCustomIdentifier(_ customIdentifier: Swift.String?)
+  @objc public func setCustomEmail(_ customEmail: Swift.String?)
+  @objc public func setClientLogin(_ clientLogin: Swift.String?)
+  @objc public func setClientUUID(_ uuid: Foundation.UUID?)
+  @objc public func setNewAnonymousClient()
+  @objc public func setNewAnonymousClientWithClientIdentifier(_ clientIdentifier: Swift.String?)
+  @objc public func setNewClientWithRecoveredClientUUID(_ clientUUID: Foundation.UUID)
+  @objc public func setNewInitialAnonymousClient()
+  @objc public func getUUIDStringForAuthentication(withAuthID authID: Swift.String) -> Swift.String
+  @objc public func prepareSigning(withLogin login: Swift.String?) -> Swift.String
+  @objc public func prepareSigning(withLogin login: Swift.String?, orUUIDString UUIDString: Swift.String?) -> Swift.String
+  @objc public func signingSuccess()
+  @objc public func signingFailure()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(_SNR_DataInconsistencySignal) public class _SNR_DataInconsistencySignal : SyneriseSDK._SNR_BaseSignal {
+  @objc public func notifyDataInconsistency()
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(_SNR_PushRegistrationRequiredSignal) public class _SNR_PushRegistrationRequiredSignal : SyneriseSDK._SNR_BaseSignal {
+  @objc public func notifyPushRegistrationIsNeeded()
   @objc override dynamic public init()
   @objc deinit
 }
@@ -231,6 +324,27 @@ public typealias SNRLocalizableStringKey = Swift.String
     @objc set
   }
   @objc override dynamic public init()
+  @objc deinit
+}
+public enum ClientModelUUIDOrigin : Swift.String {
+  case generated
+  case injected
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(_SNR_ClientModel) public class _SNR_ClientModel : ObjectiveC.NSObject {
+  @objc public var clientId: Swift.String?
+  @objc public var uuid: Foundation.UUID
+  public var uuidOrigin: SyneriseSDK.ClientModelUUIDOrigin
+  @objc public var login: Swift.String?
+  @objc public var identifier: Swift.String?
+  @objc public var customIdentifier: Swift.String?
+  @objc public var customEmail: Swift.String?
+  @objc public func getUUIDString() -> Swift.String
+  @objc public func toDictionary() -> [Swift.String : Any]
   @objc deinit
 }
 @_inheritsConvenienceInitializers @objc(_SNR_ClientApplicationInfoProvider) public class _SNR_ClientApplicationInfoProvider : ObjectiveC.NSObject {
@@ -267,6 +381,24 @@ public typealias SNRLocalizableStringKey = Swift.String
   @objc public static var ImageProviderNewInstance: SyneriseSDK._SNR_ImageProvider {
     @objc get
   }
+  @objc public static var ClientSignInSignalSingleton: SyneriseSDK._SNR_ClientSignInSignal {
+    @objc get
+  }
+  @objc public static var ClientSignOutSignalSingleton: SyneriseSDK._SNR_ClientSignOutSignal {
+    @objc get
+  }
+  @objc public static var ClientUUIDChangeSignalSingleton: SyneriseSDK._SNR_ClientUUIDChangeSignal {
+    @objc get
+  }
+  @objc public static var DataInconsistencySignalSingleton: SyneriseSDK._SNR_DataInconsistencySignal {
+    @objc get
+  }
+  @objc public static var PushRegistrationRequiredSignalSingleton: SyneriseSDK._SNR_PushRegistrationRequiredSignal {
+    @objc get
+  }
+  @objc public static var SyneriseReinitializationSignalSingleton: SyneriseSDK._SNR_SyneriseReinitializationSignal {
+    @objc get
+  }
   @objc public static var DispatchUtils: SyneriseSDK._SNR_DispatchUtils.Type {
     @objc get
   }
@@ -274,6 +406,9 @@ public typealias SNRLocalizableStringKey = Swift.String
     @objc get
   }
   @objc public static var MiscUtils: SyneriseSDK._SNR_MiscUtils.Type {
+    @objc get
+  }
+  @objc public static var ClientManagerSingleton: SyneriseSDK._SNR_ClientManager {
     @objc get
   }
   @available(iOS 13, *)
@@ -308,6 +443,9 @@ public typealias SNRLocalizableStringKey = Swift.String
   @objc deinit
 }
 @_inheritsConvenienceInitializers @objc(_SNR_DispatchUtils) public class _SNR_DispatchUtils : ObjectiveC.NSObject {
+  @objc public static func getKeychainProcessingQueue() -> Dispatch.DispatchQueue
+  @discardableResult
+  public static func synchronized<T>(_ lock: Swift.AnyObject, closure: () -> T) -> T
   @objc public static func dispatchSyncBlockOnMainThread(_ block: @escaping () -> Swift.Void)
   @objc public static func dispatchSyncBlockOnMainThread(_ block: @escaping () -> Swift.Void, ifMetCondition condition: Swift.Bool)
   @objc public static func dispatchSyncBlock(_ block: @escaping () -> Swift.Void, onQueue queue: Dispatch.DispatchQueue)
@@ -322,3 +460,15 @@ public typealias SNRLocalizableStringKey = Swift.String
 extension SyneriseSDK.TrackerAutoTrackMode : Swift.Equatable {}
 extension SyneriseSDK.TrackerAutoTrackMode : Swift.Hashable {}
 extension SyneriseSDK.TrackerAutoTrackMode : Swift.RawRepresentable {}
+extension SyneriseSDK.SNRClientUUIDChangeSignalState : Swift.Equatable {}
+extension SyneriseSDK.SNRClientUUIDChangeSignalState : Swift.Hashable {}
+extension SyneriseSDK.SNRClientUUIDChangeSignalState : Swift.RawRepresentable {}
+extension SyneriseSDK.SNRClientUUIDChangeSignalReason : Swift.Equatable {}
+extension SyneriseSDK.SNRClientUUIDChangeSignalReason : Swift.Hashable {}
+extension SyneriseSDK.SNRClientUUIDChangeSignalReason : Swift.RawRepresentable {}
+extension SyneriseSDK.SNRSyneriseReinitializationSignalState : Swift.Equatable {}
+extension SyneriseSDK.SNRSyneriseReinitializationSignalState : Swift.Hashable {}
+extension SyneriseSDK.SNRSyneriseReinitializationSignalState : Swift.RawRepresentable {}
+extension SyneriseSDK.ClientModelUUIDOrigin : Swift.Equatable {}
+extension SyneriseSDK.ClientModelUUIDOrigin : Swift.Hashable {}
+extension SyneriseSDK.ClientModelUUIDOrigin : Swift.RawRepresentable {}
