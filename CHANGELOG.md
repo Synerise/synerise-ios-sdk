@@ -3,6 +3,16 @@ All notable changes to this project will be documented in this file.
 
 Note that Objective-C class names are prefixed by `SNR`. In the changelog below, these are names used in Swift, without the prefix.
 
+## [4.24.0] - 2024-12-20
+
+### Added
+- We added the `os` parameter in all events from the SDK (name of the operating system, identically as in the `client.applicationStarted` event).
+- We added the `options` parameter in `NotificationServiceExtension` with options for push notifications processing.
+ 
+### Changed
+- Event `push.dismiss` is sent when the notification is cleared from the notification center (when the related option in `NotificationServiceExtension` is enabled).
+
+
 ## [4.23.4] - 2024-12-05
 
 ### Fixed

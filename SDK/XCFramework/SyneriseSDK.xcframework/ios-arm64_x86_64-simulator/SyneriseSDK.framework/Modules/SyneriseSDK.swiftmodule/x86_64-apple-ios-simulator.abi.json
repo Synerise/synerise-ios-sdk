@@ -1359,6 +1359,23 @@
         ]
       },
       {
+        "kind": "Import",
+        "name": "CoreData",
+        "printedName": "CoreData",
+        "declKind": "Import",
+        "moduleName": "SyneriseSDK"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "SyneriseSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
         "kind": "TypeDecl",
         "name": "InjectorSettings",
         "printedName": "InjectorSettings",
@@ -1557,6 +1574,16 @@
             "usr": "s:s28CustomDebugStringConvertibleP",
             "mangledName": "$ss28CustomDebugStringConvertibleP"
           }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "SyneriseSDK",
+        "declAttributes": [
+          "RawDocComment"
         ]
       },
       {
@@ -3964,6 +3991,16 @@
       },
       {
         "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "SyneriseSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
         "name": "UIKit",
         "printedName": "UIKit",
         "declKind": "Import",
@@ -4352,6 +4389,16 @@
             "usr": "s:s28CustomDebugStringConvertibleP",
             "mangledName": "$ss28CustomDebugStringConvertibleP"
           }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "SyneriseSDK",
+        "declAttributes": [
+          "RawDocComment"
         ]
       },
       {
@@ -5304,6 +5351,234 @@
         "moduleName": "SyneriseSDK",
         "declAttributes": [
           "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "SyneriseSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "SNRSwiftCommandProxyProtocol",
+        "printedName": "SNRSwiftCommandProxyProtocol",
+        "children": [
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "GenericTypeParam",
+                "printedName": "τ_0_0"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@SyneriseSDK@objc(pl)SNRSwiftCommandProxyProtocol(im)init",
+            "mangledName": "$s11SyneriseSDK28SNRSwiftCommandProxyProtocolPxycfc",
+            "moduleName": "SyneriseSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : SyneriseSDK.SNRSwiftCommandProxyProtocol>",
+            "sugared_genericSig": "<Self where Self : SyneriseSDK.SNRSwiftCommandProxyProtocol>",
+            "protocolReq": true,
+            "declAttributes": [
+              "ObjC"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "execute",
+            "printedName": "execute(command:args:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "[Swift.String : Any]?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Dictionary",
+                    "printedName": "[Swift.String : Any]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ProtocolComposition",
+                        "printedName": "Any"
+                      }
+                    ],
+                    "usr": "s:SD"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@SyneriseSDK@objc(pl)SNRSwiftCommandProxyProtocol(im)executeWithCommand:args:",
+            "mangledName": "$s11SyneriseSDK28SNRSwiftCommandProxyProtocolP7execute7command4argsySS_SDySSypGSgtF",
+            "moduleName": "SyneriseSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : SyneriseSDK.SNRSwiftCommandProxyProtocol>",
+            "sugared_genericSig": "<Self where Self : SyneriseSDK.SNRSwiftCommandProxyProtocol>",
+            "protocolReq": true,
+            "declAttributes": [
+              "ObjC"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "getValue",
+            "printedName": "getValue(command:args:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "AnyObject?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "AnyObject"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "[Swift.String : Any]?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Dictionary",
+                    "printedName": "[Swift.String : Any]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ProtocolComposition",
+                        "printedName": "Any"
+                      }
+                    ],
+                    "usr": "s:SD"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@SyneriseSDK@objc(pl)SNRSwiftCommandProxyProtocol(im)getValueWithCommand:args:",
+            "mangledName": "$s11SyneriseSDK28SNRSwiftCommandProxyProtocolP8getValue7command4argsyXlSgSS_SDySSypGSgtF",
+            "moduleName": "SyneriseSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : SyneriseSDK.SNRSwiftCommandProxyProtocol>",
+            "sugared_genericSig": "<Self where Self : SyneriseSDK.SNRSwiftCommandProxyProtocol>",
+            "protocolReq": true,
+            "declAttributes": [
+              "ObjC"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "getValueForKey",
+            "printedName": "getValueForKey(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "AnyObject?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "AnyObject"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@SyneriseSDK@objc(pl)SNRSwiftCommandProxyProtocol(im)getValueForKey:",
+            "mangledName": "$s11SyneriseSDK28SNRSwiftCommandProxyProtocolP14getValueForKeyyyXlSgSSF",
+            "moduleName": "SyneriseSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : SyneriseSDK.SNRSwiftCommandProxyProtocol>",
+            "sugared_genericSig": "<Self where Self : SyneriseSDK.SNRSwiftCommandProxyProtocol>",
+            "protocolReq": true,
+            "declAttributes": [
+              "ObjC"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "c:@M@SyneriseSDK@objc(pl)SNRSwiftCommandProxyProtocol",
+        "mangledName": "$s11SyneriseSDK28SNRSwiftCommandProxyProtocolP",
+        "moduleName": "SyneriseSDK",
+        "genericSig": "<τ_0_0 : AnyObject>",
+        "sugared_genericSig": "<Self : AnyObject>",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC",
+          "RawDocComment"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          }
         ]
       },
       {
@@ -6895,6 +7170,61 @@
         ]
       },
       {
+        "kind": "Var",
+        "name": "SDK_UNKNOWN_VERSION",
+        "printedName": "SDK_UNKNOWN_VERSION",
+        "children": [
+          {
+            "kind": "TypeNominal",
+            "name": "String",
+            "printedName": "Swift.String",
+            "usr": "s:SS"
+          }
+        ],
+        "declKind": "Var",
+        "usr": "s:11SyneriseSDK0B16_UNKNOWN_VERSIONSSvp",
+        "mangledName": "$s11SyneriseSDK0B16_UNKNOWN_VERSIONSSvp",
+        "moduleName": "SyneriseSDK",
+        "declAttributes": [
+          "HasInitialValue",
+          "HasStorage",
+          "AccessControl"
+        ],
+        "isLet": true,
+        "hasStorage": true,
+        "accessors": [
+          {
+            "kind": "Accessor",
+            "name": "Get",
+            "printedName": "Get()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Accessor",
+            "usr": "s:11SyneriseSDK0B16_UNKNOWN_VERSIONSSvg",
+            "mangledName": "$s11SyneriseSDK0B16_UNKNOWN_VERSIONSSvg",
+            "moduleName": "SyneriseSDK",
+            "implicit": true,
+            "accessorKind": "get"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "SyneriseSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
         "kind": "TypeDecl",
         "name": "Settings",
         "printedName": "Settings",
@@ -7709,6 +8039,16 @@
             "usr": "s:s28CustomDebugStringConvertibleP",
             "mangledName": "$ss28CustomDebugStringConvertibleP"
           }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "SyneriseSDK",
+        "declAttributes": [
+          "RawDocComment"
         ]
       },
       {
@@ -10924,6 +11264,55 @@
         "children": [
           {
             "kind": "Var",
+            "name": "_Proxy",
+            "printedName": "_Proxy",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "SNRSwiftCommandProxyProtocol",
+                "printedName": "any SyneriseSDK.SNRSwiftCommandProxyProtocol",
+                "usr": "c:@M@SyneriseSDK@objc(pl)SNRSwiftCommandProxyProtocol"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@SyneriseSDK@objc(cs)_SNR(cpy)_Proxy",
+            "mangledName": "$s11SyneriseSDK4_SNRC6_ProxyAA015SNRSwiftCommandD8Protocol_pvpZ",
+            "moduleName": "SyneriseSDK",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "SNRSwiftCommandProxyProtocol",
+                    "printedName": "any SyneriseSDK.SNRSwiftCommandProxyProtocol",
+                    "usr": "c:@M@SyneriseSDK@objc(pl)SNRSwiftCommandProxyProtocol"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@SyneriseSDK@objc(cs)_SNR(cm)_Proxy",
+                "mangledName": "$s11SyneriseSDK4_SNRC6_ProxyAA015SNRSwiftCommandD8Protocol_pvgZ",
+                "moduleName": "SyneriseSDK",
+                "static": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
             "name": "Constants",
             "printedName": "Constants",
             "children": [
@@ -13258,966 +13647,1148 @@
   },
   "ConstValues": [
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Providers\/SyneriseFrameworkInfoProvider.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Providers\/SyneriseFrameworkInfoProvider.swift",
       "kind": "BooleanLiteral",
       "offset": 317,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/TrackerAutoTrackingSettings.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/TrackerAutoTrackingSettings.swift",
       "kind": "IntegerLiteral",
       "offset": 433,
       "length": 5,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/TrackerAutoTrackingSettings.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/TrackerAutoTrackingSettings.swift",
       "kind": "IntegerLiteral",
       "offset": 627,
       "length": 4,
       "value": "2"
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/TrackerAutoTrackingSettings.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/TrackerAutoTrackingSettings.swift",
       "kind": "IntegerLiteral",
       "offset": 696,
       "length": 8,
       "value": "3"
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Signals\/BaseSignal.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Signals\/BaseSignal.swift",
       "kind": "Array",
       "offset": 420,
       "length": 2,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsService.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Services\/MigrationService\/Migrations\/DatabasesLocationMigration.swift",
+      "kind": "IntegerLiteral",
+      "offset": 215,
+      "length": 4,
+      "value": "4003"
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Services\/MigrationService\/Migrations\/DatabasesLocationMigration.swift",
+      "kind": "StringLiteral",
+      "offset": 257,
+      "length": 8,
+      "value": "\"4.14.9\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsService.swift",
       "kind": "BooleanLiteral",
       "offset": 302,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsService.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsService.swift",
       "kind": "BooleanLiteral",
       "offset": 351,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/Wrappers\/FileStorage.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Services\/MigrationService\/Migrations\/MajorVersionCleanupMigration.swift",
+      "kind": "IntegerLiteral",
+      "offset": 201,
+      "length": 4,
+      "value": "4002"
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Services\/MigrationService\/Migrations\/MajorVersionCleanupMigration.swift",
+      "kind": "StringLiteral",
+      "offset": 242,
+      "length": 7,
+      "value": "\"4.0.0\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/Wrappers\/FileStorage.swift",
       "kind": "StringLiteral",
       "offset": 202,
       "length": 5,
       "value": "\"snr\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
       "kind": "StringLiteral",
       "offset": 202,
       "length": 22,
       "value": "\"SNRGeneralEnabledKey\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
       "kind": "StringLiteral",
       "offset": 264,
       "length": 33,
       "value": "\"SNRGeneralAppGroupIdentifierKey\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
       "kind": "StringLiteral",
       "offset": 342,
       "length": 38,
       "value": "\"SNRGeneralKeychainGroupIdentifierKey\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
       "kind": "StringLiteral",
       "offset": 425,
       "length": 38,
       "value": "\"SNRGeneralMinTokenRefreshIntervalKey\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
       "kind": "StringLiteral",
       "offset": 501,
       "length": 31,
       "value": "\"SNRGeneralSSLPinningPinsetKey\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
       "kind": "StringLiteral",
       "offset": 588,
       "length": 49,
       "value": "\"SNRGeneralShouldDestroySessionOnApiKeyChangeKey\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
       "kind": "StringLiteral",
       "offset": 670,
       "length": 23,
       "value": "\"SNRGeneralLocalizable\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
       "kind": "StringLiteral",
       "offset": 737,
       "length": 28,
       "value": "\"SNRNotificationsEnabledKey\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
       "kind": "StringLiteral",
       "offset": 815,
       "length": 39,
       "value": "\"SNRNotificationsDisableInAppAlertsKey\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
       "kind": "StringLiteral",
       "offset": 896,
       "length": 31,
       "value": "\"SNRNotificationsEncryptionKey\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
       "kind": "StringLiteral",
       "offset": 970,
       "length": 27,
       "value": "\"SNRTrackerMinBatchSizeKey\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
       "kind": "StringLiteral",
       "offset": 1035,
       "length": 27,
       "value": "\"SNRTrackerMaxBatchSizeKey\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
       "kind": "StringLiteral",
       "offset": 1104,
       "length": 31,
       "value": "\"SNRTrackerAutoFlushTimeoutKey\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
       "kind": "StringLiteral",
       "offset": 1184,
       "length": 38,
       "value": "\"SNRTrackerBackendTimeSyncRequiredKey\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
       "kind": "StringLiteral",
       "offset": 1269,
       "length": 36,
       "value": "\"SNRTrackerEventsTriggeringFlushKey\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
       "kind": "StringLiteral",
       "offset": 1348,
       "length": 32,
       "value": "\"SNRTrackerLocationAutomaticKey\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
       "kind": "StringLiteral",
       "offset": 1423,
       "length": 34,
       "value": "\"SNRTrackerAutoTrackingEnabledKey\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
       "kind": "StringLiteral",
       "offset": 1492,
       "length": 31,
       "value": "\"SNRTrackerAutoTrackingModeKey\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
       "kind": "StringLiteral",
       "offset": 1569,
       "length": 42,
       "value": "\"SNRTrackerAutoTrackingExcludedClassesKey\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
       "kind": "StringLiteral",
       "offset": 1658,
       "length": 43,
       "value": "\"SNRTrackerAutoTrackingExcludedViewTagsKey\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
       "kind": "StringLiteral",
       "offset": 1751,
       "length": 41,
       "value": "\"SNRTrackerDeclarativeTrackingEnabledKey\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
       "kind": "StringLiteral",
       "offset": 1872,
       "length": 61,
       "value": "\"SNRInAppMessagingCheckGlobalControlGroupsOnDefinitionsFetch\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
       "kind": "StringLiteral",
       "offset": 1998,
       "length": 51,
       "value": "\"SNRInAppMessagingMaxDefinitionUpdateIntervalLimit\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
       "kind": "StringLiteral",
       "offset": 2096,
       "length": 33,
       "value": "\"SNRInAppMessagingContentBaseUrl\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
       "kind": "StringLiteral",
       "offset": 2178,
       "length": 35,
       "value": "\"SNRInAppMessagingRenderingTimeout\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
       "kind": "StringLiteral",
       "offset": 2273,
       "length": 46,
       "value": "\"SNRInAppMessagingShouldSendInAppCappingEvent\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/SettingsKey.swift",
       "kind": "StringLiteral",
       "offset": 2356,
       "length": 25,
       "value": "\"SNRInjectorAutomaticKey\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Providers\/DeviceInfoProvider.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Services\/MigrationService\/Migrations\/MajorVersionTransferMigration.swift",
+      "kind": "IntegerLiteral",
+      "offset": 202,
+      "length": 4,
+      "value": "4001"
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Services\/MigrationService\/Migrations\/MajorVersionTransferMigration.swift",
+      "kind": "StringLiteral",
+      "offset": 243,
+      "length": 7,
+      "value": "\"4.0.0\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Providers\/DeviceInfoProvider.swift",
       "kind": "StringLiteral",
       "offset": 199,
       "length": 12,
       "value": "\"SMARTPHONE\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Providers\/DeviceInfoProvider.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Providers\/DeviceInfoProvider.swift",
       "kind": "StringLiteral",
       "offset": 247,
       "length": 8,
       "value": "\"TABLET\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Providers\/DeviceInfoProvider.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Providers\/DeviceInfoProvider.swift",
       "kind": "StringLiteral",
       "offset": 297,
       "length": 14,
       "value": "\"UNRECOGNIZED\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Providers\/DeviceInfoProvider.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Providers\/DeviceInfoProvider.swift",
       "kind": "StringLiteral",
       "offset": 354,
       "length": 7,
       "value": "\"Apple\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/Persistent\/DataProvider\/SystemDataProvider.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/Persistent\/DataProvider\/SystemDataProvider.swift",
       "kind": "StringLiteral",
       "offset": 208,
       "length": 40,
       "value": "\"SNRSyneriseLauncherFirstLaunchCacheKey\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/Persistent\/DataProvider\/SystemDataProvider.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/Persistent\/DataProvider\/SystemDataProvider.swift",
       "kind": "StringLiteral",
       "offset": 291,
       "length": 27,
       "value": "\"snr.SDKInstallationHashUD\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/Persistent\/DataProvider\/SystemDataProvider.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/Persistent\/DataProvider\/SystemDataProvider.swift",
       "kind": "StringLiteral",
       "offset": 360,
       "length": 26,
       "value": "\"snr.SDKInstallationHashK\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/Persistent\/DataProvider\/SystemDataProvider.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/Persistent\/DataProvider\/SystemDataProvider.swift",
       "kind": "StringLiteral",
       "offset": 431,
       "length": 29,
       "value": "\"snr.SDKMajorVersionUpgraded\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/Persistent\/DataProvider\/SystemDataProvider.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/Persistent\/DataProvider\/SystemDataProvider.swift",
       "kind": "StringLiteral",
       "offset": 496,
       "length": 16,
       "value": "\"SDKLastVersion\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/Persistent\/DataProvider\/SystemDataProvider.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/Persistent\/DataProvider\/SystemDataProvider.swift",
       "kind": "StringLiteral",
       "offset": 551,
       "length": 19,
       "value": "\"SDKCurrentVersion\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/Persistent\/DataProvider\/SystemDataProvider.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/Persistent\/DataProvider\/SystemDataProvider.swift",
       "kind": "StringLiteral",
       "offset": 611,
       "length": 25,
       "value": "\"snr.HostApplicationType\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/Persistent\/DataProvider\/SystemDataProvider.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/Persistent\/DataProvider\/SystemDataProvider.swift",
       "kind": "StringLiteral",
       "offset": 689,
       "length": 37,
       "value": "\"snr.HostApplicationSDKPluginVersion\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/Persistent\/DataProvider\/SystemDataProvider.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/Persistent\/DataProvider\/SystemDataProvider.swift",
       "kind": "StringLiteral",
       "offset": 766,
       "length": 24,
       "value": "\"snr.ExecutedMigrations\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/Persistent\/DataProvider\/SystemDataProvider.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/Persistent\/DataProvider\/SystemDataProvider.swift",
       "kind": "StringLiteral",
       "offset": 828,
       "length": 22,
       "value": "\"snr.LastClientApiKey\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/Persistent\/DataProvider\/SystemDataProvider.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/Persistent\/DataProvider\/SystemDataProvider.swift",
       "kind": "StringLiteral",
       "offset": 886,
       "length": 20,
       "value": "\"snr.LastBaseApiUrl\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/Persistent\/DataProvider\/SystemDataProvider.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/Persistent\/DataProvider\/SystemDataProvider.swift",
       "kind": "StringLiteral",
       "offset": 948,
       "length": 26,
       "value": "\"snr.EventsStoreCurrentID\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Providers\/ImageProvider.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Providers\/ImageProvider.swift",
       "kind": "FloatLiteral",
       "offset": 215,
       "length": 4,
       "value": "15.0"
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/Temporary\/Cache\/ModelCache.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/Temporary\/Cache\/ModelCache.swift",
       "kind": "StringLiteral",
       "offset": 212,
       "length": 5,
       "value": "\"snr\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Managers\/BackgroundTaskManager.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Services\/MigrationService\/Migrations\/InAppDatabaseClientUpdateMigration.swift",
+      "kind": "IntegerLiteral",
+      "offset": 212,
+      "length": 4,
+      "value": "4004"
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Services\/MigrationService\/Migrations\/InAppDatabaseClientUpdateMigration.swift",
+      "kind": "StringLiteral",
+      "offset": 262,
+      "length": 8,
+      "value": "\"4.21.0\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Swift\/SwiftInterfaces.swift",
+      "kind": "StringLiteral",
+      "offset": 247,
+      "length": 23,
+      "value": "\"MIGRATION_SERVICE_RUN\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Swift\/SwiftInterfaces.swift",
+      "kind": "StringLiteral",
+      "offset": 344,
+      "length": 15,
+      "value": "\"isFirstLaunch\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Swift\/SwiftInterfaces.swift",
+      "kind": "StringLiteral",
+      "offset": 396,
+      "length": 16,
+      "value": "\"isUpdateLaunch\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Swift\/SwiftInterfaces.swift",
+      "kind": "StringLiteral",
+      "offset": 446,
+      "length": 13,
+      "value": "\"fromVersion\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Swift\/SwiftInterfaces.swift",
+      "kind": "StringLiteral",
+      "offset": 491,
+      "length": 11,
+      "value": "\"toVersion\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Swift\/SwiftInterfaces.swift",
+      "kind": "StringLiteral",
+      "offset": 557,
+      "length": 30,
+      "value": "\"CONFIGURE_SECURITY_IF_NEEDED\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Swift\/SwiftInterfaces.swift",
+      "kind": "StringLiteral",
+      "offset": 625,
+      "length": 17,
+      "value": "\"DECRYPT_DEFAULT\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Swift\/SwiftInterfaces.swift",
+      "kind": "StringLiteral",
+      "offset": 673,
+      "length": 15,
+      "value": "\"DECRYPT_TOKEN\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Swift\/SwiftInterfaces.swift",
+      "kind": "StringLiteral",
+      "offset": 721,
+      "length": 17,
+      "value": "\"ENCRYPT_DEFAULT\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Swift\/SwiftInterfaces.swift",
+      "kind": "StringLiteral",
+      "offset": 769,
+      "length": 15,
+      "value": "\"ENCRYPT_TOKEN\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Swift\/SwiftInterfaces.swift",
+      "kind": "StringLiteral",
+      "offset": 855,
+      "length": 14,
+      "value": "\"secretKey256\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Swift\/SwiftInterfaces.swift",
+      "kind": "StringLiteral",
+      "offset": 898,
+      "length": 8,
+      "value": "\"string\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Swift\/SwiftInterfaces.swift",
+      "kind": "StringLiteral",
+      "offset": 972,
+      "length": 45,
+      "value": "\"MAKE_NEW_TOKEN_STRING_FROM_OLD_TOKEN_STRING\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Swift\/SwiftInterfaces.swift",
+      "kind": "StringLiteral",
+      "offset": 1082,
+      "length": 14,
+      "value": "\"secretKey256\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Swift\/SwiftInterfaces.swift",
+      "kind": "StringLiteral",
+      "offset": 1130,
+      "length": 13,
+      "value": "\"tokenString\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Managers\/BackgroundTaskManager.swift",
       "kind": "IntegerLiteral",
       "offset": 246,
       "length": 2,
       "value": "60"
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Managers\/BackgroundTaskManager.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Managers\/BackgroundTaskManager.swift",
       "kind": "IntegerLiteral",
       "offset": 251,
       "length": 2,
       "value": "60"
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Managers\/BackgroundTaskManager.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Managers\/BackgroundTaskManager.swift",
       "kind": "IntegerLiteral",
       "offset": 256,
       "length": 2,
       "value": "24"
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Managers\/BackgroundTaskManager.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Managers\/BackgroundTaskManager.swift",
       "kind": "IntegerLiteral",
       "offset": 261,
       "length": 2,
       "value": "20"
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Managers\/BackgroundTaskManager.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Managers\/BackgroundTaskManager.swift",
       "kind": "Array",
       "offset": 521,
       "length": 2,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Managers\/BackgroundTaskManager.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Managers\/BackgroundTaskManager.swift",
       "kind": "Array",
       "offset": 588,
       "length": 2,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Managers\/BackgroundTaskManager.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Managers\/BackgroundTaskManager.swift",
       "kind": "Array",
       "offset": 654,
       "length": 2,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Signals\/ClientUUIDChangeSignal.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Signals\/ClientUUIDChangeSignal.swift",
       "kind": "IntegerLiteral",
       "offset": 230,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Signals\/ClientUUIDChangeSignal.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Signals\/ClientUUIDChangeSignal.swift",
       "kind": "IntegerLiteral",
       "offset": 241,
       "length": 5,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Signals\/ClientUUIDChangeSignal.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Signals\/ClientUUIDChangeSignal.swift",
       "kind": "IntegerLiteral",
       "offset": 333,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Signals\/ClientUUIDChangeSignal.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Signals\/ClientUUIDChangeSignal.swift",
       "kind": "IntegerLiteral",
       "offset": 344,
       "length": 12,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Signals\/ClientUUIDChangeSignal.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Signals\/ClientUUIDChangeSignal.swift",
       "kind": "StringLiteral",
       "offset": 493,
       "length": 35,
       "value": "\"SNRClientUUIDChangeSignalStateKey\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Signals\/ClientUUIDChangeSignal.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Signals\/ClientUUIDChangeSignal.swift",
       "kind": "StringLiteral",
       "offset": 569,
       "length": 41,
       "value": "\"SNRClientUUIDChangeSignalCurrentUUIDKey\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Signals\/ClientUUIDChangeSignal.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Signals\/ClientUUIDChangeSignal.swift",
       "kind": "StringLiteral",
       "offset": 645,
       "length": 36,
       "value": "\"SNRClientUUIDChangeSignalReasonKey\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Common\/Constants\/SyneriseNotificationName.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Common\/Constants\/SyneriseNotificationName.swift",
       "kind": "StringLiteral",
       "offset": 230,
       "length": 41,
       "value": "\"SNRSyneriseBeforeLaunchNotificationName\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Common\/Constants\/SyneriseNotificationName.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Common\/Constants\/SyneriseNotificationName.swift",
       "kind": "StringLiteral",
       "offset": 298,
       "length": 37,
       "value": "\"SNRSyneriseLaunchedNotificationName\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Common\/Constants\/SyneriseNotificationName.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Common\/Constants\/SyneriseNotificationName.swift",
       "kind": "StringLiteral",
       "offset": 371,
       "length": 46,
       "value": "\"SNRSyneriseSettingsDidChangeNotificationName\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Signals\/ClientSignalOutSignal.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Signals\/ClientSignalOutSignal.swift",
       "kind": "StringLiteral",
       "offset": 277,
       "length": 33,
       "value": "\"SNRClientSignOutSignalReasonKey\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/DataSourceDependencies.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Services\/MigrationService\/Migrations\/BaseMigration.swift",
+      "kind": "StringLiteral",
+      "offset": 180,
+      "length": 21,
+      "value": "\"SDK_UNKNOWN_VERSION\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Services\/MigrationService\/Migrations\/BaseMigration.swift",
+      "kind": "StringLiteral",
+      "offset": 411,
+      "length": 9,
+      "value": "\"Unknown\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Services\/MigrationService\/Migrations\/BaseMigration.swift",
+      "kind": "BooleanLiteral",
+      "offset": 575,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/DataSourceDependencies.swift",
       "kind": "StringLiteral",
       "offset": 242,
       "length": 18,
       "value": "\"com.synerise.sdk\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/DataSourceDependencies.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/DataSourceDependencies.swift",
       "kind": "StringLiteral",
       "offset": 312,
       "length": 26,
       "value": "\"com.synerise.SyneriseSDK\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/DataSourceDependencies.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/DataSourceDependencies.swift",
       "kind": "StringLiteral",
       "offset": 389,
       "length": 33,
       "value": "\"com.synerise.SyneriseSDK.shared\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Signals\/SyneriseReinitializationSignal.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Signals\/SyneriseReinitializationSignal.swift",
       "kind": "IntegerLiteral",
       "offset": 246,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Signals\/SyneriseReinitializationSignal.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Signals\/SyneriseReinitializationSignal.swift",
       "kind": "IntegerLiteral",
       "offset": 257,
       "length": 5,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Signals\/SyneriseReinitializationSignal.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Signals\/SyneriseReinitializationSignal.swift",
       "kind": "StringLiteral",
       "offset": 415,
       "length": 43,
       "value": "\"SNRSyneriseReinitializationSignalStateKey\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/Persistent\/DataProvider\/ClientDataProvider.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/Persistent\/DataProvider\/ClientDataProvider.swift",
       "kind": "StringLiteral",
       "offset": 208,
       "length": 16,
       "value": "\"snr.ClientData\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/DataSource.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/DataSource.swift",
       "kind": "BooleanLiteral",
       "offset": 511,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Main\/ClientManagement\/ClientUUIDGenerator.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Main\/ClientManagement\/ClientUUIDGenerator.swift",
       "kind": "BooleanLiteral",
       "offset": 226,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Main\/ClientManagement\/ClientUUIDGenerator.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Main\/ClientManagement\/ClientUUIDGenerator.swift",
       "kind": "BooleanLiteral",
       "offset": 268,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Common\/Constants\/SyneriseNotificationPayloadKey.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Common\/Constants\/SyneriseNotificationPayloadKey.swift",
       "kind": "StringLiteral",
       "offset": 233,
       "length": 5,
       "value": "\"aps\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Common\/Constants\/SyneriseNotificationPayloadKey.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Common\/Constants\/SyneriseNotificationPayloadKey.swift",
       "kind": "StringLiteral",
       "offset": 262,
       "length": 7,
       "value": "\"alert\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Debug\/Logger.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Debug\/Logger.swift",
       "kind": "StringLiteral",
       "offset": 199,
       "length": 7,
       "value": "\"DEBUG\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Debug\/Logger.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Debug\/Logger.swift",
       "kind": "StringLiteral",
       "offset": 223,
       "length": 6,
       "value": "\"INFO\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Debug\/Logger.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Debug\/Logger.swift",
       "kind": "StringLiteral",
       "offset": 249,
       "length": 9,
       "value": "\"WARNING\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Debug\/Logger.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Debug\/Logger.swift",
       "kind": "StringLiteral",
       "offset": 276,
       "length": 7,
       "value": "\"ERROR\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Debug\/Logger.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Debug\/Logger.swift",
       "kind": "StringLiteral",
       "offset": 306,
       "length": 13,
       "value": "\"FATAL ERROR\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Debug\/Logger.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Debug\/Logger.swift",
       "kind": "BooleanLiteral",
       "offset": 427,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Debug\/Logger.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Debug\/Logger.swift",
       "kind": "BooleanLiteral",
       "offset": 483,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Debug\/Logger.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Debug\/Logger.swift",
       "kind": "BooleanLiteral",
       "offset": 537,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Debug\/Logger.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Debug\/Logger.swift",
       "kind": "StringLiteral",
       "offset": 592,
       "length": 9,
       "value": "\"snr_log\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Debug\/Logger.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Debug\/Logger.swift",
       "kind": "BooleanLiteral",
       "offset": 653,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Debug\/Logger.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Debug\/Logger.swift",
       "kind": "StringLiteral",
       "offset": 758,
       "length": 41,
       "value": "\"com.synerise.sdk.queue.debug.filelogger\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Main\/ClientManagement\/ClientModel.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Main\/ClientManagement\/ClientModel.swift",
       "kind": "StringLiteral",
       "offset": 173,
       "length": 10,
       "value": "\"clientId\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Main\/ClientManagement\/ClientModel.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Main\/ClientManagement\/ClientModel.swift",
       "kind": "StringLiteral",
       "offset": 214,
       "length": 6,
       "value": "\"uuid\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Main\/ClientManagement\/ClientModel.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Main\/ClientManagement\/ClientModel.swift",
       "kind": "StringLiteral",
       "offset": 251,
       "length": 12,
       "value": "\"uuidOrigin\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Main\/ClientManagement\/ClientModel.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Main\/ClientManagement\/ClientModel.swift",
       "kind": "StringLiteral",
       "offset": 289,
       "length": 7,
       "value": "\"login\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Main\/ClientManagement\/ClientModel.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Main\/ClientManagement\/ClientModel.swift",
       "kind": "StringLiteral",
       "offset": 326,
       "length": 12,
       "value": "\"identifier\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Main\/ClientManagement\/ClientModel.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Main\/ClientManagement\/ClientModel.swift",
       "kind": "StringLiteral",
       "offset": 375,
       "length": 18,
       "value": "\"customIdentifier\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Main\/ClientManagement\/ClientModel.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Main\/ClientManagement\/ClientModel.swift",
       "kind": "StringLiteral",
       "offset": 425,
       "length": 13,
       "value": "\"customEmail\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Main\/ClientManagement\/ClientModel.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Main\/ClientManagement\/ClientModel.swift",
       "kind": "StringLiteral",
       "offset": 505,
       "length": 36,
       "value": "\"kSNRClientModelUUIDOriginGenerated\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Main\/ClientManagement\/ClientModel.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Main\/ClientManagement\/ClientModel.swift",
       "kind": "StringLiteral",
       "offset": 562,
       "length": 35,
       "value": "\"kSNRClientModelUUIDOriginInjected\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/Temporary\/Cache\/ObjectCache.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/Temporary\/Cache\/ObjectCache.swift",
       "kind": "StringLiteral",
       "offset": 222,
       "length": 5,
       "value": "\"snr\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/Persistent\/DataProvider\/SecurityDataProvider.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/Persistent\/DataProvider\/SecurityDataProvider.swift",
       "kind": "StringLiteral",
       "offset": 211,
       "length": 18,
       "value": "\"snr.SecretKey256\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/Persistent\/DataProvider\/SecurityDataProvider.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/Persistent\/DataProvider\/SecurityDataProvider.swift",
       "kind": "StringLiteral",
       "offset": 280,
       "length": 35,
       "value": "\"snr.NotificationEncryptionEnabled\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
       "kind": "BooleanLiteral",
       "offset": 235,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
       "kind": "IntegerLiteral",
       "offset": 410,
       "length": 2,
       "value": "30"
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
       "kind": "FloatLiteral",
       "offset": 415,
       "length": 4,
       "value": "60.0"
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
       "kind": "BooleanLiteral",
       "offset": 482,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
       "kind": "Dictionary",
       "offset": 705,
       "length": 3,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
       "kind": "BooleanLiteral",
       "offset": 782,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
       "kind": "BooleanLiteral",
       "offset": 833,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
       "kind": "BooleanLiteral",
       "offset": 877,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
       "kind": "IntegerLiteral",
       "offset": 954,
       "length": 2,
       "value": "10"
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
       "kind": "IntegerLiteral",
       "offset": 996,
       "length": 3,
       "value": "100"
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
       "kind": "FloatLiteral",
       "offset": 1052,
       "length": 3,
       "value": "5.0"
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
       "kind": "BooleanLiteral",
       "offset": 1107,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
       "kind": "Array",
       "offset": 1165,
       "length": 82,
       "value": "[\"push.view\", \"push.openInApp\", \"push.click\", \"push.button.click\", \"push.dismiss\"]"
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
       "kind": "BooleanLiteral",
       "offset": 1293,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
       "kind": "BooleanLiteral",
       "offset": 1377,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
       "kind": "Array",
       "offset": 1497,
       "length": 2,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
       "kind": "Array",
       "offset": 1549,
       "length": 2,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
       "kind": "BooleanLiteral",
       "offset": 1636,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
       "kind": "BooleanLiteral",
       "offset": 1760,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
       "kind": "IntegerLiteral",
       "offset": 1834,
       "length": 2,
       "value": "10"
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
       "kind": "FloatLiteral",
       "offset": 1839,
       "length": 4,
       "value": "60.0"
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
       "kind": "FloatLiteral",
       "offset": 1945,
       "length": 3,
       "value": "5.0"
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
       "kind": "BooleanLiteral",
       "offset": 2004,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Settings\/DefaultSettings.swift",
       "kind": "BooleanLiteral",
       "offset": 2080,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/Temporary\/Cache\/PlistCache.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/Temporary\/Cache\/PlistCache.swift",
       "kind": "StringLiteral",
       "offset": 209,
       "length": 18,
       "value": "\"SNRPlistCacheKey\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/Persistent\/DataProvider\/CampaignDataProvider.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/Persistent\/DataProvider\/CampaignDataProvider.swift",
       "kind": "StringLiteral",
       "offset": 216,
       "length": 23,
       "value": "\"snr.LastWalkthroughID\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/Persistent\/DataProvider\/CampaignDataProvider.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/Persistent\/DataProvider\/CampaignDataProvider.swift",
       "kind": "StringLiteral",
       "offset": 294,
       "length": 39,
       "value": "\"snr.LastInAppDefinitionsLoadTimestamp\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/Persistent\/DataProvider\/AuthCredentialProvider.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/Persistent\/DataProvider\/AuthCredentialProvider.swift",
       "kind": "StringLiteral",
       "offset": 216,
       "length": 21,
       "value": "\"snr.AnonymousApiKey\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/Persistent\/DataProvider\/AuthCredentialProvider.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/Persistent\/DataProvider\/AuthCredentialProvider.swift",
       "kind": "StringLiteral",
       "offset": 276,
       "length": 23,
       "value": "\"snr.AnonymousApiToken\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/Persistent\/DataProvider\/AuthCredentialProvider.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/Persistent\/DataProvider\/AuthCredentialProvider.swift",
       "kind": "StringLiteral",
       "offset": 333,
       "length": 18,
       "value": "\"snr.ClientApiKey\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/Persistent\/DataProvider\/AuthCredentialProvider.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataSource\/Persistent\/DataProvider\/AuthCredentialProvider.swift",
       "kind": "StringLiteral",
       "offset": 387,
       "length": 20,
       "value": "\"snr.ClientApiToken\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Utils\/DispatchUtils.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk-test\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Utils\/DispatchUtils.swift",
       "kind": "StringLiteral",
       "offset": 243,
       "length": 44,
