@@ -1,8 +1,9 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.0 effective-5.10 (swiftlang-6.0.0.9.10 clang-1600.0.26.2)
+// swift-compiler-version: Apple Swift version 6.0.2 effective-5.10 (swiftlang-6.0.2.1.2 clang-1600.0.26.4)
 // swift-module-flags: -target x86_64-apple-ios9.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name SyneriseSDK
 // swift-module-flags-ignorable: -no-verify-emitted-module-interface
 import BackgroundTasks
+import CoreData
 import CoreTelephony
 import Foundation
 import Swift
@@ -191,6 +192,12 @@ public typealias SNRLocalizableStringKey = Swift.String
   @objc override dynamic public init()
   @objc deinit
 }
+@objc public protocol SNRSwiftCommandProxyProtocol {
+  @objc init()
+  @objc func execute(command: Swift.String, args: [Swift.String : Any]?)
+  @objc func getValue(command: Swift.String, args: [Swift.String : Any]?) -> Swift.AnyObject?
+  @objc func getValueForKey(_ key: Swift.String) -> Swift.AnyObject?
+}
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @available(iOS 13, *)
 @objc(_SNR_BackgroundTaskManager) public class _SNR_BackgroundTaskManager : ObjectiveC.NSObject {
   @objc deinit
@@ -247,6 +254,7 @@ public typealias SNRLocalizableStringKey = Swift.String
   @objc override dynamic public init()
   @objc deinit
 }
+public let SDK_UNKNOWN_VERSION: Swift.String
 @_inheritsConvenienceInitializers @objc(SNRSettings) public class Settings : ObjectiveC.NSObject {
   @objc final public let sdk: SyneriseSDK.GeneralSettings
   @objc final public let notifications: SyneriseSDK.NotificationsSettings
@@ -357,6 +365,9 @@ public enum ClientModelUUIDOrigin : Swift.String {
   @objc deinit
 }
 @_inheritsConvenienceInitializers @objc(_SNR) public class _SNR : ObjectiveC.NSObject {
+  @objc public static var _Proxy: any SyneriseSDK.SNRSwiftCommandProxyProtocol {
+    @objc get
+  }
   @objc public static var Constants: SyneriseSDK._SNR_Constants.Type {
     @objc get
   }

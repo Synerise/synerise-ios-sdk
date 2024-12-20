@@ -12,6 +12,14 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
+ * @typedef SNRNotificationServiceExtensionOptionsKey
+ */
+
+typedef NSString *SNRNotificationServiceExtensionOptionsKey;
+
+FOUNDATION_EXPORT SNRNotificationServiceExtensionOptionsKey const kSNRNotificationServiceExtensionOptionsPushDismissProcessing;
+
+/**
  * @protocol SNRNotificationServiceExtensionDelegate
  */
 
@@ -41,6 +49,8 @@ NS_SWIFT_NAME(NotificationServiceExtension)
 + (void)setDecryptionFallbackNotificationTitle:(nullable NSString *)title andBody:(nullable NSString *)body NS_SWIFT_NAME(setDecryptionFallbackNotificationTitleAndBody(title:body:));
 
 + (void)didReceiveNotificationExtensionRequest:(UNNotificationRequest *)request withMutableNotificationContent:(UNMutableNotificationContent *)notificationContent NS_SWIFT_NAME(didReceiveNotificationExtensionRequest(_:withMutableNotificationContent:));
++ (void)didReceiveNotificationExtensionRequest:(UNNotificationRequest *)request withMutableNotificationContent:(UNMutableNotificationContent *)notificationContent options:(nullable NSDictionary<SNRNotificationServiceExtensionOptionsKey, id> *)options NS_SWIFT_NAME(didReceiveNotificationExtensionRequest(_:withMutableNotificationContent:options:));
+
 + (void)serviceExtensionTimeWillExpireRequest:(UNNotificationRequest *)request withMutableNotificationContent:(UNMutableNotificationContent *)notificationContent NS_SWIFT_NAME(serviceExtensionTimeWillExpireRequest(_:withMutableNotificationContent:));
 
 @end
