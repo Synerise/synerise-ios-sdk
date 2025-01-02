@@ -3,6 +3,16 @@ All notable changes to this project will be documented in this file.
 
 Note that Objective-C class names are prefixed by `SNR`. In the changelog below, these are names used in Swift, without the prefix.
 
+## [4.24.1] - 2025-01-02
+
+### Fixed
+- The `snr_notificationDidDismiss(notificationInfo:)` method from `NotificationDelegate` is also invoked in background state when the notification is cleared from the notification center.
+
+### Changed
+- Optimization of the In-app messaging module.
+- Improvements to stability.
+
+
 ## [4.24.0] - 2024-12-20
 
 ### Added
