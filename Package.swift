@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
     name: "SyneriseSDK",
     platforms: [
-        .iOS(.v9)
+        .iOS(.v13)
     ],
     products: [
         .library(name: "SyneriseSDK", targets: ["SyneriseSDK"])
@@ -14,8 +14,8 @@ let package = Package(
     targets: [
         .binaryTarget(
             name: "SyneriseSDK",
-            url: "https://github.com/Synerise/synerise-ios-sdk/releases/download/4.24.1/SyneriseSDK.xcframework.zip",
-            checksum: "59c7f48b48fae6a439fa46994a8b0f22ee67600c716e23c5b12cbf8057a52185"
+            url: "https://github.com/Synerise/synerise-ios-sdk/releases/download/5.0.0/SyneriseSDK.xcframework.zip",
+            checksum: "ff79f6a122b5ced1f144b85a25c8977e12b9ded560824a0773a7fdb3538933d2"
         )
     ]
 )

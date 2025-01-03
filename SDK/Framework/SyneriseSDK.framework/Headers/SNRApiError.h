@@ -7,6 +7,7 @@
 //
 
 #import <SyneriseSDK/SNRError.h>
+#import <SyneriseSDK/SNRApiErrorBody.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -22,23 +23,36 @@ typedef NS_ENUM(NSInteger, SNRApiErrorType) {
 };
 
 /**
+ * @enum SNRApiErrorHttpErrorCategory
+ */
+
+typedef NS_ENUM(NSInteger, SNRApiErrorHttpErrorCategory) {
+    SNRApiErrorHttpErrorCategoryBadRequest,
+    SNRApiErrorHttpErrorCategoryUnauthorized,
+    SNRApiErrorHttpErrorCategoryForbidden,
+    SNRApiErrorHttpErrorCategoryNotFound,
+    SNRApiErrorHttpErrorCategoryRangeNotSatisfable,
+    SNRApiErrorHttpErrorCategoryServerError,
+    SNRApiErrorHttpErrorCategoryUnknown
+};
+
+/**
  * @class SNRApiError
  */
 
 @interface SNRApiError : SNRError
 
+@property (strong, nonatomic, nonnull, readonly) SNRApiErrorBody *errorBody;
+@property (assign, nonatomic, readonly) SNRApiErrorType errorType;
+@property (assign, nonatomic, readonly) NSInteger httpCode;
+@property (assign, nonatomic, readonly) SNRApiErrorHttpErrorCategory httpErrorCategory;
+
 @property (strong, nonatomic, nullable, readonly) NSArray<SNRError *> *errors;
 
-- (instancetype)initWithDomain:(NSErrorDomain)domain
-                          code:(NSInteger)code
-                     internalErrorCode:(nullable NSString *)internalErrorCode
-                      userInfo:(nullable NSDictionary<NSString *, id> *)userInfo
-                        errors:(nullable NSArray<SNRError *> *)errors;
-
-- (SNRApiErrorType)getType;
-- (NSInteger)getHttpCode;
-- (nullable NSString *)getErrorCode;
-- (nullable NSString *)getBody;
+- (SNRApiErrorType)getType DEPRECATED_MSG_ATTRIBUTE("Use `errorType` property instead.");
+- (NSInteger)getHttpCode DEPRECATED_MSG_ATTRIBUTE("Use `httpCode` property instead.");
+- (nullable NSString *)getErrorCode DEPRECATED_MSG_ATTRIBUTE("Use `errorBody` property instead.");
+- (nullable NSString *)getBody DEPRECATED_MSG_ATTRIBUTE("Use `errorBody` property instead.");
 
 @end
 

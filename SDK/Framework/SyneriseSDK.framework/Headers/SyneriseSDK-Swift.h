@@ -329,10 +329,6 @@ SWIFT_CLASS_NAMED("GeneralSettings")
 /// These SSL pins are used when you use a custom URL for the Synerise API.
 /// The default value is an empty array.
 @property (nonatomic, copy) NSArray<NSString *> * _Nullable SSLPinningPinset;
-/// This parameter specifies the supported algorithms for generating the SSL pins’ certificates.
-/// This option is only required for proper SSL Pinning support for system versions before iOS 10.
-/// The default value is an array containing the <code>kSNRPublicKeyPinningAlgorithmRsa2048</code> values.
-@property (nonatomic, copy) NSArray<NSString *> * _Nullable SSLPinningPublicKeySupportedAlgorithms;
 /// This parameter specifies if a session should be destroyed after Profile API key (formerly Client API Key) changes.
 /// The default value is true.
 @property (nonatomic) BOOL shouldDestroySessionOnApiKeyChange;
@@ -445,14 +441,12 @@ SWIFT_CLASS_NAMED("Settings")
 @end
 
 typedef SWIFT_ENUM_NAMED(NSInteger, SNRTrackerAutoTrackMode, "TrackerAutoTrackMode", open) {
-/// Auto-Tracking is set to on touch events only.
-  SNRTrackerAutoTrackModeEager = 0,
 /// Auto-Tracking is set to track screen-visits only.
-  SNRTrackerAutoTrackModePlain = 1,
+  SNRTrackerAutoTrackModePlain = 0,
 /// Auto-Tracking is set to attached to nearly everything in your app (even to activities and the <code>viewDidAppear:</code> method which records <code>screen.view</code> events).
-  SNRTrackerAutoTrackModeFine = 2,
+  SNRTrackerAutoTrackModeFine = 1,
 /// Auto-Tracking is disabled.
-  SNRTrackerAutoTrackModeDisabled = 3,
+  SNRTrackerAutoTrackModeDisabled = 2,
 };
 
 
@@ -802,6 +796,7 @@ SWIFT_CLASS_NAMED("_SNR_SyneriseFrameworkInfoProvider")
 + (void)setSharedModeEnabled:(BOOL)enabled;
 + (NSString * _Nonnull)bundleIdentifier SWIFT_WARN_UNUSED_RESULT;
 + (NSString * _Nonnull)SDKVersion SWIFT_WARN_UNUSED_RESULT;
++ (NSString * _Nullable)SDKPreviousVersion SWIFT_WARN_UNUSED_RESULT;
 + (NSString * _Nullable)SDKPluginVersion SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end

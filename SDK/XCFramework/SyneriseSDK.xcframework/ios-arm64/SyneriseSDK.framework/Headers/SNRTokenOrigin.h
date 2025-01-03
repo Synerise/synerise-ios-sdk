@@ -17,7 +17,7 @@ typedef NS_ENUM(NSUInteger, SNRTokenOrigin) {
     SNRTokenOriginAnonymous,
     SNRTokenOriginSynerise,
     SNRTokenOriginSimpleAuth,
-    SNRTokenOriginOauth,
+    SNRTokenOriginOAuth,
     SNRTokenOriginFacebook,
     SNRTokenOriginApple,
     SNRTokenOriginGoogle
