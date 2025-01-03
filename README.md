@@ -1,9 +1,9 @@
-# Synerise iOS SDK (v4.24.1)
+# Synerise iOS SDK (v5.0.0)
 
 [![Platform](https://img.shields.io/badge/platform-iOS-orange.svg)](https://github.com/synerise/synerise-ios-sdk)
 [![Languages](https://img.shields.io/badge/language-Objective--C%20%7C%20Swift-orange.svg)](https://github.com/synerise/synerise-ios-sdk)
 [![GitHub release](https://img.shields.io/github/release/Synerise/ios-sdk.svg)](https://github.com/Synerise/synerise-ios-sdk/releases) 
-[![CocoaPods](https://img.shields.io/badge/pod-v4.24.1-green.svg)](https://cocoapods.org/pods/SyneriseSDK)
+[![CocoaPods](https://img.shields.io/badge/pod-v5.0.0-green.svg)](https://cocoapods.org/pods/SyneriseSDK)
 [![SPM compatible](https://img.shields.io/badge/SPM-Compatible-green.svg)](https://www.swift.org/package-manager)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-green.svg)](https://github.com/Carthage/Carthage)
 [![Synerise](https://img.shields.io/badge/www-synerise-green.svg)](https://synerise.com)
@@ -20,8 +20,8 @@ Most up-to-date documentation is available at [Developer Guide - Mobile SDK](htt
 ## Requirements
 * Access to workspace
 * A Profile API Key
-* Xcode 15 and iOS SDK 17
-* iOS 9.0+ minimum deployment target
+* Xcode 16 and iOS SDK 18
+* iOS 13.0+ minimum deployment target
 * Valid architectures: arm64 devices and arm64, x86_64 simulators
 
 ## Installing Synerise SDK with CocoaPods
@@ -117,18 +117,18 @@ Then, generate new `API Key` for `Profile` audience.
 **Swift:**
 ```swift
 func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-    let clientApiKey = "YOUR_PROFILE_API_KEY"
+    let apiKey = "YOUR_PROFILE_API_KEY"
 
-    Synerise.initialize(clientApiKey: clientApiKey)
+    Synerise.initialize(apiKey: apiKey)
 }
 ```
 
 **Objective-C:**
 ```
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    static NSString *clientApiKey = @"YOUR_PROFILE_API_KEY";
+    static NSString *apiKey = @"YOUR_PROFILE_API_KEY";
 
-    [SNRSynerise initializeWithClientApiKey:clientApiKey];
+    [SNRSynerise initializeWithApiKey:apiKey];
 }
 ```
 ## Changelog

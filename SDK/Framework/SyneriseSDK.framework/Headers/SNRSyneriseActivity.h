@@ -11,20 +11,13 @@
  */
 
 typedef NS_ENUM(NSInteger, SNRSyneriseActivity) {
-    /// Simple Push campaign activity
+    /// Simple Push campaign
     SNRSyneriseActivitySimplePush,
     
-    /// Banner campaign activity
-    SNRSyneriseActivityBanner,
-    
-    /// Walkthrough campaign activity
-    SNRSyneriseActivityWalkthrough,
-    
-    /// In-App Message campaign activity
+    /// In-App Message campaign
     SNRSyneriseActivityInAppMessage
     
-} NS_SWIFT_NAME(SyneriseActivity);
-
+} NS_SWIFT_NAME(SyneriseActivity) DEPRECATED_MSG_ATTRIBUTE("`SNRSyneriseActivity` is deprecated.");
 
 /**
  * @enum SNRSyneriseActivityAction
@@ -38,11 +31,11 @@ typedef NS_ENUM(NSInteger, SNRSyneriseActivityAction) {
     /// Activity should disappear from screen.
     SNRSyneriseActivityActionHide
     
-} NS_SWIFT_NAME(SyneriseActivityAction);
+} NS_SWIFT_NAME(SyneriseActivityAction) DEPRECATED_MSG_ATTRIBUTE("`SNRSyneriseActivityAction` is deprecated.");
 
 
-typedef void (^SNRSyneriseActivityActionCompletionBlock)(void) NS_SWIFT_NAME(SyneriseActivityActionCompletionBlock);
-typedef void (^SNRSyneriseActivityCompletionHandler)(SNRSyneriseActivityAction, __nullable SNRSyneriseActivityActionCompletionBlock) NS_SWIFT_NAME(SyneriseActivityCompletionHandler);
+typedef void (^SNRSyneriseActivityActionCompletionBlock)(void) NS_SWIFT_NAME(SyneriseActivityActionCompletionBlock) DEPRECATED_MSG_ATTRIBUTE("`SNRSyneriseActivityActionCompletionBlock` is deprecated.");;
+typedef void (^SNRSyneriseActivityCompletionHandler)(SNRSyneriseActivityAction, __nullable SNRSyneriseActivityActionCompletionBlock) NS_SWIFT_NAME(SyneriseActivityCompletionHandler) DEPRECATED_MSG_ATTRIBUTE("`SNRSyneriseActivityCompletionHandler` is deprecated.");;
 
 
 /**

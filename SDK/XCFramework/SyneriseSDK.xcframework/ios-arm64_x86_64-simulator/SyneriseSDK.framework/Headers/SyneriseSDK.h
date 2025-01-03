@@ -8,10 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import <WebKit/WebKit.h>
-#import <CoreTelephony/CTCarrier.h>
-#import <CoreTelephony/CTTelephonyNetworkInfo.h>
-#import <CommonCrypto/CommonCrypto.h>
+#import <UserNotifications/UserNotifications.h>
+#import <UserNotificationsUI/UserNotificationsUI.h>
 
 #import <SyneriseSDK/SNRSynerise.h>
 #import <SyneriseSDK/SNRInitializationConfig.h>
@@ -43,13 +41,17 @@
 #import <SyneriseSDK/SNRErrorUserInfoKey.h>
 #import <SyneriseSDK/SNRError.h>
 #import <SyneriseSDK/SNRApiError.h>
+#import <SyneriseSDK/SNRApiErrorBody.h>
+#import <SyneriseSDK/SNRApiErrorCause.h>
 #import <SyneriseSDK/SNRInvalidArgumentError.h>
 #import <SyneriseSDK/SNRInternalInconsistencyError.h>
 
 // Other Types
+#import <SyneriseSDK/SNRLocalizableStringKey.h>
+#import <SyneriseSDK/SNRPushNotificationsRegistrationOrigin.h>
+#import <SyneriseSDK/SNRSyneriseSource.h>
 #import <SyneriseSDK/SNRSyneriseActivity.h>
 #import <SyneriseSDK/SNRHostApplicationType.h>
-#import <SyneriseSDK/SNRPublicKeyPinningAlgorithm.h>
 #import <SyneriseSDK/SNRClientSignOutMode.h>
 #import <SyneriseSDK/SNRClientSessionEndReason.h>
 #import <SyneriseSDK/SNRClientIdentityProvider.h>
@@ -93,9 +95,6 @@
 #import <SyneriseSDK/SNRClientAuthenticationContext.h>
 #import <SyneriseSDK/SNRClientConditionalAuthenticationContext.h>
 #import <SyneriseSDK/SNRClientSimpleAuthenticationData.h>
-#import <SyneriseSDK/SNRClientOAuthAuthenticationContext.h>
-#import <SyneriseSDK/SNRClientFacebookAuthenticationContext.h>
-#import <SyneriseSDK/SNRClientAppleSignInAuthenticationContext.h>
 #import <SyneriseSDK/SNRClientConditionalAuthStatus.h>
 #import <SyneriseSDK/SNRClientConditionalAuthResult.h>
 #import <SyneriseSDK/SNRClientPasswordResetRequestContext.h>
@@ -133,8 +132,6 @@
 #import <SyneriseSDK/SNRRecommendationResponseExtras.h>
 #import <SyneriseSDK/SNRRecommendationResponseExtrasSlot.h>
 #import <SyneriseSDK/SNRRecommendation.h>
-#import <SyneriseSDK/SNRScreenViewResponse.h>
-#import <SyneriseSDK/SNRScreenViewAudience.h>
 #import <SyneriseSDK/SNRScreenView.h>
 #import <SyneriseSDK/SNRScreenViewAudienceInfo.h>
 #import <SyneriseSDK/SNRInAppMessageData.h>

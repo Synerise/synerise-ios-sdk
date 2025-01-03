@@ -7,7 +7,9 @@
 //
 
 #import <UserNotifications/UserNotifications.h>
+#import <SyneriseSDK/SNRPushNotificationsRegistrationOrigin.h>
 #import <SyneriseSDK/SNRInitializationConfig.h>
+#import <SyneriseSDK/SNRSyneriseSource.h>
 #import <SyneriseSDK/SNRSyneriseActivity.h>
 #import <SyneriseSDK/SNRHostApplicationType.h>
 #import <SyneriseSDK/SNRNotificationInfo.h>
@@ -19,27 +21,6 @@ NS_ASSUME_NONNULL_BEGIN
 FOUNDATION_EXPORT NSString * const SNRSyneriseDomain;
 FOUNDATION_EXPORT NSString * const SNRSyneriseBundleIdentifier;
 FOUNDATION_EXPORT NSString * const SNRSyneriseVersion;
-
-/**
- * @const SNRLocalizableStringKey
- */
-
-NS_SWIFT_NAME(SNRLocalizableStringKey)
-typedef NSString * SNRLocalizableStringKey;
-
-FOUNDATION_EXPORT SNRLocalizableStringKey const SNR_LOCALIZABLE_STRING_KEY_OK;
-FOUNDATION_EXPORT SNRLocalizableStringKey const SNR_LOCALIZABLE_STRING_KEY_CANCEL;
-
-/**
- * @enum SNRPushNotificationsRegistrationOrigin
- */
-
-typedef NS_ENUM(NSUInteger, SNRPushNotificationsRegistrationOrigin) {
-    SNRPushNotificationsRegistrationOriginAppStarted,
-    SNRPushNotificationsRegistrationOriginClientContextChange,
-    SNRPushNotificationsRegistrationOriginSecurityReason,
-    SNRPushNotificationsRegistrationOriginPeriodicJob
-} NS_SWIFT_NAME(PushNotificationsRegistrationOrigin);
 
 /**
  * @protocol SNRSyneriseDelegate
@@ -88,18 +69,9 @@ NS_SWIFT_NAME(SyneriseDelegate)
  *
  * @param url URL address value from the activity.
  *
- * @note This method is invoked when the `SNR_handledActionWithURL:activity:completionHandler:` method is not implemented.
+ * @note This method is invoked when the `SNR_handledActionWithURL:source:` method is not implemented.
  */
 - (void)SNR_handledActionWithURL:(NSURL *)url NS_SWIFT_NAME(snr_handledAction(url:));
-
-/**
- * This method is called when Synerise handles deeplink action from campaign activities.
- *
- * @param deepLink Literal text value from the activity.
- *
- * @note This method will be invoked when the `SNR_handledActionWithDeepLink:activity:completionHandler:` method is not implemented.
- */
-- (void)SNR_handledActionWithDeepLink:(NSString *)deepLink NS_SWIFT_NAME(snr_handledAction(deepLink:));
 
 /**
  * This method is called when Synerise handles URL action from campaign activities.
@@ -108,7 +80,24 @@ NS_SWIFT_NAME(SyneriseDelegate)
  * @param activity Identifies Synerise campaign activity (`SNRSyneriseActivity`).
  * @param completionHandler A block that should be invoked with `SNRSyneriseActivityAction` parameters and a completion block to execute.
  */
-- (void)SNR_handledActionWithURL:(NSURL *)url activity:(SNRSyneriseActivity)activity completionHandler:(SNRSyneriseActivityCompletionHandler)completionHandler NS_SWIFT_NAME(snr_handledAction(url:activity:completionHandler:));
+- (void)SNR_handledActionWithURL:(NSURL *)url activity:(SNRSyneriseActivity)activity completionHandler:(SNRSyneriseActivityCompletionHandler)completionHandler NS_SWIFT_NAME(snr_handledAction(url:activity:completionHandler:)) DEPRECATED_MSG_ATTRIBUTE("Use `snr_handledAction(url:activity:completionHandler:)` instead.");
+
+/**
+ * This method is called when Synerise handles URL action from campaign activities.
+ *
+ * @param url URL address value from the activity.
+ * @param source Identifies Synerise campaign activity (`SNRSyneriseSource`).
+ */
+- (void)SNR_handledActionWithURL:(NSURL *)url source:(SNRSyneriseSource)source NS_SWIFT_NAME(snr_handledAction(url:source:));
+
+/**
+ * This method is called when Synerise handles deeplink action from campaign activities.
+ *
+ * @param deepLink Literal text value from the activity.
+ *
+ * @note This method will be invoked when the `SNR_handledActionWithDeepLink:source:` method is not implemented.
+ */
+- (void)SNR_handledActionWithDeepLink:(NSString *)deepLink NS_SWIFT_NAME(snr_handledAction(deepLink:));
 
 /**
  * This method is called when Synerise handles deeplink action from campaign activities.
@@ -117,7 +106,15 @@ NS_SWIFT_NAME(SyneriseDelegate)
  * @param activity Identifies Synerise campaign activity (`SNRSyneriseActivity`).
  * @param completionHandler A block that should be invoked with parameters: `SNRSyneriseActivityAction` and completion block to execute.
  */
-- (void)SNR_handledActionWithDeepLink:(NSString *)deepLink activity:(SNRSyneriseActivity)activity completionHandler:(SNRSyneriseActivityCompletionHandler)completionHandler NS_SWIFT_NAME(snr_handledAction(deepLink:activity:completionHandler:));
+- (void)SNR_handledActionWithDeepLink:(NSString *)deepLink activity:(SNRSyneriseActivity)activity completionHandler:(SNRSyneriseActivityCompletionHandler)completionHandler NS_SWIFT_NAME(snr_handledAction(deepLink:activity:completionHandler:)) DEPRECATED_MSG_ATTRIBUTE("Use `snr_handledAction(deepLink:activity:completionHandler:)` instead.");
+
+/**
+ * This method is called when Synerise handles deeplink action from campaign activities.
+ *
+ * @param deepLink Literal text value from activity.
+ * @param source Identifies Synerise campaign activity (`SNRSyneriseSource`).
+ */
+- (void)SNR_handledActionWithDeepLink:(NSString *)deepLink source:(SNRSyneriseSource)source NS_SWIFT_NAME(snr_handledAction(deepLink:source:));
 
 @end
 
@@ -138,13 +135,6 @@ NS_SWIFT_NAME(NotificationDelegate)
  * This method is called when a Synerise notification is received.
  */
 - (void)SNR_notificationDidReceive:(SNRNotificationInfo *)notificationInfo NS_SWIFT_NAME(snr_notificationDidReceive(notificationInfo:));
-
-/**
- * This method is called when a Synerise notification is dismissed.
- *
- * @note This method is deprecated for backward compatibility and will be removed from the 5.0.0 version of the SDK.
- */
-- (void)SNR_notificationDidDissmis:(SNRNotificationInfo *)notificationInfo NS_SWIFT_NAME(snr_notificationDidDissmis(notificationInfo:)) DEPRECATED_MSG_ATTRIBUTE("This method contains the spelling mistake in the name and it is deprecated. Use `snr_notificationDidDismiss(notificationInfo:)` instead.");
 
 /**
  * This method is called when a Synerise notification is dismissed.
@@ -178,95 +168,95 @@ NS_SWIFT_NAME(Synerise)
 - (instancetype)init NS_UNAVAILABLE;
 
 /**
- * Sets object for Synerise delegate methods.
+ * This sets object for Synerise delegate methods.
  *
  * @param delegate An object that implement SNRSyneriseDelegate protocol.
  */
 + (void)setDelegate:(id<SNRSyneriseDelegate>)delegate;
 
 /**
- * Sets object for notification delegate methods.
+ * This sets object for notification delegate methods.
  *
  * @param delegate An object that implement SNRNotificationDelegate protocol.
  */
 + (void)setNotificationDelegate:(id<SNRNotificationDelegate>)delegate;
 
 /**
- * Initializes Synerise SDK.
+ * This method initializes Synerise.
  *
- * @param clientApiKey Synerise Profile API key (formerly Client API key).
+ * @param apiKey Synerise Profile API key (formerly Client API key).
  *
- * @note This method needs to be called before any other method of Synerise SDK and only once during application lifecycle.
+ * @note This method must be called before any other Synerise SDK method and only once during the application's lifecycle.
  */
-+ (void)initializeWithClientApiKey:(NSString *)clientApiKey NS_SWIFT_NAME(initialize(clientApiKey:));
++ (void)initializeWithApiKey:(NSString *)apiKey NS_SWIFT_NAME(initialize(apiKey:));
 
 /**
- * Initializes Synerise SDK with custom environment settings.
+ * This method initializes Synerise SDK with custom environment settings.
  *
- * @param clientApiKey Synerise Profile API key (formerly Client API key).
+ * @param apiKey Synerise Profile API key (formerly Client API key).
  * @param baseUrl Synerise API custom environment base URL.
  *
- * @note This method needs to be called before any other method of Synerise SDK and only once during application lifecycle.
+ * @note This method must be called before any other Synerise SDK method and only once during the application's lifecycle.
  */
-+ (void)initializeWithClientApiKey:(NSString *)clientApiKey andBaseUrl:(nullable NSString *)baseUrl NS_SWIFT_NAME(initialize(clientApiKey:baseUrl:));
++ (void)initializeWithApiKey:(NSString *)apiKey andBaseUrl:(nullable NSString *)baseUrl NS_SWIFT_NAME(initialize(apiKey:baseUrl:));
 
 /**
- * Changes the Profile API key dynamically.
+ * This method changes a Profile (formerly Client) API key dynamically.
  *
- * @param clientApiKey Synerise Profile API key (formerly Client API key).
+ * @param apiKey Synerise Profile API key (formerly Client API key).
  */
-+ (void)changeClientApiKey:(NSString *)clientApiKey;
++ (void)changeApiKey:(NSString *)apiKey;
 
 /**
- * Changes the Profile API key dynamically.
+ * This method changes a Profile (formerly Client) API key dynamically, with additional parameters.
  *
- * @param clientApiKey Synerise Profile API key (formerly Client API key).
+ * @param apiKey Synerise Profile API key (formerly Client API key).
  * @param config The configuration of the SDK after API key change.
+ *
+ * @note It can include a salt for Simple Authentication requests.
  */
-+ (void)changeClientApiKey:(NSString *)clientApiKey config:(nullable SNRInitializationConfig *)config;
++ (void)changeApiKey:(NSString *)apiKey config:(nullable SNRInitializationConfig *)config;
 
 /**
- * Sets salt string for request validation.
+ * This method sets the salt string for request validation.
  *
  * @param salt Synerise Profile salt string for request validation.
  */
 + (void)setRequestValidationSalt:(nullable NSString *)salt;
 
 /**
- * Sets the Synerise SDK host application type.
+ * This method sets the Synerise SDK host application type.
  *
  * @param type Specifies the type of the host application.
- *
  */
 + (void)setHostApplicationType:(SNRHostApplicationType)type;
 
 /**
- * Sets the Synerise SDK plugin version of the host application.
+ * This method sets the Synerise SDK plugin version.
  *
  * @param version Specifies the version of the Synerise SDK plugin in the host application.
- *
  */
 + (void)setHostApplicationSDKPluginVersion:(NSString *)version;
 
 /**
- * Enables/Disables console logs from Synerise SDK.
+ * This method enables or disables console logs from Synerise SDK.
  *
  * @param enabled Specifies that console logs are enabled/disabled.
  *
- * @note It is not recommended to use debug mode in release version of your application.
+ * @note It is not recommended to use debug mode in the release version of your application.
  */
 + (void)setDebugModeEnabled:(BOOL)enabled;
 
 /**
- * Enables/Disables crash handling from Synerise SDK.
+ * This method enables or disables crash handling by Synerise SDK.
+ * If set to true, Synerise SDK will send the `client.applicationCrashed` event with information about crash.
  *
  * @param enabled Specifies that crash handling is enabled/disabled.
- *
  */
 + (void)setCrashHandlingEnabled:(BOOL)enabled;
 
 /**
- * Sets the notification categories (including Synerise categories) that your app supports.
+ * This method sets the notification categories (including Synerise categories) that your app supports.
  *
  * @param notificationCategories A set of objects containing all the actions displayed in the notification interface.
  *
@@ -275,56 +265,49 @@ NS_SWIFT_NAME(Synerise)
 + (void)setNotificationCategories:(NSSet<UNNotificationCategory *> *)notificationCategories NS_SWIFT_NAME(setNotificationCategories(_:)) API_AVAILABLE(ios(10.0));
 
 /**
- * Sets identifiers for Background Tasks processing.
+ * This method sets identifiers for Background Tasks processing.
  *
  * @param identifiers Identifiers for background task registered in the host appliaction.
  */
 + (void)setBackgroundTaskIdentifiers:(NSArray<NSString *> *)identifiers;
 
 /**
- * Checks if notification's sender is Synerise.
+ * This method verifies if a notification was sent by Synerise.
  *
  * @param userInfo Key-Value map of data.
  */
 + (BOOL)isSyneriseNotification:(NSDictionary *)userInfo;
 
 /**
- * Checks if notification's sender is Synerise and its kind is Simple Push.
+ * This method checks if notification's sender is Synerise and its kind is Simple Push.
  *
  * @param userInfo Key-Value map of data.
  */
 + (BOOL)isSyneriseSimplePush:(NSDictionary *)userInfo;
 
 /**
- * Checks if notification's sender is Synerise and its kind is Banner.
- *
- * @param userInfo Key-Value map of data.
- */
-+ (BOOL)isSyneriseBanner:(NSDictionary *)userInfo;
-
-/**
- * Checks if notification's sender is Synerise and its kind is Silent Command.
+ * This method checks if notification's sender is Synerise and its kind is Silent Command.
  *
  * @param userInfo Key-Value map of data.
  */
 + (BOOL)isSyneriseSilentCommand:(NSDictionary *)userInfo;
 
 /**
- * Checks if notification's sender is Synerise and its kind is Silent SDK Command.
+ * This method checks if notification's sender is Synerise and its kind is Silent SDK Command.
  *
  * @param userInfo Key-Value map of data.
  */
 + (BOOL)isSyneriseSilentSDKCommand:(NSDictionary *)userInfo;
 
 /**
- * Checks if notification payload is encrypted by Synerise.
+ * This method verifies if a notification is encrypted.
  *
  * @param userInfo Key-Value map of data.
  */
 + (BOOL)isNotificationEncrypted:(NSDictionary *)userInfo;
 
 /**
- * Decrypts notification payload.
+ * This method decrypts the notification payload.
  *
  * @param userInfo Key-Value map of data.
  *
@@ -334,14 +317,14 @@ NS_SWIFT_NAME(Synerise)
 + (nullable NSDictionary *)decryptNotification:(NSDictionary *)userInfo;
 
 /**
- * Handles notification payload and starts activity.
+ * This method handles a notification payload and starts activity.
  *
  * @param userInfo Key-Value map of data. Key "issuer" must be set to "Synerise" value.
  */
 + (void)handleNotification:(NSDictionary *)userInfo;
 
 /**
- * Handles notification payload with action and starts activity.
+ * This method handles a notification payload with a user interaction and starts activity.
  *
  * @param userInfo Key-Value map of data. Key "issuer" must be set to "Synerise" value.
  * @param actionIdentifier Identifier of action received from notification response.

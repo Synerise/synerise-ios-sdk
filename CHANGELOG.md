@@ -1,7 +1,68 @@
+
 # Changelog
 All notable changes to this project will be documented in this file.
 
 Note that Objective-C class names are prefixed by `SNR`. In the changelog below, these are names used in Swift, without the prefix.
+
+## [5.0.0] - 2025-01-03
+
+IMPORTANT:
+- This major version is NOT backwards compatible.
+- Support for older iOS versions ends. Minimum deployment target is changed to iOS 13.
+- Bitcode is not supported in SDK version 5.0.0 and higher. Xcode ignores bitcode.
+
+### Added
+- `SyneriseSource` enum replacing `SyneriseActivity` in `SyneriseDelegate` methods. `SyneriseActivity` is deprecated.
+- `appVersion` parameter for `client.applicationStarted` event. It is the same as `version`. `version` is deprecated.
+- `sdkPreviousVersion` parameter for `client.applicationStarted` event. It is the version of the SDK before the current version in the application.
+
+### Removed
+- `TrackerAutoTrackMode.eager` mode from Auto-Tracking.
+- `Client.authenticateByOAuth(accessToken:authID:context:success:failure:)` method. You should use the`Client.authenticate(token:clientIdentityProvider:authID:context:success:failure:)` method.
+- `Client.authenticateByOAuthIfRegistered(accessToken:authID:context:success:failure:)` method. You should use the `Client.authenticateConditionally(token:clientIdentityProvider:authID:context:success:failure:)` method.
+- `Client.authenticateByFacebook(facebookToken:authID:context:success:failure:)` method. You should use the `Client.authenticate(token:clientIdentityProvider:authID:context:success:failure:)` method.
+- `Client.authenticateByFacebookIfRegistered(facebookToken:authID:context:success:failure:)` method. You should use the `Client.authenticateConditionally(token:clientIdentityProvider:authID:context:success:failure:)` method.
+- `Client.authenticateByAppleSignIn(identityToken:authID:context:success:failure:)` method. You should use the `Client.authenticate(token:clientIdentityProvider:authID:context:success:failure:)` method.
+- `Client.authenticateByAppleSignInIfRegistered(identityToken:authID:context:success:failure:)` method. You should use the `Client.authenticateConditionally(token:clientIdentityProvider:authID:context:success:failure:)` method.
+- `Client.signOut(mode:)` method. You should use `Client.signOut(mode:fromAllDevices:success:failure:)`.
+- `Client.requestEmailChange(email:password:success:failure:)` method. You should use the`Client.requestEmailChange(email:password:externalToken:customID:success:failure:)` method.
+- `Client.requestEmailChangeByFacebook(email:success:failure:)` method. You should use the `Client.requestEmailChange(email:password:externalToken:customID:success:failure:)` method.
+- `Client.deleteAccountByOAuth(accessToken:success:failure:)` method. You should use the `Client.deleteAccount(clientAuthFactor:clientIdentityProvider:authID:success:failure:)` method.
+- `Client.deleteAccountByFacebook(facebookToken:success:failure:)` method. You should use the `Client.deleteAccount(clientAuthFactor:clientIdentityProvider:authID:success:failure:)` method.
+- `Client.deleteAccountByAppleSignIn(identityToken:success:failure:)` method. You should use the `Client.deleteAccount(clientAuthFactor:clientIdentityProvider:authID:success:failure:)` method.
+- `InjectorWalkthroughDelegate` for handling actions from Walkthrough campaigns.
+- `InjectorBannerDelegate` for handling actions from Banner campaigns.
+- `snr_notificationDidDissmis(notificationInfo:)` deprecated method from `NotificationDelegate`.
+- `Content.getDocument(slug:success:failure:)` method. You should use `Content.generateDocument(slug:success:failure:)` method.
+- `Content.getDocuments(apiQuery:success:failure:)` method.
+- `Content.getRecommendations(options:success:failure:)` method.
+- `Content.getScreenView(success:failure:)` method. You should use the `Content.generateScreenView(feedSlug:success:failure:)` method.
+- `Synerise.isSyneriseBanner(userInfo:)`
+- `Injector.getWalkthrough()` method.
+- `Injector.showWalkthrough()` method.
+- `Injector.isWalkthroughLoaded()` method.
+- `Injector.isLoadedWalkthroughUnique()` method.
+- `Injector.getPushes(success:failure:)` method.
+- `deviceID` parameter from `client.applicationStarted` event. It was redundant with the `deviceId` parameter.
+- `SNRPublicKeyPinningAlgorithm` enum.
+
+### Deprecated
+- `snr_handledAction(url:activity:completionHandler:)` in `SyneriseDelegate`. Use `snr_handledAction(url:source:)` instead.
+- `snr_handledAction(deepLink:activity:completionHandler:)` in `SyneriseDelegate`. Use `snr_handledAction(deepLink:source:)` instead.
+- `snr_inAppMessageHandledAction(data:deeplink:)` in `InAppMessageDelegate`. Use `snr_inAppMessageHandledAction(data:deepLink:)` instead.
+
+### Changed
+- `Synerise.initialize(clientApiKey:)` to `Synerise.initialize(apiKey:)`.
+- `Synerise.initialize(clientApiKey:baseUrl:)` to `Synerise.initialize(apiKey:baseUrl:)`.
+- `Synerise.changeClientApiKey(clientApiKey:)` to `Synerise.changeApiKey(apiKey:)`.
+- `Synerise.changeClientApiKey(clientApiKey:config:)` to `Synerise.changeApiKey(apiKey:config:)`.
+- `Client.activateAccount(email:success:failure:)` to `Client.requestAccountActivation(email:success:failure:)`.
+- `Client.confirmAccount(token:success:failure:)` to `Client.confirmAccountActivation(token:success:failure:)`.
+- `TokenOrigin.oauth` enum value changed to `TokenOrigin.OAuth`.
+- Property `identifier` in the `Document` model changed to `uuid`.
+- Client module methods with the **success** closure do NOT contain the `isSuccess` parameter now. It was redundant.
+- Improvements to stability.
+
 
 ## [4.24.1] - 2025-01-02
 

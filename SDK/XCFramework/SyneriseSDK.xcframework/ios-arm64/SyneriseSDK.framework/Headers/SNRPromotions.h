@@ -26,7 +26,7 @@ NS_SWIFT_NAME(Promotions)
 - (instancetype)init NS_UNAVAILABLE;
 
 /**
- * Gets all available promotions that are defined for this client.
+ * This method retrieves all available promotions that are defined for a customer.
  *
  * @param success A block object to be executed when the operation finishes successfully.
  * @param failure A block object to be executed when the operation finishes unsuccessfully.
@@ -35,7 +35,7 @@ NS_SWIFT_NAME(Promotions)
                          failure:(void (^)(SNRApiError *error))failure NS_SWIFT_NAME(getPromotions(success:failure:));
 
 /**
- * Gets promotions that are defined for parameters provided in the query object.
+ * This method retrieves promotions that match the parameters defined in the query object.
  *
  * @param apiQuery `SNRPromotionsApiQuery` object responsible for storing all query parameters.
  * @param success A block object to be executed when the operation finishes successfully.
@@ -46,7 +46,7 @@ NS_SWIFT_NAME(Promotions)
                           failure:(void (^)(SNRApiError *error))failure NS_SWIFT_NAME(getPromotions(apiQuery:success:failure:));
 
 /**
- * Gets a promotion identified by UUID.
+ * This method retrieves the promotion with the specified UUID.
  *
  * @param uuid UUID of the promotion.
  * @param success A block object to be executed when the operation finishes successfully.
@@ -57,7 +57,7 @@ NS_SWIFT_NAME(Promotions)
                    failure:(void (^)(SNRApiError *error))failure NS_SWIFT_NAME(getPromotion(uuid:success:failure:));
 
 /**
- * Gets a promotion identified by code.
+ * This method retrieves the promotion with the specified code.
  *
  * @param code Code of the promotion.
  * @param success A block object to be executed when the operation finishes successfully.
@@ -68,29 +68,29 @@ NS_SWIFT_NAME(Promotions)
                    failure:(void (^)(SNRApiError *error))failure NS_SWIFT_NAME(getPromotion(code:success:failure:));
 
 /**
- * Activates a promotion identified by UUID.
+ * This method activates the promotion with the specified UUID.
  *
  * @param uuid UUID of the promotion that will be activated.
  * @param success A block object to be executed when the operation finishes successfully.
  * @param failure A block object to be executed when the operation finishes unsuccessfully.
  */
 + (void)activatePromotionByUuid:(NSString *)uuid
-                        success:(void (^)(BOOL isSuccess))success
+                        success:(void (^)(void))success
                         failure:(void (^)(SNRApiError *error))failure NS_SWIFT_NAME(activatePromotion(uuid:success:failure:));
 
 /**
- * Activates promotion identified by code.
+ * This method activates the promotion with the specified code.
  *
  * @param code Code of the promotion that will be activated.
  * @param success A block object to be executed when the operation finishes successfully.
  * @param failure A block object to be executed when the operation finishes unsuccessfully.
  */
 + (void)activatePromotionByCode:(NSString *)code
-                        success:(void (^)(BOOL isSuccess))success
+                        success:(void (^)(void))success
                         failure:(void (^)(SNRApiError *error))failure NS_SWIFT_NAME(activatePromotion(code:success:failure:));
 
 /**
- * Activates promotions with code or with UUID in a batch.
+ * This method activates promotions with a code or with UUID in a batch.
  *
  * @param identifiers List of promotion identifiers to be activated.
  * @param success A block object to be executed when the operation finishes successfully.
@@ -98,33 +98,33 @@ NS_SWIFT_NAME(Promotions)
  */
 
 + (void)activatePromotionsWithIdentifiers:(NSArray<SNRPromotionIdentifier *> *)identifiers
-                                       success:(void (^)(BOOL isSuccess))success
-                                       failure:(void (^)(SNRApiError *error))failure NS_SWIFT_NAME(activatePromotions(identifiers:success:failure:));
+                                  success:(void (^)(void))success
+                                  failure:(void (^)(SNRApiError *error))failure NS_SWIFT_NAME(activatePromotions(identifiers:success:failure:));
 
 /**
- * Deactivates a promotion identified by UUID.
+ * This method deactivates the promotion with the specified UUID.
  *
  * @param uuid UUID of the promotion that will be deactivated.
  * @param success A block object to be executed when the operation finishes successfully.
  * @param failure A block object to be executed when the operation finishes unsuccessfully.
  */
 + (void)deactivatePromotionByUuid:(NSString *)uuid
-                          success:(void (^)(BOOL isSuccess))success
+                          success:(void (^)(void))success
                           failure:(void (^)(SNRApiError *error))failure NS_SWIFT_NAME(deactivatePromotion(uuid:success:failure:));
 
 /**
- * Dectivates promotion identified by code.
+ * This method deactivates the promotion with the specified code.
  *
  * @param code Code of the promotion that will be deactivated.
  * @param success A block object to be executed when the operation finishes successfully.
  * @param failure A block object to be executed when the operation finishes unsuccessfully.
  */
 + (void)deactivatePromotionByCode:(NSString *)code
-                          success:(void (^)(BOOL isSuccess))success
+                          success:(void (^)(void))success
                           failure:(void (^)(SNRApiError *error))failure NS_SWIFT_NAME(deactivatePromotion(code:success:failure:));
 
 /**
- * Deactivates promotions with code or with UUID in a batch.
+ * This method deactivates promotions with a code or with UUID in a batch.
  *
  * @param identifiers List of promotion identifiers to be deactivated.
  * @param success A block object to be executed when the operation finishes successfully.
@@ -132,24 +132,26 @@ NS_SWIFT_NAME(Promotions)
  */
 
 + (void)deactivatePromotionsWithIdentifiers:(NSArray<SNRPromotionIdentifier *> *)identifiers
-                                       success:(void (^)(BOOL isSuccess))success
-                                       failure:(void (^)(SNRApiError *error))failure NS_SWIFT_NAME(deactivatePromotions(identifiers:success:failure:));
+                                    success:(void (^)(void))success
+                                    failure:(void (^)(SNRApiError *error))failure NS_SWIFT_NAME(deactivatePromotions(identifiers:success:failure:));
 
 /**
- * Gets a voucher code permanently assigned to a customer (the same code every time).
- * If no code is permanently assigned, the method assigns a voucher from the provided pool so that the same code is returned in all future calls.
+ * This method retrieves an assigned voucher code or assigns a voucher from a pool identified by UUID to the customer.
+ * Once a voucher is assigned using this method, the same voucher is returned for the profile every time the method is called.
  *
  * @param poolUUID Pool's universally unique identifier.
  * @param success A block object to be executed when the operation finishes successfully.
  * @param failure A block object to be executed when the operation finishes unsuccessfully.
+ *
+ * @note When the voucher is assigned for the first time, a `voucherCode.assigned` event is produced.
  */
 + (void)getOrAssignVoucherWithPoolUUID:(NSString *)poolUUID
                                success:(void (^)(SNRAssignVoucherResponse *assignVoucherResponse))success
                                failure:(void (^)(SNRApiError *error))failure NS_SWIFT_NAME(getOrAssignVoucher(poolUUID:success:failure:));
 
 /**
- * Assigns a voucher from a pool to a customer.
- * Every request returns different code until the pool is empty.
+ * This method assigns a voucher from a pool identified by UUID to the profile.
+ * Every request returns a different code until the pool is empty.
  *
  * @param poolUUID Pool's universally unique identifier.
  * @param success A block object to be executed when the operation finishes successfully.
@@ -162,7 +164,7 @@ NS_SWIFT_NAME(Promotions)
                               failure:(void (^)(SNRApiError *error))failure NS_SWIFT_NAME(assignVoucherCode(poolUUID:success:failure:));
 
 /**
- * Gets a customer's voucher codes.
+ * This method retrieves voucher codes for a customer.
  *
  * @param success A block object to be executed when the operation finishes successfully.
  * @param failure A block object to be executed when the operation finishes unsuccessfully.

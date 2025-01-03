@@ -42,43 +42,42 @@ NS_SWIFT_NAME(Tracker)
 - (instancetype)init NS_UNAVAILABLE;
 
 /**
- * Sets an object for Tracker module delegate methods.
+ * This method  sets an object for Tracker module delegate methods.
  *
  * @param delegate An object that implements the `SNRTrackerDelegate` protocol.
  */
 + (void)setDelegate:(id<SNRTrackerDelegate>)delegate;
 
 /**
- * Sets custom identifier for the current client.
- * The custom identifier will be sent with every event in event params.
+ * This method sets a custom identifier in the parameters of every event.
+ * You can pass a custom identifier to match your customers in our database.
  *
  * @param customIdentifier Client's custom identifier.
  */
 + (void)setCustomIdentifier:(nullable NSString *)customIdentifier;
 
 /**
- * Sets custom email for the current client.
- * The custom email will be sent with every event in event params.
+ * This method sets a custom email in the parameters of every event.
+ * You can pass a custom email to match your customers in our database.
  *
  * @param customEmail Client's custom email.
  */
 + (void)setCustomEmail:(nullable NSString *)customEmail;
 
 /**
- * Adds new event to queue and sends available events to server if possible.
+ * This method sends an event.
+ * The tracker caches and enqueues all your events locally, so they all will be sent eventually.
  *
  * @param event `SNREvent` object.
- *
- * @note The Tracker caches and enqueues all your events locally, so they all will be sent eventually.
  */
 + (void)send:(SNREvent *)event;
 
 /**
- * Sends events from queue to server by force.
+ * This method forces sending the events from the queue to the server.
  *
- * @param completion A block to be executed when the tracker has finished flushing events to Synerise backend, no matter the result.
+ * @param completionHandler A block to be executed when the tracker has finished flushing events to Synerise backend, no matter the result.
  */
-+ (void)flushEventsWithCompletionHandler:(nullable void (^)(void))completion NS_SWIFT_NAME(flushEvents(completionHandler:));
++ (void)flushEventsWithCompletionHandler:(nullable void (^)(void))completionHandler NS_SWIFT_NAME(flushEvents(completionHandler:));
 
 @end
 

@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 NS_SWIFT_NAME(Document)
 @interface SNRDocument : SNRBaseModel
 
-@property (copy, nonatomic, nonnull, readonly) NSString *identifier;
+@property (copy, nonatomic, nonnull, readonly) NSString *uuid;
 @property (copy, nonatomic, nonnull, readonly) NSString *slug;
 @property (copy, nonatomic, nonnull, readonly) NSString *schema;
 @property (copy, nonatomic, nullable, readonly) NSDictionary *content;
