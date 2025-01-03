@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   s.changelog             = 'https://github.com/Synerise/synerise-ios-sdk/blob/master/CHANGELOG.md'
   s.source                = { :git => 'https://github.com/Synerise/synerise-ios-sdk.git', :tag => s.version.to_s }
   s.exclude_files         = [ 'Pod/**', 'SampleAppSwift/**' ]
-  s.frameworks            = 'Foundation', 'UIKit', 'UserNotifications', 'UserNotificationsUI', 'CoreData', 'WebKit', 'SystemConfiguration', 'MobileCoreServices', 'CoreTelephony', 'CommonCrypto'
+  s.frameworks            = 'Foundation', 'UIKit', 'UserNotifications', 'UserNotificationsUI', 'CoreData', 'WebKit', 'SystemConfiguration', 'MobileCoreServices', 'CoreTelephony'
   s.library               = 'sqlite3'
   s.platform              = :ios, "13.0"
   s.swift_version         = '5.0'
