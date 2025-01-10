@@ -1,4 +1,3 @@
-
 # Changelog
 All notable changes to this project will be documented in this file.
 
@@ -78,10 +77,11 @@ IMPORTANT:
 
 ### Added
 - We added the `os` parameter in all events from the SDK (name of the operating system, identically as in the `client.applicationStarted` event).
-- We added the `options` parameter in `NotificationServiceExtension` with options for push notifications processing.
+- We added the `options` parameter in `NotificationServiceExtension.didReceiveNotificationExtensionRequest(request:withMutableNotificationContent:options:)` method with options for push notifications processing.
  
 ### Changed
-- Event `push.dismiss` is sent when the notification is cleared from the notification center (when the related option in `NotificationServiceExtension` is enabled).
+- Event `push.dismiss` is sent when the notification is cleared from the notification center (when the related option in `NotificationServiceExtension` is enabled). 
+IMPORTANT! If you want to start tracking `push.dismiss` events from the notification center, make sure to set the **kSNRNotificationServiceExtensionOptionsPushDismissProcessing** option to true when you invoke `NotificationServiceExtension.didReceiveNotificationExtensionRequest(request:withMutableNotificationContent:options:)` method. You might notice an increased number of events due to this change. If you don't enable this setting, the behavior will remain the same as before.
 
 
 ## [4.23.4] - 2024-12-05
