@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RTK-dp-r9m">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Debug Features View Controller-->
+        <scene sceneID="dCj-dL-YCU">
+            <objects>
+                <viewController storyboardIdentifier="DebugFeaturesViewControllerIdentifier" id="RTK-dp-r9m" customClass="DebugFeaturesViewController" customModule="SDK_Sample_App_Swift" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZZY-2r-fdB">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SwZ-9O-7F8">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="A5J-jk-XPb">
+                                        <rect key="frame" x="0.0" y="24" width="393" height="665"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7j3-hI-5gy">
+                                                <rect key="frame" x="0.0" y="0.0" width="393" height="65"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JnJ-eA-J7U" customClass="DefaultButton" customModule="SDK_Sample_App_Swift" customModuleProvider="target">
+                                                        <rect key="frame" x="16" y="12.666666666666671" width="361" height="40"/>
+                                                        <color key="backgroundColor" red="0.39408462617958007" green="1" blue="0.39329035836047732" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="40" id="XNO-QP-eF9"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                        <state key="normal" title="SDK Log">
+                                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="5"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="getSDKLog" destination="RTK-dp-r9m" eventType="touchUpInside" id="x6c-b4-WvX"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="65" id="7If-s7-lgI"/>
+                                                    <constraint firstItem="JnJ-eA-J7U" firstAttribute="centerX" secondItem="7j3-hI-5gy" secondAttribute="centerX" id="BYF-sw-MNS"/>
+                                                    <constraint firstAttribute="trailing" secondItem="JnJ-eA-J7U" secondAttribute="trailing" constant="16" id="hrV-Vv-U7m"/>
+                                                    <constraint firstItem="JnJ-eA-J7U" firstAttribute="leading" secondItem="7j3-hI-5gy" secondAttribute="leading" constant="16" id="mzS-J6-Dol"/>
+                                                    <constraint firstItem="JnJ-eA-J7U" firstAttribute="centerY" secondItem="7j3-hI-5gy" secondAttribute="centerY" id="nur-nW-OQW"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="651-yR-IkW">
+                                                <rect key="frame" x="0.0" y="75" width="393" height="65"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="08u-rv-xE4" customClass="DefaultButton" customModule="SDK_Sample_App_Swift" customModuleProvider="target">
+                                                        <rect key="frame" x="16" y="12.666666666666657" width="361" height="40"/>
+                                                        <color key="backgroundColor" red="0.39408462620000001" green="1" blue="0.39329035839999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="40" id="Nee-8u-6CO"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                        <state key="normal" title="Clear SDK Log">
+                                                            <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="5"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="clearSDKLog" destination="RTK-dp-r9m" eventType="touchUpInside" id="mla-ON-HU4"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="08u-rv-xE4" secondAttribute="trailing" constant="16" id="Rqu-f2-7mb"/>
+                                                    <constraint firstAttribute="height" constant="65" id="Ug3-D8-IDM"/>
+                                                    <constraint firstItem="08u-rv-xE4" firstAttribute="centerY" secondItem="651-yR-IkW" secondAttribute="centerY" id="XMr-te-kPi"/>
+                                                    <constraint firstItem="08u-rv-xE4" firstAttribute="centerX" secondItem="651-yR-IkW" secondAttribute="centerX" id="fz8-tC-Eax"/>
+                                                    <constraint firstItem="08u-rv-xE4" firstAttribute="leading" secondItem="651-yR-IkW" secondAttribute="leading" constant="16" id="qQt-jw-Vc2"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zA3-6s-DoL">
+                                                <rect key="frame" x="0.0" y="150" width="393" height="65"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g72-uD-a11" customClass="DefaultButton" customModule="SDK_Sample_App_Swift" customModuleProvider="target">
+                                                        <rect key="frame" x="16" y="12.666666666666657" width="361" height="40"/>
+                                                        <color key="backgroundColor" red="0.39408462620000001" green="1" blue="0.39329035839999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="40" id="bjC-cj-Y6e"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                        <state key="normal" title="Get Data Debug Description">
+                                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="5"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="showDataDebugDescription" destination="RTK-dp-r9m" eventType="touchUpInside" id="qVt-Od-CcJ"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstItem="g72-uD-a11" firstAttribute="leading" secondItem="zA3-6s-DoL" secondAttribute="leading" constant="16" id="C7K-Qc-mCu"/>
+                                                    <constraint firstItem="g72-uD-a11" firstAttribute="centerX" secondItem="zA3-6s-DoL" secondAttribute="centerX" id="P6o-Cw-6Sm"/>
+                                                    <constraint firstAttribute="trailing" secondItem="g72-uD-a11" secondAttribute="trailing" constant="16" id="YbS-ne-xJD"/>
+                                                    <constraint firstItem="g72-uD-a11" firstAttribute="centerY" secondItem="zA3-6s-DoL" secondAttribute="centerY" id="rnh-D3-uFf"/>
+                                                    <constraint firstAttribute="height" constant="65" id="yxr-pO-RXX"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FZh-WB-R5f">
+                                                <rect key="frame" x="0.0" y="225" width="393" height="65"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ypC-6b-ZJj" customClass="DefaultButton" customModule="SDK_Sample_App_Swift" customModuleProvider="target">
+                                                        <rect key="frame" x="16" y="12.666666666666686" width="361" height="40"/>
+                                                        <color key="backgroundColor" red="0.39408462620000001" green="1" blue="0.39329035839999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="40" id="uxm-ZY-a3x"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                        <state key="normal" title="Get In-App Debug Description">
+                                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="5"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="showInAppDebugDescription" destination="RTK-dp-r9m" eventType="touchUpInside" id="RGy-Mz-Tfr"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstItem="ypC-6b-ZJj" firstAttribute="centerY" secondItem="FZh-WB-R5f" secondAttribute="centerY" id="CE4-rb-fKp"/>
+                                                    <constraint firstItem="ypC-6b-ZJj" firstAttribute="centerX" secondItem="FZh-WB-R5f" secondAttribute="centerX" id="Ubn-cg-k00"/>
+                                                    <constraint firstAttribute="trailing" secondItem="ypC-6b-ZJj" secondAttribute="trailing" constant="16" id="Zed-IB-98V"/>
+                                                    <constraint firstItem="ypC-6b-ZJj" firstAttribute="leading" secondItem="FZh-WB-R5f" secondAttribute="leading" constant="16" id="gws-EC-Vti"/>
+                                                    <constraint firstAttribute="height" constant="65" id="ugb-f8-IiS"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nZ2-V6-Ccu">
+                                                <rect key="frame" x="0.0" y="300" width="393" height="65"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VjK-j8-Lm6" customClass="DefaultButton" customModule="SDK_Sample_App_Swift" customModuleProvider="target">
+                                                        <rect key="frame" x="16" y="12.666666666666686" width="361" height="40"/>
+                                                        <color key="backgroundColor" red="0.39408462620000001" green="1" blue="0.39329035839999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="40" id="21O-3q-pHD"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                        <state key="normal" title="Reload InApp definitions">
+                                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="5"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="reloadInAppDefinitions" destination="RTK-dp-r9m" eventType="touchUpInside" id="HSJ-Bs-plR"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstItem="VjK-j8-Lm6" firstAttribute="centerX" secondItem="nZ2-V6-Ccu" secondAttribute="centerX" id="4M9-92-4XS"/>
+                                                    <constraint firstItem="VjK-j8-Lm6" firstAttribute="centerY" secondItem="nZ2-V6-Ccu" secondAttribute="centerY" id="5wf-1S-i5V"/>
+                                                    <constraint firstAttribute="height" constant="65" id="Hab-vU-VH2"/>
+                                                    <constraint firstAttribute="trailing" secondItem="VjK-j8-Lm6" secondAttribute="trailing" constant="16" id="tL2-gb-TWQ"/>
+                                                    <constraint firstItem="VjK-j8-Lm6" firstAttribute="leading" secondItem="nZ2-V6-Ccu" secondAttribute="leading" constant="16" id="xz2-cY-Dn6"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r4s-KK-rfH">
+                                                <rect key="frame" x="0.0" y="375" width="393" height="65"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Og9-cn-gjJ" customClass="DefaultButton" customModule="SDK_Sample_App_Swift" customModuleProvider="target">
+                                                        <rect key="frame" x="16" y="12.666666666666686" width="361" height="40"/>
+                                                        <color key="backgroundColor" red="0.39408462620000001" green="1" blue="0.39329035839999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="40" id="O4h-X2-Mkf"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                        <state key="normal" title="Remove Synerise Auth Tokens Data">
+                                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="5"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="removeAllSyneriseAuthTokensData" destination="RTK-dp-r9m" eventType="touchUpInside" id="3Wb-W6-EJm"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstItem="Og9-cn-gjJ" firstAttribute="centerY" secondItem="r4s-KK-rfH" secondAttribute="centerY" id="Nok-Fz-p67"/>
+                                                    <constraint firstItem="Og9-cn-gjJ" firstAttribute="centerX" secondItem="r4s-KK-rfH" secondAttribute="centerX" id="QYd-1l-Jgk"/>
+                                                    <constraint firstAttribute="height" constant="65" id="R5y-8k-xaS"/>
+                                                    <constraint firstItem="Og9-cn-gjJ" firstAttribute="leading" secondItem="r4s-KK-rfH" secondAttribute="leading" constant="16" id="YuY-4b-g5W"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Og9-cn-gjJ" secondAttribute="trailing" constant="16" id="gf8-FW-Tw0"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1fr-3l-v7z">
+                                                <rect key="frame" x="0.0" y="450" width="393" height="65"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uil-zO-Zn4" customClass="DefaultButton" customModule="SDK_Sample_App_Swift" customModuleProvider="target">
+                                                        <rect key="frame" x="16" y="12.666666666666629" width="361" height="40"/>
+                                                        <color key="backgroundColor" red="0.39408462620000001" green="1" blue="0.39329035839999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="40" id="8Ua-2G-ZpB"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                        <state key="normal" title="Remove All SDK Data">
+                                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="5"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="removeAllData" destination="RTK-dp-r9m" eventType="touchUpInside" id="QxI-4q-0zC"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="Uil-zO-Zn4" secondAttribute="trailing" constant="16" id="0I5-5U-9ve"/>
+                                                    <constraint firstItem="Uil-zO-Zn4" firstAttribute="centerX" secondItem="1fr-3l-v7z" secondAttribute="centerX" id="GVK-QP-QcH"/>
+                                                    <constraint firstAttribute="height" constant="65" id="f1p-Hl-w9W"/>
+                                                    <constraint firstItem="Uil-zO-Zn4" firstAttribute="leading" secondItem="1fr-3l-v7z" secondAttribute="leading" constant="16" id="giK-Y5-7Ow"/>
+                                                    <constraint firstItem="Uil-zO-Zn4" firstAttribute="centerY" secondItem="1fr-3l-v7z" secondAttribute="centerY" id="jq5-qY-Ysz"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IgF-GQ-Fm8">
+                                                <rect key="frame" x="0.0" y="525" width="393" height="65"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c2t-Pw-w5h" customClass="DefaultButton" customModule="SDK_Sample_App_Swift" customModuleProvider="target">
+                                                        <rect key="frame" x="16" y="12.666666666666629" width="361" height="40"/>
+                                                        <color key="backgroundColor" red="0.39408462620000001" green="1" blue="0.39329035839999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="40" id="jYS-R8-Ud7"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                        <state key="normal" title="Remove All InApp Data">
+                                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="5"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="removeAllnAppData" destination="RTK-dp-r9m" eventType="touchUpInside" id="gyx-oL-zhV"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstItem="c2t-Pw-w5h" firstAttribute="centerX" secondItem="IgF-GQ-Fm8" secondAttribute="centerX" id="9gJ-hR-Hx0"/>
+                                                    <constraint firstAttribute="height" constant="65" id="Aws-sT-duq"/>
+                                                    <constraint firstItem="c2t-Pw-w5h" firstAttribute="centerY" secondItem="IgF-GQ-Fm8" secondAttribute="centerY" id="GMj-QP-b6r"/>
+                                                    <constraint firstItem="c2t-Pw-w5h" firstAttribute="leading" secondItem="IgF-GQ-Fm8" secondAttribute="leading" constant="16" id="KIK-0Q-nUA"/>
+                                                    <constraint firstAttribute="trailing" secondItem="c2t-Pw-w5h" secondAttribute="trailing" constant="16" id="Li3-in-cey"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="32Z-AX-ycE">
+                                                <rect key="frame" x="0.0" y="600" width="393" height="65"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dYc-XD-FfI" customClass="DefaultButton" customModule="SDK_Sample_App_Swift" customModuleProvider="target">
+                                                        <rect key="frame" x="16" y="12.666666666666629" width="361" height="40"/>
+                                                        <color key="backgroundColor" red="0.39408462620000001" green="1" blue="0.39329035839999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="40" id="hwc-gy-OiH"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                        <state key="normal" title="Full SDK and App reset">
+                                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="5"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="fullResetSDKAndApplication" destination="RTK-dp-r9m" eventType="touchUpInside" id="3lz-Jw-ECx"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstItem="dYc-XD-FfI" firstAttribute="centerY" secondItem="32Z-AX-ycE" secondAttribute="centerY" id="FFf-A7-UAs"/>
+                                                    <constraint firstItem="dYc-XD-FfI" firstAttribute="leading" secondItem="32Z-AX-ycE" secondAttribute="leading" constant="16" id="Jey-aE-PuD"/>
+                                                    <constraint firstAttribute="trailing" secondItem="dYc-XD-FfI" secondAttribute="trailing" constant="16" id="S9b-xl-yOu"/>
+                                                    <constraint firstAttribute="height" constant="65" id="koO-UD-PiW"/>
+                                                    <constraint firstItem="dYc-XD-FfI" firstAttribute="centerX" secondItem="32Z-AX-ycE" secondAttribute="centerX" id="xVA-Cw-JB3"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="A5J-jk-XPb" firstAttribute="width" secondItem="SwZ-9O-7F8" secondAttribute="width" id="1hd-gF-J4c"/>
+                                    <constraint firstAttribute="trailing" secondItem="A5J-jk-XPb" secondAttribute="trailing" id="DPb-JO-9zK"/>
+                                    <constraint firstItem="A5J-jk-XPb" firstAttribute="top" secondItem="SwZ-9O-7F8" secondAttribute="top" constant="24" id="e6X-7E-ilo"/>
+                                    <constraint firstAttribute="bottom" secondItem="A5J-jk-XPb" secondAttribute="bottom" id="jMV-H5-76U"/>
+                                    <constraint firstItem="A5J-jk-XPb" firstAttribute="leading" secondItem="SwZ-9O-7F8" secondAttribute="leading" id="umb-wT-uRW"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="dvf-L3-toM"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="SwZ-9O-7F8" firstAttribute="trailing" secondItem="dvf-L3-toM" secondAttribute="trailing" id="1h9-GD-LFV"/>
+                            <constraint firstItem="SwZ-9O-7F8" firstAttribute="top" secondItem="dvf-L3-toM" secondAttribute="top" id="YYP-X4-cIh"/>
+                            <constraint firstItem="dvf-L3-toM" firstAttribute="bottom" secondItem="SwZ-9O-7F8" secondAttribute="bottom" id="c3J-et-vA6"/>
+                            <constraint firstItem="SwZ-9O-7F8" firstAttribute="leading" secondItem="dvf-L3-toM" secondAttribute="leading" id="sLI-uJ-Ag9"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="debugMenuStackView" destination="A5J-jk-XPb" id="lQp-GT-6gR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KTi-VX-N8j" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="10" y="24"/>
+        </scene>
+    </scenes>
+    <designables>
+        <designable name="08u-rv-xE4">
+            <size key="intrinsicContentSize" width="123" height="34"/>
+        </designable>
+        <designable name="JnJ-eA-J7U">
+            <size key="intrinsicContentSize" width="73" height="34"/>
+        </designable>
+        <designable name="Og9-cn-gjJ">
+            <size key="intrinsicContentSize" width="287" height="33"/>
+        </designable>
+        <designable name="Uil-zO-Zn4">
+            <size key="intrinsicContentSize" width="181" height="34"/>
+        </designable>
+        <designable name="VjK-j8-Lm6">
+            <size key="intrinsicContentSize" width="199" height="33"/>
+        </designable>
+        <designable name="c2t-Pw-w5h">
+            <size key="intrinsicContentSize" width="185" height="33"/>
+        </designable>
+        <designable name="dYc-XD-FfI">
+            <size key="intrinsicContentSize" width="196" height="34"/>
+        </designable>
+        <designable name="g72-uD-a11">
+            <size key="intrinsicContentSize" width="239" height="34"/>
+        </designable>
+        <designable name="ypC-6b-ZJj">
+            <size key="intrinsicContentSize" width="258" height="34"/>
+        </designable>
+    </designables>
+</document>
