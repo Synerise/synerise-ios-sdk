@@ -307,6 +307,98 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 #if defined(__OBJC__)
 @class NSString;
+@class NSDate;
+@class SNRTrackerParams;
+
+SWIFT_CLASS_NAMED("Event")
+@interface SNREvent : NSObject <NSCopying>
+@property (nonatomic) NSInteger _id;
+@property (nonatomic, readonly, copy) NSString * _Nonnull _type;
+@property (nonatomic, readonly, copy) NSString * _Nonnull label;
+@property (nonatomic, readonly, copy) NSString * _Nonnull action;
+@property (nonatomic, copy) NSDate * _Nullable _timestamp;
+@property (nonatomic, copy) NSDate * _Nullable _time;
+@property (nonatomic, copy) NSDictionary<NSString *, id> * _Nullable _client;
+@property (nonatomic, readonly, copy) NSDictionary<NSString *, id> * _Nullable parameters;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters OBJC_DESIGNATED_INITIALIZER;
+- (id _Nonnull)copyWithZone:(struct _NSZone * _Nullable)zone SWIFT_WARN_UNUSED_RESULT;
+- (void)_setParam:(id _Nullable)param forKey:(NSString * _Nonnull)key;
+- (NSDictionary<NSString *, id> * _Nonnull)_toDictionary SWIFT_WARN_UNUSED_RESULT;
+@end
+
+@class CLLocation;
+
+SWIFT_CLASS_NAMED("AppearedInLocationEvent")
+@interface SNRAppearedInLocationEvent : SNREvent
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andLocation:(CLLocation * _Nonnull)location;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andLocation:(CLLocation * _Nonnull)location andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
+@end
+
+
+SWIFT_CLASS_NAMED("ApplicationStartedEvent")
+@interface SNRApplicationStartedEvent : SNREvent
++ (SNRApplicationStartedEvent * _Nonnull)event SWIFT_WARN_UNUSED_RESULT;
++ (SNRApplicationStartedEvent * _Nonnull)eventWithParameters:(NSDictionary<NSString *, NSString *> * _Nullable)parameters SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
+@end
+
+
+SWIFT_CLASS_NAMED("CacheManager")
+@interface SNRCacheManager : NSObject
++ (id _Nullable)get:(Class _Nonnull)aClass SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@class SNRUnitPrice;
+@class NSURL;
+
+SWIFT_CLASS_NAMED("CartEvent")
+@interface SNRCartEvent : SNREvent
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
+- (void)setName:(NSString * _Nonnull)name;
+- (void)setCategory:(NSString * _Nonnull)category;
+- (void)setCategories:(NSArray<NSString *> * _Nonnull)categories;
+- (void)setOffline:(BOOL)isOffline;
+- (void)setRegularPrice:(SNRUnitPrice * _Nonnull)price;
+- (void)setDiscountedPrice:(SNRUnitPrice * _Nonnull)price;
+- (void)setURL:(NSURL * _Nonnull)url;
+- (void)setProducer:(NSString * _Nonnull)producer;
+- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
+@end
+
+
+SWIFT_CLASS_NAMED("CrashEvent")
+@interface SNRCrashEvent : SNREvent
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
+- (void)setExceptionName:(NSString * _Nonnull)exceptionName;
+- (void)setExceptionReason:(NSString * _Nonnull)exceptionReason;
+- (void)setExceptionStacktrace:(NSString * _Nonnull)exceptionStacktrace;
+- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
+@end
+
+
+SWIFT_CLASS_NAMED("CustomEvent")
+@interface SNRCustomEvent : SNREvent
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label action:(NSString * _Nonnull)action OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label action:(NSString * _Nonnull)action andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
+@end
+
+
 
 SWIFT_CLASS_NAMED("GeneralSettings")
 @interface SNRGeneralSettings : NSObject
@@ -338,6 +430,14 @@ SWIFT_CLASS_NAMED("GeneralSettings")
 /// The default value is nil.
 @property (nonatomic, copy) NSDictionary<NSString *, NSString *> * _Nullable localizable;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS_NAMED("HitTimerEvent")
+@interface SNRHitTimerEvent : SNREvent
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
 @end
 
 
@@ -375,11 +475,57 @@ SWIFT_CLASS_NAMED("InAppMessagingSettings")
 @end
 
 
+SWIFT_CLASS_NAMED("InitializationConfig")
+@interface SNRInitializationConfig : NSObject
+@property (nonatomic, copy) NSString * _Nullable requestValidationSalt;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
 SWIFT_CLASS_NAMED("InjectorSettings")
 @interface SNRInjectorSettings : NSObject
 /// This parameter specifies if Synerise Mobile Campaigns are processed automatically or not.
 /// The default value is false.
 @property (nonatomic) BOOL automatic;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+enum SNRInternalEventSource : NSInteger;
+
+SWIFT_CLASS_NAMED("InternalEvent")
+@interface SNRInternalEvent : SNREvent
+@property (nonatomic) enum SNRInternalEventSource source;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label action:(NSString * _Nonnull)action OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label action:(NSString * _Nonnull)action andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
+@end
+
+typedef SWIFT_ENUM_NAMED(NSInteger, SNRInternalEventSource, "InternalEventSource", open) {
+  SNRInternalEventSourceSDK SWIFT_COMPILE_NAME("sdk") = 0,
+  SNRInternalEventSourceInAppService SWIFT_COMPILE_NAME("inAppService") = 1,
+};
+
+
+SWIFT_CLASS_NAMED("LoggedInEvent")
+@interface SNRLoggedInEvent : SNREvent
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
+@end
+
+
+SWIFT_CLASS_NAMED("LoggedOutEvent")
+@interface SNRLoggedOutEvent : SNREvent
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
+@end
+
+
+SWIFT_CLASS("_TtC11SyneriseSDK26MobileOperatorInfoProvider")
+@interface MobileOperatorInfoProvider : NSObject
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -397,6 +543,129 @@ SWIFT_CLASS_NAMED("NotificationsSettings")
 /// The default value is false.
 @property (nonatomic) BOOL encryption SWIFT_AVAILABILITY(ios,introduced=10.0);
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS_NAMED("ProductAddedToCartEvent")
+@interface SNRProductAddedToCartEvent : SNRCartEvent
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label sku:(NSString * _Nonnull)sku finalPrice:(SNRUnitPrice * _Nonnull)finalPrice quantity:(NSInteger)quantity OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label sku:(NSString * _Nonnull)sku finalPrice:(SNRUnitPrice * _Nonnull)finalPrice quantity:(NSInteger)quantity andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label SWIFT_UNAVAILABLE;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params SWIFT_UNAVAILABLE;
+@end
+
+
+SWIFT_CLASS_NAMED("ProductAddedToFavoritesEvent")
+@interface SNRProductAddedToFavoritesEvent : SNREvent
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
+@end
+
+
+SWIFT_CLASS_NAMED("ProductRemovedFromCartEvent")
+@interface SNRProductRemovedFromCartEvent : SNRCartEvent
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label sku:(NSString * _Nonnull)sku finalPrice:(SNRUnitPrice * _Nonnull)finalPrice quantity:(NSInteger)quantity OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label sku:(NSString * _Nonnull)sku finalPrice:(SNRUnitPrice * _Nonnull)finalPrice quantity:(NSInteger)quantity andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label SWIFT_UNAVAILABLE;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params SWIFT_UNAVAILABLE;
+@end
+
+
+SWIFT_CLASS_NAMED("ProductViewedEvent")
+@interface SNRProductViewedEvent : SNREvent
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label productName:(NSString * _Nonnull)productName productId:(NSString * _Nonnull)productId OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label productName:(NSString * _Nonnull)productName productId:(NSString * _Nonnull)productId andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
+- (void)setIsRecommended:(BOOL)isRecommended;
+- (void)setCategory:(NSString * _Nonnull)category;
+- (void)setURL:(NSURL * _Nonnull)url;
+- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
+@end
+
+
+SWIFT_CLASS_NAMED("PushCancelledEvent")
+@interface SNRPushCancelledEvent : SNREvent
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
+@end
+
+
+SWIFT_CLASS_NAMED("PushClickedEvent")
+@interface SNRPushClickedEvent : SNREvent
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
+@end
+
+
+SWIFT_CLASS_NAMED("PushViewedEvent")
+@interface SNRPushViewedEvent : SNREvent
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
+@end
+
+
+SWIFT_CLASS_NAMED("RecognizeClientEvent")
+@interface SNRRecognizeClientEvent : SNREvent
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithEmail:(NSString * _Nullable)email customIdentify:(NSString * _Nullable)customIdentify;
+- (nonnull instancetype)initWithEmail:(NSString * _Nullable)email customIdentify:(NSString * _Nullable)customIdentify parameters:(NSDictionary<NSString *, id> * _Nullable)parameters OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
+@end
+
+
+SWIFT_CLASS_NAMED("RecommendationEvent")
+@interface SNRRecommendationEvent : SNREvent
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS_NAMED("RecommendationClickEvent")
+@interface SNRRecommendationClickEvent : SNRRecommendationEvent
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label productName:(NSString * _Nonnull)productName productId:(NSString * _Nonnull)productId campaignID:(NSString * _Nonnull)campaignID campaignHash:(NSString * _Nonnull)campaignHash andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
+- (void)setCategory:(NSString * _Nonnull)category;
+- (void)setURL:(NSURL * _Nonnull)url;
+- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
+@end
+
+
+
+SWIFT_CLASS_NAMED("RecommendationSeenEvent")
+@interface SNRRecommendationSeenEvent : SNRRecommendationEvent
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label productName:(NSString * _Nonnull)productName productId:(NSString * _Nonnull)productId campaignID:(NSString * _Nonnull)campaignID campaignHash:(NSString * _Nonnull)campaignHash andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
+- (void)setCategory:(NSString * _Nonnull)category;
+- (void)setURL:(NSURL * _Nonnull)url;
+- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
+@end
+
+
+SWIFT_CLASS_NAMED("RecommendationViewEvent")
+@interface SNRRecommendationViewEvent : SNRRecommendationEvent
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label campaignID:(NSString * _Nonnull)campaignID campaignHash:(NSString * _Nonnull)campaignHash correlationId:(NSString * _Nonnull)correlationId andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label items:(NSArray<NSString *> * _Nonnull)items campaignID:(NSString * _Nonnull)campaignID campaignHash:(NSString * _Nonnull)campaignHash correlationId:(NSString * _Nonnull)correlationId andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
+- (void)setItems:(NSArray<NSString *> * _Nonnull)items;
+- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
+@end
+
+
+SWIFT_CLASS_NAMED("RegisteredEvent")
+@interface SNRRegisteredEvent : SNREvent
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
 @end
 
 typedef SWIFT_ENUM(NSInteger, SNRClientUUIDChangeSignalReason, open) {
@@ -423,6 +692,14 @@ typedef SWIFT_ENUM(NSInteger, SNRSyneriseReinitializationSignalState, open) {
   SNRSyneriseReinitializationSignalStateAfter = 1,
 };
 
+
+SWIFT_CLASS_NAMED("SearchedEvent")
+@interface SNRSearchedEvent : SNREvent
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
+@end
+
 @class SNRTrackerSettings;
 
 SWIFT_CLASS_NAMED("Settings")
@@ -438,6 +715,14 @@ SWIFT_CLASS_NAMED("Settings")
 /// Settings for the Injector module
 @property (nonatomic, readonly, strong) SNRInjectorSettings * _Nonnull injector;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS_NAMED("SharedEvent")
+@interface SNRSharedEvent : SNREvent
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
 @end
 
 typedef SWIFT_ENUM_NAMED(NSInteger, SNRTrackerAutoTrackMode, "TrackerAutoTrackMode", open) {
@@ -471,6 +756,29 @@ SWIFT_CLASS_NAMED("TrackerDeclarativeTrackingSettings")
 /// This parameter specifies if declarative tracking is enabled.
 /// The default value is true.
 @property (nonatomic) BOOL enabled;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@class SNRTrackerParamsBuilder;
+
+SWIFT_CLASS_NAMED("TrackerParams")
+@interface SNRTrackerParams : NSObject
++ (SNRTrackerParams * _Nonnull)makeWithBuilder:(SWIFT_NOESCAPE void (^ _Nonnull)(SNRTrackerParamsBuilder * _Nonnull))handler SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)initWithBuilder:(SNRTrackerParamsBuilder * _Nonnull)builder OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_CLASS_NAMED("TrackerParamsBuilder")
+@interface SNRTrackerParamsBuilder : NSObject
+- (void)setObject:(id _Nonnull)object forKey:(NSString * _Nonnull)key;
+- (void)setString:(NSString * _Nonnull)stringValue forKey:(NSString * _Nonnull)key;
+- (void)setInt:(NSInteger)integerValue forKey:(NSString * _Nonnull)key;
+- (void)setFloat:(float)floatValue forKey:(NSString * _Nonnull)key;
+- (void)setDouble:(double)doubleValue forKey:(NSString * _Nonnull)key;
+- (void)setBool:(BOOL)boolValue forKey:(NSString * _Nonnull)key;
+- (NSDictionary<NSString *, id> * _Nonnull)_toDictionary SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -509,12 +817,63 @@ SWIFT_CLASS_NAMED("TrackerSettings")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
+@class NSLocale;
+
+SWIFT_CLASS_NAMED("UnitPrice")
+@interface SNRUnitPrice : NSObject <NSCopying>
+- (nonnull instancetype)initWithAmount:(float)amount OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithAmount:(float)amount locale:(NSLocale * _Nonnull)locale OBJC_DESIGNATED_INITIALIZER;
+- (id _Nonnull)copyWithZone:(struct _NSZone * _Nullable)zone SWIFT_WARN_UNUSED_RESULT;
+- (NSDictionary<NSString *, id> * _Nonnull)toDictionary SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+enum SNRViewTrackerEventViewActionType : NSInteger;
+enum SNRViewTrackerEventViewInteraction : NSInteger;
+
+SWIFT_CLASS_NAMED("ViewTrackerEvent")
+@interface SNRViewTrackerEvent : SNREvent
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithActionType:(enum SNRViewTrackerEventViewActionType)actionType label:(NSString * _Nonnull)label OBJC_DESIGNATED_INITIALIZER;
+- (void)setViewInteraction:(enum SNRViewTrackerEventViewInteraction)viewInteraction;
+- (void)setViewType:(NSString * _Nonnull)viewType;
+- (void)setViewID:(NSString * _Nonnull)viewID;
+- (void)setViewScreen:(NSString * _Nonnull)viewScreen;
+- (void)setViewText:(NSString * _Nonnull)viewText;
+- (void)setViewParameters:(NSDictionary<NSString *, id> * _Nonnull)parameters;
+- (void)setAutotrackValue:(NSString * _Nonnull)autotrackValue;
+- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
+@end
+
+typedef SWIFT_ENUM_NAMED(NSInteger, SNRViewTrackerEventViewActionType, "ViewTrackerEventViewActionType", open) {
+  SNRViewTrackerEventViewActionTypeInteraction SWIFT_COMPILE_NAME("interaction") = 0,
+  SNRViewTrackerEventViewActionTypeVisited SWIFT_COMPILE_NAME("visited") = 1,
+};
+
+typedef SWIFT_ENUM_NAMED(NSInteger, SNRViewTrackerEventViewInteraction, "ViewTrackerEventViewInteraction", open) {
+  SNRViewTrackerEventViewInteractionClick SWIFT_COMPILE_NAME("click") = 0,
+  SNRViewTrackerEventViewInteractionSlide SWIFT_COMPILE_NAME("slide") = 1,
+  SNRViewTrackerEventViewInteractionCheck SWIFT_COMPILE_NAME("check") = 2,
+  SNRViewTrackerEventViewInteractionSelect SWIFT_COMPILE_NAME("select") = 3,
+  SNRViewTrackerEventViewInteractionTap SWIFT_COMPILE_NAME("tap") = 4,
+  SNRViewTrackerEventViewInteractionUnknown SWIFT_COMPILE_NAME("unknown") = 5,
+};
+
+
+SWIFT_CLASS_NAMED("VisitedScreenEvent")
+@interface SNRVisitedScreenEvent : SNREvent
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
+@end
+
 @class _SNR_Constants;
 @class _SNR_Logger;
 @class _SNR_SyneriseFrameworkInfoProvider;
 @class _SNR_ClientApplicationInfoProvider;
 @class _SNR_DeviceInfoProvider;
-@class _SNR_MobileOperatorInfoProvider;
 @class _SNR_ImageProvider;
 @class _SNR_ClientSignInSignal;
 @class _SNR_ClientSignOutSignal;
@@ -525,7 +884,11 @@ SWIFT_CLASS_NAMED("TrackerSettings")
 @class _SNR_DispatchUtils;
 @class _SNR_DelegateUtils;
 @class _SNR_MiscUtils;
+@class _SNR_TimeZoneDateFormatter;
+@class _SNR_UTCDateFormatter;
+@class _SNR_PriceFormatter;
 @class _SNR_ClientManager;
+@class _SNR_ServerTimeManager;
 @class _SNR_BackgroundTaskManager;
 
 SWIFT_CLASS_NAMED("_SNR")
@@ -542,8 +905,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) SWIFT_METATYPE(_SNR_
 + (SWIFT_METATYPE(_SNR_ClientApplicationInfoProvider) _Nonnull)ClientApplicationInfoProvider SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) SWIFT_METATYPE(_SNR_DeviceInfoProvider) _Nonnull DeviceInfoProvider;)
 + (SWIFT_METATYPE(_SNR_DeviceInfoProvider) _Nonnull)DeviceInfoProvider SWIFT_WARN_UNUSED_RESULT;
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) SWIFT_METATYPE(_SNR_MobileOperatorInfoProvider) _Nonnull MobileOperatorInfoProvider;)
-+ (SWIFT_METATYPE(_SNR_MobileOperatorInfoProvider) _Nonnull)MobileOperatorInfoProvider SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) _SNR_ImageProvider * _Nonnull ImageProviderSingleton;)
 + (_SNR_ImageProvider * _Nonnull)ImageProviderSingleton SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) _SNR_ImageProvider * _Nonnull ImageProviderNewInstance;)
@@ -566,8 +927,16 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) SWIFT_METATYPE(_SNR_
 + (SWIFT_METATYPE(_SNR_DelegateUtils) _Nonnull)DelegateUtils SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) SWIFT_METATYPE(_SNR_MiscUtils) _Nonnull MiscUtils;)
 + (SWIFT_METATYPE(_SNR_MiscUtils) _Nonnull)MiscUtils SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) _SNR_TimeZoneDateFormatter * _Nonnull TimeZoneDateFormatterInstance;)
++ (_SNR_TimeZoneDateFormatter * _Nonnull)TimeZoneDateFormatterInstance SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) _SNR_UTCDateFormatter * _Nonnull UTCDateFormatterInstance;)
++ (_SNR_UTCDateFormatter * _Nonnull)UTCDateFormatterInstance SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) _SNR_PriceFormatter * _Nonnull PriceFormatterInstance;)
++ (_SNR_PriceFormatter * _Nonnull)PriceFormatterInstance SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) _SNR_ClientManager * _Nonnull ClientManagerSingleton;)
 + (_SNR_ClientManager * _Nonnull)ClientManagerSingleton SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) _SNR_ServerTimeManager * _Nonnull ServerTimeManagerSingleton;)
++ (_SNR_ServerTimeManager * _Nonnull)ServerTimeManagerSingleton SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) _SNR_BackgroundTaskManager * _Nonnull BackgroundTaskManagerSingleton SWIFT_AVAILABILITY(ios,introduced=13);)
 + (_SNR_BackgroundTaskManager * _Nonnull)BackgroundTaskManagerSingleton SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
@@ -723,7 +1092,6 @@ SWIFT_CLASS_NAMED("_SNR_DispatchUtils")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
-@class NSURL;
 @class UIImage;
 
 SWIFT_CLASS_NAMED("_SNR_ImageProvider")
@@ -769,11 +1137,13 @@ SWIFT_CLASS_NAMED("_SNR_MiscUtils")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class NSNumber;
 
-SWIFT_CLASS_NAMED("_SNR_MobileOperatorInfoProvider")
-@interface _SNR_MobileOperatorInfoProvider : NSObject
-+ (NSString * _Nullable)carrierName SWIFT_WARN_UNUSED_RESULT;
-+ (NSString * _Nullable)carrierCountry SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_NAMED("_SNR_PriceFormatter")
+@interface _SNR_PriceFormatter : NSObject
+- (void)setGroupingSeparator:(NSString * _Nullable)groupingSeparator;
+- (void)setDecimalSeparator:(NSString * _Nullable)decimalSeparator;
+- (NSString * _Nullable)stringFromNumber:(NSNumber * _Nonnull)number SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -785,6 +1155,21 @@ SWIFT_CLASS_NAMED("_SNR_PushRegistrationRequiredSignal")
 @end
 
 
+SWIFT_CLASS_NAMED("_SNR_ServerTimeManager")
+@interface _SNR_ServerTimeManager : NSObject
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+- (void)getServerTimeByCache;
+- (void)fetchServerTimeSynchronously;
+- (void)fetchServerTimeAsynchronously;
+- (BOOL)isReady SWIFT_WARN_UNUSED_RESULT;
+- (void)waitWhenIsReadyWithCompletion:(void (^ _Nonnull)(BOOL))completion;
+- (void)notifyWhenIsReadyWithCompletion:(void (^ _Nonnull)(BOOL))completion;
+- (NSDate * _Nullable)getCurrentServerTime SWIFT_WARN_UNUSED_RESULT;
+- (NSDate * _Nullable)getServerTimeForDeviceTime:(NSDate * _Nonnull)date SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
 SWIFT_PROTOCOL_NAMED("_SNR_SignalReceivable")
 @protocol _SNR_SignalReceivable
 - (void)signalReceived:(_SNR_BaseSignal * _Nonnull)_ parameters:(NSDictionary<NSString *, id> * _Nonnull)parameters;
@@ -793,7 +1178,12 @@ SWIFT_PROTOCOL_NAMED("_SNR_SignalReceivable")
 
 SWIFT_CLASS_NAMED("_SNR_SyneriseFrameworkInfoProvider")
 @interface _SNR_SyneriseFrameworkInfoProvider : NSObject
++ (BOOL)isSharedModeEnabled SWIFT_WARN_UNUSED_RESULT;
 + (void)setSharedModeEnabled:(BOOL)enabled;
++ (BOOL)isExtensionModeEnabled SWIFT_WARN_UNUSED_RESULT;
++ (void)setExtensionModeEnabled:(BOOL)enabled;
++ (BOOL)isBackgroundModeEnabled SWIFT_WARN_UNUSED_RESULT;
++ (void)setBackgroundModeEnabled:(BOOL)enabled;
 + (NSString * _Nonnull)bundleIdentifier SWIFT_WARN_UNUSED_RESULT;
 + (NSString * _Nonnull)SDKVersion SWIFT_WARN_UNUSED_RESULT;
 + (NSString * _Nullable)SDKPreviousVersion SWIFT_WARN_UNUSED_RESULT;
@@ -807,6 +1197,26 @@ SWIFT_CLASS_NAMED("_SNR_SyneriseReinitializationSignal")
 @property (nonatomic, readonly, copy) NSString * _Nonnull STATE_KEY;
 - (void)notifyReinitializationIsBefore;
 - (void)notifyReinitializationIsAfter;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS_NAMED("_SNR_TimeZoneDateFormatter")
+@interface _SNR_TimeZoneDateFormatter : NSObject
+- (NSDate * _Nullable)dateFromString:(NSString * _Nonnull)string withFormat:(NSString * _Nonnull)format timeZoneName:(NSString * _Nonnull)timeZoneName SWIFT_WARN_UNUSED_RESULT;
+- (NSDate * _Nullable)dateWithISO8601FormatFromString:(NSString * _Nonnull)string timeZoneName:(NSString * _Nonnull)timeZoneName SWIFT_WARN_UNUSED_RESULT;
+- (NSString * _Nonnull)stringFromDate:(NSDate * _Nonnull)date withFormat:(NSString * _Nonnull)format timeZoneName:(NSString * _Nonnull)timeZoneName SWIFT_WARN_UNUSED_RESULT;
+- (NSString * _Nonnull)stringWithISO8601FormatFromDate:(NSDate * _Nonnull)date timeZoneName:(NSString * _Nonnull)timeZoneName SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS_NAMED("_SNR_UTCDateFormatter")
+@interface _SNR_UTCDateFormatter : NSObject
+- (NSDate * _Nullable)dateFromString:(NSString * _Nullable)string withFormat:(NSString * _Nonnull)format SWIFT_WARN_UNUSED_RESULT;
+- (NSDate * _Nullable)dateWithISO8601FormatFromString:(NSString * _Nullable)string SWIFT_WARN_UNUSED_RESULT;
+- (NSString * _Nullable)stringFromDate:(NSDate * _Nullable)date withFormat:(NSString * _Nonnull)format SWIFT_WARN_UNUSED_RESULT;
+- (NSString * _Nullable)stringWithISO8601FormatFromDate:(NSDate * _Nullable)date SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -1127,6 +1537,98 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 #if defined(__OBJC__)
 @class NSString;
+@class NSDate;
+@class SNRTrackerParams;
+
+SWIFT_CLASS_NAMED("Event")
+@interface SNREvent : NSObject <NSCopying>
+@property (nonatomic) NSInteger _id;
+@property (nonatomic, readonly, copy) NSString * _Nonnull _type;
+@property (nonatomic, readonly, copy) NSString * _Nonnull label;
+@property (nonatomic, readonly, copy) NSString * _Nonnull action;
+@property (nonatomic, copy) NSDate * _Nullable _timestamp;
+@property (nonatomic, copy) NSDate * _Nullable _time;
+@property (nonatomic, copy) NSDictionary<NSString *, id> * _Nullable _client;
+@property (nonatomic, readonly, copy) NSDictionary<NSString *, id> * _Nullable parameters;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters OBJC_DESIGNATED_INITIALIZER;
+- (id _Nonnull)copyWithZone:(struct _NSZone * _Nullable)zone SWIFT_WARN_UNUSED_RESULT;
+- (void)_setParam:(id _Nullable)param forKey:(NSString * _Nonnull)key;
+- (NSDictionary<NSString *, id> * _Nonnull)_toDictionary SWIFT_WARN_UNUSED_RESULT;
+@end
+
+@class CLLocation;
+
+SWIFT_CLASS_NAMED("AppearedInLocationEvent")
+@interface SNRAppearedInLocationEvent : SNREvent
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andLocation:(CLLocation * _Nonnull)location;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andLocation:(CLLocation * _Nonnull)location andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
+@end
+
+
+SWIFT_CLASS_NAMED("ApplicationStartedEvent")
+@interface SNRApplicationStartedEvent : SNREvent
++ (SNRApplicationStartedEvent * _Nonnull)event SWIFT_WARN_UNUSED_RESULT;
++ (SNRApplicationStartedEvent * _Nonnull)eventWithParameters:(NSDictionary<NSString *, NSString *> * _Nullable)parameters SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
+@end
+
+
+SWIFT_CLASS_NAMED("CacheManager")
+@interface SNRCacheManager : NSObject
++ (id _Nullable)get:(Class _Nonnull)aClass SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@class SNRUnitPrice;
+@class NSURL;
+
+SWIFT_CLASS_NAMED("CartEvent")
+@interface SNRCartEvent : SNREvent
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
+- (void)setName:(NSString * _Nonnull)name;
+- (void)setCategory:(NSString * _Nonnull)category;
+- (void)setCategories:(NSArray<NSString *> * _Nonnull)categories;
+- (void)setOffline:(BOOL)isOffline;
+- (void)setRegularPrice:(SNRUnitPrice * _Nonnull)price;
+- (void)setDiscountedPrice:(SNRUnitPrice * _Nonnull)price;
+- (void)setURL:(NSURL * _Nonnull)url;
+- (void)setProducer:(NSString * _Nonnull)producer;
+- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
+@end
+
+
+SWIFT_CLASS_NAMED("CrashEvent")
+@interface SNRCrashEvent : SNREvent
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
+- (void)setExceptionName:(NSString * _Nonnull)exceptionName;
+- (void)setExceptionReason:(NSString * _Nonnull)exceptionReason;
+- (void)setExceptionStacktrace:(NSString * _Nonnull)exceptionStacktrace;
+- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
+@end
+
+
+SWIFT_CLASS_NAMED("CustomEvent")
+@interface SNRCustomEvent : SNREvent
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label action:(NSString * _Nonnull)action OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label action:(NSString * _Nonnull)action andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
+@end
+
+
 
 SWIFT_CLASS_NAMED("GeneralSettings")
 @interface SNRGeneralSettings : NSObject
@@ -1158,6 +1660,14 @@ SWIFT_CLASS_NAMED("GeneralSettings")
 /// The default value is nil.
 @property (nonatomic, copy) NSDictionary<NSString *, NSString *> * _Nullable localizable;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS_NAMED("HitTimerEvent")
+@interface SNRHitTimerEvent : SNREvent
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
 @end
 
 
@@ -1195,11 +1705,57 @@ SWIFT_CLASS_NAMED("InAppMessagingSettings")
 @end
 
 
+SWIFT_CLASS_NAMED("InitializationConfig")
+@interface SNRInitializationConfig : NSObject
+@property (nonatomic, copy) NSString * _Nullable requestValidationSalt;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
 SWIFT_CLASS_NAMED("InjectorSettings")
 @interface SNRInjectorSettings : NSObject
 /// This parameter specifies if Synerise Mobile Campaigns are processed automatically or not.
 /// The default value is false.
 @property (nonatomic) BOOL automatic;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+enum SNRInternalEventSource : NSInteger;
+
+SWIFT_CLASS_NAMED("InternalEvent")
+@interface SNRInternalEvent : SNREvent
+@property (nonatomic) enum SNRInternalEventSource source;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label action:(NSString * _Nonnull)action OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label action:(NSString * _Nonnull)action andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
+@end
+
+typedef SWIFT_ENUM_NAMED(NSInteger, SNRInternalEventSource, "InternalEventSource", open) {
+  SNRInternalEventSourceSDK SWIFT_COMPILE_NAME("sdk") = 0,
+  SNRInternalEventSourceInAppService SWIFT_COMPILE_NAME("inAppService") = 1,
+};
+
+
+SWIFT_CLASS_NAMED("LoggedInEvent")
+@interface SNRLoggedInEvent : SNREvent
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
+@end
+
+
+SWIFT_CLASS_NAMED("LoggedOutEvent")
+@interface SNRLoggedOutEvent : SNREvent
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
+@end
+
+
+SWIFT_CLASS("_TtC11SyneriseSDK26MobileOperatorInfoProvider")
+@interface MobileOperatorInfoProvider : NSObject
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -1217,6 +1773,129 @@ SWIFT_CLASS_NAMED("NotificationsSettings")
 /// The default value is false.
 @property (nonatomic) BOOL encryption SWIFT_AVAILABILITY(ios,introduced=10.0);
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS_NAMED("ProductAddedToCartEvent")
+@interface SNRProductAddedToCartEvent : SNRCartEvent
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label sku:(NSString * _Nonnull)sku finalPrice:(SNRUnitPrice * _Nonnull)finalPrice quantity:(NSInteger)quantity OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label sku:(NSString * _Nonnull)sku finalPrice:(SNRUnitPrice * _Nonnull)finalPrice quantity:(NSInteger)quantity andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label SWIFT_UNAVAILABLE;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params SWIFT_UNAVAILABLE;
+@end
+
+
+SWIFT_CLASS_NAMED("ProductAddedToFavoritesEvent")
+@interface SNRProductAddedToFavoritesEvent : SNREvent
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
+@end
+
+
+SWIFT_CLASS_NAMED("ProductRemovedFromCartEvent")
+@interface SNRProductRemovedFromCartEvent : SNRCartEvent
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label sku:(NSString * _Nonnull)sku finalPrice:(SNRUnitPrice * _Nonnull)finalPrice quantity:(NSInteger)quantity OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label sku:(NSString * _Nonnull)sku finalPrice:(SNRUnitPrice * _Nonnull)finalPrice quantity:(NSInteger)quantity andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label SWIFT_UNAVAILABLE;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params SWIFT_UNAVAILABLE;
+@end
+
+
+SWIFT_CLASS_NAMED("ProductViewedEvent")
+@interface SNRProductViewedEvent : SNREvent
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label productName:(NSString * _Nonnull)productName productId:(NSString * _Nonnull)productId OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label productName:(NSString * _Nonnull)productName productId:(NSString * _Nonnull)productId andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
+- (void)setIsRecommended:(BOOL)isRecommended;
+- (void)setCategory:(NSString * _Nonnull)category;
+- (void)setURL:(NSURL * _Nonnull)url;
+- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
+@end
+
+
+SWIFT_CLASS_NAMED("PushCancelledEvent")
+@interface SNRPushCancelledEvent : SNREvent
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
+@end
+
+
+SWIFT_CLASS_NAMED("PushClickedEvent")
+@interface SNRPushClickedEvent : SNREvent
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
+@end
+
+
+SWIFT_CLASS_NAMED("PushViewedEvent")
+@interface SNRPushViewedEvent : SNREvent
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
+@end
+
+
+SWIFT_CLASS_NAMED("RecognizeClientEvent")
+@interface SNRRecognizeClientEvent : SNREvent
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithEmail:(NSString * _Nullable)email customIdentify:(NSString * _Nullable)customIdentify;
+- (nonnull instancetype)initWithEmail:(NSString * _Nullable)email customIdentify:(NSString * _Nullable)customIdentify parameters:(NSDictionary<NSString *, id> * _Nullable)parameters OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
+@end
+
+
+SWIFT_CLASS_NAMED("RecommendationEvent")
+@interface SNRRecommendationEvent : SNREvent
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS_NAMED("RecommendationClickEvent")
+@interface SNRRecommendationClickEvent : SNRRecommendationEvent
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label productName:(NSString * _Nonnull)productName productId:(NSString * _Nonnull)productId campaignID:(NSString * _Nonnull)campaignID campaignHash:(NSString * _Nonnull)campaignHash andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
+- (void)setCategory:(NSString * _Nonnull)category;
+- (void)setURL:(NSURL * _Nonnull)url;
+- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
+@end
+
+
+
+SWIFT_CLASS_NAMED("RecommendationSeenEvent")
+@interface SNRRecommendationSeenEvent : SNRRecommendationEvent
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label productName:(NSString * _Nonnull)productName productId:(NSString * _Nonnull)productId campaignID:(NSString * _Nonnull)campaignID campaignHash:(NSString * _Nonnull)campaignHash andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
+- (void)setCategory:(NSString * _Nonnull)category;
+- (void)setURL:(NSURL * _Nonnull)url;
+- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
+@end
+
+
+SWIFT_CLASS_NAMED("RecommendationViewEvent")
+@interface SNRRecommendationViewEvent : SNRRecommendationEvent
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label campaignID:(NSString * _Nonnull)campaignID campaignHash:(NSString * _Nonnull)campaignHash correlationId:(NSString * _Nonnull)correlationId andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label items:(NSArray<NSString *> * _Nonnull)items campaignID:(NSString * _Nonnull)campaignID campaignHash:(NSString * _Nonnull)campaignHash correlationId:(NSString * _Nonnull)correlationId andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
+- (void)setItems:(NSArray<NSString *> * _Nonnull)items;
+- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
+@end
+
+
+SWIFT_CLASS_NAMED("RegisteredEvent")
+@interface SNRRegisteredEvent : SNREvent
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
 @end
 
 typedef SWIFT_ENUM(NSInteger, SNRClientUUIDChangeSignalReason, open) {
@@ -1243,6 +1922,14 @@ typedef SWIFT_ENUM(NSInteger, SNRSyneriseReinitializationSignalState, open) {
   SNRSyneriseReinitializationSignalStateAfter = 1,
 };
 
+
+SWIFT_CLASS_NAMED("SearchedEvent")
+@interface SNRSearchedEvent : SNREvent
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
+@end
+
 @class SNRTrackerSettings;
 
 SWIFT_CLASS_NAMED("Settings")
@@ -1258,6 +1945,14 @@ SWIFT_CLASS_NAMED("Settings")
 /// Settings for the Injector module
 @property (nonatomic, readonly, strong) SNRInjectorSettings * _Nonnull injector;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS_NAMED("SharedEvent")
+@interface SNRSharedEvent : SNREvent
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
 @end
 
 typedef SWIFT_ENUM_NAMED(NSInteger, SNRTrackerAutoTrackMode, "TrackerAutoTrackMode", open) {
@@ -1291,6 +1986,29 @@ SWIFT_CLASS_NAMED("TrackerDeclarativeTrackingSettings")
 /// This parameter specifies if declarative tracking is enabled.
 /// The default value is true.
 @property (nonatomic) BOOL enabled;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@class SNRTrackerParamsBuilder;
+
+SWIFT_CLASS_NAMED("TrackerParams")
+@interface SNRTrackerParams : NSObject
++ (SNRTrackerParams * _Nonnull)makeWithBuilder:(SWIFT_NOESCAPE void (^ _Nonnull)(SNRTrackerParamsBuilder * _Nonnull))handler SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)initWithBuilder:(SNRTrackerParamsBuilder * _Nonnull)builder OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_CLASS_NAMED("TrackerParamsBuilder")
+@interface SNRTrackerParamsBuilder : NSObject
+- (void)setObject:(id _Nonnull)object forKey:(NSString * _Nonnull)key;
+- (void)setString:(NSString * _Nonnull)stringValue forKey:(NSString * _Nonnull)key;
+- (void)setInt:(NSInteger)integerValue forKey:(NSString * _Nonnull)key;
+- (void)setFloat:(float)floatValue forKey:(NSString * _Nonnull)key;
+- (void)setDouble:(double)doubleValue forKey:(NSString * _Nonnull)key;
+- (void)setBool:(BOOL)boolValue forKey:(NSString * _Nonnull)key;
+- (NSDictionary<NSString *, id> * _Nonnull)_toDictionary SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -1329,12 +2047,63 @@ SWIFT_CLASS_NAMED("TrackerSettings")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
+@class NSLocale;
+
+SWIFT_CLASS_NAMED("UnitPrice")
+@interface SNRUnitPrice : NSObject <NSCopying>
+- (nonnull instancetype)initWithAmount:(float)amount OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithAmount:(float)amount locale:(NSLocale * _Nonnull)locale OBJC_DESIGNATED_INITIALIZER;
+- (id _Nonnull)copyWithZone:(struct _NSZone * _Nullable)zone SWIFT_WARN_UNUSED_RESULT;
+- (NSDictionary<NSString *, id> * _Nonnull)toDictionary SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+enum SNRViewTrackerEventViewActionType : NSInteger;
+enum SNRViewTrackerEventViewInteraction : NSInteger;
+
+SWIFT_CLASS_NAMED("ViewTrackerEvent")
+@interface SNRViewTrackerEvent : SNREvent
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithActionType:(enum SNRViewTrackerEventViewActionType)actionType label:(NSString * _Nonnull)label OBJC_DESIGNATED_INITIALIZER;
+- (void)setViewInteraction:(enum SNRViewTrackerEventViewInteraction)viewInteraction;
+- (void)setViewType:(NSString * _Nonnull)viewType;
+- (void)setViewID:(NSString * _Nonnull)viewID;
+- (void)setViewScreen:(NSString * _Nonnull)viewScreen;
+- (void)setViewText:(NSString * _Nonnull)viewText;
+- (void)setViewParameters:(NSDictionary<NSString *, id> * _Nonnull)parameters;
+- (void)setAutotrackValue:(NSString * _Nonnull)autotrackValue;
+- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
+@end
+
+typedef SWIFT_ENUM_NAMED(NSInteger, SNRViewTrackerEventViewActionType, "ViewTrackerEventViewActionType", open) {
+  SNRViewTrackerEventViewActionTypeInteraction SWIFT_COMPILE_NAME("interaction") = 0,
+  SNRViewTrackerEventViewActionTypeVisited SWIFT_COMPILE_NAME("visited") = 1,
+};
+
+typedef SWIFT_ENUM_NAMED(NSInteger, SNRViewTrackerEventViewInteraction, "ViewTrackerEventViewInteraction", open) {
+  SNRViewTrackerEventViewInteractionClick SWIFT_COMPILE_NAME("click") = 0,
+  SNRViewTrackerEventViewInteractionSlide SWIFT_COMPILE_NAME("slide") = 1,
+  SNRViewTrackerEventViewInteractionCheck SWIFT_COMPILE_NAME("check") = 2,
+  SNRViewTrackerEventViewInteractionSelect SWIFT_COMPILE_NAME("select") = 3,
+  SNRViewTrackerEventViewInteractionTap SWIFT_COMPILE_NAME("tap") = 4,
+  SNRViewTrackerEventViewInteractionUnknown SWIFT_COMPILE_NAME("unknown") = 5,
+};
+
+
+SWIFT_CLASS_NAMED("VisitedScreenEvent")
+@interface SNRVisitedScreenEvent : SNREvent
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
+@end
+
 @class _SNR_Constants;
 @class _SNR_Logger;
 @class _SNR_SyneriseFrameworkInfoProvider;
 @class _SNR_ClientApplicationInfoProvider;
 @class _SNR_DeviceInfoProvider;
-@class _SNR_MobileOperatorInfoProvider;
 @class _SNR_ImageProvider;
 @class _SNR_ClientSignInSignal;
 @class _SNR_ClientSignOutSignal;
@@ -1345,7 +2114,11 @@ SWIFT_CLASS_NAMED("TrackerSettings")
 @class _SNR_DispatchUtils;
 @class _SNR_DelegateUtils;
 @class _SNR_MiscUtils;
+@class _SNR_TimeZoneDateFormatter;
+@class _SNR_UTCDateFormatter;
+@class _SNR_PriceFormatter;
 @class _SNR_ClientManager;
+@class _SNR_ServerTimeManager;
 @class _SNR_BackgroundTaskManager;
 
 SWIFT_CLASS_NAMED("_SNR")
@@ -1362,8 +2135,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) SWIFT_METATYPE(_SNR_
 + (SWIFT_METATYPE(_SNR_ClientApplicationInfoProvider) _Nonnull)ClientApplicationInfoProvider SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) SWIFT_METATYPE(_SNR_DeviceInfoProvider) _Nonnull DeviceInfoProvider;)
 + (SWIFT_METATYPE(_SNR_DeviceInfoProvider) _Nonnull)DeviceInfoProvider SWIFT_WARN_UNUSED_RESULT;
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) SWIFT_METATYPE(_SNR_MobileOperatorInfoProvider) _Nonnull MobileOperatorInfoProvider;)
-+ (SWIFT_METATYPE(_SNR_MobileOperatorInfoProvider) _Nonnull)MobileOperatorInfoProvider SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) _SNR_ImageProvider * _Nonnull ImageProviderSingleton;)
 + (_SNR_ImageProvider * _Nonnull)ImageProviderSingleton SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) _SNR_ImageProvider * _Nonnull ImageProviderNewInstance;)
@@ -1386,8 +2157,16 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) SWIFT_METATYPE(_SNR_
 + (SWIFT_METATYPE(_SNR_DelegateUtils) _Nonnull)DelegateUtils SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) SWIFT_METATYPE(_SNR_MiscUtils) _Nonnull MiscUtils;)
 + (SWIFT_METATYPE(_SNR_MiscUtils) _Nonnull)MiscUtils SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) _SNR_TimeZoneDateFormatter * _Nonnull TimeZoneDateFormatterInstance;)
++ (_SNR_TimeZoneDateFormatter * _Nonnull)TimeZoneDateFormatterInstance SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) _SNR_UTCDateFormatter * _Nonnull UTCDateFormatterInstance;)
++ (_SNR_UTCDateFormatter * _Nonnull)UTCDateFormatterInstance SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) _SNR_PriceFormatter * _Nonnull PriceFormatterInstance;)
++ (_SNR_PriceFormatter * _Nonnull)PriceFormatterInstance SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) _SNR_ClientManager * _Nonnull ClientManagerSingleton;)
 + (_SNR_ClientManager * _Nonnull)ClientManagerSingleton SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) _SNR_ServerTimeManager * _Nonnull ServerTimeManagerSingleton;)
++ (_SNR_ServerTimeManager * _Nonnull)ServerTimeManagerSingleton SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) _SNR_BackgroundTaskManager * _Nonnull BackgroundTaskManagerSingleton SWIFT_AVAILABILITY(ios,introduced=13);)
 + (_SNR_BackgroundTaskManager * _Nonnull)BackgroundTaskManagerSingleton SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
@@ -1543,7 +2322,6 @@ SWIFT_CLASS_NAMED("_SNR_DispatchUtils")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
-@class NSURL;
 @class UIImage;
 
 SWIFT_CLASS_NAMED("_SNR_ImageProvider")
@@ -1589,11 +2367,13 @@ SWIFT_CLASS_NAMED("_SNR_MiscUtils")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class NSNumber;
 
-SWIFT_CLASS_NAMED("_SNR_MobileOperatorInfoProvider")
-@interface _SNR_MobileOperatorInfoProvider : NSObject
-+ (NSString * _Nullable)carrierName SWIFT_WARN_UNUSED_RESULT;
-+ (NSString * _Nullable)carrierCountry SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_NAMED("_SNR_PriceFormatter")
+@interface _SNR_PriceFormatter : NSObject
+- (void)setGroupingSeparator:(NSString * _Nullable)groupingSeparator;
+- (void)setDecimalSeparator:(NSString * _Nullable)decimalSeparator;
+- (NSString * _Nullable)stringFromNumber:(NSNumber * _Nonnull)number SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -1605,6 +2385,21 @@ SWIFT_CLASS_NAMED("_SNR_PushRegistrationRequiredSignal")
 @end
 
 
+SWIFT_CLASS_NAMED("_SNR_ServerTimeManager")
+@interface _SNR_ServerTimeManager : NSObject
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+- (void)getServerTimeByCache;
+- (void)fetchServerTimeSynchronously;
+- (void)fetchServerTimeAsynchronously;
+- (BOOL)isReady SWIFT_WARN_UNUSED_RESULT;
+- (void)waitWhenIsReadyWithCompletion:(void (^ _Nonnull)(BOOL))completion;
+- (void)notifyWhenIsReadyWithCompletion:(void (^ _Nonnull)(BOOL))completion;
+- (NSDate * _Nullable)getCurrentServerTime SWIFT_WARN_UNUSED_RESULT;
+- (NSDate * _Nullable)getServerTimeForDeviceTime:(NSDate * _Nonnull)date SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
 SWIFT_PROTOCOL_NAMED("_SNR_SignalReceivable")
 @protocol _SNR_SignalReceivable
 - (void)signalReceived:(_SNR_BaseSignal * _Nonnull)_ parameters:(NSDictionary<NSString *, id> * _Nonnull)parameters;
@@ -1613,7 +2408,12 @@ SWIFT_PROTOCOL_NAMED("_SNR_SignalReceivable")
 
 SWIFT_CLASS_NAMED("_SNR_SyneriseFrameworkInfoProvider")
 @interface _SNR_SyneriseFrameworkInfoProvider : NSObject
++ (BOOL)isSharedModeEnabled SWIFT_WARN_UNUSED_RESULT;
 + (void)setSharedModeEnabled:(BOOL)enabled;
++ (BOOL)isExtensionModeEnabled SWIFT_WARN_UNUSED_RESULT;
++ (void)setExtensionModeEnabled:(BOOL)enabled;
++ (BOOL)isBackgroundModeEnabled SWIFT_WARN_UNUSED_RESULT;
++ (void)setBackgroundModeEnabled:(BOOL)enabled;
 + (NSString * _Nonnull)bundleIdentifier SWIFT_WARN_UNUSED_RESULT;
 + (NSString * _Nonnull)SDKVersion SWIFT_WARN_UNUSED_RESULT;
 + (NSString * _Nullable)SDKPreviousVersion SWIFT_WARN_UNUSED_RESULT;
@@ -1627,6 +2427,26 @@ SWIFT_CLASS_NAMED("_SNR_SyneriseReinitializationSignal")
 @property (nonatomic, readonly, copy) NSString * _Nonnull STATE_KEY;
 - (void)notifyReinitializationIsBefore;
 - (void)notifyReinitializationIsAfter;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS_NAMED("_SNR_TimeZoneDateFormatter")
+@interface _SNR_TimeZoneDateFormatter : NSObject
+- (NSDate * _Nullable)dateFromString:(NSString * _Nonnull)string withFormat:(NSString * _Nonnull)format timeZoneName:(NSString * _Nonnull)timeZoneName SWIFT_WARN_UNUSED_RESULT;
+- (NSDate * _Nullable)dateWithISO8601FormatFromString:(NSString * _Nonnull)string timeZoneName:(NSString * _Nonnull)timeZoneName SWIFT_WARN_UNUSED_RESULT;
+- (NSString * _Nonnull)stringFromDate:(NSDate * _Nonnull)date withFormat:(NSString * _Nonnull)format timeZoneName:(NSString * _Nonnull)timeZoneName SWIFT_WARN_UNUSED_RESULT;
+- (NSString * _Nonnull)stringWithISO8601FormatFromDate:(NSDate * _Nonnull)date timeZoneName:(NSString * _Nonnull)timeZoneName SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS_NAMED("_SNR_UTCDateFormatter")
+@interface _SNR_UTCDateFormatter : NSObject
+- (NSDate * _Nullable)dateFromString:(NSString * _Nullable)string withFormat:(NSString * _Nonnull)format SWIFT_WARN_UNUSED_RESULT;
+- (NSDate * _Nullable)dateWithISO8601FormatFromString:(NSString * _Nullable)string SWIFT_WARN_UNUSED_RESULT;
+- (NSString * _Nullable)stringFromDate:(NSDate * _Nullable)date withFormat:(NSString * _Nonnull)format SWIFT_WARN_UNUSED_RESULT;
+- (NSString * _Nullable)stringWithISO8601FormatFromDate:(NSDate * _Nullable)date SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 

@@ -1,7 +1,15 @@
+
 # Changelog
 All notable changes to this project will be documented in this file.
 
 Note that Objective-C class names are prefixed by `SNR`. In the changelog below, these are names used in Swift, without the prefix.
+
+## [5.0.1] - 2025-02-10
+
+### Changed
+- These initializers of `Event` are not available now: `init(label:)` and `init(label:params:)`. Please use concrete `Event` subclasses, use `CustomEvent` or other initializers in your `Event` subclasses.
+- Improvements to stability.
+
 
 ## [5.0.0] - 2025-01-03
 
