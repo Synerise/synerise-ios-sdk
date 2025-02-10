@@ -8,13 +8,13 @@
 
 #import <UserNotifications/UserNotifications.h>
 #import <SyneriseSDK/SNRPushNotificationsRegistrationOrigin.h>
-#import <SyneriseSDK/SNRInitializationConfig.h>
 #import <SyneriseSDK/SNRSyneriseSource.h>
 #import <SyneriseSDK/SNRSyneriseActivity.h>
 #import <SyneriseSDK/SNRHostApplicationType.h>
 #import <SyneriseSDK/SNRNotificationInfo.h>
 
 @class SNRSettings;
+@class SNRInitializationConfig;
 
 NS_ASSUME_NONNULL_BEGIN
 

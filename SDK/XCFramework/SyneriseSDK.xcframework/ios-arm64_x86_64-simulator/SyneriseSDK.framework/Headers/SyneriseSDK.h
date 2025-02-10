@@ -12,7 +12,6 @@
 #import <UserNotificationsUI/UserNotificationsUI.h>
 
 #import <SyneriseSDK/SNRSynerise.h>
-#import <SyneriseSDK/SNRInitializationConfig.h>
 
 // Modules
 #import <SyneriseSDK/SNRTracker.h>
@@ -26,7 +25,6 @@
 #import <SyneriseSDK/SNRClientEventsApiQuery.h>
 #import <SyneriseSDK/SNRPromotionsApiQuery.h>
 #import <SyneriseSDK/SNRDocumentApiQuery.h>
-#import <SyneriseSDK/SNRDocumentsApiQuery.h>
 #import <SyneriseSDK/SNRRecommendationOptions.h>
 #import <SyneriseSDK/SNRScreenViewApiQuery.h>
 
@@ -55,37 +53,6 @@
 #import <SyneriseSDK/SNRClientSignOutMode.h>
 #import <SyneriseSDK/SNRClientSessionEndReason.h>
 #import <SyneriseSDK/SNRClientIdentityProvider.h>
-
-// Managers
-#import <SyneriseSDK/SNRCacheManager.h>
-
-// Events
-#import <SyneriseSDK/SNRTrackerParams.h>
-#import <SyneriseSDK/SNRTrackerParamsBuilder.h>
-
-#import <SyneriseSDK/SNREvent.h>
-#import <SyneriseSDK/SNRCustomEvent.h>
-#import <SyneriseSDK/SNRLoggedInEvent.h>
-#import <SyneriseSDK/SNRLoggedOutEvent.h>
-#import <SyneriseSDK/SNRRegisteredEvent.h>
-#import <SyneriseSDK/SNRCartEvent.h>
-#import <SyneriseSDK/SNRProductAddedToCartEvent.h>
-#import <SyneriseSDK/SNRProductRemovedFromCartEvent.h>
-#import <SyneriseSDK/SNRProductAddedToFavoritesEvent.h>
-#import <SyneriseSDK/SNRProductViewedEvent.h>
-#import <SyneriseSDK/SNRRecommendationViewEvent.h>
-#import <SyneriseSDK/SNRRecommendationSeenEvent.h>
-#import <SyneriseSDK/SNRRecommendationClickEvent.h>
-#import <SyneriseSDK/SNRPushClickedEvent.h>
-#import <SyneriseSDK/SNRPushViewedEvent.h>
-#import <SyneriseSDK/SNRPushCancelledEvent.h>
-#import <SyneriseSDK/SNRAppearedInLocationEvent.h>
-#import <SyneriseSDK/SNRHitTimerEvent.h>
-#import <SyneriseSDK/SNRSearchedEvent.h>
-#import <SyneriseSDK/SNRSharedEvent.h>
-#import <SyneriseSDK/SNRVisitedScreenEvent.h>
-#import <SyneriseSDK/SNRCrashEvent.h>
-#import <SyneriseSDK/SNRUnitPrice.h>
 
 // API Models
 #import <SyneriseSDK/SNRBaseModel.h>
