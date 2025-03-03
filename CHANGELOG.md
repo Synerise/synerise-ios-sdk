@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 Note that Objective-C class names are prefixed by `SNR`. In the changelog below, these are names used in Swift, without the prefix.
 
+## [5.0.4] - 2025-03-03
+
+### Changed
+- Improvements to the SDK hybrid plugins (Flutter and React Native).
+- Improvements to stability.
+
+
 ## [5.0.3] - 2025-03-03
 
 ### Fixed
