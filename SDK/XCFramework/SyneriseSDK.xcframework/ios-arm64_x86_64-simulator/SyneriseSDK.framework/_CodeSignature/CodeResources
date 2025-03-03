@@ -402,11 +402,11 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		QMJb8z425RVmBJiELOFnGVEjUTY=
+		D+Ov5QjkADL0758eFwQzdgW5Udo=
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		orZE/QyPqpx5l/Z8YuGLM9/aLlw=
+		coAF5oi/iAHVKJ91fVMo8glaHZc=
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -422,11 +422,11 @@
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		Rp2bKXeR6wYBFr0kr/DLR44o6kE=
+		gL4LHjVqiqjM759indcu8jONaN0=
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		orZE/QyPqpx5l/Z8YuGLM9/aLlw=
+		coAF5oi/iAHVKJ91fVMo8glaHZc=
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -442,7 +442,7 @@
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		+0H5MYJdBwq16ZJfIDT9otIVND8=
+		1xp/g1z07pPm705eMLBnpsZ4AMY=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -1186,7 +1186,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			nYkkPLAkDmfwFuzkDIXom9XjecDhEEACPwDkH2jshAw=
+			a4rZAymSN+dZhsN8ia4wa9J507P5mms1qi8iaeFDIcc=
 			</data>
 		</dict>
 		<key>Modules/SyneriseSDK.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
@@ -1214,14 +1214,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			bS+isiKIt2vq+zpjpp957BihnO3G8SPV5jmKlSDNsA4=
+			lJpr0p2HGYJoVZWRQAyNkEgmDt9Ib5HH2Fc2pUBreZc=
 			</data>
 		</dict>
 		<key>Modules/SyneriseSDK.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			nYkkPLAkDmfwFuzkDIXom9XjecDhEEACPwDkH2jshAw=
+			a4rZAymSN+dZhsN8ia4wa9J507P5mms1qi8iaeFDIcc=
 			</data>
 		</dict>
 		<key>Modules/SyneriseSDK.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
@@ -1249,7 +1249,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			jeuxwBWpCO3WMzYCR1P4lqVzDcg6KAgq0OF5597/EC4=
+			tjCts71Q3QutEFk6bQg89FrSZewq+chsHhqHgLgjkQk=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
