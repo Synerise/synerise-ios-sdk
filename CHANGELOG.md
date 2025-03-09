@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 Note that Objective-C class names are prefixed by `SNR`. In the changelog below, these are names used in Swift, without the prefix.
 
+## [5.0.5] - 2025-03-06
+
+### Changed
+- Optimization of the In-app messaging module.
+- Improvements to stability.
+
+
 ## [5.0.4] - 2025-03-03
 
 ### Changed
