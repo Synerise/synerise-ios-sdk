@@ -514,7 +514,7 @@
 		</data>
 		<key>Headers/SyneriseSDK-Swift.h</key>
 		<data>
-		2pNXNPxCZlXpvQ0InfMyunzHb68=
+		cqgMKNjW8hItdlZdwq3RJIW+Ju4=
 		</data>
 		<key>Headers/SyneriseSDK.h</key>
 		<data>
@@ -522,7 +522,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		kK3Ua4w8k47EpjIsBuTzCpktLaU=
+		sVmSOQ4U8JipR3QQXRFnrL/Fs70=
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
@@ -530,19 +530,19 @@
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		yH6/Gigb+kB90obIN4e6+E6SBvQ=
+		76H2L46HnsM30cRRvuZxBf1YVZo=
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		BYBh8v1llKYsFVs0ON88QLrJGmw=
+		BECfcjac+ZxbkTbqj3tSfGP2E/8=
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		yH6/Gigb+kB90obIN4e6+E6SBvQ=
+		76H2L46HnsM30cRRvuZxBf1YVZo=
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		9FF+u+99vBQjiHJURc4Ym4d4g0A=
+		1fM5CCO1R53sFvM61EaTvgxCivw=
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
@@ -550,19 +550,19 @@
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		CbccjmqXdYTwb6ZupQl7T9lLu+8=
+		6KaBGY5bej/v/95FKg13cTpfdsk=
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		g0Ja8K1L6dtJfqTh7AyCybX592g=
+		EqpJx/swb/1s6E+Z8/B0WoC3tt4=
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		CbccjmqXdYTwb6ZupQl7T9lLu+8=
+		6KaBGY5bej/v/95FKg13cTpfdsk=
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		pGpC2TbZZY0gKxQAKkZEe5py93E=
+		MdCT/NlIOs72bREg1Qd0K5WdyOo=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -574,7 +574,7 @@
 		</data>
 		<key>SNRInAppDataModelScheme.momd/SNRInAppDataScheme.mom</key>
 		<data>
-		bN8lFDqKffODagDNkxuXGkiiEqI=
+		8RA87oqzWJJQBm6vaS1HsIfOENA=
 		</data>
 		<key>SNRInAppDataModelScheme.momd/VersionInfo.plist</key>
 		<data>
@@ -582,7 +582,7 @@
 		</data>
 		<key>SNRTrackerEvents.momd/TrackerEvents.mom</key>
 		<data>
-		WZrpLJKAsFCsx+TTWS8v6AzUNyw=
+		UVm4e4EorkaxIqWgjy80/9C0+Rc=
 		</data>
 		<key>SNRTrackerEvents.momd/VersionInfo.plist</key>
 		<data>
@@ -2010,11 +2010,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			2pNXNPxCZlXpvQ0InfMyunzHb68=
+			cqgMKNjW8hItdlZdwq3RJIW+Ju4=
 			</data>
 			<key>hash2</key>
 			<data>
-			x6PJKhrOf4HoCMrcpuAW+YcJyUuU1O3zmXorbe7jT6Y=
+			6QQ8re1S9Zf68J3uhbFdFRS4YWafMviaEnoA2SQqUEM=
 			</data>
 		</dict>
 		<key>Headers/SyneriseSDK.h</key>
@@ -2043,44 +2043,44 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			yH6/Gigb+kB90obIN4e6+E6SBvQ=
+			76H2L46HnsM30cRRvuZxBf1YVZo=
 			</data>
 			<key>hash2</key>
 			<data>
-			fj5KObXZOeEpS56hNfK8IElQ123apYfm5xrLHOtEApg=
+			w/xQYr8g5eymPW1k4OtD8tTm69j2BOgELHXq6HFFEpY=
 			</data>
 		</dict>
 		<key>Modules/SyneriseSDK.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			BYBh8v1llKYsFVs0ON88QLrJGmw=
+			BECfcjac+ZxbkTbqj3tSfGP2E/8=
 			</data>
 			<key>hash2</key>
 			<data>
-			bKzom0zF1p3qPCnom7l3LOqXhzpg8MH0B3dKzztQO3E=
+			V+hcapXA3F8712RP3bUBeTorCgCGccaYsntbSO5IsmY=
 			</data>
 		</dict>
 		<key>Modules/SyneriseSDK.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			yH6/Gigb+kB90obIN4e6+E6SBvQ=
+			76H2L46HnsM30cRRvuZxBf1YVZo=
 			</data>
 			<key>hash2</key>
 			<data>
-			fj5KObXZOeEpS56hNfK8IElQ123apYfm5xrLHOtEApg=
+			w/xQYr8g5eymPW1k4OtD8tTm69j2BOgELHXq6HFFEpY=
 			</data>
 		</dict>
 		<key>Modules/SyneriseSDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			9FF+u+99vBQjiHJURc4Ym4d4g0A=
+			1fM5CCO1R53sFvM61EaTvgxCivw=
 			</data>
 			<key>hash2</key>
 			<data>
-			bz2iBVEWOKwrRI+s3bfnor8ilXIw/MDn6CNoriHFkhA=
+			5sSmBvSkROKsiAEjKs/fZAzQkYcqPPazD71idKgLQhw=
 			</data>
 		</dict>
 		<key>Modules/SyneriseSDK.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
@@ -2098,44 +2098,44 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			CbccjmqXdYTwb6ZupQl7T9lLu+8=
+			6KaBGY5bej/v/95FKg13cTpfdsk=
 			</data>
 			<key>hash2</key>
 			<data>
-			qJQ3pcOlxwcdfoEtYiXH9ZzhcHnynmNfKX2BY4rTzNM=
+			VVcHguYgzn8J2hYpPsTsOLaEEQEjVanRsPumBHCi5GQ=
 			</data>
 		</dict>
 		<key>Modules/SyneriseSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			g0Ja8K1L6dtJfqTh7AyCybX592g=
+			EqpJx/swb/1s6E+Z8/B0WoC3tt4=
 			</data>
 			<key>hash2</key>
 			<data>
-			wmpX/Hb/II+PUP3lruTCgfPheZwrJNlIkOhL/6mxyZ8=
+			BG/lWkgA7V1+C5PivsGX+tCjmzdM426H/xiw97TgHb4=
 			</data>
 		</dict>
 		<key>Modules/SyneriseSDK.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			CbccjmqXdYTwb6ZupQl7T9lLu+8=
+			6KaBGY5bej/v/95FKg13cTpfdsk=
 			</data>
 			<key>hash2</key>
 			<data>
-			qJQ3pcOlxwcdfoEtYiXH9ZzhcHnynmNfKX2BY4rTzNM=
+			VVcHguYgzn8J2hYpPsTsOLaEEQEjVanRsPumBHCi5GQ=
 			</data>
 		</dict>
 		<key>Modules/SyneriseSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			pGpC2TbZZY0gKxQAKkZEe5py93E=
+			MdCT/NlIOs72bREg1Qd0K5WdyOo=
 			</data>
 			<key>hash2</key>
 			<data>
-			K9Jgp534aECAJBtEBYs0TLvKE/RUuQOEhJKO0B9U2DI=
+			GQgPK7mtmrX8T+DrqnQJ2F6JSqvEX1SImM4hPq7caGs=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -2164,11 +2164,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			bN8lFDqKffODagDNkxuXGkiiEqI=
+			8RA87oqzWJJQBm6vaS1HsIfOENA=
 			</data>
 			<key>hash2</key>
 			<data>
-			y3SQOLUDwZvNB6FaWGiVNDtnGHRORcg2OQtrCK1YO4I=
+			lN5Gc3OflIcu864gRYJAAiwwCXdXe2txrzAzT1wNQgM=
 			</data>
 		</dict>
 		<key>SNRInAppDataModelScheme.momd/VersionInfo.plist</key>
@@ -2186,11 +2186,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			WZrpLJKAsFCsx+TTWS8v6AzUNyw=
+			UVm4e4EorkaxIqWgjy80/9C0+Rc=
 			</data>
 			<key>hash2</key>
 			<data>
-			VMy/Pj31pDuS0w7r8CR2mKTTaV7RVJkNWv+CKWy6QMQ=
+			qBp1ZroZB/YhWJPbJyGITo4jYxNzHzuUap+nuuVfeVg=
 			</data>
 		</dict>
 		<key>SNRTrackerEvents.momd/VersionInfo.plist</key>
