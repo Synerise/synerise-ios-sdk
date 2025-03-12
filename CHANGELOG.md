@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 
 Note that Objective-C class names are prefixed by `SNR`. In the changelog below, these are names used in Swift, without the prefix.
 
+## [5.0.6] - 2025-03-12
+
+### Fixed
+- Issue with authentication (all types): when a customer wanted to authenticate another account, the UUID was not regenerated. The problem occurred since version 4.23.4.
+
+### Changed
+- Improvements to stability.
+
+
 ## [5.0.5] - 2025-03-06
 
 ### Changed
