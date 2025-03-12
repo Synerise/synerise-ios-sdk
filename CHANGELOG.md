@@ -106,6 +106,15 @@ IMPORTANT:
 - Improvements to stability.
 
 
+## [4.24.4] - 2025-03-12
+
+### Fixed
+- Issue with authentication (all types): when a customer wanted to authenticate another account, the UUID was not regenerated. The problem occurred since version 4.23.4.
+
+### Changed
+- Improvements to stability.
+
+
 ## [4.24.3] - 2025-03-03
 
 ### Fixed
