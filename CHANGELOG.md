@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 Note that Objective-C class names are prefixed by `SNR`. In the changelog below, these are names used in Swift, without the prefix.
 
+## [5.1.0] - 2025-03-27
+
+### Added
+- In-app campaigns can now use the safe area of the screen, allowing you to display full-screen in-app messages. This option is called "Safe area" in the "Display type" option group in the campaign creator. If switched on, it allows the in-app message to extend into system UI. If switched off, it avoids system bars, notches, and other UI elements.
+
+
 ## [5.0.6] - 2025-03-12
 
 ### Fixed
@@ -103,15 +109,6 @@ IMPORTANT:
 - `TokenOrigin.oauth` enum value changed to `TokenOrigin.OAuth`.
 - Property `identifier` in the `Document` model changed to `uuid`.
 - Client module methods with the **success** closure do NOT contain the `isSuccess` parameter now. It was redundant.
-- Improvements to stability.
-
-
-## [4.24.4] - 2025-03-12
-
-### Fixed
-- Issue with authentication (all types): when a customer wanted to authenticate another account, the UUID was not regenerated. The problem occurred since version 4.23.4.
-
-### Changed
 - Improvements to stability.
 
 
