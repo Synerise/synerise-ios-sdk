@@ -112,10 +112,6 @@
 		<data>
 		fESw7yDDScP2BW/XD4fVbrkvNGE=
 		</data>
-		<key>Headers/SNRContent.h</key>
-		<data>
-		vfnth/APPxMAZ45FdlfqwPdjM2Q=
-		</data>
 		<key>Headers/SNRContentWidget.h</key>
 		<data>
 		/9VPMuAtMNrN35mqFIX/7yYYS3g=
@@ -172,14 +168,6 @@
 		<data>
 		aH6s3y3XKOAdnapH+myBJXXvj/M=
 		</data>
-		<key>Headers/SNRDocument.h</key>
-		<data>
-		/4rVRkXklggEsib1ODKX91fBGS0=
-		</data>
-		<key>Headers/SNRDocumentApiQuery.h</key>
-		<data>
-		sTmJbM419fmrLKskgI94ynsWWFI=
-		</data>
 		<key>Headers/SNRError.h</key>
 		<data>
 		83moWunaREZnQHPi84PxNJPt2Lc=
@@ -231,10 +219,6 @@
 		<key>Headers/SNRLocalizableStringKey.h</key>
 		<data>
 		vsR1+ThxT/jXaROC+Rob4zZLjgY=
-		</data>
-		<key>Headers/SNRNotificationInfo.h</key>
-		<data>
-		0LCP4D71GuUM2OPs6iDQAhbA0BU=
 		</data>
 		<key>Headers/SNRNotificationServiceExtension.h</key>
 		<data>
@@ -316,45 +300,13 @@
 		<data>
 		HE9HkVYVkFoSqejY9sHnk/AWn64=
 		</data>
-		<key>Headers/SNRRecommendation.h</key>
-		<data>
-		4C+XSrK1yJ2HoIjhgsJau2zBooI=
-		</data>
-		<key>Headers/SNRRecommendationOptions.h</key>
-		<data>
-		SQzGL2jiKuVfZ9s25nyn4TuZwE0=
-		</data>
-		<key>Headers/SNRRecommendationResponse.h</key>
-		<data>
-		SUeSLtIkUr/q6DqxaOnJD2bthPI=
-		</data>
-		<key>Headers/SNRRecommendationResponseExtras.h</key>
-		<data>
-		n29Z3rb5z0CMNTXgUEdvV6xhlmI=
-		</data>
-		<key>Headers/SNRRecommendationResponseExtrasSlot.h</key>
-		<data>
-		amTIGs0ExKzRwmJPVdwDO91WG1E=
-		</data>
-		<key>Headers/SNRScreenView.h</key>
-		<data>
-		r5wuPjT5/mnTnZ+tFk6nJWonETg=
-		</data>
-		<key>Headers/SNRScreenViewApiQuery.h</key>
-		<data>
-		m1WLhjjM7jMWXxlgRL1ErBQcP/I=
-		</data>
-		<key>Headers/SNRScreenViewAudienceInfo.h</key>
-		<data>
-		7fY7ht+B7TeOVrHqPRr3QQVuHxs=
-		</data>
 		<key>Headers/SNRSingleMediaContentExtensionViewController.h</key>
 		<data>
 		lXTIlUlBurVJ31yxFteYNujLQiw=
 		</data>
 		<key>Headers/SNRSynerise.h</key>
 		<data>
-		seTkYTjiu7f5irrNv8OKvqrcgJo=
+		sxjdBM5G8rC+cG23ZmyeATb3DHU=
 		</data>
 		<key>Headers/SNRSyneriseActivity.h</key>
 		<data>
@@ -394,55 +346,55 @@
 		</data>
 		<key>Headers/SyneriseSDK-Swift.h</key>
 		<data>
-		XMkHMWIY1LLC+VTdvhpQBfzui1U=
+		CU2nAlb5PGX327oXxRlylEvuMoA=
 		</data>
 		<key>Headers/SyneriseSDK.h</key>
 		<data>
-		NQdYsoWE6TvXZbCKIDXRnHGIaPE=
+		+BtM5rxXHuw8VP+MQ24eFsA1jQk=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		nYAtXLSvpTrK+5s/fjPgCyD7MAM=
+		hrnjtvzAAuWQJE5TO9FBprx9DHo=
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		+DQ+Wo0dgtSvm9suRdd72+IUJyk=
+		NH8sBpo3JlKOO6eLYEfZRtKoDKg=
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		/6silTbYk8QNVR+G8JXRbkwGzZk=
+		+jCQ4tAdnhfG0CMkaPY81gqYeh4=
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		+SbUqUE052OUm3lyhghL5jUV9/4=
+		l/ygq9bhkgSQ5c1Ad8vkipSDEAQ=
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		/6silTbYk8QNVR+G8JXRbkwGzZk=
+		+jCQ4tAdnhfG0CMkaPY81gqYeh4=
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		WhW2I5Q1rKn+YJcs7yaLD/ZnmOM=
+		jsRK0VZMlCHL4lq0YcqFxbjzXng=
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		+DQ+Wo0dgtSvm9suRdd72+IUJyk=
+		NH8sBpo3JlKOO6eLYEfZRtKoDKg=
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		UY4z4gX3OOwycUMvJDI/h6c8Ak8=
+		yTJHD1lpMSQG0UhWGKsIF9xvnNY=
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		5aMB4c4jRLqfIMOZTqqQMP2hFFo=
+		E/SD1J9E5uKzNZk4w9MdNgKk25g=
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		UY4z4gX3OOwycUMvJDI/h6c8Ak8=
+		yTJHD1lpMSQG0UhWGKsIF9xvnNY=
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		ilRihu8jeBCQqWzrdjQsbREFKn4=
+		DtCkTXNzCLN+IHuDP/pd8hLbjnc=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -678,13 +630,6 @@
 			Nc1I2UbgV/KgW89/KB6zXhUWTzT6qGRhOeG273tAQpg=
 			</data>
 		</dict>
-		<key>Headers/SNRContent.h</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			MD36SgGkiPymvfu+xB/TEpU0ejuCnMEKeFoB9+tlXsA=
-			</data>
-		</dict>
 		<key>Headers/SNRContentWidget.h</key>
 		<dict>
 			<key>hash2</key>
@@ -783,20 +728,6 @@
 			mcqd58htdJGOKh9HTu2kxwWEEQ4Ma4eh4CRdPgVZ6A8=
 			</data>
 		</dict>
-		<key>Headers/SNRDocument.h</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			t1lTQh1H/pcKgD48mmMGtqZ2Bd3mvcogfekW00VJGO0=
-			</data>
-		</dict>
-		<key>Headers/SNRDocumentApiQuery.h</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			tFdJg9b460IY8/nge/xF89smgcpN3cC4vEsquvHd2Yk=
-			</data>
-		</dict>
 		<key>Headers/SNRError.h</key>
 		<dict>
 			<key>hash2</key>
@@ -886,13 +817,6 @@
 			<key>hash2</key>
 			<data>
 			l0twcuGmDHqnn+b9OFgs2tQGEhUZcRtl/+lDNjEBMF0=
-			</data>
-		</dict>
-		<key>Headers/SNRNotificationInfo.h</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			fJcOeB8ZfrpWiZenEk8zqw3ljmWL2xSRsHYieOa8u6U=
 			</data>
 		</dict>
 		<key>Headers/SNRNotificationServiceExtension.h</key>
@@ -1035,62 +959,6 @@
 			VnrMDgTevytk0dqA2nEIOv51aEDYivvkG8mrk3f2jsg=
 			</data>
 		</dict>
-		<key>Headers/SNRRecommendation.h</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			xSTMEGU6SLbD+LxuihR159FV4fJrPqVkgwKdcQ8NJgs=
-			</data>
-		</dict>
-		<key>Headers/SNRRecommendationOptions.h</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			bsMhcCJ+DXVnhUyQ1HLzsXq+UkzpwVZYDjZP8mpa+WY=
-			</data>
-		</dict>
-		<key>Headers/SNRRecommendationResponse.h</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			x3yneLeAD9NlrcoK1HK35Q/KXyjUmqwm5FuGWvTqknI=
-			</data>
-		</dict>
-		<key>Headers/SNRRecommendationResponseExtras.h</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			+pfONEPRukkbfjOgRk2vmYJOoAaOlTHdgqFI0VTOpYk=
-			</data>
-		</dict>
-		<key>Headers/SNRRecommendationResponseExtrasSlot.h</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			kClOpotLBJ++y0UuAbtlWcl6/EDLp7APi278M+nQFRM=
-			</data>
-		</dict>
-		<key>Headers/SNRScreenView.h</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			L9PQZMBlH2HepmuhUo1+JFDtsMaC8eQn2X4llQmYL6Y=
-			</data>
-		</dict>
-		<key>Headers/SNRScreenViewApiQuery.h</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			ei1duAfVP1FRkPQDTIyJNgd81WJgJbhNDFTdWwUgS68=
-			</data>
-		</dict>
-		<key>Headers/SNRScreenViewAudienceInfo.h</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			1qzO3XSq/kr4Ck3i5VZecnWNHUjd00SZvcBdOBMB8tM=
-			</data>
-		</dict>
 		<key>Headers/SNRSingleMediaContentExtensionViewController.h</key>
 		<dict>
 			<key>hash2</key>
@@ -1102,7 +970,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			PYTsuPWt2o1gbMfmI/s8XJsg/i22ZkIiK/ndlphIueU=
+			shFj4IfMfDWJYo9TvnWTZTYMSLOP3EF0CirPPVa1dEI=
 			</data>
 		</dict>
 		<key>Headers/SNRSyneriseActivity.h</key>
@@ -1172,84 +1040,84 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			zeZjwUCwbeDk4cX0e3d4I/RQQH2wX6m9u8S26ECsR5Q=
+			43i6ZN+kZyyU2DScDQfaXaFh4MVRvJ04wskOim+sCC0=
 			</data>
 		</dict>
 		<key>Headers/SyneriseSDK.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			4/leLk20HxE/bzbHKXuRWRIKH9j7RNZ/VhIzIOgEiX0=
+			vlb1YfI/UGRh7/rv7eXT5JSfFma+zdX6Hv6Oq7xoG2M=
 			</data>
 		</dict>
 		<key>Modules/SyneriseSDK.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			VM+y3xdGWvQ/pahBoLnWTuls6OLWtGDKFav0vjFsa+c=
+			WociqzxGUa1XcngMPKTrgSast787RbdkybFn9eZy6cQ=
 			</data>
 		</dict>
 		<key>Modules/SyneriseSDK.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			MmAHZksn2VmIIq2EDrLVelHMRRjvFkm5hSctl61/5a4=
+			uNEGXEZT/9luSIQONvkfz65tG2H4kQVhLOXpyqoyZfw=
 			</data>
 		</dict>
 		<key>Modules/SyneriseSDK.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			+jPGNUtncv08Pk0l1goJVyiQ9gU2ydMskrzR75YSMRE=
+			NvTahkGfgpFz0NjqBym1DVI1WP7g4IdFi99YlMDeCfo=
 			</data>
 		</dict>
 		<key>Modules/SyneriseSDK.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			MmAHZksn2VmIIq2EDrLVelHMRRjvFkm5hSctl61/5a4=
+			uNEGXEZT/9luSIQONvkfz65tG2H4kQVhLOXpyqoyZfw=
 			</data>
 		</dict>
 		<key>Modules/SyneriseSDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			yAq9LLhD0IUjHkl7VS9Oe3dJ62S3vpA+u2ZUDpMlaEc=
+			XVOglR/lYlZR7uNG1Gs4uuDszXVVFMQ8Kc2iYtnKND4=
 			</data>
 		</dict>
 		<key>Modules/SyneriseSDK.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			VM+y3xdGWvQ/pahBoLnWTuls6OLWtGDKFav0vjFsa+c=
+			WociqzxGUa1XcngMPKTrgSast787RbdkybFn9eZy6cQ=
 			</data>
 		</dict>
 		<key>Modules/SyneriseSDK.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			IVxVMHgLJk7n5MB43jF/ByqqFS0qVDQkf2+z2s8o/EY=
+			+p3nOYYcjha8JnGY9XtFix62DiD8LKanSPYVreD5oZs=
 			</data>
 		</dict>
 		<key>Modules/SyneriseSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			BBftakpMyfoyVc++mEU0urFlOkL90rW5xBCPJZ9I24Y=
+			Npjlg/nEKe1rf0X4WjVIGGJ6Qrsdb+2WX1Etw0wIUjM=
 			</data>
 		</dict>
 		<key>Modules/SyneriseSDK.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			IVxVMHgLJk7n5MB43jF/ByqqFS0qVDQkf2+z2s8o/EY=
+			+p3nOYYcjha8JnGY9XtFix62DiD8LKanSPYVreD5oZs=
 			</data>
 		</dict>
 		<key>Modules/SyneriseSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			2WYCZJzrrWVyIop64Z74oAHVw+uqvO1eUNqiBEO50fI=
+			JUXvq/FfZnyhFTJxTk7g9zmvEB9aJKntX8qGWb/0lwA=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

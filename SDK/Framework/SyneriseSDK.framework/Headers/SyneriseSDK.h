@@ -16,7 +16,6 @@
 // Modules
 #import <SyneriseSDK/SNRTracker.h>
 #import <SyneriseSDK/SNRClient.h>
-#import <SyneriseSDK/SNRContent.h>
 #import <SyneriseSDK/SNRInjector.h>
 #import <SyneriseSDK/SNRPromotions.h>
 
@@ -24,9 +23,6 @@
 #import <SyneriseSDK/SNRApiQuerySortingOrder.h>
 #import <SyneriseSDK/SNRClientEventsApiQuery.h>
 #import <SyneriseSDK/SNRPromotionsApiQuery.h>
-#import <SyneriseSDK/SNRDocumentApiQuery.h>
-#import <SyneriseSDK/SNRRecommendationOptions.h>
-#import <SyneriseSDK/SNRScreenViewApiQuery.h>
 
 // Exceptions
 #import <SyneriseSDK/SNRExceptionHandler.h>
@@ -94,13 +90,10 @@
 #import <SyneriseSDK/SNRAssignVoucherData.h>
 #import <SyneriseSDK/SNRVoucherCodesResponse.h>
 #import <SyneriseSDK/SNRVoucherCodesData.h>
-#import <SyneriseSDK/SNRDocument.h>
-#import <SyneriseSDK/SNRRecommendationResponse.h>
-#import <SyneriseSDK/SNRRecommendationResponseExtras.h>
-#import <SyneriseSDK/SNRRecommendationResponseExtrasSlot.h>
-#import <SyneriseSDK/SNRRecommendation.h>
-#import <SyneriseSDK/SNRScreenView.h>
-#import <SyneriseSDK/SNRScreenViewAudienceInfo.h>
+//#import <SyneriseSDK/SNRRecommendationResponse.h>
+//#import <SyneriseSDK/SNRRecommendationResponseExtras.h>
+//#import <SyneriseSDK/SNRRecommendationResponseExtrasSlot.h>
+//#import <SyneriseSDK/SNRRecommendation.h>
 #import <SyneriseSDK/SNRInAppMessageData.h>
 
 // Content Widget
@@ -122,4 +115,3 @@
 #import <SyneriseSDK/SNRNotificationServiceExtension.h>
 #import <SyneriseSDK/SNRSingleMediaContentExtensionViewController.h>
 #import <SyneriseSDK/SNRCarouselContentExtensionViewController.h>
-#import <SyneriseSDK/SNRNotificationInfo.h>

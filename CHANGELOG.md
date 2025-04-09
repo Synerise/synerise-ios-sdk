@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 
 Note that Objective-C class names are prefixed by `SNR`. In the changelog below, these are names used in Swift, without the prefix.
 
+## [5.2.0] - 2025-04-09
+
+### Fixed
+- Action handling for deeplink when delegate implemented the old method for handling deeplink. When the old method was implemented with the new method, the old method was invoked instead the new one.
+
+### Changed
+- Improvements to stability.
+
+
 ## [5.1.0] - 2025-03-27
 
 ### Added
