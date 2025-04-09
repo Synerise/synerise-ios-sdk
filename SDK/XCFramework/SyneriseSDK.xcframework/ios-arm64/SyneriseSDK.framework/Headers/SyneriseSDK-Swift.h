@@ -352,6 +352,19 @@ SWIFT_CLASS_NAMED("ApplicationStartedEvent")
 @end
 
 
+SWIFT_CLASS("_TtC11SyneriseSDK24BasicNotificationPayload")
+@interface BasicNotificationPayload : NSObject
+@property (nonatomic, copy) NSString * _Nullable title;
+@property (nonatomic, copy) NSString * _Nullable body;
+@property (nonatomic, copy) NSString * _Nullable category;
+@property (nonatomic, copy) NSDictionary<NSString *, id> * _Null_unspecified userInfo;
+@property (nonatomic) BOOL contentIsAvailable;
+@property (nonatomic) BOOL contentIsMutable;
+@property (nonatomic, copy) NSDictionary<NSString *, id> * _Nonnull parameters;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
 SWIFT_CLASS_NAMED("CacheManager")
 @interface SNRCacheManager : NSObject
 + (id _Nullable)get:(Class _Nonnull)aClass SWIFT_WARN_UNUSED_RESULT;
@@ -374,6 +387,61 @@ SWIFT_CLASS_NAMED("CartEvent")
 - (void)setURL:(NSURL * _Nonnull)url;
 - (void)setProducer:(NSString * _Nonnull)producer;
 - (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
+@end
+
+@class SNRDocument;
+@class SNRApiError;
+@class SNRDocumentApiQuery;
+@class SNRRecommendationOptions;
+@class SNRRecommendationResponse;
+@class SNRScreenView;
+@class SNRScreenViewApiQuery;
+
+/// <code>Content</code> class.
+SWIFT_CLASS_NAMED("Content")
+@interface SNRContent : NSObject
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+/// Generates the document defined for the provided slug. Inserts are processed.
+/// \param slug Identifies a specific document.
+///
+/// \param success A closure executed when the operation finishes successfully.
+///
+/// \param failure A closure executed when the operation finishes unsuccessfully.
+///
++ (void)generateDocument:(NSString * _Nonnull)slug success:(void (^ _Nonnull)(SNRDocument * _Nonnull))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+/// Generates the document defined by the parameters provided in the query object.
+/// \param apiQuery <code>DocumentApiQuery</code> object responsible for storing all query parameters.
+///
+/// \param success A closure executed when the operation finishes successfully.
+///
+/// \param failure A closure executed when the operation finishes unsuccessfully.
+///
++ (void)generateDocumentWithApiQuery:(SNRDocumentApiQuery * _Nonnull)apiQuery success:(void (^ _Nonnull)(SNRDocument * _Nonnull))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+/// Generates recommendations based on the provided options.
+/// \param options <code>RecommendationOptions</code> object providing parameters for recommendations.
+///
+/// \param success A closure executed when the operation finishes successfully.
+///
+/// \param failure A closure executed when the operation finishes unsuccessfully.
+///
++ (void)getRecommendationsV2:(SNRRecommendationOptions * _Nonnull)options success:(void (^ _Nonnull)(SNRRecommendationResponse * _Nonnull))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+/// Generates the customer’s highest-priority screen view campaign from the feed with the provided feed slug.
+/// \param feedSlug Identifies a specific screen view.
+///
+/// \param success A closure executed when the operation finishes successfully.
+///
+/// \param failure A closure executed when the operation finishes unsuccessfully.
+///
++ (void)generateScreenView:(NSString * _Nonnull)feedSlug success:(void (^ _Nonnull)(SNRScreenView * _Nonnull))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+/// Generates the customer’s highest-priority screen view campaign based on the parameters provided in the query object.
+/// \param apiQuery <code>ScreenViewApiQuery</code> object responsible for storing all query parameters.
+///
+/// \param success A closure executed when the operation finishes successfully.
+///
+/// \param failure A closure executed when the operation finishes unsuccessfully.
+///
++ (void)generateScreenViewWithApiQuery:(SNRScreenViewApiQuery * _Nonnull)apiQuery success:(void (^ _Nonnull)(SNRScreenView * _Nonnull))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
 @end
 
 
@@ -399,37 +467,56 @@ SWIFT_CLASS_NAMED("CustomEvent")
 @end
 
 
+/// <code>Document</code> class.
+SWIFT_CLASS_NAMED("Document")
+@interface SNRDocument : SNRBaseModel
+@property (nonatomic, readonly, copy) NSString * _Nonnull uuid;
+@property (nonatomic, readonly, copy) NSString * _Nonnull slug;
+@property (nonatomic, readonly, copy) NSString * _Nonnull schema;
+@property (nonatomic, readonly, copy) NSDictionary<NSString *, id> * _Nullable content;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+enum SNRRecommendationFiltersJoinerRule : NSInteger;
+
+/// <code>DocumentApiQuery</code> class.
+SWIFT_CLASS_NAMED("DocumentApiQuery")
+@interface SNRDocumentApiQuery : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nonnull slug;
+@property (nonatomic, copy) NSString * _Nullable productId;
+@property (nonatomic, copy) NSArray<NSString *> * _Nullable itemsIds;
+@property (nonatomic, copy) NSArray<NSString *> * _Nullable itemsExcluded;
+@property (nonatomic, copy) NSString * _Nullable additionalFilters;
+@property (nonatomic) enum SNRRecommendationFiltersJoinerRule filtersJoiner;
+@property (nonatomic, copy) NSString * _Nullable additionalElasticFilters;
+@property (nonatomic) enum SNRRecommendationFiltersJoinerRule elasticFiltersJoiner;
+@property (nonatomic, copy) NSArray<NSString *> * _Nullable displayAttribute;
+@property (nonatomic) BOOL includeContextItems;
+- (nonnull instancetype)initWithSlug:(NSString * _Nonnull)slug OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
 
 SWIFT_CLASS_NAMED("GeneralSettings")
 @interface SNRGeneralSettings : NSObject
-/// This parameter specifies if all of the SDK functionalities are enabled.
-/// The default value is true.
 @property (nonatomic) BOOL enabled;
-/// This parameter identifies the app group that your app and its extensions belong to.
-/// This property is required to allow the SDK to share data with the Host App and its extensions.
-/// The default value is nil.
 @property (nonatomic, copy) NSString * _Nullable appGroupIdentifier;
-/// This parameter identifies the keychain group that your app and its extensions belong to.
-/// This property is required to allow the SDK to share sensitive data with the Host App and its extensions.
-/// The default value is nil.
 @property (nonatomic, copy) NSString * _Nullable keychainGroupIdentifier;
-/// This parameter sets a time counting backwards from expiration time, within which an authentication token will be automatically refreshed by the SDK.
-/// That minimum value for this parameter is 1800 seconds (30 minutes).
-/// The default value is 1800 seconds (30 minutes).
 @property (nonatomic) NSTimeInterval minTokenRefreshInterval;
-/// This parameter sets an array of SSL pins, where each pin is a base64-encoded SHA-256 hash of a certificate’s SPKI.
-/// These SSL pins are used when you use a custom URL for the Synerise API.
-/// The default value is an empty array.
 @property (nonatomic, copy) NSArray<NSString *> * _Nullable SSLPinningPinset;
-/// This parameter specifies if a session should be destroyed after Profile API key (formerly Client API Key) changes.
-/// The default value is true.
 @property (nonatomic) BOOL shouldDestroySessionOnApiKeyChange;
-/// This parameter specifies the localization of some strings occurring in the SDK.
-/// When this option isn’t used, the SDK uses default strings.
-/// We recommend updating the property when you change the language in the Host App.
-/// The default value is nil.
 @property (nonatomic, copy) NSDictionary<NSString *, NSString *> * _Nullable localizable;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@class SNRResponseRawData;
+
+SWIFT_PROTOCOL_NAMED("HasResponseRawData")
+@protocol SNRHasResponseRawData
+@property (nonatomic, strong) SNRResponseRawData * _Nullable responseRawData;
 @end
 
 
@@ -443,33 +530,10 @@ SWIFT_CLASS_NAMED("HitTimerEvent")
 
 SWIFT_CLASS_NAMED("InAppMessagingSettings")
 @interface SNRInAppMessagingSettings : NSObject
-/// This parameter specifies if global control groups should be checked immediately after in-app definitions are fetched.
-/// The default value is false.
 @property (nonatomic) BOOL checkGlobalControlGroupsOnDefinitionsFetch;
-/// This parameter sets the maximum interval between automatic In-app definition updates.
-/// The minimum value for this parameter is 600 seconds (10 minutes).
-/// The default value is 600 seconds (10 minutes).
 @property (nonatomic) NSTimeInterval maxDefinitionUpdateIntervalLimit;
-/// <ul>
-///   <li>
-///     This parameter sets the document’s base URL under which a web view will be created to show the in-app message.
-///   </li>
-///   <li>
-///     It specifies the base URL to use for all relative URLs in an in-app message’s creation.
-///   </li>
-///   <li>
-///   </li>
-///   <li>
-///     The default value is nil.
-///   </li>
-/// </ul>
 @property (nonatomic, copy) NSString * _Nullable contentBaseUrl;
-/// This parameter sets a timeout for In-app message rendering.
-/// The minimum value for this parameter is 1 second.
-/// The default value is 5 seconds.
 @property (nonatomic) NSTimeInterval renderingTimeout;
-/// This parameter specifies if the SDK should send the <code>inApp.capping</code> event.
-/// The default value is true.
 @property (nonatomic) BOOL shouldSendInAppCappingEvent;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -484,8 +548,6 @@ SWIFT_CLASS_NAMED("InitializationConfig")
 
 SWIFT_CLASS_NAMED("InjectorSettings")
 @interface SNRInjectorSettings : NSObject
-/// This parameter specifies if Synerise Mobile Campaigns are processed automatically or not.
-/// The default value is false.
 @property (nonatomic) BOOL automatic;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -530,17 +592,23 @@ SWIFT_CLASS("_TtC11SyneriseSDK26MobileOperatorInfoProvider")
 @end
 
 
+SWIFT_CLASS_NAMED("NotificationInfo")
+@interface SNRNotificationInfo : SNRBaseModel
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_PROTOCOL_NAMED("NotificationInfoRepresentable")
+@protocol SNRNotificationInfoRepresentable
+- (SNRNotificationInfo * _Nullable)toNotificationInfo SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
 SWIFT_CLASS_NAMED("NotificationsSettings")
 @interface SNRNotificationsSettings : NSObject
-/// This parameter specifies if handling notifications by the SDK is enabled.
-/// The default value is true.
 @property (nonatomic) BOOL enabled;
-/// This parameter determines if the SDK displays an additional alert in the application after receiving a notification.
-/// The default value is true.
 @property (nonatomic) BOOL disableInAppAlerts;
-/// This parameter specifies if notifications from Synerise should be encrypted.
-/// iOS 10 or newer is required for this option.
-/// The default value is false.
 @property (nonatomic) BOOL encryption SWIFT_AVAILABILITY(ios,introduced=10.0);
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -619,6 +687,17 @@ SWIFT_CLASS_NAMED("RecognizeClientEvent")
 @end
 
 
+SWIFT_CLASS_NAMED("Recommendation")
+@interface SNRRecommendation : SNRBaseModel
+@property (nonatomic, readonly, copy) NSString * _Nonnull itemID;
+@property (nonatomic, readonly, copy) NSDictionary<NSString *, id> * _Nonnull attributes;
+- (BOOL)isAttributeSetForKey:(NSString * _Nonnull)key SWIFT_WARN_UNUSED_RESULT;
+- (id _Nullable)getAttributeSetForKey:(NSString * _Nonnull)key SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
 SWIFT_CLASS_NAMED("RecommendationEvent")
 @interface SNRRecommendationEvent : SNREvent
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label OBJC_DESIGNATED_INITIALIZER;
@@ -637,6 +716,72 @@ SWIFT_CLASS_NAMED("RecommendationClickEvent")
 - (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
 @end
 
+
+/// <code>RecommendationFiltersJoinerRule</code> enum.
+typedef SWIFT_ENUM_NAMED(NSInteger, SNRRecommendationFiltersJoinerRule, "RecommendationFiltersJoinerRule", open) {
+  SNRRecommendationFiltersJoinerRuleNone SWIFT_COMPILE_NAME("none") = -1,
+  SNRRecommendationFiltersJoinerRuleAnd SWIFT_COMPILE_NAME("and") = 0,
+  SNRRecommendationFiltersJoinerRuleOr SWIFT_COMPILE_NAME("or") = 1,
+  SNRRecommendationFiltersJoinerRuleReplace SWIFT_COMPILE_NAME("replace") = 2,
+};
+
+
+/// <code>RecommendationOptions</code> class.
+SWIFT_CLASS_NAMED("RecommendationOptions")
+@interface SNRRecommendationOptions : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nonnull slug;
+@property (nonatomic, copy) NSString * _Nullable productID;
+@property (nonatomic, copy) NSArray<NSString *> * _Nullable productIDs;
+@property (nonatomic, copy) NSArray<NSString *> * _Nullable itemsExcluded;
+@property (nonatomic, copy) NSString * _Nullable additionalFilters;
+@property (nonatomic) enum SNRRecommendationFiltersJoinerRule filtersJoiner;
+@property (nonatomic, copy) NSString * _Nullable additionalElasticFilters;
+@property (nonatomic) enum SNRRecommendationFiltersJoinerRule elasticFiltersJoiner;
+@property (nonatomic, copy) NSArray<NSString *> * _Nullable displayAttribute;
+@property (nonatomic) BOOL includeContextItems;
+- (nonnull instancetype)initWithSlug:(NSString * _Nonnull)slug OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+@class SNRRecommendationResponseExtras;
+
+SWIFT_CLASS_NAMED("RecommendationResponse")
+@interface SNRRecommendationResponse : SNRBaseModel
+@property (nonatomic, readonly, copy) NSString * _Nonnull name;
+@property (nonatomic, readonly, copy) NSString * _Nonnull campaignHash;
+@property (nonatomic, readonly, copy) NSString * _Nonnull campaignID;
+@property (nonatomic, readonly, copy) NSString * _Nonnull correlationID;
+@property (nonatomic, readonly, copy) NSString * _Nonnull schema;
+@property (nonatomic, readonly, copy) NSString * _Nonnull slug;
+@property (nonatomic, readonly, copy) NSString * _Nonnull UUID;
+@property (nonatomic, readonly, strong) SNRRecommendationResponseExtras * _Nonnull extras;
+@property (nonatomic, readonly, copy) NSArray<SNRRecommendation *> * _Nonnull items;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+@class SNRRecommendationResponseExtrasSlot;
+
+SWIFT_CLASS_NAMED("RecommendationResponseExtras")
+@interface SNRRecommendationResponseExtras : SNRBaseModel
+@property (nonatomic, readonly, copy) NSArray<SNRRecommendation *> * _Nonnull contextItems;
+@property (nonatomic, readonly, copy) NSString * _Nonnull correlationId;
+@property (nonatomic, readonly, copy) NSArray<SNRRecommendationResponseExtrasSlot *> * _Nonnull slots;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_CLASS_NAMED("RecommendationResponseExtrasSlot")
+@interface SNRRecommendationResponseExtrasSlot : SNRBaseModel
+@property (nonatomic, readonly) NSInteger identifier;
+@property (nonatomic, readonly, copy) NSArray<NSString *> * _Nonnull itemIDs;
+@property (nonatomic, readonly, copy) NSString * _Nullable name;
+@property (nonatomic, readonly, copy) NSDictionary<NSString *, id> * _Nullable error;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
 
 
 SWIFT_CLASS_NAMED("RecommendationSeenEvent")
@@ -668,6 +813,20 @@ SWIFT_CLASS_NAMED("RegisteredEvent")
 - (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
 @end
 
+@class NSData;
+
+SWIFT_CLASS_NAMED("ResponseRawData")
+@interface SNRResponseRawData : NSObject
+@property (nonatomic, copy) NSData * _Nonnull data;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+typedef SWIFT_ENUM(NSInteger, SNRApiRequestCompletedSignalResult, open) {
+  SNRApiRequestCompletedSignalResultSuccess = 0,
+  SNRApiRequestCompletedSignalResultFailure = 1,
+};
+
 typedef SWIFT_ENUM(NSInteger, SNRClientUUIDChangeSignalReason, open) {
   SNRClientUUIDChangeSignalReasonAuthentication = 0,
   SNRClientUUIDChangeSignalReasonRegeneration = 1,
@@ -691,6 +850,47 @@ typedef SWIFT_ENUM(NSInteger, SNRSyneriseReinitializationSignalState, open) {
   SNRSyneriseReinitializationSignalStateBefore = 0,
   SNRSyneriseReinitializationSignalStateAfter = 1,
 };
+
+@class SNRScreenViewAudienceInfo;
+
+/// <code>ScreenView</code> class.
+SWIFT_CLASS_NAMED("ScreenView")
+@interface SNRScreenView : SNRBaseModel <SNRHasResponseRawData>
+@property (nonatomic, readonly, copy) NSString * _Nonnull identifier;
+@property (nonatomic, readonly, copy) NSString * _Nonnull name;
+@property (nonatomic, readonly, copy) NSString * _Nonnull hashString;
+@property (nonatomic, readonly, copy) NSString * _Nonnull path;
+@property (nonatomic, readonly) NSInteger priority;
+@property (nonatomic, readonly, strong) SNRScreenViewAudienceInfo * _Nullable audience;
+@property (nonatomic, readonly) id _Nullable data;
+@property (nonatomic, readonly, copy) NSDate * _Nonnull createdAt;
+@property (nonatomic, readonly, copy) NSDate * _Nonnull updatedAt;
+@property (nonatomic, strong) SNRResponseRawData * _Nullable responseRawData;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+/// <code>ScreenViewApiQuery</code> class.
+SWIFT_CLASS_NAMED("ScreenViewApiQuery")
+@interface SNRScreenViewApiQuery : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nonnull feedSlug;
+@property (nonatomic, copy) NSString * _Nullable productID;
+- (nonnull instancetype)initWithSlug:(NSString * _Nonnull)slug OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+/// <code>ScreenViewAudienceInfo</code> class.
+SWIFT_CLASS_NAMED("ScreenViewAudienceInfo")
+@interface SNRScreenViewAudienceInfo : SNRBaseModel
+@property (nonatomic, copy) NSArray<NSString *> * _Nullable segments;
+@property (nonatomic, copy) NSString * _Nullable query;
+@property (nonatomic, copy) NSString * _Nullable targetType;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
 
 
 SWIFT_CLASS_NAMED("SearchedEvent")
@@ -725,6 +925,14 @@ SWIFT_CLASS_NAMED("SharedEvent")
 - (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
 @end
 
+
+SWIFT_CLASS_NAMED("SwiftDependencyContainer")
+@interface SNRSwiftDependencyContainer : NSObject
+- (void)registerObject:(id _Nonnull)object forKey:(NSString * _Nonnull)key;
+- (id _Nullable)resolveObjectForKey:(NSString * _Nonnull)key SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
 typedef SWIFT_ENUM_NAMED(NSInteger, SNRTrackerAutoTrackMode, "TrackerAutoTrackMode", open) {
 /// Auto-Tracking is set to track screen-visits only.
   SNRTrackerAutoTrackModePlain = 0,
@@ -737,15 +945,9 @@ typedef SWIFT_ENUM_NAMED(NSInteger, SNRTrackerAutoTrackMode, "TrackerAutoTrackMo
 
 SWIFT_CLASS_NAMED("TrackerAutoTrackingSettings")
 @interface SNRTrackerAutoTrackingSettings : NSObject
-/// This parameter specifies if AutoTracking is enabled.
-/// The default value is true.
 @property (nonatomic) BOOL enabled;
-/// This parameter sets the mode of AutoTracking.
-/// The default value is <code>SNRTrackerAutoTrackModeDisabled</code>.
 @property (nonatomic) enum SNRTrackerAutoTrackMode mode;
-/// This parameter sets classes excluded from Auto-Tracking.
 @property (nonatomic, copy) NSArray<Class> * _Nonnull excludedClasses;
-/// This parameter sets view tags excluded from Auto-Tracking.
 @property (nonatomic, copy) NSArray<NSNumber *> * _Nonnull excludedViewTags;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -753,8 +955,6 @@ SWIFT_CLASS_NAMED("TrackerAutoTrackingSettings")
 
 SWIFT_CLASS_NAMED("TrackerDeclarativeTrackingSettings")
 @interface SNRTrackerDeclarativeTrackingSettings : NSObject
-/// This parameter specifies if declarative tracking is enabled.
-/// The default value is true.
 @property (nonatomic) BOOL enabled;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -785,33 +985,13 @@ SWIFT_CLASS_NAMED("TrackerParamsBuilder")
 
 SWIFT_CLASS_NAMED("TrackerSettings")
 @interface SNRTrackerSettings : NSObject
-/// Auto-Tracking settings of the Tracker module.
 @property (nonatomic, readonly, strong) SNRTrackerAutoTrackingSettings * _Nonnull autoTracking;
-/// Declarative-Tracking  settings of the Tracker module.
 @property (nonatomic, readonly, strong) SNRTrackerDeclarativeTrackingSettings * _Nonnull tracking;
-/// This parameter specifies if events should be sent when server time synchronization has failed.
-/// The default value is true (events are sent if synchronization fails).
 @property (nonatomic) BOOL isBackendTimeSyncRequired;
-/// This parameter sets the minimum number of events in queue required to send them.
-/// Adding any event to queue runs auto flush, in which case the SDK attempts to send the queue regardless if the minimum number of events is queued.
-/// The maximum value for this parameter is 100.
-/// The default value is 10.
 @property (nonatomic) NSInteger minBatchSize;
-/// This parameter sets the maximum number of events which may be sent in a single batch.
-/// The maximum value for this parameter is 100.
-/// The default value is 100.
 @property (nonatomic) NSInteger maxBatchSize;
-/// This parameter sets the time required before the SDK attempts to send the event queue.
-/// Provide the timeout in seconds.
-/// Adding any event to queue runs auto flush, in which case the SDK attempts to send the queue regardless if the minimum number of events is queued.
-/// The minimum value for this parameter is 0.5f.
-/// The default value is 5 seconds.
 @property (nonatomic) NSTimeInterval autoFlushTimeout;
-/// This parameter sets an array of event ‘action’ values which trigger the flush mechanism.
-/// The default value is an array of event ‘action’ values. Default array contains only push event’s actions.
 @property (nonatomic, copy) NSArray<NSString *> * _Nonnull eventsTriggeringFlush;
-/// This parameter specifies if sending location events is automatic.
-/// The default value is false.
 @property (nonatomic) BOOL locationAutomatic;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
@@ -881,9 +1061,12 @@ SWIFT_CLASS_NAMED("VisitedScreenEvent")
 @class _SNR_DataInconsistencySignal;
 @class _SNR_PushRegistrationRequiredSignal;
 @class _SNR_SyneriseReinitializationSignal;
+@class _SNR_ApiRequestCompletedSignal;
 @class _SNR_DispatchUtils;
 @class _SNR_DelegateUtils;
 @class _SNR_MiscUtils;
+@class _SNR_PushEventUtils;
+@class _SNR_PushEventFactory;
 @class _SNR_TimeZoneDateFormatter;
 @class _SNR_UTCDateFormatter;
 @class _SNR_PriceFormatter;
@@ -893,12 +1076,19 @@ SWIFT_CLASS_NAMED("VisitedScreenEvent")
 
 SWIFT_CLASS_NAMED("_SNR")
 @interface _SNR : NSObject
+/// SWIFT COMMAND PROXY
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) id <SNRSwiftCommandProxyProtocol> _Nonnull _Proxy;)
 + (id <SNRSwiftCommandProxyProtocol> _Nonnull)_Proxy SWIFT_WARN_UNUSED_RESULT;
+/// DEPENDENCY CONTAINER
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) SNRSwiftDependencyContainer * _Nonnull _DependencyContainer;)
++ (SNRSwiftDependencyContainer * _Nonnull)_DependencyContainer SWIFT_WARN_UNUSED_RESULT;
+/// CONSTANTS
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) SWIFT_METATYPE(_SNR_Constants) _Nonnull Constants;)
 + (SWIFT_METATYPE(_SNR_Constants) _Nonnull)Constants SWIFT_WARN_UNUSED_RESULT;
+/// LOGGER
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) SWIFT_METATYPE(_SNR_Logger) _Nonnull Logger;)
 + (SWIFT_METATYPE(_SNR_Logger) _Nonnull)Logger SWIFT_WARN_UNUSED_RESULT;
+/// PROVIDERS
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) SWIFT_METATYPE(_SNR_SyneriseFrameworkInfoProvider) _Nonnull SyneriseFrameworkInfoProvider;)
 + (SWIFT_METATYPE(_SNR_SyneriseFrameworkInfoProvider) _Nonnull)SyneriseFrameworkInfoProvider SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) SWIFT_METATYPE(_SNR_ClientApplicationInfoProvider) _Nonnull ClientApplicationInfoProvider;)
@@ -921,12 +1111,18 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) _SNR_PushReg
 + (_SNR_PushRegistrationRequiredSignal * _Nonnull)PushRegistrationRequiredSignalSingleton SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) _SNR_SyneriseReinitializationSignal * _Nonnull SyneriseReinitializationSignalSingleton;)
 + (_SNR_SyneriseReinitializationSignal * _Nonnull)SyneriseReinitializationSignalSingleton SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) _SNR_ApiRequestCompletedSignal * _Nonnull ApiRequestCompletedSignalSingleton;)
++ (_SNR_ApiRequestCompletedSignal * _Nonnull)ApiRequestCompletedSignalSingleton SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) SWIFT_METATYPE(_SNR_DispatchUtils) _Nonnull DispatchUtils;)
 + (SWIFT_METATYPE(_SNR_DispatchUtils) _Nonnull)DispatchUtils SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) SWIFT_METATYPE(_SNR_DelegateUtils) _Nonnull DelegateUtils;)
 + (SWIFT_METATYPE(_SNR_DelegateUtils) _Nonnull)DelegateUtils SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) SWIFT_METATYPE(_SNR_MiscUtils) _Nonnull MiscUtils;)
 + (SWIFT_METATYPE(_SNR_MiscUtils) _Nonnull)MiscUtils SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) SWIFT_METATYPE(_SNR_PushEventUtils) _Nonnull PushEventUtils;)
++ (SWIFT_METATYPE(_SNR_PushEventUtils) _Nonnull)PushEventUtils SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) SWIFT_METATYPE(_SNR_PushEventFactory) _Nonnull PushEventFactory;)
++ (SWIFT_METATYPE(_SNR_PushEventFactory) _Nonnull)PushEventFactory SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) _SNR_TimeZoneDateFormatter * _Nonnull TimeZoneDateFormatterInstance;)
 + (_SNR_TimeZoneDateFormatter * _Nonnull)TimeZoneDateFormatterInstance SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) _SNR_UTCDateFormatter * _Nonnull UTCDateFormatterInstance;)
@@ -943,6 +1139,23 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) _SNR_Backgro
 @end
 
 
+SWIFT_CLASS_NAMED("_SNR_BaseSignal")
+@interface _SNR_BaseSignal : NSObject
+- (void)addReceiver:(id _Nonnull)receiver;
+- (void)removeReceiver:(id _Nonnull)receiver;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS_NAMED("_SNR_ApiRequestCompletedSignal")
+@interface _SNR_ApiRequestCompletedSignal : _SNR_BaseSignal
+@property (nonatomic, readonly, copy) NSString * _Nonnull RESULT_KEY;
+@property (nonatomic, readonly, copy) NSString * _Nonnull HTTP_STATUS_CODE_KEY;
+- (void)notifyApiRequestIsCompletedWithIsSuccess:(BOOL)isSuccess HTTPStatusCode:(NSInteger)HTTPStatusCode;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
 SWIFT_CLASS_NAMED("_SNR_BackgroundTaskManager") SWIFT_AVAILABILITY(ios,introduced=13)
 @interface _SNR_BackgroundTaskManager : NSObject
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
@@ -951,13 +1164,6 @@ SWIFT_CLASS_NAMED("_SNR_BackgroundTaskManager") SWIFT_AVAILABILITY(ios,introduce
 - (void)registerMainBackgroundTaskWithHandler:(void (^ _Nonnull)(void))handler;
 @end
 
-
-SWIFT_CLASS_NAMED("_SNR_BaseSignal")
-@interface _SNR_BaseSignal : NSObject
-- (void)addReceiver:(id _Nonnull)receiver;
-- (void)removeReceiver:(id _Nonnull)receiver;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
 
 
 SWIFT_CLASS_NAMED("_SNR_ClientApplicationInfoProvider")
@@ -1144,6 +1350,26 @@ SWIFT_CLASS_NAMED("_SNR_PriceFormatter")
 - (void)setGroupingSeparator:(NSString * _Nullable)groupingSeparator;
 - (void)setDecimalSeparator:(NSString * _Nullable)decimalSeparator;
 - (NSString * _Nullable)stringFromNumber:(NSNumber * _Nonnull)number SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS_NAMED("_SNR_PushEventFactory")
+@interface _SNR_PushEventFactory : NSObject
++ (SNREvent * _Nullable)makePushOpenInAppEvent:(id _Nonnull)model SWIFT_WARN_UNUSED_RESULT;
++ (SNREvent * _Nullable)makePushClickEvent:(id _Nonnull)model parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_WARN_UNUSED_RESULT;
++ (SNREvent * _Nullable)makePushViewEvent:(id _Nonnull)model SWIFT_WARN_UNUSED_RESULT;
++ (SNREvent * _Nullable)makePushDismissEvent:(id _Nonnull)model SWIFT_WARN_UNUSED_RESULT;
++ (SNREvent * _Nullable)makePushImageTimeoutEvent:(id _Nonnull)model SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS_NAMED("_SNR_PushEventUtils")
+@interface _SNR_PushEventUtils : NSObject
++ (void)sendPushOpenInAppEventFor:(id _Nonnull)model;
++ (void)sendPushClickEventFor:(id _Nonnull)model actionIdentifier:(NSString * _Nullable)actionIdentifier url:(NSString * _Nullable)url;
++ (void)sendPushDismissEventFor:(id _Nonnull)model;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 

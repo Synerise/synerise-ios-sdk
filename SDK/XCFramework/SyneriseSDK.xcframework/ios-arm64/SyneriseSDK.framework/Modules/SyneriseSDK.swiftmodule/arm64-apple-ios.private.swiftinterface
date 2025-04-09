@@ -32,6 +32,17 @@ import os
   @objc override dynamic public init()
   @objc deinit
 }
+@objc @_inheritsConvenienceInitializers public class BasicNotificationPayload : ObjectiveC.NSObject {
+  @objc public var title: Swift.String?
+  @objc public var body: Swift.String?
+  @objc public var category: Swift.String?
+  @objc public var userInfo: [Swift.String : Any]!
+  @objc public var contentIsAvailable: Swift.Bool
+  @objc public var contentIsMutable: Swift.Bool
+  @objc public var parameters: [Swift.String : Any]
+  @objc override dynamic public init()
+  @objc deinit
+}
 @objc(SNRTrackerAutoTrackMode) public enum TrackerAutoTrackMode : Swift.Int {
   case plain
   case fine
@@ -91,6 +102,20 @@ import os
     @objc set
   }
   @objc override dynamic public init()
+  @objc deinit
+}
+@objc(SNRDocumentApiQuery) public class DocumentApiQuery : ObjectiveC.NSObject {
+  @objc final public let slug: Swift.String
+  @objc public var productId: Swift.String?
+  @objc public var itemsIds: [Swift.String]?
+  @objc public var itemsExcluded: [Swift.String]?
+  @objc public var additionalFilters: Swift.String?
+  @objc public var filtersJoiner: SyneriseSDK.RecommendationFiltersJoinerRule
+  @objc public var additionalElasticFilters: Swift.String?
+  @objc public var elasticFiltersJoiner: SyneriseSDK.RecommendationFiltersJoinerRule
+  @objc public var displayAttribute: [Swift.String]?
+  @objc public var includeContextItems: Swift.Bool
+  @objc public init(slug: Swift.String)
   @objc deinit
 }
 @objc(SNRInternalEventSource) public enum InternalEventSource : Swift.Int {
@@ -177,9 +202,22 @@ public typealias SNRLocalizableStringKey = Swift.String
   }
   @objc deinit
 }
+@objc(SNRNotificationInfoRepresentable) public protocol NotificationInfoRepresentable {
+  @objc func toNotificationInfo() -> SyneriseSDK.NotificationInfo?
+}
+@_hasMissingDesignatedInitializers @objc(SNRNotificationInfo) public class NotificationInfo : SyneriseSDK.BaseModel {
+  @objc deinit
+}
 @_hasMissingDesignatedInitializers @objc(SNRProductAddedToFavoritesEvent) final public class ProductAddedToFavoritesEvent : SyneriseSDK.Event {
   @objc override public init(label: Swift.String)
   @objc override public init(label: Swift.String, params: SyneriseSDK.TrackerParams?)
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc(SNRDocument) public class Document : SyneriseSDK.BaseModel {
+  @objc final public let uuid: Swift.String
+  @objc final public let slug: Swift.String
+  @objc final public let schema: Swift.String
+  @objc final public let content: [Swift.String : Any]?
   @objc deinit
 }
 @_inheritsConvenienceInitializers @objc(_SNR_MiscUtils) public class _SNR_MiscUtils : ObjectiveC.NSObject {
@@ -223,9 +261,13 @@ public typealias SNRLocalizableStringKey = Swift.String
   @objc deinit
 }
 @objc @_inheritsConvenienceInitializers public class MobileOperatorInfoProvider : ObjectiveC.NSObject {
-  public static func carrierName() -> Swift.String?
-  public static func carrierCountry() -> Swift.String?
   @objc override dynamic public init()
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc(SNRRecommendationResponseExtras) public class RecommendationResponseExtras : SyneriseSDK.BaseModel {
+  @objc final public let contextItems: [SyneriseSDK.Recommendation]
+  @objc final public let correlationId: Swift.String
+  @objc final public let slots: [SyneriseSDK.RecommendationResponseExtrasSlot]
   @objc deinit
 }
 @objc(SNRUnitPrice) public class UnitPrice : ObjectiveC.NSObject, Foundation.NSCopying {
@@ -267,6 +309,20 @@ public typealias SNRLocalizableStringKey = Swift.String
   @objc override dynamic public init()
   @objc deinit
 }
+@objc(SNRRecommendationOptions) public class RecommendationOptions : ObjectiveC.NSObject {
+  @objc final public let slug: Swift.String
+  @objc public var productID: Swift.String?
+  @objc public var productIDs: [Swift.String]?
+  @objc public var itemsExcluded: [Swift.String]?
+  @objc public var additionalFilters: Swift.String?
+  @objc public var filtersJoiner: SyneriseSDK.RecommendationFiltersJoinerRule
+  @objc public var additionalElasticFilters: Swift.String?
+  @objc public var elasticFiltersJoiner: SyneriseSDK.RecommendationFiltersJoinerRule
+  @objc public var displayAttribute: [Swift.String]?
+  @objc public var includeContextItems: Swift.Bool
+  @objc public init(slug: Swift.String)
+  @objc deinit
+}
 @_hasMissingDesignatedInitializers @objc(SNRSearchedEvent) final public class SearchedEvent : SyneriseSDK.Event {
   @objc override public init(label: Swift.String)
   @objc override public init(label: Swift.String, params: SyneriseSDK.TrackerParams?)
@@ -283,6 +339,24 @@ public let SDK_UNKNOWN_VERSION: Swift.String
 @_hasMissingDesignatedInitializers @objc(SNRLoggedInEvent) final public class LoggedInEvent : SyneriseSDK.Event {
   @objc override public init(label: Swift.String)
   @objc override public init(label: Swift.String, params: SyneriseSDK.TrackerParams?)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(SNRSwiftDependencyContainer) public class SwiftDependencyContainer : ObjectiveC.NSObject {
+  @objc public func registerObject(_ object: Swift.AnyObject, forKey key: Swift.String)
+  @objc public func resolveObject(forKey key: Swift.String) -> Swift.AnyObject?
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc(SNRRecommendationResponse) public class RecommendationResponse : SyneriseSDK.BaseModel {
+  @objc final public let name: Swift.String
+  @objc final public let campaignHash: Swift.String
+  @objc final public let campaignID: Swift.String
+  @objc final public let correlationID: Swift.String
+  @objc final public let schema: Swift.String
+  @objc final public let slug: Swift.String
+  @objc final public let UUID: Swift.String
+  @objc final public let extras: SyneriseSDK.RecommendationResponseExtras
+  @objc final public let items: [SyneriseSDK.Recommendation]
   @objc deinit
 }
 @_inheritsConvenienceInitializers @objc(_SNR_UTCDateFormatter) final public class _SNR_UTCDateFormatter : ObjectiveC.NSObject {
@@ -375,6 +449,19 @@ public enum ClientModelUUIDOrigin : Swift.String {
   @objc func getValue(command: Swift.String, args: [Swift.String : Any]?) -> Swift.AnyObject?
   @objc func getValueForKey(_ key: Swift.String) -> Swift.AnyObject?
 }
+@_hasMissingDesignatedInitializers @objc(SNRScreenView) public class ScreenView : SyneriseSDK.BaseModel, SyneriseSDK.HasResponseRawData {
+  @objc final public let identifier: Swift.String
+  @objc final public let name: Swift.String
+  @objc final public let hashString: Swift.String
+  @objc final public let path: Swift.String
+  @objc final public let priority: Swift.Int
+  @objc final public let audience: SyneriseSDK.ScreenViewAudienceInfo?
+  @objc final public let data: Any?
+  @objc final public let createdAt: Foundation.Date
+  @objc final public let updatedAt: Foundation.Date
+  @objc public var responseRawData: SyneriseSDK.ResponseRawData?
+  @objc deinit
+}
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @available(iOS 13, *)
 @objc(_SNR_BackgroundTaskManager) public class _SNR_BackgroundTaskManager : ObjectiveC.NSObject {
   @objc deinit
@@ -384,6 +471,13 @@ public enum ClientModelUUIDOrigin : Swift.String {
 @_hasMissingDesignatedInitializers @objc(SNRLoggedOutEvent) final public class LoggedOutEvent : SyneriseSDK.Event {
   @objc override public init(label: Swift.String)
   @objc override public init(label: Swift.String, params: SyneriseSDK.TrackerParams?)
+  @objc deinit
+}
+@objc(SNRHasResponseRawData) public protocol HasResponseRawData {
+  @objc var responseRawData: SyneriseSDK.ResponseRawData? { get set }
+}
+@_hasMissingDesignatedInitializers @objc(SNRResponseRawData) public class ResponseRawData : ObjectiveC.NSObject {
+  @objc public var data: Foundation.Data
   @objc deinit
 }
 @_inheritsConvenienceInitializers @objc(SNRNotificationsSettings) public class NotificationsSettings : ObjectiveC.NSObject {
@@ -414,6 +508,15 @@ public enum ClientModelUUIDOrigin : Swift.String {
   @objc(getCurrentServerTime) final public func getCurrentServerTime() -> Foundation.Date?
   @objc(getServerTimeForDeviceTime:) final public func getServerTime(forDeviceTime date: Foundation.Date) -> Foundation.Date?
 }
+@_inheritsConvenienceInitializers @objc(_SNR_PushEventFactory) public class _SNR_PushEventFactory : ObjectiveC.NSObject {
+  @objc public static func makePushOpenInAppEvent(_ model: Swift.AnyObject) -> SyneriseSDK.Event?
+  @objc public static func makePushClickEvent(_ model: Swift.AnyObject, parameters: [Swift.String : Any]?) -> SyneriseSDK.Event?
+  @objc public static func makePushViewEvent(_ model: Swift.AnyObject) -> SyneriseSDK.Event?
+  @objc public static func makePushDismissEvent(_ model: Swift.AnyObject) -> SyneriseSDK.Event?
+  @objc public static func makePushImageTimeoutEvent(_ model: Swift.AnyObject) -> SyneriseSDK.Event?
+  @objc override dynamic public init()
+  @objc deinit
+}
 @_inheritsConvenienceInitializers @objc(SNRInitializationConfig) public class InitializationConfig : ObjectiveC.NSObject {
   @objc public var requestValidationSalt: Swift.String?
   @objc override dynamic public init()
@@ -424,6 +527,14 @@ public enum ClientModelUUIDOrigin : Swift.String {
   @objc(eventWithParameters:) public static func event(with parameters: [Swift.String : Swift.String]?) -> SyneriseSDK.ApplicationStartedEvent
   @objc override public init(label: Swift.String)
   @objc override public init(label: Swift.String, params: SyneriseSDK.TrackerParams?)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(SNRContent) public class Content : ObjectiveC.NSObject {
+  @objc(generateDocument:success:failure:) public static func generateDocument(slug: Swift.String, success: @escaping (SyneriseSDK.Document) -> Swift.Void, failure: @escaping (SyneriseSDK.SNRApiError) -> Swift.Void)
+  @objc(generateDocumentWithApiQuery:success:failure:) public static func generateDocument(apiQuery: SyneriseSDK.DocumentApiQuery, success: @escaping (SyneriseSDK.Document) -> Swift.Void, failure: @escaping (SyneriseSDK.SNRApiError) -> Swift.Void)
+  @objc(getRecommendationsV2:success:failure:) public static func getRecommendationsV2(options: SyneriseSDK.RecommendationOptions, success: @escaping (SyneriseSDK.RecommendationResponse) -> Swift.Void, failure: @escaping (SyneriseSDK.SNRApiError) -> Swift.Void)
+  @objc(generateScreenView:success:failure:) public static func generateScreenView(feedSlug: Swift.String, success: @escaping (SyneriseSDK.ScreenView) -> Swift.Void, failure: @escaping (SyneriseSDK.SNRApiError) -> Swift.Void)
+  @objc(generateScreenViewWithApiQuery:success:failure:) public static func generateScreenView(apiQuery: SyneriseSDK.ScreenViewApiQuery, success: @escaping (SyneriseSDK.ScreenView) -> Swift.Void, failure: @escaping (SyneriseSDK.SNRApiError) -> Swift.Void)
   @objc deinit
 }
 @_inheritsConvenienceInitializers @objc(SNRSettings) public class Settings : ObjectiveC.NSObject {
@@ -451,6 +562,28 @@ public enum ClientModelUUIDOrigin : Swift.String {
   @objc final public func setURL(_ url: Foundation.URL)
   @objc deinit
 }
+@_hasMissingDesignatedInitializers @objc(SNRScreenViewAudienceInfo) public class ScreenViewAudienceInfo : SyneriseSDK.BaseModel {
+  @objc public var segments: [Swift.String]?
+  @objc public var query: Swift.String?
+  @objc public var targetType: Swift.String?
+  @objc deinit
+}
+@objc public enum SNRApiRequestCompletedSignalResult : Swift.Int {
+  case success = 0
+  case failure
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_inheritsConvenienceInitializers @objc(_SNR_ApiRequestCompletedSignal) public class _SNR_ApiRequestCompletedSignal : SyneriseSDK._SNR_BaseSignal {
+  @objc final public let RESULT_KEY: Swift.String
+  @objc final public let HTTP_STATUS_CODE_KEY: Swift.String
+  @objc public func notifyApiRequestIsCompleted(isSuccess: Swift.Bool, HTTPStatusCode: Swift.Int)
+  @objc override dynamic public init()
+  @objc deinit
+}
 @_hasMissingDesignatedInitializers @objc(SNRRecommendationClickEvent) final public class RecommendationClickEvent : SyneriseSDK.RecommendationEvent {
   @objc override public init(label: Swift.String)
   @objc override public init(label: Swift.String, params: SyneriseSDK.TrackerParams?)
@@ -458,6 +591,24 @@ public enum ClientModelUUIDOrigin : Swift.String {
   @objc final public func setCategory(_ category: Swift.String)
   @objc final public func setURL(_ url: Foundation.URL)
   @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(_SNR_PushEventUtils) public class _SNR_PushEventUtils : ObjectiveC.NSObject {
+  @objc(sendPushOpenInAppEventFor:) public static func sendPushOpenInAppEvent(for model: Swift.AnyObject)
+  @objc(sendPushClickEventFor:actionIdentifier:url:) public static func sendPushClickEvent(for model: Swift.AnyObject, actionIdentifier: Swift.String?, url: Swift.String?)
+  @objc(sendPushDismissEventFor:) public static func sendPushDismissEvent(for model: Swift.AnyObject)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc(SNRRecommendationFiltersJoinerRule) public enum RecommendationFiltersJoinerRule : Swift.Int {
+  @objc(SNRRecommendationFiltersJoinerRuleNone) case none = -1
+  @objc(SNRRecommendationFiltersJoinerRuleAnd) case and
+  @objc(SNRRecommendationFiltersJoinerRuleOr) case or
+  @objc(SNRRecommendationFiltersJoinerRuleReplace) case replace
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
 }
 @_inheritsConvenienceInitializers @objc(_SNR_Logger) public class _SNR_Logger : ObjectiveC.NSObject {
   @objc public static func setUserDebugModeEnabled(_ enabled: Swift.Bool)
@@ -595,10 +746,30 @@ public let SNRViewTrackerEventAutotrackValueOnSelect: Swift.String
   @objc override dynamic public init()
   @objc deinit
 }
+@objc(SNRScreenViewApiQuery) public class ScreenViewApiQuery : ObjectiveC.NSObject {
+  @objc final public let feedSlug: Swift.String
+  @objc public var productID: Swift.String?
+  @objc public init(slug: Swift.String)
+  @objc deinit
+}
 @objc(SNRTrackerParams) final public class TrackerParams : ObjectiveC.NSObject {
   @objc(makeWithBuilder:) public static func make(with handler: (SyneriseSDK.TrackerParamsBuilder) -> Swift.Void) -> SyneriseSDK.TrackerParams
   @objc public init(builder: SyneriseSDK.TrackerParamsBuilder)
   final public func _toDictionary() -> [Swift.String : Any]
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc(SNRRecommendationResponseExtrasSlot) public class RecommendationResponseExtrasSlot : SyneriseSDK.BaseModel {
+  @objc final public let identifier: Swift.Int
+  @objc final public let itemIDs: [Swift.String]
+  @objc final public let name: Swift.String?
+  @objc final public let error: [Swift.String : Any]?
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc(SNRRecommendation) public class Recommendation : SyneriseSDK.BaseModel {
+  @objc final public let itemID: Swift.String
+  @objc final public let attributes: [Swift.String : Any]
+  @objc public func isAttributeSetForKey(_ key: Swift.String) -> Swift.Bool
+  @objc public func getAttributeSetForKey(_ key: Swift.String) -> Any?
   @objc deinit
 }
 @_hasMissingDesignatedInitializers @objc(SNRPushCancelledEvent) final public class PushCancelledEvent : SyneriseSDK.Event {
@@ -632,8 +803,11 @@ public let SNRViewTrackerEventAutotrackValueOnSelect: Swift.String
   @objc(initWithLabel:sku:finalPrice:quantity:andParams:) public init(label: Swift.String, sku: Swift.String, finalPrice: SyneriseSDK.UnitPrice, quantity: Swift.Int, params: SyneriseSDK.TrackerParams?)
   @objc deinit
 }
-@_inheritsConvenienceInitializers @objc(_SNR) public class _SNR : ObjectiveC.NSObject {
+@_inheritsConvenienceInitializers @objc(_SNR) final public class _SNR : ObjectiveC.NSObject {
   @objc public static var _Proxy: any SyneriseSDK.SNRSwiftCommandProxyProtocol {
+    @objc get
+  }
+  @objc public static var _DependencyContainer: SyneriseSDK.SwiftDependencyContainer {
     @objc get
   }
   @objc public static var Constants: SyneriseSDK._SNR_Constants.Type {
@@ -675,6 +849,9 @@ public let SNRViewTrackerEventAutotrackValueOnSelect: Swift.String
   @objc public static var SyneriseReinitializationSignalSingleton: SyneriseSDK._SNR_SyneriseReinitializationSignal {
     @objc get
   }
+  @objc public static var ApiRequestCompletedSignalSingleton: SyneriseSDK._SNR_ApiRequestCompletedSignal {
+    @objc get
+  }
   @objc public static var DispatchUtils: SyneriseSDK._SNR_DispatchUtils.Type {
     @objc get
   }
@@ -682,6 +859,12 @@ public let SNRViewTrackerEventAutotrackValueOnSelect: Swift.String
     @objc get
   }
   @objc public static var MiscUtils: SyneriseSDK._SNR_MiscUtils.Type {
+    @objc get
+  }
+  @objc public static var PushEventUtils: SyneriseSDK._SNR_PushEventUtils.Type {
+    @objc get
+  }
+  @objc public static var PushEventFactory: SyneriseSDK._SNR_PushEventFactory.Type {
     @objc get
   }
   @objc public static var TimeZoneDateFormatterInstance: SyneriseSDK._SNR_TimeZoneDateFormatter {
@@ -796,6 +979,12 @@ extension SyneriseSDK.InternalEventSource : Swift.RawRepresentable {}
 extension SyneriseSDK.ClientModelUUIDOrigin : Swift.Equatable {}
 extension SyneriseSDK.ClientModelUUIDOrigin : Swift.Hashable {}
 extension SyneriseSDK.ClientModelUUIDOrigin : Swift.RawRepresentable {}
+extension SyneriseSDK.SNRApiRequestCompletedSignalResult : Swift.Equatable {}
+extension SyneriseSDK.SNRApiRequestCompletedSignalResult : Swift.Hashable {}
+extension SyneriseSDK.SNRApiRequestCompletedSignalResult : Swift.RawRepresentable {}
+extension SyneriseSDK.RecommendationFiltersJoinerRule : Swift.Equatable {}
+extension SyneriseSDK.RecommendationFiltersJoinerRule : Swift.Hashable {}
+extension SyneriseSDK.RecommendationFiltersJoinerRule : Swift.RawRepresentable {}
 extension SyneriseSDK.ViewTrackerEventViewActionType : Swift.Equatable {}
 extension SyneriseSDK.ViewTrackerEventViewActionType : Swift.Hashable {}
 extension SyneriseSDK.ViewTrackerEventViewActionType : Swift.RawRepresentable {}

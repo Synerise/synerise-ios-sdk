@@ -11,10 +11,10 @@
 #import <SyneriseSDK/SNRSyneriseSource.h>
 #import <SyneriseSDK/SNRSyneriseActivity.h>
 #import <SyneriseSDK/SNRHostApplicationType.h>
-#import <SyneriseSDK/SNRNotificationInfo.h>
 
 @class SNRSettings;
 @class SNRInitializationConfig;
+@class SNRNotificationInfo;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -80,7 +80,7 @@ NS_SWIFT_NAME(SyneriseDelegate)
  * @param activity Identifies Synerise campaign activity (`SNRSyneriseActivity`).
  * @param completionHandler A block that should be invoked with `SNRSyneriseActivityAction` parameters and a completion block to execute.
  */
-- (void)SNR_handledActionWithURL:(NSURL *)url activity:(SNRSyneriseActivity)activity completionHandler:(SNRSyneriseActivityCompletionHandler)completionHandler NS_SWIFT_NAME(snr_handledAction(url:activity:completionHandler:)) DEPRECATED_MSG_ATTRIBUTE("Use `snr_handledAction(url:activity:completionHandler:)` instead.");
+- (void)SNR_handledActionWithURL:(NSURL *)url activity:(SNRSyneriseActivity)activity completionHandler:(SNRSyneriseActivityCompletionHandler)completionHandler NS_SWIFT_NAME(snr_handledAction(url:activity:completionHandler:)) DEPRECATED_MSG_ATTRIBUTE("Use `snr_handledAction(url:source:)` instead.");
 
 /**
  * This method is called when Synerise handles URL action from campaign activities.
@@ -106,7 +106,7 @@ NS_SWIFT_NAME(SyneriseDelegate)
  * @param activity Identifies Synerise campaign activity (`SNRSyneriseActivity`).
  * @param completionHandler A block that should be invoked with parameters: `SNRSyneriseActivityAction` and completion block to execute.
  */
-- (void)SNR_handledActionWithDeepLink:(NSString *)deepLink activity:(SNRSyneriseActivity)activity completionHandler:(SNRSyneriseActivityCompletionHandler)completionHandler NS_SWIFT_NAME(snr_handledAction(deepLink:activity:completionHandler:)) DEPRECATED_MSG_ATTRIBUTE("Use `snr_handledAction(deepLink:activity:completionHandler:)` instead.");
+- (void)SNR_handledActionWithDeepLink:(NSString *)deepLink activity:(SNRSyneriseActivity)activity completionHandler:(SNRSyneriseActivityCompletionHandler)completionHandler NS_SWIFT_NAME(snr_handledAction(deepLink:activity:completionHandler:)) DEPRECATED_MSG_ATTRIBUTE("Use `snr_handledAction(deepLink:source:)` instead.");
 
 /**
  * This method is called when Synerise handles deeplink action from campaign activities.
