@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file.
 
 Note that Objective-C class names are prefixed by `SNR`. In the changelog below, these are names used in Swift, without the prefix.
 
+## [5.3.0] - 2025-04-17
+ 
+### Added
+- `params` property in `DocumentApiQuery` model to set custom params for fetching Documents.
+- `params` property in `ScreenViewApiQuery` model to set custom params for fetching Screen Views.
+- `SyneriseApiUrls.SYNERISE_AZ_API_URL`, `SyneriseApiUrls.SYNERISE_AZU_API_URL`, `SyneriseApiUrls.SYNERISE_GEB_API_URL` constants to easily get the URL of the API (Swift).
+- `SYNERISE_AZ_API_URL`, `SYNERISE_AZU_API_URL`, `SYNERISE_GEB_API_URL` constants to easily get the URL of the API (Objective-C).
+ 
+### Changed
+- Improvements to stability.
+
+
 ## [5.2.0] - 2025-04-09
 
 ### Fixed

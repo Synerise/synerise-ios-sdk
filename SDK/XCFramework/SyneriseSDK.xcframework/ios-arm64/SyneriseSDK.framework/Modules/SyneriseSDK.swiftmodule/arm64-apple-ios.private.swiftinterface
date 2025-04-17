@@ -115,6 +115,7 @@ import os
   @objc public var elasticFiltersJoiner: SyneriseSDK.RecommendationFiltersJoinerRule
   @objc public var displayAttribute: [Swift.String]?
   @objc public var includeContextItems: Swift.Bool
+  @objc public var params: [Swift.String : Any]?
   @objc public init(slug: Swift.String)
   @objc deinit
 }
@@ -301,6 +302,11 @@ public typealias SNRLocalizableStringKey = Swift.String
   @objc public func _setParam(_ param: Any?, forKey key: Swift.String)
   @objc public func _toDictionary() -> [Swift.String : Any]
   @objc deinit
+}
+public enum SyneriseApiUrls {
+  public static let SYNERISE_AZ_API_URL: Swift.String
+  public static let SYNERISE_AZU_API_URL: Swift.String
+  public static let SYNERISE_GEB_API_URL: Swift.String
 }
 @_inheritsConvenienceInitializers @objc(_SNR_PriceFormatter) final public class _SNR_PriceFormatter : ObjectiveC.NSObject {
   @objc(setGroupingSeparator:) final public func setGroupingSeparator(_ groupingSeparator: Swift.String?)
@@ -749,6 +755,7 @@ public let SNRViewTrackerEventAutotrackValueOnSelect: Swift.String
 @objc(SNRScreenViewApiQuery) public class ScreenViewApiQuery : ObjectiveC.NSObject {
   @objc final public let feedSlug: Swift.String
   @objc public var productID: Swift.String?
+  @objc public var params: [Swift.String : Any]?
   @objc public init(slug: Swift.String)
   @objc deinit
 }

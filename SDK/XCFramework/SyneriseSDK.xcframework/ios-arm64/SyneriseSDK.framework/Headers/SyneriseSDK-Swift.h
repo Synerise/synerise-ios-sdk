@@ -493,6 +493,7 @@ SWIFT_CLASS_NAMED("DocumentApiQuery")
 @property (nonatomic) enum SNRRecommendationFiltersJoinerRule elasticFiltersJoiner;
 @property (nonatomic, copy) NSArray<NSString *> * _Nullable displayAttribute;
 @property (nonatomic) BOOL includeContextItems;
+@property (nonatomic, copy) NSDictionary<NSString *, id> * _Nullable params;
 - (nonnull instancetype)initWithSlug:(NSString * _Nonnull)slug OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
@@ -876,6 +877,7 @@ SWIFT_CLASS_NAMED("ScreenViewApiQuery")
 @interface SNRScreenViewApiQuery : NSObject
 @property (nonatomic, readonly, copy) NSString * _Nonnull feedSlug;
 @property (nonatomic, copy) NSString * _Nullable productID;
+@property (nonatomic, copy) NSDictionary<NSString *, id> * _Nullable params;
 - (nonnull instancetype)initWithSlug:(NSString * _Nonnull)slug OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
