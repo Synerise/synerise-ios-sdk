@@ -41,11 +41,12 @@
 #import <SyneriseSDK/SNRInternalInconsistencyError.h>
 
 // Other Types
-#import <SyneriseSDK/SNRLocalizableStringKey.h>
-#import <SyneriseSDK/SNRPushNotificationsRegistrationOrigin.h>
+#import <SyneriseSDK/SNRSyneriseApiUrl.h>
 #import <SyneriseSDK/SNRSyneriseSource.h>
 #import <SyneriseSDK/SNRSyneriseActivity.h>
 #import <SyneriseSDK/SNRHostApplicationType.h>
+#import <SyneriseSDK/SNRLocalizableStringKey.h>
+#import <SyneriseSDK/SNRPushNotificationsRegistrationOrigin.h>
 #import <SyneriseSDK/SNRClientSignOutMode.h>
 #import <SyneriseSDK/SNRClientSessionEndReason.h>
 #import <SyneriseSDK/SNRClientIdentityProvider.h>
@@ -90,10 +91,6 @@
 #import <SyneriseSDK/SNRAssignVoucherData.h>
 #import <SyneriseSDK/SNRVoucherCodesResponse.h>
 #import <SyneriseSDK/SNRVoucherCodesData.h>
-//#import <SyneriseSDK/SNRRecommendationResponse.h>
-//#import <SyneriseSDK/SNRRecommendationResponseExtras.h>
-//#import <SyneriseSDK/SNRRecommendationResponseExtrasSlot.h>
-//#import <SyneriseSDK/SNRRecommendation.h>
 #import <SyneriseSDK/SNRInAppMessageData.h>
 
 // Content Widget
