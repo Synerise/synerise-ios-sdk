@@ -10,7 +10,7 @@ Note that Objective-C class names are prefixed by `SNR`. In the changelog below,
 - `params` property in `DocumentApiQuery` model to set custom params for fetching Documents.
 - `params` property in `ScreenViewApiQuery` model to set custom params for fetching Screen Views.
 - `SyneriseApiUrls.SYNERISE_AZ_API_URL`, `SyneriseApiUrls.SYNERISE_AZU_API_URL`, `SyneriseApiUrls.SYNERISE_GEB_API_URL` constants to easily get the URL of the API (Swift).
-- `SYNERISE_AZ_API_URL`, `SYNERISE_AZU_API_URL`, `SYNERISE_GEB_API_URL` constants to easily get the URL of the API (Objective-C).
+- `SNR_SYNERISE_AZ_API_URL`, `SNR_SYNERISE_AZU_API_URL`, `SNR_SYNERISE_GEB_API_URL` constants to easily get the URL of the API (Objective-C).
  
 ### Changed
 - Improvements to stability.
