@@ -20,9 +20,14 @@ Most up-to-date documentation is available at [Developer Guide - Mobile SDK](htt
 ## Requirements
 * Access to workspace
 * A Profile API Key
-* Xcode 16 and iOS SDK 18
-* iOS 13.0+ minimum deployment target
-* Valid architectures: arm64 devices and arm64, x86_64 simulators
+* Recommended environment:
+    - Xcode 16
+    - iOS SDK 18
+* Target deployment:
+    - **iOS 13.0+** for SDK versions 5.0.0 and higher
+    - **iOS 9.0+** for SDK versions lower than 5.0.0
+
+**Bitcode is not supported in SDK version 5.0.0 and higher. Xcode ignores bitcode.**
 
 ## Installing Synerise SDK with CocoaPods
 
