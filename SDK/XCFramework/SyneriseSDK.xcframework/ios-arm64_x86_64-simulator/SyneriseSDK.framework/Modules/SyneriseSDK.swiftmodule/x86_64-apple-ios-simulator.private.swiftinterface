@@ -73,6 +73,23 @@ import os
   @objc override dynamic public init()
   @objc deinit
 }
+@objc(SNRPromotionIdentifierType) public enum PromotionIdentifierType : Swift.Int, Swift.RawRepresentable {
+  @objc(SNRPromotionIdentifierTypeUUID) case uuid = 0
+  @objc(SNRPromotionIdentifierTypeCode) case code
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc(SNRPromotionIdentifier) public class PromotionIdentifier : SyneriseSDK.BaseModel {
+  @objc final public let key: Swift.String
+  @objc final public let value: Swift.String
+  @objc public init(type: SyneriseSDK.PromotionIdentifierType, value: Swift.String)
+  @objc convenience public init(uuid: Swift.String)
+  @objc convenience public init(code: Swift.String)
+  @objc deinit
+}
 @_inheritsConvenienceInitializers @objc(_SNR_TimeZoneDateFormatter) public class _SNR_TimeZoneDateFormatter : ObjectiveC.NSObject {
   @objc(dateFromString:withFormat:timeZoneName:) public func date(from string: Swift.String, withFormat format: Swift.String, timeZoneName: Swift.String) -> Foundation.Date?
   @objc(dateWithISO8601FormatFromString:timeZoneName:) public func dateWithISO8601Format(from string: Swift.String, timeZoneName: Swift.String) -> Foundation.Date?
@@ -90,6 +107,22 @@ import os
   @objc final public func setCategory(_ category: Swift.String)
   @objc final public func setURL(_ url: Foundation.URL)
   @objc deinit
+}
+@objc(SNRPromotionDiscountType) public enum PromotionDiscountType : Swift.Int, Swift.RawRepresentable {
+  @objc(SNRPromotionDiscountTypeNone) case none = 0
+  @objc(SNRPromotionDiscountTypePercent) case percent
+  @objc(SNRPromotionDiscountTypeAmount) case amount
+  @objc(SNRPromotionDiscountType2For1) case twoForOne
+  @objc(SNRPromotionDiscountTypePoints) case points
+  @objc(SNRPromotionDiscountTypeMultibuy) case multibuy
+  @objc(SNRPromotionDiscountTypeExactPrice) case exactPrice
+  public static func fromString(_ string: Swift.String?) -> SyneriseSDK.PromotionDiscountType
+  public func toString() -> Swift.String
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
 }
 @_hasMissingDesignatedInitializers @objc(SNRProductRemovedFromCartEvent) final public class ProductRemovedFromCartEvent : SyneriseSDK.CartEvent {
   @objc(initWithLabel:sku:finalPrice:quantity:) public init(label: Swift.String, sku: Swift.String, finalPrice: SyneriseSDK.UnitPrice, quantity: Swift.Int)
@@ -147,6 +180,10 @@ public typealias SNRLocalizableStringKey = Swift.String
     @objc get
     @objc set
   }
+  @objc public var doNotTrack: Swift.Bool {
+    @objc get
+    @objc set
+  }
   @objc public var appGroupIdentifier: Swift.String? {
     @objc get
     @objc set
@@ -172,6 +209,29 @@ public typealias SNRLocalizableStringKey = Swift.String
     @objc set
   }
   @objc override dynamic public init()
+  @objc deinit
+}
+@objc(SNRPromotionType) public enum PromotionType : Swift.Int, Swift.RawRepresentable {
+  @objc(SNRPromotionTypeUnknown) case unknown = 0
+  @objc(SNRPromotionTypeMembersOnly) case membersOnly
+  @objc(SNRPromotionTypeCustom) case custom
+  @objc(SNRPromotionTypeGeneral) case general
+  @objc(SNRPromotionTypeHandbill) case handbill
+  public static func fromString(_ string: Swift.String?) -> SyneriseSDK.PromotionType
+  public func toString() -> Swift.String
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers @objc(SNRAssignVoucherData) public class AssignVoucherData : SyneriseSDK.BaseModel {
+  @objc final public let code: Swift.String
+  @objc final public let expireIn: Foundation.Date?
+  @objc final public let redeemAt: Foundation.Date?
+  @objc final public let assignedAt: Foundation.Date?
+  @objc final public let createdAt: Foundation.Date
+  @objc final public let updatedAt: Foundation.Date
   @objc deinit
 }
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(SNRTrackerSettings) public class TrackerSettings : ObjectiveC.NSObject {
@@ -212,6 +272,11 @@ public typealias SNRLocalizableStringKey = Swift.String
 @_hasMissingDesignatedInitializers @objc(SNRProductAddedToFavoritesEvent) final public class ProductAddedToFavoritesEvent : SyneriseSDK.Event {
   @objc override public init(label: Swift.String)
   @objc override public init(label: Swift.String, params: SyneriseSDK.TrackerParams?)
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc(SNRAssignVoucherResponse) public class AssignVoucherResponse : SyneriseSDK.BaseModel {
+  @objc final public let message: Swift.String
+  @objc final public let assignVoucherData: SyneriseSDK.AssignVoucherData
   @objc deinit
 }
 @_hasMissingDesignatedInitializers @objc(SNRDocument) public class Document : SyneriseSDK.BaseModel {
@@ -329,6 +394,11 @@ public enum SyneriseApiUrls {
   @objc public init(slug: Swift.String)
   @objc deinit
 }
+@_hasMissingDesignatedInitializers @objc(SNRPromotionDiscountStep) public class PromotionDiscountStep : SyneriseSDK.BaseModel {
+  @objc final public let discountValue: Swift.Double
+  @objc final public let usageThreshold: Foundation.NSNumber
+  @objc deinit
+}
 @_hasMissingDesignatedInitializers @objc(SNRSearchedEvent) final public class SearchedEvent : SyneriseSDK.Event {
   @objc override public init(label: Swift.String)
   @objc override public init(label: Swift.String, params: SyneriseSDK.TrackerParams?)
@@ -342,15 +412,51 @@ public let SDK_UNKNOWN_VERSION: Swift.String
   @objc(initWithLabel:andLocation:andParams:) public init(label: Swift.String, location: CoreLocation.CLLocation, params: SyneriseSDK.TrackerParams?)
   @objc deinit
 }
+@_hasMissingDesignatedInitializers @objc(SNRPromotion) public class Promotion : SyneriseSDK.BaseModel {
+  @objc final public let uuid: Swift.String
+  @objc final public let code: Swift.String
+  @objc final public let status: SyneriseSDK.PromotionStatus
+  @objc final public let type: SyneriseSDK.PromotionType
+  @objc final public let details: SyneriseSDK.PromotionDetails?
+  @objc final public let redeemLimitPerClient: Foundation.NSNumber?
+  @objc final public let redeemQuantityPerActivation: Foundation.NSNumber?
+  @objc final public let currentRedeemedQuantity: Foundation.NSNumber?
+  @objc final public let currentRedeemLimit: Foundation.NSNumber?
+  @objc final public let activationCounter: Foundation.NSNumber?
+  @objc final public let possibleRedeems: Foundation.NSNumber?
+  @objc final public let requireRedeemedPoints: Foundation.NSNumber?
+  @objc final public let discountType: SyneriseSDK.PromotionDiscountType
+  @objc final public let discountValue: Foundation.NSNumber
+  @objc final public let discountMode: SyneriseSDK.PromotionDiscountMode
+  @objc final public let discountModeDetails: SyneriseSDK.PromotionDiscountModeDetails?
+  @objc final public let priority: Foundation.NSNumber
+  @objc final public let price: Foundation.NSNumber
+  @objc final public let itemScope: SyneriseSDK.PromotionItemScope
+  @objc final public let minBasketValue: Foundation.NSNumber?
+  @objc final public let maxBasketValue: Foundation.NSNumber?
+  @objc final public let name: Swift.String
+  @objc final public let headline: Swift.String?
+  @objc final public let descriptionText: Swift.String?
+  @objc final public let images: [SyneriseSDK.PromotionImage]?
+  @objc final public let startAt: Foundation.Date?
+  @objc final public let expireAt: Foundation.Date?
+  @objc final public let lastingAt: Foundation.Date?
+  @objc final public let lastingTime: Foundation.NSNumber?
+  @objc final public let displayFrom: Swift.String?
+  @objc final public let displayTo: Swift.String?
+  @objc final public let catalogIndexItems: [Swift.String]?
+  @objc final public let params: [Swift.String : Any]?
+  @objc final public let tags: [Swift.String]?
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc(SNRPromotionImage) public class PromotionImage : SyneriseSDK.BaseModel {
+  @objc final public let url: Swift.String
+  @objc final public let type: SyneriseSDK.PromotionImageType
+  @objc deinit
+}
 @_hasMissingDesignatedInitializers @objc(SNRLoggedInEvent) final public class LoggedInEvent : SyneriseSDK.Event {
   @objc override public init(label: Swift.String)
   @objc override public init(label: Swift.String, params: SyneriseSDK.TrackerParams?)
-  @objc deinit
-}
-@_inheritsConvenienceInitializers @objc(SNRSwiftDependencyContainer) public class SwiftDependencyContainer : ObjectiveC.NSObject {
-  @objc public func registerObject(_ object: Swift.AnyObject, forKey key: Swift.String)
-  @objc public func resolveObject(forKey key: Swift.String) -> Swift.AnyObject?
-  @objc override dynamic public init()
   @objc deinit
 }
 @_hasMissingDesignatedInitializers @objc(SNRRecommendationResponse) public class RecommendationResponse : SyneriseSDK.BaseModel {
@@ -399,9 +505,30 @@ public let SDK_UNKNOWN_VERSION: Swift.String
   @objc override dynamic public init()
   @objc deinit
 }
-@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(_SNR_ClientManager) public class _SNR_ClientManager : ObjectiveC.NSObject {
+@_hasMissingDesignatedInitializers @objc(SNRPromotionDetails) public class PromotionDetails : SyneriseSDK.BaseModel {
+  @objc final public let discountType: SyneriseSDK.PromotionDiscountTypeDetails
+  @objc deinit
+}
+public protocol _SNR_ClientManagerType {
+  func setClientId(_ clientId: Swift.String?)
+  func setCustomIdentifier(_ customIdentifier: Swift.String?)
+  func setCustomEmail(_ customEmail: Swift.String?)
+  func setClientLogin(_ clientLogin: Swift.String?)
+  func setClientUUID(_ uuid: Foundation.UUID?)
+  func setNewAnonymousClient()
+  func setNewAnonymousClientWithClientIdentifier(_ clientIdentifier: Swift.String?)
+  func setNewClientWithRecoveredClientUUID(_ clientUUID: Foundation.UUID)
+  func setNewInitialAnonymousClient()
+  func getUUIDStringForAuthentication(withAuthID authID: Swift.String) -> Swift.String
+  func prepareSigning(withLogin login: Swift.String?) -> Swift.String
+  func prepareSigning(withLogin login: Swift.String?, orUUIDString UUIDString: Swift.String?) -> Swift.String
+  func signingSuccess()
+  func signingFailure()
+}
+@_hasMissingDesignatedInitializers @objc(_SNR_ClientManager) public class _SNR_ClientManager : ObjectiveC.NSObject, SyneriseSDK._SNR_ClientManagerType {
   @objc public var client: SyneriseSDK._SNR_ClientModel!
   @objc public static func setRecoveredClientUUID(_ uuid: Foundation.UUID?)
+  @objc deinit
   @objc public func setClientId(_ clientId: Swift.String?)
   @objc public func setCustomIdentifier(_ customIdentifier: Swift.String?)
   @objc public func setCustomEmail(_ customEmail: Swift.String?)
@@ -416,11 +543,14 @@ public let SDK_UNKNOWN_VERSION: Swift.String
   @objc public func prepareSigning(withLogin login: Swift.String?, orUUIDString UUIDString: Swift.String?) -> Swift.String
   @objc public func signingSuccess()
   @objc public func signingFailure()
-  @objc deinit
+}
+extension SyneriseSDK._SNR_ClientManager : SyneriseSDK._SNR_SignalReceivable {
+  @objc dynamic public func signalReceived(_ signal: SyneriseSDK._SNR_BaseSignal, parameters: [Swift.String : Any])
 }
 public enum ClientModelUUIDOrigin : Swift.String {
   case generated
   case injected
+  case incognito
   public init?(rawValue: Swift.String)
   public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
@@ -468,8 +598,25 @@ public enum ClientModelUUIDOrigin : Swift.String {
   @objc public var responseRawData: SyneriseSDK.ResponseRawData?
   @objc deinit
 }
+@_hasMissingDesignatedInitializers @objc(SNRVoucherCodesData) public class VoucherCodesData : SyneriseSDK.BaseModel {
+  @objc final public let code: Swift.String
+  @objc final public let status: SyneriseSDK.VoucherCodeStatus
+  @objc final public let clientId: Swift.Int
+  @objc final public let clientUuid: Swift.String?
+  @objc final public let poolUuid: Swift.String
+  @objc final public let expireIn: Foundation.Date?
+  @objc final public let redeemAt: Foundation.Date?
+  @objc final public let assignedAt: Foundation.Date?
+  @objc final public let createdAt: Foundation.Date
+  @objc final public let updatedAt: Foundation.Date
+  @objc deinit
+}
+public protocol _SNR_BackgroundTaskManagerType : AnyObject {
+  func setBackgroundTaskIdentifiers(_ identifiers: [Swift.String])
+  func registerMainBackgroundTask(handler: @escaping () -> Swift.Void)
+}
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @available(iOS 13, *)
-@objc(_SNR_BackgroundTaskManager) public class _SNR_BackgroundTaskManager : ObjectiveC.NSObject {
+@objc(_SNR_BackgroundTaskManager) public class _SNR_BackgroundTaskManager : ObjectiveC.NSObject, SyneriseSDK._SNR_BackgroundTaskManagerType {
   @objc deinit
   @objc(setBackgroundTaskIdentifiers:) public func setBackgroundTaskIdentifiers(_ identifiers: [Swift.String])
   @objc(registerMainBackgroundTaskWithHandler:) public func registerMainBackgroundTask(handler: @escaping () -> Swift.Void)
@@ -503,7 +650,27 @@ public enum ClientModelUUIDOrigin : Swift.String {
   @objc override dynamic public init()
   @objc deinit
 }
-@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(_SNR_ServerTimeManager) final public class _SNR_ServerTimeManager : ObjectiveC.NSObject {
+@_inheritsConvenienceInitializers @objc(SNRPromotionsApiQuery) public class PromotionsApiQuery : ObjectiveC.NSObject {
+  @objc public var statuses: [SyneriseSDK.SNRPromotionStatusString]
+  @objc public var types: [SyneriseSDK.SNRPromotionTypeString]
+  @objc public var sorting: [[SyneriseSDK.SNRPromotionSortingKey : SyneriseSDK.SNRApiQuerySortingOrderString]]?
+  @objc public var limit: Swift.Int
+  @objc public var page: Swift.Int
+  @objc public var includeMeta: Swift.Bool
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc(_SNR_ServerTimeManagerType) public protocol _SNR_ServerTimeManagerType {
+  @objc func getServerTimeByCache()
+  @objc func fetchServerTimeSynchronously()
+  @objc func fetchServerTimeAsynchronously()
+  @objc func isReady() -> Swift.Bool
+  @objc(waitWhenIsReadyWithCompletion:) func waitWhenIsReady(completion: @escaping (Swift.Bool) -> Swift.Void)
+  @objc(notifyWhenIsReadyWithCompletion:) func notifyWhenIsReady(completion: @escaping (Swift.Bool) -> Swift.Void)
+  @objc(getCurrentServerTime) func getCurrentServerTime() -> Foundation.Date?
+  @objc(getServerTimeForDeviceTime:) func getServerTime(forDeviceTime date: Foundation.Date) -> Foundation.Date?
+}
+@_hasMissingDesignatedInitializers @objc(_SNR_ServerTimeManager) final public class _SNR_ServerTimeManager : ObjectiveC.NSObject, SyneriseSDK._SNR_ServerTimeManagerType {
   @objc deinit
   @objc final public func getServerTimeByCache()
   @objc final public func fetchServerTimeSynchronously()
@@ -523,7 +690,40 @@ public enum ClientModelUUIDOrigin : Swift.String {
   @objc override dynamic public init()
   @objc deinit
 }
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(SNRPromotions) public class Promotions : ObjectiveC.NSObject {
+  @objc(getPromotionsWithSuccess:failure:) public static func getPromotions(success: @escaping (SyneriseSDK.PromotionResponse) -> Swift.Void, failure: @escaping (SyneriseSDK.SNRApiError) -> Swift.Void)
+  @objc(getPromotionsWithApiQuery:success:failure:) public static func getPromotions(apiQuery: SyneriseSDK.PromotionsApiQuery, success: @escaping (SyneriseSDK.PromotionResponse) -> Swift.Void, failure: @escaping (SyneriseSDK.SNRApiError) -> Swift.Void)
+  @objc(getPromotionByUuid:success:failure:) public static func getPromotion(uuid: Swift.String, success: @escaping (SyneriseSDK.Promotion) -> Swift.Void, failure: @escaping (SyneriseSDK.SNRApiError) -> Swift.Void)
+  @objc(getPromotionByCode:success:failure:) public static func getPromotion(code: Swift.String, success: @escaping (SyneriseSDK.Promotion) -> Swift.Void, failure: @escaping (SyneriseSDK.SNRApiError) -> Swift.Void)
+  @objc(activatePromotionByUuid:success:failure:) public static func activatePromotion(uuid: Swift.String, success: @escaping () -> Swift.Void, failure: @escaping (SyneriseSDK.SNRApiError) -> Swift.Void)
+  @objc(activatePromotionByCode:success:failure:) public static func activatePromotion(code: Swift.String, success: @escaping () -> Swift.Void, failure: @escaping (SyneriseSDK.SNRApiError) -> Swift.Void)
+  @objc(activatePromotionsWithIdentifiers:success:failure:) public static func activatePromotions(identifiers: [SyneriseSDK.PromotionIdentifier], success: @escaping () -> Swift.Void, failure: @escaping (SyneriseSDK.SNRApiError) -> Swift.Void)
+  @objc(deactivatePromotionByUuid:success:failure:) public static func deactivatePromotion(uuid: Swift.String, success: @escaping () -> Swift.Void, failure: @escaping (SyneriseSDK.SNRApiError) -> Swift.Void)
+  @objc(deactivatePromotionByCode:success:failure:) public static func deactivatePromotion(code: Swift.String, success: @escaping () -> Swift.Void, failure: @escaping (SyneriseSDK.SNRApiError) -> Swift.Void)
+  @objc(deactivatePromotionsWithIdentifiers:success:failure:) public static func deactivatePromotions(identifiers: [SyneriseSDK.PromotionIdentifier], success: @escaping () -> Swift.Void, failure: @escaping (SyneriseSDK.SNRApiError) -> Swift.Void)
+  @objc(getOrAssignVoucherWithPoolUUID:success:failure:) public static func getOrAssignVoucher(poolUUID: Swift.String, success: @escaping (SyneriseSDK.AssignVoucherResponse) -> Swift.Void, failure: @escaping (SyneriseSDK.SNRApiError) -> Swift.Void)
+  @objc(assignVoucherCodeWithPoolUUID:success:failure:) public static func assignVoucherCode(poolUUID: Swift.String, success: @escaping (SyneriseSDK.AssignVoucherResponse) -> Swift.Void, failure: @escaping (SyneriseSDK.SNRApiError) -> Swift.Void)
+  @objc(getAssignedVoucherCodesWithSuccess:failure:) public static func getAssignedVoucherCodes(success: @escaping (SyneriseSDK.VoucherCodesResponse) -> Swift.Void, failure: @escaping (SyneriseSDK.SNRApiError) -> Swift.Void)
+  @objc deinit
+}
+@objc(SNRPromotionStatus) public enum PromotionStatus : Swift.UInt, Swift.RawRepresentable {
+  @objc(SNRPromotionStatusNone) case none = 0
+  @objc(SNRPromotionStatusActive) case active
+  @objc(SNRPromotionStatusAssigned) case assigned
+  @objc(SNRPromotionStatusRedeemed) case redeemed
+  public static func fromString(_ string: Swift.String?) -> SyneriseSDK.PromotionStatus
+  public func toString() -> Swift.String
+  public init?(rawValue: Swift.UInt)
+  public typealias RawValue = Swift.UInt
+  public var rawValue: Swift.UInt {
+    get
+  }
+}
 @_inheritsConvenienceInitializers @objc(SNRInitializationConfig) public class InitializationConfig : ObjectiveC.NSObject {
+  @objc public var initialDoNotTrack: Swift.Bool {
+    @objc get
+    @objc set
+  }
   @objc public var requestValidationSalt: Swift.String?
   @objc override dynamic public init()
   @objc deinit
@@ -552,6 +752,26 @@ public enum ClientModelUUIDOrigin : Swift.String {
   @objc override dynamic public init()
   @objc deinit
 }
+@_hasMissingDesignatedInitializers @objc(SNRPromotionDiscountTypeDetails) public class PromotionDiscountTypeDetails : SyneriseSDK.BaseModel {
+  @objc final public let name: Swift.String
+  @objc final public let outerScope: Swift.Bool
+  @objc final public let requiredItemsCount: Swift.Int
+  @objc final public let discountedItemsCount: Swift.Int
+  @objc deinit
+}
+@objc(SNRVoucherCodeStatus) public enum VoucherCodeStatus : Swift.Int, Swift.RawRepresentable {
+  @objc(SNRVoucherCodeStatusUnassigned) case unassigned
+  @objc(SNRVoucherCodeStatusAssigned) case assigned
+  @objc(SNRVoucherCodeStatusRedeemed) case redeemed
+  @objc(SNRVoucherCodeStatusCanceled) case canceled
+  public static func fromString(_ string: Swift.String?) -> SyneriseSDK.VoucherCodeStatus
+  public func toString() -> Swift.String
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
 @_hasMissingDesignatedInitializers @objc(SNRCustomEvent) open class CustomEvent : SyneriseSDK.Event {
   @objc override public init(label: Swift.String)
   @objc override public init(label: Swift.String, params: SyneriseSDK.TrackerParams?)
@@ -568,11 +788,24 @@ public enum ClientModelUUIDOrigin : Swift.String {
   @objc final public func setURL(_ url: Foundation.URL)
   @objc deinit
 }
+@_hasMissingDesignatedInitializers @objc(SNRVoucherCodesResponse) public class VoucherCodesResponse : SyneriseSDK.BaseModel {
+  @objc final public let items: [SyneriseSDK.VoucherCodesData]
+  @objc deinit
+}
 @_hasMissingDesignatedInitializers @objc(SNRScreenViewAudienceInfo) public class ScreenViewAudienceInfo : SyneriseSDK.BaseModel {
   @objc public var segments: [Swift.String]?
   @objc public var query: Swift.String?
   @objc public var targetType: Swift.String?
   @objc deinit
+}
+@objc(SNRPromotionItemScope) public enum PromotionItemScope : Swift.Int, Swift.RawRepresentable {
+  @objc(SNRPromotionItemScopeLineItem) case lineItem
+  @objc(SNRPromotionItemScopeBasket) case basket
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
 }
 @objc public enum SNRApiRequestCompletedSignalResult : Swift.Int {
   case success = 0
@@ -605,7 +838,21 @@ public enum ClientModelUUIDOrigin : Swift.String {
   @objc override dynamic public init()
   @objc deinit
 }
-@objc(SNRRecommendationFiltersJoinerRule) public enum RecommendationFiltersJoinerRule : Swift.Int {
+@objc(SNRPromotionImageType) public enum PromotionImageType : Swift.Int, Swift.RawRepresentable {
+  @objc(SNRPromotionImageTypeImage) case image
+  @objc(SNRPromotionImageTypeThumbnail) case thumbnail
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers @objc(SNRPromotionDiscountModeDetails) public class PromotionDiscountModeDetails : SyneriseSDK.BaseModel {
+  @objc final public let discountSteps: [SyneriseSDK.PromotionDiscountStep]
+  @objc final public let discountUsageTrigger: SyneriseSDK.PromotionDiscountUsageTrigger
+  @objc deinit
+}
+@objc(SNRRecommendationFiltersJoinerRule) public enum RecommendationFiltersJoinerRule : Swift.Int, Swift.RawRepresentable {
   @objc(SNRRecommendationFiltersJoinerRuleNone) case none = -1
   @objc(SNRRecommendationFiltersJoinerRuleAnd) case and
   @objc(SNRRecommendationFiltersJoinerRuleOr) case or
@@ -626,6 +873,19 @@ public enum ClientModelUUIDOrigin : Swift.String {
   @objc public static func userError(_ message: Swift.String)
   @objc public static func userFatalError(_ message: Swift.String)
   @objc override dynamic public init()
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc(SNRPromotionResponseMetadata) public class PromotionResponseMetadata : SyneriseSDK.BaseModel {
+  @objc final public let totalCount: Swift.Int
+  @objc final public let totalPages: Swift.Int
+  @objc final public let page: Swift.Int
+  @objc final public let limit: Swift.Int
+  @objc final public let code: Swift.Int
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc(SNRPromotionResponse) public class PromotionResponse : SyneriseSDK.BaseModel {
+  @objc final public let metadata: SyneriseSDK.PromotionResponseMetadata?
+  @objc final public let items: [SyneriseSDK.Promotion]
   @objc deinit
 }
 @_hasMissingDesignatedInitializers @objc(SNRVisitedScreenEvent) final public class VisitedScreenEvent : SyneriseSDK.Event {
@@ -746,8 +1006,19 @@ public let SNRViewTrackerEventAutotrackValueOnSelect: Swift.String
 @objc(_SNR_SignalReceivable) public protocol _SNR_SignalReceivable {
   @objc func signalReceived(_: SyneriseSDK._SNR_BaseSignal, parameters: [Swift.String : Any])
 }
+@objc public enum _SNR_BaseSignalPriority : Swift.Int {
+  case high
+  case normal
+  case low
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
 @_inheritsConvenienceInitializers @objc(_SNR_BaseSignal) public class _SNR_BaseSignal : ObjectiveC.NSObject {
   @objc public func addReceiver(_ receiver: Swift.AnyObject)
+  @objc public func addReceiver(_ receiver: Swift.AnyObject, priority: SyneriseSDK._SNR_BaseSignalPriority = .normal)
   @objc public func removeReceiver(_ receiver: Swift.AnyObject)
   @objc override dynamic public init()
   @objc deinit
@@ -756,7 +1027,7 @@ public let SNRViewTrackerEventAutotrackValueOnSelect: Swift.String
   @objc final public let feedSlug: Swift.String
   @objc public var productID: Swift.String?
   @objc public var params: [Swift.String : Any]?
-  @objc public init(slug: Swift.String)
+  @objc(initWithFeedSlug:) public init(slug: Swift.String)
   @objc deinit
 }
 @objc(SNRTrackerParams) final public class TrackerParams : ObjectiveC.NSObject {
@@ -772,6 +1043,15 @@ public let SNRViewTrackerEventAutotrackValueOnSelect: Swift.String
   @objc final public let error: [Swift.String : Any]?
   @objc deinit
 }
+@objc(SNRPromotionDiscountUsageTrigger) public enum PromotionDiscountUsageTrigger : Swift.Int, Swift.RawRepresentable {
+  @objc(SNRPromotionDiscountUsageTriggerTransaction) case transaction
+  @objc(SNRPromotionDiscountUsageTriggerRedeem) case redeem
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
 @_hasMissingDesignatedInitializers @objc(SNRRecommendation) public class Recommendation : SyneriseSDK.BaseModel {
   @objc final public let itemID: Swift.String
   @objc final public let attributes: [Swift.String : Any]
@@ -779,10 +1059,26 @@ public let SNRViewTrackerEventAutotrackValueOnSelect: Swift.String
   @objc public func getAttributeSetForKey(_ key: Swift.String) -> Any?
   @objc deinit
 }
+@_inheritsConvenienceInitializers @objc(_SNR_IncognitoModeChangedSignal) public class _SNR_IncognitoModeChangedSignal : SyneriseSDK._SNR_BaseSignal {
+  @objc public func notifyIncognitoModeChanged()
+  @objc override dynamic public init()
+  @objc deinit
+}
 @_hasMissingDesignatedInitializers @objc(SNRPushCancelledEvent) final public class PushCancelledEvent : SyneriseSDK.Event {
   @objc override public init(label: Swift.String)
   @objc override public init(label: Swift.String, params: SyneriseSDK.TrackerParams?)
   @objc deinit
+}
+@objc(SNRPromotionDiscountMode) public enum PromotionDiscountMode : Swift.Int, Swift.RawRepresentable {
+  @objc(SNRPromotionDiscountModeStatic) case modeStatic
+  @objc(SNRPromotionDiscountModeStep) case modeStep
+  public static func fromString(_ string: Swift.String?) -> SyneriseSDK.PromotionDiscountMode
+  public func toString() -> Swift.String
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
 }
 @_hasMissingDesignatedInitializers @objc(SNRPushViewedEvent) final public class PushViewedEvent : SyneriseSDK.Event {
   @objc override public init(label: Swift.String)
@@ -812,9 +1108,6 @@ public let SNRViewTrackerEventAutotrackValueOnSelect: Swift.String
 }
 @_inheritsConvenienceInitializers @objc(_SNR) final public class _SNR : ObjectiveC.NSObject {
   @objc public static var _Proxy: any SyneriseSDK.SNRSwiftCommandProxyProtocol {
-    @objc get
-  }
-  @objc public static var _DependencyContainer: SyneriseSDK.SwiftDependencyContainer {
     @objc get
   }
   @objc public static var Constants: SyneriseSDK._SNR_Constants.Type {
@@ -851,6 +1144,9 @@ public let SNRViewTrackerEventAutotrackValueOnSelect: Swift.String
     @objc get
   }
   @objc public static var PushRegistrationRequiredSignalSingleton: SyneriseSDK._SNR_PushRegistrationRequiredSignal {
+    @objc get
+  }
+  @objc public static var IncognitoModeChangedSignalSingleton: SyneriseSDK._SNR_IncognitoModeChangedSignal {
     @objc get
   }
   @objc public static var SyneriseReinitializationSignalSingleton: SyneriseSDK._SNR_SyneriseReinitializationSignal {
@@ -980,18 +1276,31 @@ public let SNRViewTrackerEventAutotrackValueOnSelect: Swift.String
 extension SyneriseSDK.TrackerAutoTrackMode : Swift.Equatable {}
 extension SyneriseSDK.TrackerAutoTrackMode : Swift.Hashable {}
 extension SyneriseSDK.TrackerAutoTrackMode : Swift.RawRepresentable {}
+extension SyneriseSDK.PromotionIdentifierType : Swift.Equatable {}
+extension SyneriseSDK.PromotionIdentifierType : Swift.Hashable {}
+extension SyneriseSDK.PromotionDiscountType : Swift.Equatable {}
+extension SyneriseSDK.PromotionDiscountType : Swift.Hashable {}
 extension SyneriseSDK.InternalEventSource : Swift.Equatable {}
 extension SyneriseSDK.InternalEventSource : Swift.Hashable {}
 extension SyneriseSDK.InternalEventSource : Swift.RawRepresentable {}
+extension SyneriseSDK.PromotionType : Swift.Equatable {}
+extension SyneriseSDK.PromotionType : Swift.Hashable {}
 extension SyneriseSDK.ClientModelUUIDOrigin : Swift.Equatable {}
 extension SyneriseSDK.ClientModelUUIDOrigin : Swift.Hashable {}
 extension SyneriseSDK.ClientModelUUIDOrigin : Swift.RawRepresentable {}
+extension SyneriseSDK.PromotionStatus : Swift.Equatable {}
+extension SyneriseSDK.PromotionStatus : Swift.Hashable {}
+extension SyneriseSDK.VoucherCodeStatus : Swift.Equatable {}
+extension SyneriseSDK.VoucherCodeStatus : Swift.Hashable {}
+extension SyneriseSDK.PromotionItemScope : Swift.Equatable {}
+extension SyneriseSDK.PromotionItemScope : Swift.Hashable {}
 extension SyneriseSDK.SNRApiRequestCompletedSignalResult : Swift.Equatable {}
 extension SyneriseSDK.SNRApiRequestCompletedSignalResult : Swift.Hashable {}
 extension SyneriseSDK.SNRApiRequestCompletedSignalResult : Swift.RawRepresentable {}
+extension SyneriseSDK.PromotionImageType : Swift.Equatable {}
+extension SyneriseSDK.PromotionImageType : Swift.Hashable {}
 extension SyneriseSDK.RecommendationFiltersJoinerRule : Swift.Equatable {}
 extension SyneriseSDK.RecommendationFiltersJoinerRule : Swift.Hashable {}
-extension SyneriseSDK.RecommendationFiltersJoinerRule : Swift.RawRepresentable {}
 extension SyneriseSDK.ViewTrackerEventViewActionType : Swift.Equatable {}
 extension SyneriseSDK.ViewTrackerEventViewActionType : Swift.Hashable {}
 extension SyneriseSDK.ViewTrackerEventViewActionType : Swift.RawRepresentable {}
@@ -1007,3 +1316,10 @@ extension SyneriseSDK.SNRClientUUIDChangeSignalReason : Swift.RawRepresentable {
 extension SyneriseSDK.SNRSyneriseReinitializationSignalState : Swift.Equatable {}
 extension SyneriseSDK.SNRSyneriseReinitializationSignalState : Swift.Hashable {}
 extension SyneriseSDK.SNRSyneriseReinitializationSignalState : Swift.RawRepresentable {}
+extension SyneriseSDK._SNR_BaseSignalPriority : Swift.Equatable {}
+extension SyneriseSDK._SNR_BaseSignalPriority : Swift.Hashable {}
+extension SyneriseSDK._SNR_BaseSignalPriority : Swift.RawRepresentable {}
+extension SyneriseSDK.PromotionDiscountUsageTrigger : Swift.Equatable {}
+extension SyneriseSDK.PromotionDiscountUsageTrigger : Swift.Hashable {}
+extension SyneriseSDK.PromotionDiscountMode : Swift.Equatable {}
+extension SyneriseSDK.PromotionDiscountMode : Swift.Hashable {}

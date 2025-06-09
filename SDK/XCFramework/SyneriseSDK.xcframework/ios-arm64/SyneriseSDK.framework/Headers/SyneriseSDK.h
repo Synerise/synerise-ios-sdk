@@ -17,12 +17,6 @@
 #import <SyneriseSDK/SNRTracker.h>
 #import <SyneriseSDK/SNRClient.h>
 #import <SyneriseSDK/SNRInjector.h>
-#import <SyneriseSDK/SNRPromotions.h>
-
-// API Queries & Options
-#import <SyneriseSDK/SNRApiQuerySortingOrder.h>
-#import <SyneriseSDK/SNRClientEventsApiQuery.h>
-#import <SyneriseSDK/SNRPromotionsApiQuery.h>
 
 // Exceptions
 #import <SyneriseSDK/SNRExceptionHandler.h>
@@ -49,6 +43,13 @@
 #import <SyneriseSDK/SNRPushNotificationsRegistrationOrigin.h>
 #import <SyneriseSDK/SNRClientSignOutMode.h>
 #import <SyneriseSDK/SNRClientSessionEndReason.h>
+
+// API Queries and Arguments
+#import <SyneriseSDK/SNRApiQuerySortingOrder.h>
+#import <SyneriseSDK/SNRClientEventsApiQuery.h>
+#import <SyneriseSDK/SNRPromotionStatusString.h>
+#import <SyneriseSDK/SNRPromotionTypeString.h>
+#import <SyneriseSDK/SNRPromotionSortingKey.h>
 #import <SyneriseSDK/SNRClientIdentityProvider.h>
 
 // API Models
@@ -70,27 +71,6 @@
 #import <SyneriseSDK/SNRTokenOrigin.h>
 #import <SyneriseSDK/SNRToken.h>
 #import <SyneriseSDK/SNRTokenPayload.h>
-#import <SyneriseSDK/SNRPromotionIdentifier.h>
-#import <SyneriseSDK/SNRPromotionDiscountModeDetails.h>
-#import <SyneriseSDK/SNRPromotionDiscountStep.h>
-#import <SyneriseSDK/SNRPromotionDiscountUsageTrigger.h>
-#import <SyneriseSDK/SNRPromotionStatus.h>
-#import <SyneriseSDK/SNRPromotionType.h>
-#import <SyneriseSDK/SNRPromotionDiscountType.h>
-#import <SyneriseSDK/SNRPromotionDiscountMode.h>
-#import <SyneriseSDK/SNRPromotionDetails.h>
-#import <SyneriseSDK/SNRPromotionDiscountTypeDetails.h>
-#import <SyneriseSDK/SNRPromotionItemScope.h>
-#import <SyneriseSDK/SNRPromotionImage.h>
-#import <SyneriseSDK/SNRPromotionImageType.h>
-#import <SyneriseSDK/SNRPromotion.h>
-#import <SyneriseSDK/SNRPromotionResponse.h>
-#import <SyneriseSDK/SNRPromotionResponseMetadata.h>
-#import <SyneriseSDK/SNRVoucherCodeStatus.h>
-#import <SyneriseSDK/SNRAssignVoucherResponse.h>
-#import <SyneriseSDK/SNRAssignVoucherData.h>
-#import <SyneriseSDK/SNRVoucherCodesResponse.h>
-#import <SyneriseSDK/SNRVoucherCodesData.h>
 #import <SyneriseSDK/SNRInAppMessageData.h>
 
 // Content Widget

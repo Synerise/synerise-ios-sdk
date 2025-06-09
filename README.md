@@ -1,9 +1,9 @@
-# Synerise iOS SDK (v5.3.0)
+# Synerise iOS SDK (v5.4.0)
 
 [![Platform](https://img.shields.io/badge/platform-iOS-orange.svg)](https://github.com/synerise/synerise-ios-sdk)
 [![Languages](https://img.shields.io/badge/language-Objective--C%20%7C%20Swift-orange.svg)](https://github.com/synerise/synerise-ios-sdk)
 [![GitHub release](https://img.shields.io/github/release/Synerise/ios-sdk.svg)](https://github.com/Synerise/synerise-ios-sdk/releases) 
-[![CocoaPods](https://img.shields.io/badge/pod-v5.3.0-green.svg)](https://cocoapods.org/pods/SyneriseSDK)
+[![CocoaPods](https://img.shields.io/badge/pod-v5.4.0-green.svg)](https://cocoapods.org/pods/SyneriseSDK)
 [![SPM compatible](https://img.shields.io/badge/SPM-Compatible-green.svg)](https://www.swift.org/package-manager)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-green.svg)](https://github.com/Carthage/Carthage)
 [![Synerise](https://img.shields.io/badge/www-synerise-green.svg)](https://synerise.com)
@@ -20,14 +20,9 @@ Most up-to-date documentation is available at [Developer Guide - Mobile SDK](htt
 ## Requirements
 * Access to workspace
 * A Profile API Key
-* Recommended environment:
-    - Xcode 16
-    - iOS SDK 18
-* Target deployment:
-    - **iOS 13.0+** for SDK versions 5.0.0 and higher
-    - **iOS 9.0+** for SDK versions lower than 5.0.0
-
-**Bitcode is not supported in SDK version 5.0.0 and higher. Xcode ignores bitcode.**
+* Xcode 16 and iOS SDK 18
+* iOS 13.0+ minimum deployment target
+* Valid architectures: arm64 devices and arm64, x86_64 simulators
 
 ## Installing Synerise SDK with CocoaPods
 
