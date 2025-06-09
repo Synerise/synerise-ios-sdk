@@ -352,6 +352,30 @@ SWIFT_CLASS_NAMED("ApplicationStartedEvent")
 @end
 
 
+/// <code>AssignVoucherData</code> class
+SWIFT_CLASS_NAMED("AssignVoucherData")
+@interface SNRAssignVoucherData : SNRBaseModel
+@property (nonatomic, readonly, copy) NSString * _Nonnull code;
+@property (nonatomic, readonly, copy) NSDate * _Nullable expireIn;
+@property (nonatomic, readonly, copy) NSDate * _Nullable redeemAt;
+@property (nonatomic, readonly, copy) NSDate * _Nullable assignedAt;
+@property (nonatomic, readonly, copy) NSDate * _Nonnull createdAt;
+@property (nonatomic, readonly, copy) NSDate * _Nonnull updatedAt;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+/// <code>AssignVoucherResponse</code> class
+SWIFT_CLASS_NAMED("AssignVoucherResponse")
+@interface SNRAssignVoucherResponse : SNRBaseModel
+@property (nonatomic, readonly, copy) NSString * _Nonnull message;
+@property (nonatomic, readonly, strong) SNRAssignVoucherData * _Nonnull assignVoucherData;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
 SWIFT_CLASS("_TtC11SyneriseSDK24BasicNotificationPayload")
 @interface BasicNotificationPayload : NSObject
 @property (nonatomic, copy) NSString * _Nullable title;
@@ -397,49 +421,49 @@ SWIFT_CLASS_NAMED("CartEvent")
 @class SNRScreenView;
 @class SNRScreenViewApiQuery;
 
-/// <code>Content</code> class.
+/// <code>Content</code> class
 SWIFT_CLASS_NAMED("Content")
 @interface SNRContent : NSObject
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-/// Generates the document defined for the provided slug. Inserts are processed.
+/// This method generates the document that is defined for the provided slug. Inserts are processed.
 /// \param slug Identifies a specific document.
 ///
-/// \param success A closure executed when the operation finishes successfully.
+/// \param success A closure to be executed when the operation finishes successfully.
 ///
-/// \param failure A closure executed when the operation finishes unsuccessfully.
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
 ///
 + (void)generateDocument:(NSString * _Nonnull)slug success:(void (^ _Nonnull)(SNRDocument * _Nonnull))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
-/// Generates the document defined by the parameters provided in the query object.
+/// This method generates the document that is defined for parameters provided in the query object.
 /// \param apiQuery <code>DocumentApiQuery</code> object responsible for storing all query parameters.
 ///
-/// \param success A closure executed when the operation finishes successfully.
+/// \param success A closure to be executed when the operation finishes successfully.
 ///
-/// \param failure A closure executed when the operation finishes unsuccessfully.
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
 ///
 + (void)generateDocumentWithApiQuery:(SNRDocumentApiQuery * _Nonnull)apiQuery success:(void (^ _Nonnull)(SNRDocument * _Nonnull))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
-/// Generates recommendations based on the provided options.
+/// This method generates recommendations that are defined for the options provided.
 /// \param options <code>RecommendationOptions</code> object providing parameters for recommendations.
 ///
-/// \param success A closure executed when the operation finishes successfully.
+/// \param success A closure to be executed when the operation finishes successfully.
 ///
-/// \param failure A closure executed when the operation finishes unsuccessfully.
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
 ///
 + (void)getRecommendationsV2:(SNRRecommendationOptions * _Nonnull)options success:(void (^ _Nonnull)(SNRRecommendationResponse * _Nonnull))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
-/// Generates the customer’s highest-priority screen view campaign from the feed with the provided feed slug.
+/// This method generates a customer’s highest-priority screen view campaign from the feed with the provided feed slug.
 /// \param feedSlug Identifies a specific screen view.
 ///
-/// \param success A closure executed when the operation finishes successfully.
+/// \param success A closure to be executed when the operation finishes successfully.
 ///
-/// \param failure A closure executed when the operation finishes unsuccessfully.
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
 ///
 + (void)generateScreenView:(NSString * _Nonnull)feedSlug success:(void (^ _Nonnull)(SNRScreenView * _Nonnull))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
-/// Generates the customer’s highest-priority screen view campaign based on the parameters provided in the query object.
+/// This method generates customer’s highest-priority screen view campaign that is defined for parameters provided in the query object.
 /// \param apiQuery <code>ScreenViewApiQuery</code> object responsible for storing all query parameters.
 ///
-/// \param success A closure executed when the operation finishes successfully.
+/// \param success A closure to be executed when the operation finishes successfully.
 ///
-/// \param failure A closure executed when the operation finishes unsuccessfully.
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
 ///
 + (void)generateScreenViewWithApiQuery:(SNRScreenViewApiQuery * _Nonnull)apiQuery success:(void (^ _Nonnull)(SNRScreenView * _Nonnull))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
 @end
@@ -504,6 +528,7 @@ SWIFT_CLASS_NAMED("DocumentApiQuery")
 SWIFT_CLASS_NAMED("GeneralSettings")
 @interface SNRGeneralSettings : NSObject
 @property (nonatomic) BOOL enabled;
+@property (nonatomic) BOOL doNotTrack;
 @property (nonatomic, copy) NSString * _Nullable appGroupIdentifier;
 @property (nonatomic, copy) NSString * _Nullable keychainGroupIdentifier;
 @property (nonatomic) NSTimeInterval minTokenRefreshInterval;
@@ -542,6 +567,7 @@ SWIFT_CLASS_NAMED("InAppMessagingSettings")
 
 SWIFT_CLASS_NAMED("InitializationConfig")
 @interface SNRInitializationConfig : NSObject
+@property (nonatomic) BOOL initialDoNotTrack;
 @property (nonatomic, copy) NSString * _Nullable requestValidationSalt;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -651,6 +677,337 @@ SWIFT_CLASS_NAMED("ProductViewedEvent")
 - (void)setCategory:(NSString * _Nonnull)category;
 - (void)setURL:(NSURL * _Nonnull)url;
 - (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
+@end
+
+enum SNRPromotionStatus : NSUInteger;
+enum SNRPromotionType : NSInteger;
+@class SNRPromotionDetails;
+@class NSNumber;
+enum SNRPromotionDiscountType : NSInteger;
+enum SNRPromotionDiscountMode : NSInteger;
+@class SNRPromotionDiscountModeDetails;
+enum SNRPromotionItemScope : NSInteger;
+@class SNRPromotionImage;
+
+/// <code>Promotion</code> class
+SWIFT_CLASS_NAMED("Promotion")
+@interface SNRPromotion : SNRBaseModel
+@property (nonatomic, readonly, copy) NSString * _Nonnull uuid;
+@property (nonatomic, readonly, copy) NSString * _Nonnull code;
+@property (nonatomic, readonly) enum SNRPromotionStatus status;
+@property (nonatomic, readonly) enum SNRPromotionType type;
+@property (nonatomic, readonly, strong) SNRPromotionDetails * _Nullable details;
+@property (nonatomic, readonly, strong) NSNumber * _Nullable redeemLimitPerClient;
+@property (nonatomic, readonly, strong) NSNumber * _Nullable redeemQuantityPerActivation;
+@property (nonatomic, readonly, strong) NSNumber * _Nullable currentRedeemedQuantity;
+@property (nonatomic, readonly, strong) NSNumber * _Nullable currentRedeemLimit;
+@property (nonatomic, readonly, strong) NSNumber * _Nullable activationCounter;
+@property (nonatomic, readonly, strong) NSNumber * _Nullable possibleRedeems;
+@property (nonatomic, readonly, strong) NSNumber * _Nullable requireRedeemedPoints;
+@property (nonatomic, readonly) enum SNRPromotionDiscountType discountType;
+@property (nonatomic, readonly, strong) NSNumber * _Nonnull discountValue;
+@property (nonatomic, readonly) enum SNRPromotionDiscountMode discountMode;
+@property (nonatomic, readonly, strong) SNRPromotionDiscountModeDetails * _Nullable discountModeDetails;
+@property (nonatomic, readonly, strong) NSNumber * _Nonnull priority;
+@property (nonatomic, readonly, strong) NSNumber * _Nonnull price;
+@property (nonatomic, readonly) enum SNRPromotionItemScope itemScope;
+@property (nonatomic, readonly, strong) NSNumber * _Nullable minBasketValue;
+@property (nonatomic, readonly, strong) NSNumber * _Nullable maxBasketValue;
+@property (nonatomic, readonly, copy) NSString * _Nonnull name;
+@property (nonatomic, readonly, copy) NSString * _Nullable headline;
+@property (nonatomic, readonly, copy) NSString * _Nullable descriptionText;
+@property (nonatomic, readonly, copy) NSArray<SNRPromotionImage *> * _Nullable images;
+@property (nonatomic, readonly, copy) NSDate * _Nullable startAt;
+@property (nonatomic, readonly, copy) NSDate * _Nullable expireAt;
+@property (nonatomic, readonly, copy) NSDate * _Nullable lastingAt;
+@property (nonatomic, readonly, strong) NSNumber * _Nullable lastingTime;
+@property (nonatomic, readonly, copy) NSString * _Nullable displayFrom;
+@property (nonatomic, readonly, copy) NSString * _Nullable displayTo;
+@property (nonatomic, readonly, copy) NSArray<NSString *> * _Nullable catalogIndexItems;
+@property (nonatomic, readonly, copy) NSDictionary<NSString *, id> * _Nullable params;
+@property (nonatomic, readonly, copy) NSArray<NSString *> * _Nullable tags;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+@class SNRPromotionDiscountTypeDetails;
+
+/// <code>PromotionDetails</code> class
+SWIFT_CLASS_NAMED("PromotionDetails")
+@interface SNRPromotionDetails : SNRBaseModel
+@property (nonatomic, readonly, strong) SNRPromotionDiscountTypeDetails * _Nonnull discountType;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+/// <code>PromotionDiscountMode</code> enum
+typedef SWIFT_ENUM_NAMED(NSInteger, SNRPromotionDiscountMode, "PromotionDiscountMode", open) {
+  SNRPromotionDiscountModeStatic SWIFT_COMPILE_NAME("modeStatic") = 0,
+  SNRPromotionDiscountModeStep SWIFT_COMPILE_NAME("modeStep") = 1,
+};
+
+@class SNRPromotionDiscountStep;
+enum SNRPromotionDiscountUsageTrigger : NSInteger;
+
+/// <code>PromotionDiscountModeDetails</code> class
+SWIFT_CLASS_NAMED("PromotionDiscountModeDetails")
+@interface SNRPromotionDiscountModeDetails : SNRBaseModel
+@property (nonatomic, readonly, copy) NSArray<SNRPromotionDiscountStep *> * _Nonnull discountSteps;
+@property (nonatomic, readonly) enum SNRPromotionDiscountUsageTrigger discountUsageTrigger;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+/// <code>PromotionDiscountStep</code> class
+SWIFT_CLASS_NAMED("PromotionDiscountStep")
+@interface SNRPromotionDiscountStep : SNRBaseModel
+@property (nonatomic, readonly) double discountValue;
+@property (nonatomic, readonly, strong) NSNumber * _Nonnull usageThreshold;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+/// <code>PromotionDiscountType</code> enum
+typedef SWIFT_ENUM_NAMED(NSInteger, SNRPromotionDiscountType, "PromotionDiscountType", open) {
+  SNRPromotionDiscountTypeNone SWIFT_COMPILE_NAME("none") = 0,
+  SNRPromotionDiscountTypePercent SWIFT_COMPILE_NAME("percent") = 1,
+  SNRPromotionDiscountTypeAmount SWIFT_COMPILE_NAME("amount") = 2,
+  SNRPromotionDiscountType2For1 SWIFT_COMPILE_NAME("twoForOne") = 3,
+  SNRPromotionDiscountTypePoints SWIFT_COMPILE_NAME("points") = 4,
+  SNRPromotionDiscountTypeMultibuy SWIFT_COMPILE_NAME("multibuy") = 5,
+  SNRPromotionDiscountTypeExactPrice SWIFT_COMPILE_NAME("exactPrice") = 6,
+};
+
+
+/// <code>PromotionDiscountTypeDetails</code> class
+SWIFT_CLASS_NAMED("PromotionDiscountTypeDetails")
+@interface SNRPromotionDiscountTypeDetails : SNRBaseModel
+@property (nonatomic, readonly, copy) NSString * _Nonnull name;
+@property (nonatomic, readonly) BOOL outerScope;
+@property (nonatomic, readonly) NSInteger requiredItemsCount;
+@property (nonatomic, readonly) NSInteger discountedItemsCount;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+/// <code>PromotionDiscountUsageTrigger</code> enum
+typedef SWIFT_ENUM_NAMED(NSInteger, SNRPromotionDiscountUsageTrigger, "PromotionDiscountUsageTrigger", open) {
+  SNRPromotionDiscountUsageTriggerTransaction SWIFT_COMPILE_NAME("transaction") = 0,
+  SNRPromotionDiscountUsageTriggerRedeem SWIFT_COMPILE_NAME("redeem") = 1,
+};
+
+enum SNRPromotionIdentifierType : NSInteger;
+
+/// <code>PromotionIdentifier</code> class
+SWIFT_CLASS_NAMED("PromotionIdentifier")
+@interface SNRPromotionIdentifier : SNRBaseModel
+@property (nonatomic, readonly, copy) NSString * _Nonnull key;
+@property (nonatomic, readonly, copy) NSString * _Nonnull value;
+- (nonnull instancetype)initWithType:(enum SNRPromotionIdentifierType)type value:(NSString * _Nonnull)value OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithUuid:(NSString * _Nonnull)uuid;
+- (nonnull instancetype)initWithCode:(NSString * _Nonnull)code;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+/// <code>PromotionIdentifierType</code> enum
+typedef SWIFT_ENUM_NAMED(NSInteger, SNRPromotionIdentifierType, "PromotionIdentifierType", open) {
+  SNRPromotionIdentifierTypeUUID SWIFT_COMPILE_NAME("uuid") = 0,
+  SNRPromotionIdentifierTypeCode SWIFT_COMPILE_NAME("code") = 1,
+};
+
+enum SNRPromotionImageType : NSInteger;
+
+/// <code>PromotionImage</code> class
+SWIFT_CLASS_NAMED("PromotionImage")
+@interface SNRPromotionImage : SNRBaseModel
+@property (nonatomic, readonly, copy) NSString * _Nonnull url;
+@property (nonatomic, readonly) enum SNRPromotionImageType type;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+/// <code>PromotionImageType</code> enum
+typedef SWIFT_ENUM_NAMED(NSInteger, SNRPromotionImageType, "PromotionImageType", open) {
+  SNRPromotionImageTypeImage SWIFT_COMPILE_NAME("image") = 0,
+  SNRPromotionImageTypeThumbnail SWIFT_COMPILE_NAME("thumbnail") = 1,
+};
+
+/// <code>PromotionItemScope</code> enum
+typedef SWIFT_ENUM_NAMED(NSInteger, SNRPromotionItemScope, "PromotionItemScope", open) {
+  SNRPromotionItemScopeLineItem SWIFT_COMPILE_NAME("lineItem") = 0,
+  SNRPromotionItemScopeBasket SWIFT_COMPILE_NAME("basket") = 1,
+};
+
+@class SNRPromotionResponseMetadata;
+
+/// <code>PromotionResponse</code> class
+SWIFT_CLASS_NAMED("PromotionResponse")
+@interface SNRPromotionResponse : SNRBaseModel
+@property (nonatomic, readonly, strong) SNRPromotionResponseMetadata * _Nullable metadata;
+@property (nonatomic, readonly, copy) NSArray<SNRPromotion *> * _Nonnull items;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+/// <code>PromotionResponseMetadata</code> class
+SWIFT_CLASS_NAMED("PromotionResponseMetadata")
+@interface SNRPromotionResponseMetadata : SNRBaseModel
+@property (nonatomic, readonly) NSInteger totalCount;
+@property (nonatomic, readonly) NSInteger totalPages;
+@property (nonatomic, readonly) NSInteger page;
+@property (nonatomic, readonly) NSInteger limit;
+@property (nonatomic, readonly) NSInteger code;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+/// <code>PromotionStatus</code> enum
+typedef SWIFT_ENUM_NAMED(NSUInteger, SNRPromotionStatus, "PromotionStatus", open) {
+  SNRPromotionStatusNone SWIFT_COMPILE_NAME("none") = 0,
+  SNRPromotionStatusActive SWIFT_COMPILE_NAME("active") = 1,
+  SNRPromotionStatusAssigned SWIFT_COMPILE_NAME("assigned") = 2,
+  SNRPromotionStatusRedeemed SWIFT_COMPILE_NAME("redeemed") = 3,
+};
+
+/// <code>PromotionType</code> enum
+typedef SWIFT_ENUM_NAMED(NSInteger, SNRPromotionType, "PromotionType", open) {
+  SNRPromotionTypeUnknown SWIFT_COMPILE_NAME("unknown") = 0,
+  SNRPromotionTypeMembersOnly SWIFT_COMPILE_NAME("membersOnly") = 1,
+  SNRPromotionTypeCustom SWIFT_COMPILE_NAME("custom") = 2,
+  SNRPromotionTypeGeneral SWIFT_COMPILE_NAME("general") = 3,
+  SNRPromotionTypeHandbill SWIFT_COMPILE_NAME("handbill") = 4,
+};
+
+@class SNRPromotionsApiQuery;
+@class SNRVoucherCodesResponse;
+
+/// <code>Promotions</code> class
+SWIFT_CLASS_NAMED("Promotions")
+@interface SNRPromotions : NSObject
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+/// This method retrieves all available promotions that are defined for a customer.
+/// \param success A closure to be executed when the operation finishes successfully.
+///
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
+///
++ (void)getPromotionsWithSuccess:(void (^ _Nonnull)(SNRPromotionResponse * _Nonnull))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+/// This method retrieves promotions that match the parameters defined in the query object.
+/// \param apiQuery <code>PromotionsApiQuery</code> object responsible for storing all query parameters.
+///
+/// \param success A closure to be executed when the operation finishes successfully.
+///
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
+///
++ (void)getPromotionsWithApiQuery:(SNRPromotionsApiQuery * _Nonnull)apiQuery success:(void (^ _Nonnull)(SNRPromotionResponse * _Nonnull))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+/// This method retrieves the promotion with the specified UUID.
+/// \param uuid UUID of the promotion.
+///
+/// \param success A closure to be executed when the operation finishes successfully.
+///
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
+///
++ (void)getPromotionByUuid:(NSString * _Nonnull)uuid success:(void (^ _Nonnull)(SNRPromotion * _Nonnull))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+/// This method retrieves the promotion with the specified code.
+/// \param code Code of the promotion.
+///
+/// \param success A closure to be executed when the operation finishes successfully.
+///
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
+///
++ (void)getPromotionByCode:(NSString * _Nonnull)code success:(void (^ _Nonnull)(SNRPromotion * _Nonnull))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+/// This method activates the promotion with the specified UUID.
+/// \param uuid UUID of the promotion that will be activated.
+///
+/// \param success A closure to be executed when the operation finishes successfully.
+///
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
+///
++ (void)activatePromotionByUuid:(NSString * _Nonnull)uuid success:(void (^ _Nonnull)(void))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+/// This method activates the promotion with the specified code.
+/// \param code Code of the promotion that will be activated.
+///
+/// \param success A closure to be executed when the operation finishes successfully.
+///
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
+///
++ (void)activatePromotionByCode:(NSString * _Nonnull)code success:(void (^ _Nonnull)(void))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+/// This method activates promotions with a code or with UUID in a batch.
+/// \param identifiers List of promotion identifiers to be activated.
+///
+/// \param success A closure to be executed when the operation finishes successfully.
+///
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
+///
++ (void)activatePromotionsWithIdentifiers:(NSArray<SNRPromotionIdentifier *> * _Nonnull)identifiers success:(void (^ _Nonnull)(void))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+/// This method deactivates the promotion with the specified UUID.
+/// \param uuid UUID of the promotion that will be deactivated.
+///
+/// \param success A closure to be executed when the operation finishes successfully.
+///
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
+///
++ (void)deactivatePromotionByUuid:(NSString * _Nonnull)uuid success:(void (^ _Nonnull)(void))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+/// This method deactivates the promotion with the specified code.
+/// \param code Code of the promotion that will be deactivated.
+///
+/// \param success A closure to be executed when the operation finishes successfully.
+///
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
+///
++ (void)deactivatePromotionByCode:(NSString * _Nonnull)code success:(void (^ _Nonnull)(void))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+/// This method deactivates promotions with a code or with UUID in a batch.
+/// \param identifiers List of promotion identifiers to be deactivated.
+///
+/// \param success A closure to be executed when the operation finishes successfully.
+///
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
+///
++ (void)deactivatePromotionsWithIdentifiers:(NSArray<SNRPromotionIdentifier *> * _Nonnull)identifiers success:(void (^ _Nonnull)(void))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+/// This method retrieves an assigned voucher code or assigns a voucher from a pool identified by UUID to the customer.
+/// Once a voucher is assigned using this method, the same voucher is returned for the profile every time the method is called.
+/// note:
+/// When the voucher is assigned for the first time, a <code>voucherCode.assigned</code> event is produced.
+/// \param poolUUID Pool’s universally unique identifier.
+///
+/// \param success A closure to be executed when the operation finishes successfully.
+///
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
+///
++ (void)getOrAssignVoucherWithPoolUUID:(NSString * _Nonnull)poolUUID success:(void (^ _Nonnull)(SNRAssignVoucherResponse * _Nonnull))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+/// This method assigns a voucher from a pool identified by UUID to the profile.
+/// Every request returns a different code until the pool is empty.
+/// note:
+/// 416 HTTP status code is returned when pool is empty.
+/// \param poolUUID Pool’s universally unique identifier.
+///
+/// \param success A closure to be executed when the operation finishes successfully.
+///
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
+///
++ (void)assignVoucherCodeWithPoolUUID:(NSString * _Nonnull)poolUUID success:(void (^ _Nonnull)(SNRAssignVoucherResponse * _Nonnull))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+/// This method retrieves voucher codes for a customer.
+/// \param success A closure to be executed when the operation finishes successfully.
+///
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
+///
++ (void)getAssignedVoucherCodesWithSuccess:(void (^ _Nonnull)(SNRVoucherCodesResponse * _Nonnull))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+@end
+
+
+/// <code>PromotionsApiQuery</code> class
+SWIFT_CLASS_NAMED("PromotionsApiQuery")
+@interface SNRPromotionsApiQuery : NSObject
+@property (nonatomic, copy) NSArray<SNRPromotionStatusString> * _Nonnull statuses;
+@property (nonatomic, copy) NSArray<SNRPromotionTypeString> * _Nonnull types;
+@property (nonatomic, copy) NSArray<NSDictionary<SNRPromotionSortingKey, SNRApiQuerySortingOrderString> *> * _Nullable sorting;
+@property (nonatomic) NSInteger limit;
+@property (nonatomic) NSInteger page;
+@property (nonatomic) BOOL includeMeta;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
@@ -878,7 +1235,7 @@ SWIFT_CLASS_NAMED("ScreenViewApiQuery")
 @property (nonatomic, readonly, copy) NSString * _Nonnull feedSlug;
 @property (nonatomic, copy) NSString * _Nullable productID;
 @property (nonatomic, copy) NSDictionary<NSString *, id> * _Nullable params;
-- (nonnull instancetype)initWithSlug:(NSString * _Nonnull)slug OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithFeedSlug:(NSString * _Nonnull)slug OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -925,14 +1282,6 @@ SWIFT_CLASS_NAMED("SharedEvent")
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
-@end
-
-
-SWIFT_CLASS_NAMED("SwiftDependencyContainer")
-@interface SNRSwiftDependencyContainer : NSObject
-- (void)registerObject:(id _Nonnull)object forKey:(NSString * _Nonnull)key;
-- (id _Nullable)resolveObjectForKey:(NSString * _Nonnull)key SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 typedef SWIFT_ENUM_NAMED(NSInteger, SNRTrackerAutoTrackMode, "TrackerAutoTrackMode", open) {
@@ -1051,6 +1400,41 @@ SWIFT_CLASS_NAMED("VisitedScreenEvent")
 - (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
 @end
 
+/// <code>VoucherCodeStatus</code> enum
+typedef SWIFT_ENUM_NAMED(NSInteger, SNRVoucherCodeStatus, "VoucherCodeStatus", open) {
+  SNRVoucherCodeStatusUnassigned SWIFT_COMPILE_NAME("unassigned") = 0,
+  SNRVoucherCodeStatusAssigned SWIFT_COMPILE_NAME("assigned") = 1,
+  SNRVoucherCodeStatusRedeemed SWIFT_COMPILE_NAME("redeemed") = 2,
+  SNRVoucherCodeStatusCanceled SWIFT_COMPILE_NAME("canceled") = 3,
+};
+
+
+/// <code>VoucherCodesData</code> class
+SWIFT_CLASS_NAMED("VoucherCodesData")
+@interface SNRVoucherCodesData : SNRBaseModel
+@property (nonatomic, readonly, copy) NSString * _Nonnull code;
+@property (nonatomic, readonly) enum SNRVoucherCodeStatus status;
+@property (nonatomic, readonly) NSInteger clientId;
+@property (nonatomic, readonly, copy) NSString * _Nullable clientUuid;
+@property (nonatomic, readonly, copy) NSString * _Nonnull poolUuid;
+@property (nonatomic, readonly, copy) NSDate * _Nullable expireIn;
+@property (nonatomic, readonly, copy) NSDate * _Nullable redeemAt;
+@property (nonatomic, readonly, copy) NSDate * _Nullable assignedAt;
+@property (nonatomic, readonly, copy) NSDate * _Nonnull createdAt;
+@property (nonatomic, readonly, copy) NSDate * _Nonnull updatedAt;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+/// <code>VoucherCodesResponse</code> class
+SWIFT_CLASS_NAMED("VoucherCodesResponse")
+@interface SNRVoucherCodesResponse : SNRBaseModel
+@property (nonatomic, readonly, copy) NSArray<SNRVoucherCodesData *> * _Nonnull items;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
 @class _SNR_Constants;
 @class _SNR_Logger;
 @class _SNR_SyneriseFrameworkInfoProvider;
@@ -1062,6 +1446,7 @@ SWIFT_CLASS_NAMED("VisitedScreenEvent")
 @class _SNR_ClientUUIDChangeSignal;
 @class _SNR_DataInconsistencySignal;
 @class _SNR_PushRegistrationRequiredSignal;
+@class _SNR_IncognitoModeChangedSignal;
 @class _SNR_SyneriseReinitializationSignal;
 @class _SNR_ApiRequestCompletedSignal;
 @class _SNR_DispatchUtils;
@@ -1081,9 +1466,6 @@ SWIFT_CLASS_NAMED("_SNR")
 /// SWIFT COMMAND PROXY
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) id <SNRSwiftCommandProxyProtocol> _Nonnull _Proxy;)
 + (id <SNRSwiftCommandProxyProtocol> _Nonnull)_Proxy SWIFT_WARN_UNUSED_RESULT;
-/// DEPENDENCY CONTAINER
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) SNRSwiftDependencyContainer * _Nonnull _DependencyContainer;)
-+ (SNRSwiftDependencyContainer * _Nonnull)_DependencyContainer SWIFT_WARN_UNUSED_RESULT;
 /// CONSTANTS
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) SWIFT_METATYPE(_SNR_Constants) _Nonnull Constants;)
 + (SWIFT_METATYPE(_SNR_Constants) _Nonnull)Constants SWIFT_WARN_UNUSED_RESULT;
@@ -1111,6 +1493,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) _SNR_DataInc
 + (_SNR_DataInconsistencySignal * _Nonnull)DataInconsistencySignalSingleton SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) _SNR_PushRegistrationRequiredSignal * _Nonnull PushRegistrationRequiredSignalSingleton;)
 + (_SNR_PushRegistrationRequiredSignal * _Nonnull)PushRegistrationRequiredSignalSingleton SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) _SNR_IncognitoModeChangedSignal * _Nonnull IncognitoModeChangedSignalSingleton;)
++ (_SNR_IncognitoModeChangedSignal * _Nonnull)IncognitoModeChangedSignalSingleton SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) _SNR_SyneriseReinitializationSignal * _Nonnull SyneriseReinitializationSignalSingleton;)
 + (_SNR_SyneriseReinitializationSignal * _Nonnull)SyneriseReinitializationSignalSingleton SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) _SNR_ApiRequestCompletedSignal * _Nonnull ApiRequestCompletedSignalSingleton;)
@@ -1140,10 +1524,12 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) _SNR_Backgro
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+enum _SNR_BaseSignalPriority : NSInteger;
 
 SWIFT_CLASS_NAMED("_SNR_BaseSignal")
 @interface _SNR_BaseSignal : NSObject
 - (void)addReceiver:(id _Nonnull)receiver;
+- (void)addReceiver:(id _Nonnull)receiver priority:(enum _SNR_BaseSignalPriority)priority;
 - (void)removeReceiver:(id _Nonnull)receiver;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -1167,6 +1553,12 @@ SWIFT_CLASS_NAMED("_SNR_BackgroundTaskManager") SWIFT_AVAILABILITY(ios,introduce
 @end
 
 
+typedef SWIFT_ENUM(NSInteger, _SNR_BaseSignalPriority, open) {
+  _SNR_BaseSignalPriorityHigh = 0,
+  _SNR_BaseSignalPriorityNormal = 1,
+  _SNR_BaseSignalPriorityLow = 2,
+};
+
 
 SWIFT_CLASS_NAMED("_SNR_ClientApplicationInfoProvider")
 @interface _SNR_ClientApplicationInfoProvider : NSObject
@@ -1185,8 +1577,6 @@ SWIFT_CLASS_NAMED("_SNR_ClientManager")
 @interface _SNR_ClientManager : NSObject
 @property (nonatomic, strong) _SNR_ClientModel * _Null_unspecified client;
 + (void)setRecoveredClientUUID:(NSUUID * _Nullable)uuid;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 - (void)setClientId:(NSString * _Nullable)clientId;
 - (void)setCustomIdentifier:(NSString * _Nullable)customIdentifier;
 - (void)setCustomEmail:(NSString * _Nullable)customEmail;
@@ -1201,6 +1591,19 @@ SWIFT_CLASS_NAMED("_SNR_ClientManager")
 - (NSString * _Nonnull)prepareSigningWithLogin:(NSString * _Nullable)login orUUIDString:(NSString * _Nullable)UUIDString SWIFT_WARN_UNUSED_RESULT;
 - (void)signingSuccess;
 - (void)signingFailure;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_PROTOCOL_NAMED("_SNR_SignalReceivable")
+@protocol _SNR_SignalReceivable
+- (void)signalReceived:(_SNR_BaseSignal * _Nonnull)_ parameters:(NSDictionary<NSString *, id> * _Nonnull)parameters;
+@end
+
+
+@interface _SNR_ClientManager (SWIFT_EXTENSION(SyneriseSDK)) <_SNR_SignalReceivable>
+- (void)signalReceived:(_SNR_BaseSignal * _Nonnull)signal parameters:(NSDictionary<NSString *, id> * _Nonnull)parameters;
 @end
 
 
@@ -1312,6 +1715,13 @@ SWIFT_CLASS_NAMED("_SNR_ImageProvider")
 @end
 
 
+SWIFT_CLASS_NAMED("_SNR_IncognitoModeChangedSignal")
+@interface _SNR_IncognitoModeChangedSignal : _SNR_BaseSignal
+- (void)notifyIncognitoModeChanged;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
 SWIFT_CLASS_NAMED("_SNR_Logger")
 @interface _SNR_Logger : NSObject
 + (void)setUserDebugModeEnabled:(BOOL)enabled;
@@ -1345,7 +1755,6 @@ SWIFT_CLASS_NAMED("_SNR_MiscUtils")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
-@class NSNumber;
 
 SWIFT_CLASS_NAMED("_SNR_PriceFormatter")
 @interface _SNR_PriceFormatter : NSObject
@@ -1383,10 +1792,8 @@ SWIFT_CLASS_NAMED("_SNR_PushRegistrationRequiredSignal")
 @end
 
 
-SWIFT_CLASS_NAMED("_SNR_ServerTimeManager")
-@interface _SNR_ServerTimeManager : NSObject
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+SWIFT_PROTOCOL_NAMED("_SNR_ServerTimeManagerType")
+@protocol _SNR_ServerTimeManagerType
 - (void)getServerTimeByCache;
 - (void)fetchServerTimeSynchronously;
 - (void)fetchServerTimeAsynchronously;
@@ -1398,10 +1805,21 @@ SWIFT_CLASS_NAMED("_SNR_ServerTimeManager")
 @end
 
 
-SWIFT_PROTOCOL_NAMED("_SNR_SignalReceivable")
-@protocol _SNR_SignalReceivable
-- (void)signalReceived:(_SNR_BaseSignal * _Nonnull)_ parameters:(NSDictionary<NSString *, id> * _Nonnull)parameters;
+SWIFT_CLASS_NAMED("_SNR_ServerTimeManager")
+@interface _SNR_ServerTimeManager : NSObject <_SNR_ServerTimeManagerType>
+- (void)getServerTimeByCache;
+- (void)fetchServerTimeSynchronously;
+- (void)fetchServerTimeAsynchronously;
+- (BOOL)isReady SWIFT_WARN_UNUSED_RESULT;
+- (void)waitWhenIsReadyWithCompletion:(void (^ _Nonnull)(BOOL))completion;
+- (void)notifyWhenIsReadyWithCompletion:(void (^ _Nonnull)(BOOL))completion;
+- (NSDate * _Nullable)getCurrentServerTime SWIFT_WARN_UNUSED_RESULT;
+- (NSDate * _Nullable)getServerTimeForDeviceTime:(NSDate * _Nonnull)date SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
+
+
 
 
 SWIFT_CLASS_NAMED("_SNR_SyneriseFrameworkInfoProvider")
@@ -1810,6 +2228,30 @@ SWIFT_CLASS_NAMED("ApplicationStartedEvent")
 @end
 
 
+/// <code>AssignVoucherData</code> class
+SWIFT_CLASS_NAMED("AssignVoucherData")
+@interface SNRAssignVoucherData : SNRBaseModel
+@property (nonatomic, readonly, copy) NSString * _Nonnull code;
+@property (nonatomic, readonly, copy) NSDate * _Nullable expireIn;
+@property (nonatomic, readonly, copy) NSDate * _Nullable redeemAt;
+@property (nonatomic, readonly, copy) NSDate * _Nullable assignedAt;
+@property (nonatomic, readonly, copy) NSDate * _Nonnull createdAt;
+@property (nonatomic, readonly, copy) NSDate * _Nonnull updatedAt;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+/// <code>AssignVoucherResponse</code> class
+SWIFT_CLASS_NAMED("AssignVoucherResponse")
+@interface SNRAssignVoucherResponse : SNRBaseModel
+@property (nonatomic, readonly, copy) NSString * _Nonnull message;
+@property (nonatomic, readonly, strong) SNRAssignVoucherData * _Nonnull assignVoucherData;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
 SWIFT_CLASS("_TtC11SyneriseSDK24BasicNotificationPayload")
 @interface BasicNotificationPayload : NSObject
 @property (nonatomic, copy) NSString * _Nullable title;
@@ -1855,49 +2297,49 @@ SWIFT_CLASS_NAMED("CartEvent")
 @class SNRScreenView;
 @class SNRScreenViewApiQuery;
 
-/// <code>Content</code> class.
+/// <code>Content</code> class
 SWIFT_CLASS_NAMED("Content")
 @interface SNRContent : NSObject
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-/// Generates the document defined for the provided slug. Inserts are processed.
+/// This method generates the document that is defined for the provided slug. Inserts are processed.
 /// \param slug Identifies a specific document.
 ///
-/// \param success A closure executed when the operation finishes successfully.
+/// \param success A closure to be executed when the operation finishes successfully.
 ///
-/// \param failure A closure executed when the operation finishes unsuccessfully.
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
 ///
 + (void)generateDocument:(NSString * _Nonnull)slug success:(void (^ _Nonnull)(SNRDocument * _Nonnull))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
-/// Generates the document defined by the parameters provided in the query object.
+/// This method generates the document that is defined for parameters provided in the query object.
 /// \param apiQuery <code>DocumentApiQuery</code> object responsible for storing all query parameters.
 ///
-/// \param success A closure executed when the operation finishes successfully.
+/// \param success A closure to be executed when the operation finishes successfully.
 ///
-/// \param failure A closure executed when the operation finishes unsuccessfully.
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
 ///
 + (void)generateDocumentWithApiQuery:(SNRDocumentApiQuery * _Nonnull)apiQuery success:(void (^ _Nonnull)(SNRDocument * _Nonnull))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
-/// Generates recommendations based on the provided options.
+/// This method generates recommendations that are defined for the options provided.
 /// \param options <code>RecommendationOptions</code> object providing parameters for recommendations.
 ///
-/// \param success A closure executed when the operation finishes successfully.
+/// \param success A closure to be executed when the operation finishes successfully.
 ///
-/// \param failure A closure executed when the operation finishes unsuccessfully.
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
 ///
 + (void)getRecommendationsV2:(SNRRecommendationOptions * _Nonnull)options success:(void (^ _Nonnull)(SNRRecommendationResponse * _Nonnull))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
-/// Generates the customer’s highest-priority screen view campaign from the feed with the provided feed slug.
+/// This method generates a customer’s highest-priority screen view campaign from the feed with the provided feed slug.
 /// \param feedSlug Identifies a specific screen view.
 ///
-/// \param success A closure executed when the operation finishes successfully.
+/// \param success A closure to be executed when the operation finishes successfully.
 ///
-/// \param failure A closure executed when the operation finishes unsuccessfully.
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
 ///
 + (void)generateScreenView:(NSString * _Nonnull)feedSlug success:(void (^ _Nonnull)(SNRScreenView * _Nonnull))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
-/// Generates the customer’s highest-priority screen view campaign based on the parameters provided in the query object.
+/// This method generates customer’s highest-priority screen view campaign that is defined for parameters provided in the query object.
 /// \param apiQuery <code>ScreenViewApiQuery</code> object responsible for storing all query parameters.
 ///
-/// \param success A closure executed when the operation finishes successfully.
+/// \param success A closure to be executed when the operation finishes successfully.
 ///
-/// \param failure A closure executed when the operation finishes unsuccessfully.
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
 ///
 + (void)generateScreenViewWithApiQuery:(SNRScreenViewApiQuery * _Nonnull)apiQuery success:(void (^ _Nonnull)(SNRScreenView * _Nonnull))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
 @end
@@ -1962,6 +2404,7 @@ SWIFT_CLASS_NAMED("DocumentApiQuery")
 SWIFT_CLASS_NAMED("GeneralSettings")
 @interface SNRGeneralSettings : NSObject
 @property (nonatomic) BOOL enabled;
+@property (nonatomic) BOOL doNotTrack;
 @property (nonatomic, copy) NSString * _Nullable appGroupIdentifier;
 @property (nonatomic, copy) NSString * _Nullable keychainGroupIdentifier;
 @property (nonatomic) NSTimeInterval minTokenRefreshInterval;
@@ -2000,6 +2443,7 @@ SWIFT_CLASS_NAMED("InAppMessagingSettings")
 
 SWIFT_CLASS_NAMED("InitializationConfig")
 @interface SNRInitializationConfig : NSObject
+@property (nonatomic) BOOL initialDoNotTrack;
 @property (nonatomic, copy) NSString * _Nullable requestValidationSalt;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -2109,6 +2553,337 @@ SWIFT_CLASS_NAMED("ProductViewedEvent")
 - (void)setCategory:(NSString * _Nonnull)category;
 - (void)setURL:(NSURL * _Nonnull)url;
 - (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
+@end
+
+enum SNRPromotionStatus : NSUInteger;
+enum SNRPromotionType : NSInteger;
+@class SNRPromotionDetails;
+@class NSNumber;
+enum SNRPromotionDiscountType : NSInteger;
+enum SNRPromotionDiscountMode : NSInteger;
+@class SNRPromotionDiscountModeDetails;
+enum SNRPromotionItemScope : NSInteger;
+@class SNRPromotionImage;
+
+/// <code>Promotion</code> class
+SWIFT_CLASS_NAMED("Promotion")
+@interface SNRPromotion : SNRBaseModel
+@property (nonatomic, readonly, copy) NSString * _Nonnull uuid;
+@property (nonatomic, readonly, copy) NSString * _Nonnull code;
+@property (nonatomic, readonly) enum SNRPromotionStatus status;
+@property (nonatomic, readonly) enum SNRPromotionType type;
+@property (nonatomic, readonly, strong) SNRPromotionDetails * _Nullable details;
+@property (nonatomic, readonly, strong) NSNumber * _Nullable redeemLimitPerClient;
+@property (nonatomic, readonly, strong) NSNumber * _Nullable redeemQuantityPerActivation;
+@property (nonatomic, readonly, strong) NSNumber * _Nullable currentRedeemedQuantity;
+@property (nonatomic, readonly, strong) NSNumber * _Nullable currentRedeemLimit;
+@property (nonatomic, readonly, strong) NSNumber * _Nullable activationCounter;
+@property (nonatomic, readonly, strong) NSNumber * _Nullable possibleRedeems;
+@property (nonatomic, readonly, strong) NSNumber * _Nullable requireRedeemedPoints;
+@property (nonatomic, readonly) enum SNRPromotionDiscountType discountType;
+@property (nonatomic, readonly, strong) NSNumber * _Nonnull discountValue;
+@property (nonatomic, readonly) enum SNRPromotionDiscountMode discountMode;
+@property (nonatomic, readonly, strong) SNRPromotionDiscountModeDetails * _Nullable discountModeDetails;
+@property (nonatomic, readonly, strong) NSNumber * _Nonnull priority;
+@property (nonatomic, readonly, strong) NSNumber * _Nonnull price;
+@property (nonatomic, readonly) enum SNRPromotionItemScope itemScope;
+@property (nonatomic, readonly, strong) NSNumber * _Nullable minBasketValue;
+@property (nonatomic, readonly, strong) NSNumber * _Nullable maxBasketValue;
+@property (nonatomic, readonly, copy) NSString * _Nonnull name;
+@property (nonatomic, readonly, copy) NSString * _Nullable headline;
+@property (nonatomic, readonly, copy) NSString * _Nullable descriptionText;
+@property (nonatomic, readonly, copy) NSArray<SNRPromotionImage *> * _Nullable images;
+@property (nonatomic, readonly, copy) NSDate * _Nullable startAt;
+@property (nonatomic, readonly, copy) NSDate * _Nullable expireAt;
+@property (nonatomic, readonly, copy) NSDate * _Nullable lastingAt;
+@property (nonatomic, readonly, strong) NSNumber * _Nullable lastingTime;
+@property (nonatomic, readonly, copy) NSString * _Nullable displayFrom;
+@property (nonatomic, readonly, copy) NSString * _Nullable displayTo;
+@property (nonatomic, readonly, copy) NSArray<NSString *> * _Nullable catalogIndexItems;
+@property (nonatomic, readonly, copy) NSDictionary<NSString *, id> * _Nullable params;
+@property (nonatomic, readonly, copy) NSArray<NSString *> * _Nullable tags;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+@class SNRPromotionDiscountTypeDetails;
+
+/// <code>PromotionDetails</code> class
+SWIFT_CLASS_NAMED("PromotionDetails")
+@interface SNRPromotionDetails : SNRBaseModel
+@property (nonatomic, readonly, strong) SNRPromotionDiscountTypeDetails * _Nonnull discountType;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+/// <code>PromotionDiscountMode</code> enum
+typedef SWIFT_ENUM_NAMED(NSInteger, SNRPromotionDiscountMode, "PromotionDiscountMode", open) {
+  SNRPromotionDiscountModeStatic SWIFT_COMPILE_NAME("modeStatic") = 0,
+  SNRPromotionDiscountModeStep SWIFT_COMPILE_NAME("modeStep") = 1,
+};
+
+@class SNRPromotionDiscountStep;
+enum SNRPromotionDiscountUsageTrigger : NSInteger;
+
+/// <code>PromotionDiscountModeDetails</code> class
+SWIFT_CLASS_NAMED("PromotionDiscountModeDetails")
+@interface SNRPromotionDiscountModeDetails : SNRBaseModel
+@property (nonatomic, readonly, copy) NSArray<SNRPromotionDiscountStep *> * _Nonnull discountSteps;
+@property (nonatomic, readonly) enum SNRPromotionDiscountUsageTrigger discountUsageTrigger;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+/// <code>PromotionDiscountStep</code> class
+SWIFT_CLASS_NAMED("PromotionDiscountStep")
+@interface SNRPromotionDiscountStep : SNRBaseModel
+@property (nonatomic, readonly) double discountValue;
+@property (nonatomic, readonly, strong) NSNumber * _Nonnull usageThreshold;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+/// <code>PromotionDiscountType</code> enum
+typedef SWIFT_ENUM_NAMED(NSInteger, SNRPromotionDiscountType, "PromotionDiscountType", open) {
+  SNRPromotionDiscountTypeNone SWIFT_COMPILE_NAME("none") = 0,
+  SNRPromotionDiscountTypePercent SWIFT_COMPILE_NAME("percent") = 1,
+  SNRPromotionDiscountTypeAmount SWIFT_COMPILE_NAME("amount") = 2,
+  SNRPromotionDiscountType2For1 SWIFT_COMPILE_NAME("twoForOne") = 3,
+  SNRPromotionDiscountTypePoints SWIFT_COMPILE_NAME("points") = 4,
+  SNRPromotionDiscountTypeMultibuy SWIFT_COMPILE_NAME("multibuy") = 5,
+  SNRPromotionDiscountTypeExactPrice SWIFT_COMPILE_NAME("exactPrice") = 6,
+};
+
+
+/// <code>PromotionDiscountTypeDetails</code> class
+SWIFT_CLASS_NAMED("PromotionDiscountTypeDetails")
+@interface SNRPromotionDiscountTypeDetails : SNRBaseModel
+@property (nonatomic, readonly, copy) NSString * _Nonnull name;
+@property (nonatomic, readonly) BOOL outerScope;
+@property (nonatomic, readonly) NSInteger requiredItemsCount;
+@property (nonatomic, readonly) NSInteger discountedItemsCount;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+/// <code>PromotionDiscountUsageTrigger</code> enum
+typedef SWIFT_ENUM_NAMED(NSInteger, SNRPromotionDiscountUsageTrigger, "PromotionDiscountUsageTrigger", open) {
+  SNRPromotionDiscountUsageTriggerTransaction SWIFT_COMPILE_NAME("transaction") = 0,
+  SNRPromotionDiscountUsageTriggerRedeem SWIFT_COMPILE_NAME("redeem") = 1,
+};
+
+enum SNRPromotionIdentifierType : NSInteger;
+
+/// <code>PromotionIdentifier</code> class
+SWIFT_CLASS_NAMED("PromotionIdentifier")
+@interface SNRPromotionIdentifier : SNRBaseModel
+@property (nonatomic, readonly, copy) NSString * _Nonnull key;
+@property (nonatomic, readonly, copy) NSString * _Nonnull value;
+- (nonnull instancetype)initWithType:(enum SNRPromotionIdentifierType)type value:(NSString * _Nonnull)value OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithUuid:(NSString * _Nonnull)uuid;
+- (nonnull instancetype)initWithCode:(NSString * _Nonnull)code;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+/// <code>PromotionIdentifierType</code> enum
+typedef SWIFT_ENUM_NAMED(NSInteger, SNRPromotionIdentifierType, "PromotionIdentifierType", open) {
+  SNRPromotionIdentifierTypeUUID SWIFT_COMPILE_NAME("uuid") = 0,
+  SNRPromotionIdentifierTypeCode SWIFT_COMPILE_NAME("code") = 1,
+};
+
+enum SNRPromotionImageType : NSInteger;
+
+/// <code>PromotionImage</code> class
+SWIFT_CLASS_NAMED("PromotionImage")
+@interface SNRPromotionImage : SNRBaseModel
+@property (nonatomic, readonly, copy) NSString * _Nonnull url;
+@property (nonatomic, readonly) enum SNRPromotionImageType type;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+/// <code>PromotionImageType</code> enum
+typedef SWIFT_ENUM_NAMED(NSInteger, SNRPromotionImageType, "PromotionImageType", open) {
+  SNRPromotionImageTypeImage SWIFT_COMPILE_NAME("image") = 0,
+  SNRPromotionImageTypeThumbnail SWIFT_COMPILE_NAME("thumbnail") = 1,
+};
+
+/// <code>PromotionItemScope</code> enum
+typedef SWIFT_ENUM_NAMED(NSInteger, SNRPromotionItemScope, "PromotionItemScope", open) {
+  SNRPromotionItemScopeLineItem SWIFT_COMPILE_NAME("lineItem") = 0,
+  SNRPromotionItemScopeBasket SWIFT_COMPILE_NAME("basket") = 1,
+};
+
+@class SNRPromotionResponseMetadata;
+
+/// <code>PromotionResponse</code> class
+SWIFT_CLASS_NAMED("PromotionResponse")
+@interface SNRPromotionResponse : SNRBaseModel
+@property (nonatomic, readonly, strong) SNRPromotionResponseMetadata * _Nullable metadata;
+@property (nonatomic, readonly, copy) NSArray<SNRPromotion *> * _Nonnull items;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+/// <code>PromotionResponseMetadata</code> class
+SWIFT_CLASS_NAMED("PromotionResponseMetadata")
+@interface SNRPromotionResponseMetadata : SNRBaseModel
+@property (nonatomic, readonly) NSInteger totalCount;
+@property (nonatomic, readonly) NSInteger totalPages;
+@property (nonatomic, readonly) NSInteger page;
+@property (nonatomic, readonly) NSInteger limit;
+@property (nonatomic, readonly) NSInteger code;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+/// <code>PromotionStatus</code> enum
+typedef SWIFT_ENUM_NAMED(NSUInteger, SNRPromotionStatus, "PromotionStatus", open) {
+  SNRPromotionStatusNone SWIFT_COMPILE_NAME("none") = 0,
+  SNRPromotionStatusActive SWIFT_COMPILE_NAME("active") = 1,
+  SNRPromotionStatusAssigned SWIFT_COMPILE_NAME("assigned") = 2,
+  SNRPromotionStatusRedeemed SWIFT_COMPILE_NAME("redeemed") = 3,
+};
+
+/// <code>PromotionType</code> enum
+typedef SWIFT_ENUM_NAMED(NSInteger, SNRPromotionType, "PromotionType", open) {
+  SNRPromotionTypeUnknown SWIFT_COMPILE_NAME("unknown") = 0,
+  SNRPromotionTypeMembersOnly SWIFT_COMPILE_NAME("membersOnly") = 1,
+  SNRPromotionTypeCustom SWIFT_COMPILE_NAME("custom") = 2,
+  SNRPromotionTypeGeneral SWIFT_COMPILE_NAME("general") = 3,
+  SNRPromotionTypeHandbill SWIFT_COMPILE_NAME("handbill") = 4,
+};
+
+@class SNRPromotionsApiQuery;
+@class SNRVoucherCodesResponse;
+
+/// <code>Promotions</code> class
+SWIFT_CLASS_NAMED("Promotions")
+@interface SNRPromotions : NSObject
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+/// This method retrieves all available promotions that are defined for a customer.
+/// \param success A closure to be executed when the operation finishes successfully.
+///
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
+///
++ (void)getPromotionsWithSuccess:(void (^ _Nonnull)(SNRPromotionResponse * _Nonnull))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+/// This method retrieves promotions that match the parameters defined in the query object.
+/// \param apiQuery <code>PromotionsApiQuery</code> object responsible for storing all query parameters.
+///
+/// \param success A closure to be executed when the operation finishes successfully.
+///
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
+///
++ (void)getPromotionsWithApiQuery:(SNRPromotionsApiQuery * _Nonnull)apiQuery success:(void (^ _Nonnull)(SNRPromotionResponse * _Nonnull))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+/// This method retrieves the promotion with the specified UUID.
+/// \param uuid UUID of the promotion.
+///
+/// \param success A closure to be executed when the operation finishes successfully.
+///
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
+///
++ (void)getPromotionByUuid:(NSString * _Nonnull)uuid success:(void (^ _Nonnull)(SNRPromotion * _Nonnull))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+/// This method retrieves the promotion with the specified code.
+/// \param code Code of the promotion.
+///
+/// \param success A closure to be executed when the operation finishes successfully.
+///
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
+///
++ (void)getPromotionByCode:(NSString * _Nonnull)code success:(void (^ _Nonnull)(SNRPromotion * _Nonnull))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+/// This method activates the promotion with the specified UUID.
+/// \param uuid UUID of the promotion that will be activated.
+///
+/// \param success A closure to be executed when the operation finishes successfully.
+///
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
+///
++ (void)activatePromotionByUuid:(NSString * _Nonnull)uuid success:(void (^ _Nonnull)(void))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+/// This method activates the promotion with the specified code.
+/// \param code Code of the promotion that will be activated.
+///
+/// \param success A closure to be executed when the operation finishes successfully.
+///
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
+///
++ (void)activatePromotionByCode:(NSString * _Nonnull)code success:(void (^ _Nonnull)(void))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+/// This method activates promotions with a code or with UUID in a batch.
+/// \param identifiers List of promotion identifiers to be activated.
+///
+/// \param success A closure to be executed when the operation finishes successfully.
+///
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
+///
++ (void)activatePromotionsWithIdentifiers:(NSArray<SNRPromotionIdentifier *> * _Nonnull)identifiers success:(void (^ _Nonnull)(void))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+/// This method deactivates the promotion with the specified UUID.
+/// \param uuid UUID of the promotion that will be deactivated.
+///
+/// \param success A closure to be executed when the operation finishes successfully.
+///
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
+///
++ (void)deactivatePromotionByUuid:(NSString * _Nonnull)uuid success:(void (^ _Nonnull)(void))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+/// This method deactivates the promotion with the specified code.
+/// \param code Code of the promotion that will be deactivated.
+///
+/// \param success A closure to be executed when the operation finishes successfully.
+///
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
+///
++ (void)deactivatePromotionByCode:(NSString * _Nonnull)code success:(void (^ _Nonnull)(void))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+/// This method deactivates promotions with a code or with UUID in a batch.
+/// \param identifiers List of promotion identifiers to be deactivated.
+///
+/// \param success A closure to be executed when the operation finishes successfully.
+///
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
+///
++ (void)deactivatePromotionsWithIdentifiers:(NSArray<SNRPromotionIdentifier *> * _Nonnull)identifiers success:(void (^ _Nonnull)(void))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+/// This method retrieves an assigned voucher code or assigns a voucher from a pool identified by UUID to the customer.
+/// Once a voucher is assigned using this method, the same voucher is returned for the profile every time the method is called.
+/// note:
+/// When the voucher is assigned for the first time, a <code>voucherCode.assigned</code> event is produced.
+/// \param poolUUID Pool’s universally unique identifier.
+///
+/// \param success A closure to be executed when the operation finishes successfully.
+///
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
+///
++ (void)getOrAssignVoucherWithPoolUUID:(NSString * _Nonnull)poolUUID success:(void (^ _Nonnull)(SNRAssignVoucherResponse * _Nonnull))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+/// This method assigns a voucher from a pool identified by UUID to the profile.
+/// Every request returns a different code until the pool is empty.
+/// note:
+/// 416 HTTP status code is returned when pool is empty.
+/// \param poolUUID Pool’s universally unique identifier.
+///
+/// \param success A closure to be executed when the operation finishes successfully.
+///
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
+///
++ (void)assignVoucherCodeWithPoolUUID:(NSString * _Nonnull)poolUUID success:(void (^ _Nonnull)(SNRAssignVoucherResponse * _Nonnull))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+/// This method retrieves voucher codes for a customer.
+/// \param success A closure to be executed when the operation finishes successfully.
+///
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
+///
++ (void)getAssignedVoucherCodesWithSuccess:(void (^ _Nonnull)(SNRVoucherCodesResponse * _Nonnull))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+@end
+
+
+/// <code>PromotionsApiQuery</code> class
+SWIFT_CLASS_NAMED("PromotionsApiQuery")
+@interface SNRPromotionsApiQuery : NSObject
+@property (nonatomic, copy) NSArray<SNRPromotionStatusString> * _Nonnull statuses;
+@property (nonatomic, copy) NSArray<SNRPromotionTypeString> * _Nonnull types;
+@property (nonatomic, copy) NSArray<NSDictionary<SNRPromotionSortingKey, SNRApiQuerySortingOrderString> *> * _Nullable sorting;
+@property (nonatomic) NSInteger limit;
+@property (nonatomic) NSInteger page;
+@property (nonatomic) BOOL includeMeta;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
@@ -2336,7 +3111,7 @@ SWIFT_CLASS_NAMED("ScreenViewApiQuery")
 @property (nonatomic, readonly, copy) NSString * _Nonnull feedSlug;
 @property (nonatomic, copy) NSString * _Nullable productID;
 @property (nonatomic, copy) NSDictionary<NSString *, id> * _Nullable params;
-- (nonnull instancetype)initWithSlug:(NSString * _Nonnull)slug OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithFeedSlug:(NSString * _Nonnull)slug OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -2383,14 +3158,6 @@ SWIFT_CLASS_NAMED("SharedEvent")
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
-@end
-
-
-SWIFT_CLASS_NAMED("SwiftDependencyContainer")
-@interface SNRSwiftDependencyContainer : NSObject
-- (void)registerObject:(id _Nonnull)object forKey:(NSString * _Nonnull)key;
-- (id _Nullable)resolveObjectForKey:(NSString * _Nonnull)key SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 typedef SWIFT_ENUM_NAMED(NSInteger, SNRTrackerAutoTrackMode, "TrackerAutoTrackMode", open) {
@@ -2509,6 +3276,41 @@ SWIFT_CLASS_NAMED("VisitedScreenEvent")
 - (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
 @end
 
+/// <code>VoucherCodeStatus</code> enum
+typedef SWIFT_ENUM_NAMED(NSInteger, SNRVoucherCodeStatus, "VoucherCodeStatus", open) {
+  SNRVoucherCodeStatusUnassigned SWIFT_COMPILE_NAME("unassigned") = 0,
+  SNRVoucherCodeStatusAssigned SWIFT_COMPILE_NAME("assigned") = 1,
+  SNRVoucherCodeStatusRedeemed SWIFT_COMPILE_NAME("redeemed") = 2,
+  SNRVoucherCodeStatusCanceled SWIFT_COMPILE_NAME("canceled") = 3,
+};
+
+
+/// <code>VoucherCodesData</code> class
+SWIFT_CLASS_NAMED("VoucherCodesData")
+@interface SNRVoucherCodesData : SNRBaseModel
+@property (nonatomic, readonly, copy) NSString * _Nonnull code;
+@property (nonatomic, readonly) enum SNRVoucherCodeStatus status;
+@property (nonatomic, readonly) NSInteger clientId;
+@property (nonatomic, readonly, copy) NSString * _Nullable clientUuid;
+@property (nonatomic, readonly, copy) NSString * _Nonnull poolUuid;
+@property (nonatomic, readonly, copy) NSDate * _Nullable expireIn;
+@property (nonatomic, readonly, copy) NSDate * _Nullable redeemAt;
+@property (nonatomic, readonly, copy) NSDate * _Nullable assignedAt;
+@property (nonatomic, readonly, copy) NSDate * _Nonnull createdAt;
+@property (nonatomic, readonly, copy) NSDate * _Nonnull updatedAt;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+/// <code>VoucherCodesResponse</code> class
+SWIFT_CLASS_NAMED("VoucherCodesResponse")
+@interface SNRVoucherCodesResponse : SNRBaseModel
+@property (nonatomic, readonly, copy) NSArray<SNRVoucherCodesData *> * _Nonnull items;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
 @class _SNR_Constants;
 @class _SNR_Logger;
 @class _SNR_SyneriseFrameworkInfoProvider;
@@ -2520,6 +3322,7 @@ SWIFT_CLASS_NAMED("VisitedScreenEvent")
 @class _SNR_ClientUUIDChangeSignal;
 @class _SNR_DataInconsistencySignal;
 @class _SNR_PushRegistrationRequiredSignal;
+@class _SNR_IncognitoModeChangedSignal;
 @class _SNR_SyneriseReinitializationSignal;
 @class _SNR_ApiRequestCompletedSignal;
 @class _SNR_DispatchUtils;
@@ -2539,9 +3342,6 @@ SWIFT_CLASS_NAMED("_SNR")
 /// SWIFT COMMAND PROXY
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) id <SNRSwiftCommandProxyProtocol> _Nonnull _Proxy;)
 + (id <SNRSwiftCommandProxyProtocol> _Nonnull)_Proxy SWIFT_WARN_UNUSED_RESULT;
-/// DEPENDENCY CONTAINER
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) SNRSwiftDependencyContainer * _Nonnull _DependencyContainer;)
-+ (SNRSwiftDependencyContainer * _Nonnull)_DependencyContainer SWIFT_WARN_UNUSED_RESULT;
 /// CONSTANTS
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) SWIFT_METATYPE(_SNR_Constants) _Nonnull Constants;)
 + (SWIFT_METATYPE(_SNR_Constants) _Nonnull)Constants SWIFT_WARN_UNUSED_RESULT;
@@ -2569,6 +3369,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) _SNR_DataInc
 + (_SNR_DataInconsistencySignal * _Nonnull)DataInconsistencySignalSingleton SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) _SNR_PushRegistrationRequiredSignal * _Nonnull PushRegistrationRequiredSignalSingleton;)
 + (_SNR_PushRegistrationRequiredSignal * _Nonnull)PushRegistrationRequiredSignalSingleton SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) _SNR_IncognitoModeChangedSignal * _Nonnull IncognitoModeChangedSignalSingleton;)
++ (_SNR_IncognitoModeChangedSignal * _Nonnull)IncognitoModeChangedSignalSingleton SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) _SNR_SyneriseReinitializationSignal * _Nonnull SyneriseReinitializationSignalSingleton;)
 + (_SNR_SyneriseReinitializationSignal * _Nonnull)SyneriseReinitializationSignalSingleton SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) _SNR_ApiRequestCompletedSignal * _Nonnull ApiRequestCompletedSignalSingleton;)
@@ -2598,10 +3400,12 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) _SNR_Backgro
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+enum _SNR_BaseSignalPriority : NSInteger;
 
 SWIFT_CLASS_NAMED("_SNR_BaseSignal")
 @interface _SNR_BaseSignal : NSObject
 - (void)addReceiver:(id _Nonnull)receiver;
+- (void)addReceiver:(id _Nonnull)receiver priority:(enum _SNR_BaseSignalPriority)priority;
 - (void)removeReceiver:(id _Nonnull)receiver;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -2625,6 +3429,12 @@ SWIFT_CLASS_NAMED("_SNR_BackgroundTaskManager") SWIFT_AVAILABILITY(ios,introduce
 @end
 
 
+typedef SWIFT_ENUM(NSInteger, _SNR_BaseSignalPriority, open) {
+  _SNR_BaseSignalPriorityHigh = 0,
+  _SNR_BaseSignalPriorityNormal = 1,
+  _SNR_BaseSignalPriorityLow = 2,
+};
+
 
 SWIFT_CLASS_NAMED("_SNR_ClientApplicationInfoProvider")
 @interface _SNR_ClientApplicationInfoProvider : NSObject
@@ -2643,8 +3453,6 @@ SWIFT_CLASS_NAMED("_SNR_ClientManager")
 @interface _SNR_ClientManager : NSObject
 @property (nonatomic, strong) _SNR_ClientModel * _Null_unspecified client;
 + (void)setRecoveredClientUUID:(NSUUID * _Nullable)uuid;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 - (void)setClientId:(NSString * _Nullable)clientId;
 - (void)setCustomIdentifier:(NSString * _Nullable)customIdentifier;
 - (void)setCustomEmail:(NSString * _Nullable)customEmail;
@@ -2659,6 +3467,19 @@ SWIFT_CLASS_NAMED("_SNR_ClientManager")
 - (NSString * _Nonnull)prepareSigningWithLogin:(NSString * _Nullable)login orUUIDString:(NSString * _Nullable)UUIDString SWIFT_WARN_UNUSED_RESULT;
 - (void)signingSuccess;
 - (void)signingFailure;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_PROTOCOL_NAMED("_SNR_SignalReceivable")
+@protocol _SNR_SignalReceivable
+- (void)signalReceived:(_SNR_BaseSignal * _Nonnull)_ parameters:(NSDictionary<NSString *, id> * _Nonnull)parameters;
+@end
+
+
+@interface _SNR_ClientManager (SWIFT_EXTENSION(SyneriseSDK)) <_SNR_SignalReceivable>
+- (void)signalReceived:(_SNR_BaseSignal * _Nonnull)signal parameters:(NSDictionary<NSString *, id> * _Nonnull)parameters;
 @end
 
 
@@ -2770,6 +3591,13 @@ SWIFT_CLASS_NAMED("_SNR_ImageProvider")
 @end
 
 
+SWIFT_CLASS_NAMED("_SNR_IncognitoModeChangedSignal")
+@interface _SNR_IncognitoModeChangedSignal : _SNR_BaseSignal
+- (void)notifyIncognitoModeChanged;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
 SWIFT_CLASS_NAMED("_SNR_Logger")
 @interface _SNR_Logger : NSObject
 + (void)setUserDebugModeEnabled:(BOOL)enabled;
@@ -2803,7 +3631,6 @@ SWIFT_CLASS_NAMED("_SNR_MiscUtils")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
-@class NSNumber;
 
 SWIFT_CLASS_NAMED("_SNR_PriceFormatter")
 @interface _SNR_PriceFormatter : NSObject
@@ -2841,10 +3668,8 @@ SWIFT_CLASS_NAMED("_SNR_PushRegistrationRequiredSignal")
 @end
 
 
-SWIFT_CLASS_NAMED("_SNR_ServerTimeManager")
-@interface _SNR_ServerTimeManager : NSObject
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+SWIFT_PROTOCOL_NAMED("_SNR_ServerTimeManagerType")
+@protocol _SNR_ServerTimeManagerType
 - (void)getServerTimeByCache;
 - (void)fetchServerTimeSynchronously;
 - (void)fetchServerTimeAsynchronously;
@@ -2856,10 +3681,21 @@ SWIFT_CLASS_NAMED("_SNR_ServerTimeManager")
 @end
 
 
-SWIFT_PROTOCOL_NAMED("_SNR_SignalReceivable")
-@protocol _SNR_SignalReceivable
-- (void)signalReceived:(_SNR_BaseSignal * _Nonnull)_ parameters:(NSDictionary<NSString *, id> * _Nonnull)parameters;
+SWIFT_CLASS_NAMED("_SNR_ServerTimeManager")
+@interface _SNR_ServerTimeManager : NSObject <_SNR_ServerTimeManagerType>
+- (void)getServerTimeByCache;
+- (void)fetchServerTimeSynchronously;
+- (void)fetchServerTimeAsynchronously;
+- (BOOL)isReady SWIFT_WARN_UNUSED_RESULT;
+- (void)waitWhenIsReadyWithCompletion:(void (^ _Nonnull)(BOOL))completion;
+- (void)notifyWhenIsReadyWithCompletion:(void (^ _Nonnull)(BOOL))completion;
+- (NSDate * _Nullable)getCurrentServerTime SWIFT_WARN_UNUSED_RESULT;
+- (NSDate * _Nullable)getServerTimeForDeviceTime:(NSDate * _Nonnull)date SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
+
+
 
 
 SWIFT_CLASS_NAMED("_SNR_SyneriseFrameworkInfoProvider")

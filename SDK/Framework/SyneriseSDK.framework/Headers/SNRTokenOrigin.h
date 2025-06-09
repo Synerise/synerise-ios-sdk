@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 typedef NS_ENUM(NSUInteger, SNRTokenOrigin) {
     SNRTokenOriginUnknown,
+    SNRTokenOriginIncognito,
     SNRTokenOriginAnonymous,
     SNRTokenOriginSynerise,
     SNRTokenOriginSimpleAuth,

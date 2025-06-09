@@ -4,13 +4,31 @@ All notable changes to this project will be documented in this file.
 
 Note that Objective-C class names are prefixed by `SNR`. In the changelog below, these are names used in Swift, without the prefix.
 
+## [5.4.0] - 2025-06-03
+
+### Fixed
+- InAppMessage deeplink action.
+
+### Changed
+- Properties in `Promotion` model: `details`, `currentRedeemedQuantity`, `currentRedeemLimit`, `activationCounter`, `possibleRedeems`, `requireRedeemedPoints` and `discountValue` are nullable now.
+
+### Added
+- `Synerise.settings.sdk.doNotTrack` option to fully disable tracking customer's activity in SDK. When enabled, the SDK stops sending tracking events and replaces the UUID with a random one, preventing profile creation and blocking some functionalities (e.g. authentication).
+
+### Removed
+- `SNR_PromotionStatusToString(_:)` and `SNR_StringToPromotionStatus(_:)` method.
+- `SNR_PromotionTypeToString(_:)` and `SNR_StringToPromotionType(_:)` method.
+- `SNR_PromotionDiscountTypeToString(_:)` and `SNR_StringToPromotionDiscountType(_:)` method.
+- `SNR_PromotionDiscountModeToString(_:)` and `SNR_StringToPromotionDiscountMode(_:)` method.
+
+
 ## [5.3.0] - 2025-04-17
  
 ### Added
 - `params` property in `DocumentApiQuery` model to set custom params for fetching Documents.
 - `params` property in `ScreenViewApiQuery` model to set custom params for fetching Screen Views.
 - `SyneriseApiUrls.SYNERISE_AZ_API_URL`, `SyneriseApiUrls.SYNERISE_AZU_API_URL`, `SyneriseApiUrls.SYNERISE_GEB_API_URL` constants to easily get the URL of the API (Swift).
-- `SNR_SYNERISE_AZ_API_URL`, `SNR_SYNERISE_AZU_API_URL`, `SNR_SYNERISE_GEB_API_URL` constants to easily get the URL of the API (Objective-C).
+- `SYNERISE_AZ_API_URL`, `SYNERISE_AZU_API_URL`, `SYNERISE_GEB_API_URL` constants to easily get the URL of the API (Objective-C).
  
 ### Changed
 - Improvements to stability.

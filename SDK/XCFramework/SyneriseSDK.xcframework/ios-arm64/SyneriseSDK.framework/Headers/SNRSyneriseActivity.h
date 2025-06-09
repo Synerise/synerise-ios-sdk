@@ -34,8 +34,8 @@ typedef NS_ENUM(NSInteger, SNRSyneriseActivityAction) {
 } NS_SWIFT_NAME(SyneriseActivityAction) DEPRECATED_MSG_ATTRIBUTE("`SNRSyneriseActivityAction` is deprecated.");
 
 
-typedef void (^SNRSyneriseActivityActionCompletionBlock)(void) NS_SWIFT_NAME(SyneriseActivityActionCompletionBlock) DEPRECATED_MSG_ATTRIBUTE("`SNRSyneriseActivityActionCompletionBlock` is deprecated.");;
-typedef void (^SNRSyneriseActivityCompletionHandler)(SNRSyneriseActivityAction, __nullable SNRSyneriseActivityActionCompletionBlock) NS_SWIFT_NAME(SyneriseActivityCompletionHandler) DEPRECATED_MSG_ATTRIBUTE("`SNRSyneriseActivityCompletionHandler` is deprecated.");;
+typedef void (^SNRSyneriseActivityActionCompletionBlock)(void) NS_SWIFT_NAME(SyneriseActivityActionCompletionBlock) DEPRECATED_MSG_ATTRIBUTE("`SNRSyneriseActivityActionCompletionBlock` is deprecated.");
+typedef void (^SNRSyneriseActivityCompletionHandler)(SNRSyneriseActivityAction, __nullable SNRSyneriseActivityActionCompletionBlock) NS_SWIFT_NAME(SyneriseActivityCompletionHandler) DEPRECATED_MSG_ATTRIBUTE("`SNRSyneriseActivityCompletionHandler` is deprecated.");
 
 
 /**
