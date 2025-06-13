@@ -46311,6 +46311,54 @@
           },
           {
             "kind": "Var",
+            "name": "ClientManagerNewInstance",
+            "printedName": "ClientManagerNewInstance",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "_SNR_ClientManager",
+                "printedName": "SyneriseSDK._SNR_ClientManager",
+                "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_ClientManager"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@SyneriseSDK@objc(cs)_SNR(cpy)ClientManagerNewInstance",
+            "mangledName": "$s11SyneriseSDK4_SNRC24ClientManagerNewInstanceAA01_c1_dE0CvpZ",
+            "moduleName": "SyneriseSDK",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "_SNR_ClientManager",
+                    "printedName": "SyneriseSDK._SNR_ClientManager",
+                    "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_ClientManager"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@SyneriseSDK@objc(cs)_SNR(cm)ClientManagerNewInstance",
+                "mangledName": "$s11SyneriseSDK4_SNRC24ClientManagerNewInstanceAA01_c1_dE0CvgZ",
+                "moduleName": "SyneriseSDK",
+                "static": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
             "name": "ServerTimeManagerSingleton",
             "printedName": "ServerTimeManagerSingleton",
             "children": [
@@ -51935,6 +51983,20 @@
       "value": "\"promotions\/promotion\/get-item-for-client\/{type}\/{value}\""
     },
     {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Main\/Assembly\/SyneriseAssemblyRegistry.swift",
+      "kind": "StringLiteral",
+      "offset": 179,
+      "length": 11,
+      "value": "\"SINGLETON\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Main\/Assembly\/SyneriseAssemblyRegistry.swift",
+      "kind": "StringLiteral",
+      "offset": 234,
+      "length": 19,
+      "value": "\"NAME_NEW_INSTANCE\""
+    },
+    {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Main\/Assembly\/SyneriseAssembly+Dependencies.swift",
       "kind": "StringLiteral",
       "offset": 183,
@@ -52784,7 +52846,7 @@
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Managers\/ServerTimeManager.swift",
       "kind": "StringLiteral",
-      "offset": 1455,
+      "offset": 1465,
       "length": 42,
       "value": "\"com.synerise.sdk.queue.server-time-fetch\""
     },
@@ -54317,7 +54379,7 @@
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Main\/Assembly\/SyneriseAssembly.swift",
       "kind": "Array",
-      "offset": 1443,
+      "offset": 1459,
       "length": 2,
       "value": "[]"
     },
