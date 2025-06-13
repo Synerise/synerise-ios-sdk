@@ -1517,6 +1517,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) _SNR_PriceFo
 + (_SNR_PriceFormatter * _Nonnull)PriceFormatterInstance SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) _SNR_ClientManager * _Nonnull ClientManagerSingleton;)
 + (_SNR_ClientManager * _Nonnull)ClientManagerSingleton SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) _SNR_ClientManager * _Nonnull ClientManagerNewInstance;)
++ (_SNR_ClientManager * _Nonnull)ClientManagerNewInstance SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) _SNR_ServerTimeManager * _Nonnull ServerTimeManagerSingleton;)
 + (_SNR_ServerTimeManager * _Nonnull)ServerTimeManagerSingleton SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) _SNR_BackgroundTaskManager * _Nonnull BackgroundTaskManagerSingleton SWIFT_AVAILABILITY(ios,introduced=13);)
@@ -1818,6 +1820,7 @@ SWIFT_CLASS_NAMED("_SNR_ServerTimeManager")
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
+
 
 
 
@@ -3393,6 +3396,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) _SNR_PriceFo
 + (_SNR_PriceFormatter * _Nonnull)PriceFormatterInstance SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) _SNR_ClientManager * _Nonnull ClientManagerSingleton;)
 + (_SNR_ClientManager * _Nonnull)ClientManagerSingleton SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) _SNR_ClientManager * _Nonnull ClientManagerNewInstance;)
++ (_SNR_ClientManager * _Nonnull)ClientManagerNewInstance SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) _SNR_ServerTimeManager * _Nonnull ServerTimeManagerSingleton;)
 + (_SNR_ServerTimeManager * _Nonnull)ServerTimeManagerSingleton SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) _SNR_BackgroundTaskManager * _Nonnull BackgroundTaskManagerSingleton SWIFT_AVAILABILITY(ios,introduced=13);)
@@ -3694,6 +3699,7 @@ SWIFT_CLASS_NAMED("_SNR_ServerTimeManager")
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
+
 
 
 

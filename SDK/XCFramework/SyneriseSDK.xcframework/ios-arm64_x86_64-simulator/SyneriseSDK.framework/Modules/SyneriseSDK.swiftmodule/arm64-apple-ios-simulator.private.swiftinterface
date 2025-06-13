@@ -1182,6 +1182,9 @@ public let SNRViewTrackerEventAutotrackValueOnSelect: Swift.String
   @objc public static var ClientManagerSingleton: SyneriseSDK._SNR_ClientManager {
     @objc get
   }
+  @objc public static var ClientManagerNewInstance: SyneriseSDK._SNR_ClientManager {
+    @objc get
+  }
   @objc public static var ServerTimeManagerSingleton: SyneriseSDK._SNR_ServerTimeManager {
     @objc get
   }
