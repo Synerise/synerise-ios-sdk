@@ -46456,6 +46456,55 @@
             ]
           },
           {
+            "kind": "Var",
+            "name": "ClientModelNewInstance",
+            "printedName": "ClientModelNewInstance",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "_SNR_ClientModel",
+                "printedName": "SyneriseSDK._SNR_ClientModel",
+                "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_ClientModel"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@SyneriseSDK@objc(cs)_SNR(cpy)ClientModelNewInstance",
+            "mangledName": "$s11SyneriseSDK4_SNRC22ClientModelNewInstanceAA01_c1_dE0CvpZ",
+            "moduleName": "SyneriseSDK",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "_SNR_ClientModel",
+                    "printedName": "SyneriseSDK._SNR_ClientModel",
+                    "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_ClientModel"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@SyneriseSDK@objc(cs)_SNR(cm)ClientModelNewInstance",
+                "mangledName": "$s11SyneriseSDK4_SNRC22ClientModelNewInstanceAA01_c1_dE0CvgZ",
+                "moduleName": "SyneriseSDK",
+                "static": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
             "kind": "Constructor",
             "name": "init",
             "printedName": "init()",

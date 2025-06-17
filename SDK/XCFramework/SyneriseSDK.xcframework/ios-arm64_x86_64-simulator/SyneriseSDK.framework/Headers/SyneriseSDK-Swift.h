@@ -1460,6 +1460,7 @@ SWIFT_CLASS_NAMED("VoucherCodesResponse")
 @class _SNR_ClientManager;
 @class _SNR_ServerTimeManager;
 @class _SNR_BackgroundTaskManager;
+@class _SNR_ClientModel;
 
 SWIFT_CLASS_NAMED("_SNR")
 @interface _SNR : NSObject
@@ -1523,6 +1524,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) _SNR_ServerT
 + (_SNR_ServerTimeManager * _Nonnull)ServerTimeManagerSingleton SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) _SNR_BackgroundTaskManager * _Nonnull BackgroundTaskManagerSingleton SWIFT_AVAILABILITY(ios,introduced=13);)
 + (_SNR_BackgroundTaskManager * _Nonnull)BackgroundTaskManagerSingleton SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) _SNR_ClientModel * _Nonnull ClientModelNewInstance;)
++ (_SNR_ClientModel * _Nonnull)ClientModelNewInstance SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -1572,7 +1575,6 @@ SWIFT_CLASS_NAMED("_SNR_ClientApplicationInfoProvider")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
-@class _SNR_ClientModel;
 @class NSUUID;
 
 SWIFT_CLASS_NAMED("_SNR_ClientManager")
@@ -3339,6 +3341,7 @@ SWIFT_CLASS_NAMED("VoucherCodesResponse")
 @class _SNR_ClientManager;
 @class _SNR_ServerTimeManager;
 @class _SNR_BackgroundTaskManager;
+@class _SNR_ClientModel;
 
 SWIFT_CLASS_NAMED("_SNR")
 @interface _SNR : NSObject
@@ -3402,6 +3405,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) _SNR_ServerT
 + (_SNR_ServerTimeManager * _Nonnull)ServerTimeManagerSingleton SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) _SNR_BackgroundTaskManager * _Nonnull BackgroundTaskManagerSingleton SWIFT_AVAILABILITY(ios,introduced=13);)
 + (_SNR_BackgroundTaskManager * _Nonnull)BackgroundTaskManagerSingleton SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) _SNR_ClientModel * _Nonnull ClientModelNewInstance;)
++ (_SNR_ClientModel * _Nonnull)ClientModelNewInstance SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -3451,7 +3456,6 @@ SWIFT_CLASS_NAMED("_SNR_ClientApplicationInfoProvider")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
-@class _SNR_ClientModel;
 @class NSUUID;
 
 SWIFT_CLASS_NAMED("_SNR_ClientManager")
