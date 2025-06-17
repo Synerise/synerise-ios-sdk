@@ -1192,6 +1192,9 @@ public let SNRViewTrackerEventAutotrackValueOnSelect: Swift.String
   @objc public static var BackgroundTaskManagerSingleton: SyneriseSDK._SNR_BackgroundTaskManager {
     @objc get
   }
+  @objc public static var ClientModelNewInstance: SyneriseSDK._SNR_ClientModel {
+    @objc get
+  }
   @objc override dynamic public init()
   @objc deinit
 }
