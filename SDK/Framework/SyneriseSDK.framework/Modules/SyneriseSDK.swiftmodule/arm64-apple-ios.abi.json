@@ -2552,10 +2552,10 @@
               }
             ],
             "declKind": "Constructor",
-            "usr": "c:@M@SyneriseSDK@objc(cs)SNRPromotionIdentifier(im)initWithUuid:",
+            "usr": "c:@M@SyneriseSDK@objc(cs)SNRPromotionIdentifier(im)initWithUUID:",
             "mangledName": "$s11SyneriseSDK19PromotionIdentifierC4uuidACSS_tcfc",
             "moduleName": "SyneriseSDK",
-            "objc_name": "initWithUuid:",
+            "objc_name": "initWithUUID:",
             "declAttributes": [
               "Convenience",
               "AccessControl",
@@ -15360,14 +15360,14 @@
             "children": [
               {
                 "kind": "TypeNominal",
-                "name": "Double",
-                "printedName": "Swift.Double",
-                "usr": "s:Sd"
+                "name": "NSNumber",
+                "printedName": "Foundation.NSNumber",
+                "usr": "c:objc(cs)NSNumber"
               }
             ],
             "declKind": "Var",
             "usr": "c:@M@SyneriseSDK@objc(cs)SNRPromotionDiscountStep(py)discountValue",
-            "mangledName": "$s11SyneriseSDK21PromotionDiscountStepC13discountValueSdvp",
+            "mangledName": "$s11SyneriseSDK21PromotionDiscountStepC13discountValueSo8NSNumberCvp",
             "moduleName": "SyneriseSDK",
             "declAttributes": [
               "Final",
@@ -15385,14 +15385,14 @@
                 "children": [
                   {
                     "kind": "TypeNominal",
-                    "name": "Double",
-                    "printedName": "Swift.Double",
-                    "usr": "s:Sd"
+                    "name": "NSNumber",
+                    "printedName": "Foundation.NSNumber",
+                    "usr": "c:objc(cs)NSNumber"
                   }
                 ],
                 "declKind": "Accessor",
                 "usr": "c:@M@SyneriseSDK@objc(cs)SNRPromotionDiscountStep(im)discountValue",
-                "mangledName": "$s11SyneriseSDK21PromotionDiscountStepC13discountValueSdvg",
+                "mangledName": "$s11SyneriseSDK21PromotionDiscountStepC13discountValueSo8NSNumberCvg",
                 "moduleName": "SyneriseSDK",
                 "implicit": true,
                 "declAttributes": [

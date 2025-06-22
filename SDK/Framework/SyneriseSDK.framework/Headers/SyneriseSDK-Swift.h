@@ -762,7 +762,7 @@ SWIFT_CLASS_NAMED("PromotionDiscountModeDetails")
 /// <code>PromotionDiscountStep</code> class
 SWIFT_CLASS_NAMED("PromotionDiscountStep")
 @interface SNRPromotionDiscountStep : SNRBaseModel
-@property (nonatomic, readonly) double discountValue;
+@property (nonatomic, readonly, strong) NSNumber * _Nonnull discountValue;
 @property (nonatomic, readonly, strong) NSNumber * _Nonnull usageThreshold;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
@@ -805,7 +805,7 @@ SWIFT_CLASS_NAMED("PromotionIdentifier")
 @property (nonatomic, readonly, copy) NSString * _Nonnull key;
 @property (nonatomic, readonly, copy) NSString * _Nonnull value;
 - (nonnull instancetype)initWithType:(enum SNRPromotionIdentifierType)type value:(NSString * _Nonnull)value OBJC_DESIGNATED_INITIALIZER;
-- (nonnull instancetype)initWithUuid:(NSString * _Nonnull)uuid;
+- (nonnull instancetype)initWithUUID:(NSString * _Nonnull)uuid;
 - (nonnull instancetype)initWithCode:(NSString * _Nonnull)code;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");

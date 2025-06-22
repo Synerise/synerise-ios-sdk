@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 
 Note that Objective-C class names are prefixed by `SNR`. In the changelog below, these are names used in Swift, without the prefix.
 
+## [5.4.3] - 2025-06-22
+
+### Fixed
+- Potential issues with URL and deeplink actions when the delegate is set after SDK initialization.
+- Initializers in `PromotionIdentifier` now have proper Objective-C naming - fixed broken compatibility.
+- The `discountValue` property in `PromotionDiscountStep` now uses the correct Objective-C type (`NSNumber`) - fixed broken compatibility.
+
+
 ## [5.4.2] - 2025-06-17
 
 ### Fixed
