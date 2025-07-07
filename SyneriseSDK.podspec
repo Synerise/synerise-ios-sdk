@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name                  = "SyneriseSDK"
-  s.version               = "5.4.3"
-  s.summary               = "This is the Synerise iOS SDK (v. 5.4.3) for Synerise platform."
+  s.version               = "5.4.4"
+  s.summary               = "This is the Synerise iOS SDK (v. 5.4.4) for Synerise platform."
   s.description = <<-DESC
   Synerise is cutting-edge AI-driven infrastructure tailored for collecting, analyzing, and interpreting behavioral data.
   By leveraging the power of AI and machine learning, we transform raw behavioral data into actionable intelligence, 

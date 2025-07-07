@@ -50089,8 +50089,8 @@
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Promotions\/Requests\/Vouchers\/GetOrAssignVoucherRequest.swift",
       "kind": "StringLiteral",
       "offset": 182,
-      "length": 20,
-      "value": "\"item\/get-or-assign\""
+      "length": 29,
+      "value": "\"vouchers\/item\/get-or-assign\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Tracker\/Events\/Product\/ProductRemovedFromCartEvent.swift",
@@ -53530,6 +53530,13 @@
       "value": "\"url\""
     },
     {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Promotions\/Models\/Vouchers\/VoucherCodesResponse.swift",
+      "kind": "StringLiteral",
+      "offset": 182,
+      "length": 6,
+      "value": "\"data\""
+    },
+    {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Content\/Models\/ScreenView\/ScreenViewAudienceInfo.swift",
       "kind": "StringLiteral",
       "offset": 160,
@@ -53967,8 +53974,8 @@
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Promotions\/Requests\/Vouchers\/GetAssignedVoucherCodesRequest.swift",
       "kind": "StringLiteral",
       "offset": 187,
-      "length": 19,
-      "value": "\"item\/get-assigned\""
+      "length": 28,
+      "value": "\"vouchers\/item\/get-assigned\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Debug\/Logger.swift",
@@ -54975,8 +54982,8 @@
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Promotions\/Requests\/Vouchers\/AssignVoucherCodeRequest.swift",
       "kind": "StringLiteral",
       "offset": 181,
-      "length": 13,
-      "value": "\"item\/assign\""
+      "length": 22,
+      "value": "\"vouchers\/item\/assign\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Main\/Assembly\/Registrations\/DefaultRegistry\/DefaultAssemblyRegistry.swift",
