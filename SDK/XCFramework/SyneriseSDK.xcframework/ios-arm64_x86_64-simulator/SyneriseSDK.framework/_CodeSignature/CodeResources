@@ -278,11 +278,11 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		m8iUVMyXme2ppPtV6g26gdH6j9M=
+		E0ErEnxkeXzYvjCXGijw3XumHqc=
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		F993EBLFENVihPWUwgvQEFa5Qb8=
+		RUbcnazQUOBW3jga9x37zLN6ZvU=
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -298,11 +298,11 @@
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		Rhana4NHpEFjMfquLkwlIMRP+10=
+		i8TwTi+RUIJJdujMqrCA08YL2K8=
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		F993EBLFENVihPWUwgvQEFa5Qb8=
+		RUbcnazQUOBW3jga9x37zLN6ZvU=
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -318,7 +318,7 @@
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		RhiHGrjjHoTpS4e8C4b5dJHujvI=
+		SeQ6QlMiUzVSu+davObyXVBDME8=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -845,7 +845,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			h6TKRY7ig8qYl+TxF3H/Wcr5TG8wx/srVZog/zLw0+M=
+			Uvh6nr7ZrsWXLCWEPQ3BTTNNIImpFDqy0DDXJ9QmMSc=
 			</data>
 		</dict>
 		<key>Modules/SyneriseSDK.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
@@ -873,14 +873,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			BTn6xNgCjQr+zXfy5g+Hg6XUs2Zwy2ROYOz5ol4yqYo=
+			3byFFcjx/CfKAZmR50+48aGPX72zLYwt5+wZpWvP6Ac=
 			</data>
 		</dict>
 		<key>Modules/SyneriseSDK.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			h6TKRY7ig8qYl+TxF3H/Wcr5TG8wx/srVZog/zLw0+M=
+			Uvh6nr7ZrsWXLCWEPQ3BTTNNIImpFDqy0DDXJ9QmMSc=
 			</data>
 		</dict>
 		<key>Modules/SyneriseSDK.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
@@ -908,7 +908,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			6HRhTRbnBlAzm9mOo98BWmEfNSQG1IzOXn4NjNYpFLs=
+			4d7F49hQKsp9ptllsA+Ck5/Estvy8hyWZidAzKNcrNs=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
