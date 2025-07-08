@@ -10,7 +10,9 @@ Note that Objective-C class names are prefixed by `SNR`. In the changelog below,
 - The issue with vouchers api methods.
 
 
-## [5.4.3] - 2025-06-22
+## [5.4.3] - 2025-06-22 - REMOVED
+
+!!! THIS VERSION HAS BEEN REMOVED DUE TO POTENTIAL ISSUES WITH VOUCHERS API. USE VERSION 5.4.4 !!!
 
 ### Fixed
 - Potential issues with URL and deeplink actions when the delegate is set after SDK initialization.
@@ -18,19 +20,25 @@ Note that Objective-C class names are prefixed by `SNR`. In the changelog below,
 - The `discountValue` property in `PromotionDiscountStep` now uses the correct Objective-C type (`NSNumber`) - fixed broken compatibility.
 
 
-## [5.4.2] - 2025-06-17
+## [5.4.2] - 2025-06-17 - REMOVED
+
+!!! THIS VERSION HAS BEEN REMOVED DUE TO POTENTIAL ISSUES WITH VOUCHERS API. USE VERSION 5.4.4 !!!
 
 ### Fixed
 - Some potential issues with notification processing in `NotificationServiceExtension`.
 
 
-## [5.4.1] - 2025-06-13
+## [5.4.1] - 2025-06-13 - REMOVED
+
+!!! THIS VERSION HAS BEEN REMOVED DUE TO POTENTIAL ISSUES WITH VOUCHERS API. USE VERSION 5.4.4 !!!
 
 ### Fixed
 - Some potential issues with notification processing in `NotificationServiceExtension`.
 
 
-## [5.4.0] - 2025-06-09
+## [5.4.0] - 2025-06-09 - REMOVED
+
+!!! THIS VERSION HAS BEEN REMOVED DUE TO POTENTIAL ISSUES WITH VOUCHERS API. USE VERSION 5.4.4 !!!
 
 ### Fixed
 - InAppMessage deeplink action.
