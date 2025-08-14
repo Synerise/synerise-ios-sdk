@@ -278,11 +278,11 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		E0ErEnxkeXzYvjCXGijw3XumHqc=
+		RJuwWnjZmhdQrtYSNHpza4RXoNw=
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		RUbcnazQUOBW3jga9x37zLN6ZvU=
+		LplNTevE4fb6Yn+U1aClXEwdJuc=
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -298,11 +298,11 @@
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		i8TwTi+RUIJJdujMqrCA08YL2K8=
+		0fPACMH461YZw4c4eEdHnJPXgGs=
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		RUbcnazQUOBW3jga9x37zLN6ZvU=
+		LplNTevE4fb6Yn+U1aClXEwdJuc=
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -318,7 +318,7 @@
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		SeQ6QlMiUzVSu+davObyXVBDME8=
+		JhX9Yfd7id+f89GMjNYTRRp1Gvg=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -845,7 +845,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Uvh6nr7ZrsWXLCWEPQ3BTTNNIImpFDqy0DDXJ9QmMSc=
+			/7Kt6QLJgcy+ThDZxTneqUlRgtZLlOJ8+3RVALld43Q=
 			</data>
 		</dict>
 		<key>Modules/SyneriseSDK.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
@@ -873,14 +873,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			3byFFcjx/CfKAZmR50+48aGPX72zLYwt5+wZpWvP6Ac=
+			W10Bu1yRXYlwx4MwOONXtob0iWGgxB0OQ7XPwVFx7G8=
 			</data>
 		</dict>
 		<key>Modules/SyneriseSDK.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Uvh6nr7ZrsWXLCWEPQ3BTTNNIImpFDqy0DDXJ9QmMSc=
+			/7Kt6QLJgcy+ThDZxTneqUlRgtZLlOJ8+3RVALld43Q=
 			</data>
 		</dict>
 		<key>Modules/SyneriseSDK.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
@@ -908,7 +908,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			4d7F49hQKsp9ptllsA+Ck5/Estvy8hyWZidAzKNcrNs=
+			YN1+0jYhFt2Ne5J30+advnDaUm+sTJHcQHxO1kav1Ew=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

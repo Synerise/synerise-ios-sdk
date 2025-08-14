@@ -4,15 +4,19 @@ All notable changes to this project will be documented in this file.
 
 Note that Objective-C class names are prefixed by `SNR`. In the changelog below, these are names used in Swift, without the prefix.
 
+## [5.4.5] - 2025-08-14
+
+### Fixed
+- Default setting for `Synerise.settings.inAppMessaging.shouldSendInAppCappingEvent` is changed to `true`. It was `false` due to a bug since version 4.20.0.
+
+
 ## [5.4.4] - 2025-07-07
 
 ### Fixed
 - The issue with vouchers api methods.
 
 
-## [5.4.3] - 2025-06-22 - REMOVED
-
-!!! THIS VERSION HAS BEEN REMOVED DUE TO POTENTIAL ISSUES WITH VOUCHERS API. USE VERSION 5.4.4 !!!
+## [5.4.3] - 2025-06-22
 
 ### Fixed
 - Potential issues with URL and deeplink actions when the delegate is set after SDK initialization.
@@ -20,25 +24,19 @@ Note that Objective-C class names are prefixed by `SNR`. In the changelog below,
 - The `discountValue` property in `PromotionDiscountStep` now uses the correct Objective-C type (`NSNumber`) - fixed broken compatibility.
 
 
-## [5.4.2] - 2025-06-17 - REMOVED
-
-!!! THIS VERSION HAS BEEN REMOVED DUE TO POTENTIAL ISSUES WITH VOUCHERS API. USE VERSION 5.4.4 !!!
+## [5.4.2] - 2025-06-17
 
 ### Fixed
 - Some potential issues with notification processing in `NotificationServiceExtension`.
 
 
-## [5.4.1] - 2025-06-13 - REMOVED
-
-!!! THIS VERSION HAS BEEN REMOVED DUE TO POTENTIAL ISSUES WITH VOUCHERS API. USE VERSION 5.4.4 !!!
+## [5.4.1] - 2025-06-13
 
 ### Fixed
 - Some potential issues with notification processing in `NotificationServiceExtension`.
 
 
-## [5.4.0] - 2025-06-09 - REMOVED
-
-!!! THIS VERSION HAS BEEN REMOVED DUE TO POTENTIAL ISSUES WITH VOUCHERS API. USE VERSION 5.4.4 !!!
+## [5.4.0] - 2025-06-09
 
 ### Fixed
 - InAppMessage deeplink action.
