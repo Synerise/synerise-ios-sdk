@@ -14,6 +14,7 @@ import Swift
 import SystemConfiguration
 import UIKit
 import UserNotifications
+import WebKit
 import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
@@ -175,6 +176,10 @@ import os
   @objc deinit
 }
 public typealias SNRLocalizableStringKey = Swift.String
+public enum SyneriseLocalizable {
+  public static let OK: Swift.String
+  public static let CANCEL: Swift.String
+}
 @_inheritsConvenienceInitializers @objc(SNRGeneralSettings) public class GeneralSettings : ObjectiveC.NSObject {
   @objc public var enabled: Swift.Bool {
     @objc get
@@ -274,6 +279,24 @@ public typealias SNRLocalizableStringKey = Swift.String
   @objc override public init(label: Swift.String, params: SyneriseSDK.TrackerParams?)
   @objc deinit
 }
+@objc(SNRTokenOrigin) public enum TokenOrigin : Swift.UInt, Swift.RawRepresentable {
+  @objc(SNRTokenOriginUnknown) case unknown = 0
+  @objc(SNRTokenOriginIncognito) case incognito
+  @objc(SNRTokenOriginAnonymous) case anonymous
+  @objc(SNRTokenOriginSynerise) case synerise
+  @objc(SNRTokenOriginSimpleAuth) case simpleAuth
+  @objc(SNRTokenOriginFacebook) case facebook
+  @objc(SNRTokenOriginOAuth) case oauth
+  @objc(SNRTokenOriginApple) case apple
+  @objc(SNRTokenOriginGoogle) case google
+  public static func fromString(_ string: Swift.String?) -> SyneriseSDK.TokenOrigin
+  public func toString() -> Swift.String
+  public init?(rawValue: Swift.UInt)
+  public typealias RawValue = Swift.UInt
+  public var rawValue: Swift.UInt {
+    get
+  }
+}
 @_hasMissingDesignatedInitializers @objc(SNRAssignVoucherResponse) public class AssignVoucherResponse : SyneriseSDK.BaseModel {
   @objc final public let message: Swift.String
   @objc final public let assignVoucherData: SyneriseSDK.AssignVoucherData
@@ -295,13 +318,63 @@ public typealias SNRLocalizableStringKey = Swift.String
   @objc public static func cleanupStringToAsciiEncoding(_ string: Swift.String?) -> Swift.String
   @objc public static func isUUID(_ string: Swift.String?) -> Swift.Bool
   @objc public static func isURL(_ string: Swift.String) -> Swift.Bool
+  @objc public static func makeUrl(withString urlString: Swift.String, parameters: [Swift.String : Swift.String]? = nil) -> Foundation.URL?
   @objc public static func usesSDKHybridPlugin() -> Swift.Bool
   @objc public static func usesReactNativePlugin() -> Swift.Bool
   @objc public static func usesFlutterPlugin() -> Swift.Bool
   @objc public static func usesXamarinPlugin() -> Swift.Bool
+  @objc public static func localizedString(_ key: Swift.String) -> Swift.String
   @objc public static func userLocalizedString(_ key: Swift.String) -> Swift.String
   @objc override dynamic public init()
   @objc deinit
+}
+@objc(SNRClientStateDelegate) public protocol ClientStateDelegate {
+  @objc optional func snr_clientIsSignedIn()
+  @objc optional func snr_clientIsSignedOut(reason: SyneriseSDK.ClientSessionEndReason)
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(SNRClient) final public class Client : ObjectiveC.NSObject {
+  @objc deinit
+  @objc public static func setClientStateDelegate(_ delegate: (any SyneriseSDK.ClientStateDelegate)?)
+  @objc(registerAccount:success:failure:) public static func registerAccount(context: SyneriseSDK.ClientRegisterAccountContext, success: @escaping () -> Swift.Void, failure: @escaping (SyneriseSDK.SNRApiError) -> Swift.Void)
+  @objc(requestAccountActivationWithEmail:success:failure:) public static func requestAccountActivation(email: Swift.String, success: @escaping () -> Swift.Void, failure: @escaping (SyneriseSDK.SNRApiError) -> Swift.Void)
+  @objc(confirmAccountActivationByToken:success:failure:) public static func confirmAccountActivation(token: Swift.String, success: @escaping () -> Swift.Void, failure: @escaping (SyneriseSDK.SNRApiError) -> Swift.Void)
+  @objc(requestAccountActivationByPinWithEmail:success:failure:) public static func requestAccountActivationByPin(email: Swift.String, success: @escaping () -> Swift.Void, failure: @escaping (SyneriseSDK.SNRApiError) -> Swift.Void)
+  @objc(confirmAccountActivationByPin:email:success:failure:) public static func confirmAccountActivationByPin(pinCode: Swift.String, email: Swift.String, success: @escaping () -> Swift.Void, failure: @escaping (SyneriseSDK.SNRApiError) -> Swift.Void)
+  @objc(signInWithEmail:password:success:failure:) public static func signIn(email: Swift.String, password: Swift.String, success: @escaping () -> Swift.Void, failure: @escaping (SyneriseSDK.SNRApiError) -> Swift.Void)
+  @objc(signInConditionallyWithEmail:password:success:failure:) public static func signInConditionally(email: Swift.String, password: Swift.String, success: @escaping (SyneriseSDK.ClientConditionalAuthResult) -> Swift.Void, failure: @escaping (SyneriseSDK.SNRApiError) -> Swift.Void)
+  @objc(authenticateWithToken:clientIdentityProvider:authID:context:success:failure:) public static func authenticate(token: Any, clientIdentityProvider: SyneriseSDK.ClientIdentityProvider, authID: Swift.String?, context: SyneriseSDK.ClientAuthenticationContext?, success: @escaping () -> Swift.Void, failure: @escaping (SyneriseSDK.SNRApiError) -> Swift.Void)
+  @objc(authenticateConditionallyWithToken:clientIdentityProvider:authID:context:success:failure:) public static func authenticateConditionally(token: Any, clientIdentityProvider: SyneriseSDK.ClientIdentityProvider, authID: Swift.String?, context: SyneriseSDK.ClientConditionalAuthenticationContext?, success: @escaping (SyneriseSDK.ClientConditionalAuthResult) -> Swift.Void, failure: @escaping (SyneriseSDK.SNRApiError) -> Swift.Void)
+  @objc(authenticateWithTokenPayload:authID:success:failure:) public static func authenticate(tokenPayload: SyneriseSDK.TokenPayload, authID: Swift.String, success: @escaping () -> Swift.Void, failure: @escaping (SyneriseSDK.SNRApiError) -> Swift.Void)
+  @objc(simpleAuthentication:authID:success:failure:) public static func simpleAuthentication(data: SyneriseSDK.ClientSimpleAuthenticationData, authID: Swift.String, success: @escaping () -> Swift.Void, failure: @escaping (SyneriseSDK.SNRApiError) -> Swift.Void)
+  @objc(isSignedIn) public static func isSignedIn() -> Swift.Bool
+  @objc(isSignedInViaSimpleAuthentication) public static func isSignedInViaSimpleAuthentication() -> Swift.Bool
+  @objc(signOut) public static func signOut()
+  @objc(signOutWithMode:fromAllDevices:success:failure:) public static func signOut(mode: SyneriseSDK.ClientSignOutMode, fromAllDevices: Swift.Bool, success: @escaping () -> Swift.Void, failure: @escaping (SyneriseSDK.SNRApiError) -> Swift.Void)
+  @objc(refreshTokenWithSuccess:failure:) public static func refreshToken(success: @escaping () -> Swift.Void, failure: @escaping (SyneriseSDK.SNRApiError) -> Swift.Void)
+  @objc(retrieveTokenWithSuccess:failure:) public static func retrieveToken(success: @escaping (SyneriseSDK.Token) -> Swift.Void, failure: @escaping (SyneriseSDK.SNRApiError) -> Swift.Void)
+  @objc(getUUID) public static func getUUID() -> Swift.String
+  @objc(getUUIDForAuthenticationWithAuthID:) public static func getUUIDForAuthentication(authID: Swift.String) -> Swift.String
+  @objc(regenerateUUID) public static func regenerateUUID() -> Swift.Bool
+  @objc(regenerateUUIDWithClientIdentifier:) public static func regenerateUUID(clientIdentifier: Swift.String?) -> Swift.Bool
+  @objc(destroySession) public static func destroySession()
+  @objc(getAccountWithSuccess:failure:) public static func getAccount(success: @escaping (SyneriseSDK.ClientAccountInformation) -> Swift.Void, failure: @escaping (SyneriseSDK.SNRApiError) -> Swift.Void)
+  @objc(getEventsWithApiQuery:success:failure:) public static func getEvents(apiQuery: SyneriseSDK.ClientEventsApiQuery?, success: @escaping ([SyneriseSDK.ClientEventData]) -> Swift.Void, failure: @escaping (SyneriseSDK.SNRApiError) -> Swift.Void)
+  @objc(updateAccountBasicInformation:success:failure:) public static func updateAccountBasicInformation(context: SyneriseSDK.ClientUpdateAccountBasicInformationContext, success: @escaping () -> Swift.Void, failure: @escaping (SyneriseSDK.SNRApiError) -> Swift.Void)
+  @objc(updateAccount:success:failure:) public static func updateAccount(context: SyneriseSDK.ClientUpdateAccountContext, success: @escaping () -> Swift.Void, failure: @escaping (SyneriseSDK.SNRApiError) -> Swift.Void)
+  @objc(requestPasswordReset:success:failure:) public static func requestPasswordReset(context: SyneriseSDK.ClientPasswordResetRequestContext, success: @escaping () -> Swift.Void, failure: @escaping (SyneriseSDK.SNRApiError) -> Swift.Void)
+  @objc(confirmResetPassword:success:failure:) public static func confirmResetPassword(context: SyneriseSDK.ClientPasswordResetConfirmationContext, success: @escaping () -> Swift.Void, failure: @escaping (SyneriseSDK.SNRApiError) -> Swift.Void)
+  @objc(changePassword:oldPassword:success:failure:) public static func changePassword(password: Swift.String, oldPassword: Swift.String, success: @escaping () -> Swift.Void, failure: @escaping (SyneriseSDK.SNRApiError) -> Swift.Void)
+  @objc(requestEmailChange:password:externalToken:authID:success:failure:) public static func requestEmailChange(email: Swift.String, password: Swift.String?, externalToken: Any?, authID: Swift.String?, success: @escaping () -> Swift.Void, failure: @escaping (SyneriseSDK.SNRApiError) -> Swift.Void)
+  @objc(confirmEmailChange:newsletterAgreement:success:failure:) public static func confirmEmailChange(token: Swift.String, newsletterAgreement: Swift.Bool, success: @escaping () -> Swift.Void, failure: @escaping (SyneriseSDK.SNRApiError) -> Swift.Void)
+  @objc(requestPhoneUpdate:success:failure:) public static func requestPhoneUpdate(phone: Swift.String, success: @escaping () -> Swift.Void, failure: @escaping (SyneriseSDK.SNRApiError) -> Swift.Void)
+  @objc(confirmPhoneUpdate:confirmationCode:smsAgreement:success:failure:) public static func confirmPhoneUpdate(phone: Swift.String, confirmationCode: Swift.String, smsAgreement: Swift.Bool, success: @escaping () -> Swift.Void, failure: @escaping (SyneriseSDK.SNRApiError) -> Swift.Void)
+  @objc(deleteAccount:clientIdentityProvider:authID:success:failure:) public static func deleteAccount(clientAuthFactor: Any, clientIdentityProvider: SyneriseSDK.ClientIdentityProvider, authID: Swift.String?, success: @escaping () -> Swift.Void, failure: @escaping (SyneriseSDK.SNRApiError) -> Swift.Void)
+  @objc(recognizeAnonymousWithEmail:customIdentify:parameters:) public static func recognizeAnonymous(email: Swift.String?, customIdentify: Swift.String?, parameters: [Swift.String : Any]?)
+  @objc(registerForPush:success:failure:) public static func registerForPush(registrationToken: Swift.String, success: @escaping () -> Swift.Void, failure: @escaping (SyneriseSDK.SNRApiError) -> Swift.Void)
+  @objc(registerForPush:mobilePushAgreement:success:failure:) public static func registerForPush(registrationToken: Swift.String, mobilePushAgreement: Swift.Bool, success: @escaping () -> Swift.Void, failure: @escaping (SyneriseSDK.SNRApiError) -> Swift.Void)
+}
+extension SyneriseSDK.Client : SyneriseSDK._SNR_SignalReceivable {
+  @objc final public func signalReceived(_ signal: SyneriseSDK._SNR_BaseSignal, parameters: [Swift.String : Any])
 }
 @_inheritsConvenienceInitializers @objc(_SNR_DeviceInfoProvider) public class _SNR_DeviceInfoProvider : ObjectiveC.NSObject {
   @objc public static func deviceID() -> Swift.String
@@ -326,10 +399,6 @@ public typealias SNRLocalizableStringKey = Swift.String
   @objc(setExceptionStacktrace:) final public func setExceptionStacktrace(_ exceptionStacktrace: Swift.String)
   @objc deinit
 }
-@objc @_inheritsConvenienceInitializers public class MobileOperatorInfoProvider : ObjectiveC.NSObject {
-  @objc override dynamic public init()
-  @objc deinit
-}
 @_hasMissingDesignatedInitializers @objc(SNRRecommendationResponseExtras) public class RecommendationResponseExtras : SyneriseSDK.BaseModel {
   @objc final public let contextItems: [SyneriseSDK.Recommendation]
   @objc final public let correlationId: Swift.String
@@ -344,25 +413,18 @@ public typealias SNRLocalizableStringKey = Swift.String
   @objc deinit
 }
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(SNREvent) open class Event : ObjectiveC.NSObject, Foundation.NSCopying {
-  @objc public var _id: Swift.Int
-  @objc public var _type: Swift.String {
-    get
+  @objc public var _action: Swift.String {
+    @objc get
   }
-  @objc public var label: Swift.String {
-    get
+  @objc public var _client: [Swift.String : Any]? {
+    @objc get
+    @objc set
   }
-  @objc public var action: Swift.String {
-    get
-  }
-  @objc public var _timestamp: Foundation.Date?
-  @objc public var _time: Foundation.Date?
-  @objc public var _client: [Swift.String : Any]?
   @objc public var parameters: [Swift.String : Any]? {
     @objc get
   }
   @objc(initWithLabel:) public init(label: Swift.String)
   @objc(initWithLabel:andParams:) public init(label: Swift.String, params: SyneriseSDK.TrackerParams?)
-  @objc(initWithType:label:action:client:parameters:) public init(type: Swift.String, label: Swift.String, action: Swift.String, client: [Swift.String : Any]?, parameters: [Swift.String : Any]?)
   @objc public func copy(with zone: ObjectiveC.NSZone? = nil) -> Any
   @objc public func _setParam(_ param: Any?, forKey key: Swift.String)
   @objc public func _toDictionary() -> [Swift.String : Any]
@@ -399,10 +461,36 @@ public enum SyneriseApiUrls {
   @objc final public let usageThreshold: Foundation.NSNumber
   @objc deinit
 }
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(SNRTokenPayload) public class TokenPayload : ObjectiveC.NSObject {
+  @objc final public let tokenString: Swift.String
+  @objc final public let expirationDate: Foundation.Date
+  @objc final public let creationDate: Foundation.Date
+  @objc final public let rlm: Swift.String
+  @objc final public let origin: SyneriseSDK.TokenOrigin
+  @objc final public let uuid: Swift.String
+  @objc final public let clientId: Swift.String
+  @objc public var customId: Swift.String?
+  @objc(initWithTokenString:expirationDate:creationDate:rlm:origin:uuid:clientId:customId:) public init(tokenString: Swift.String, expirationDate: Foundation.Date, creationDate: Foundation.Date, rlm: Swift.String, origin: SyneriseSDK.TokenOrigin, uuid: Swift.String, clientId: Swift.String, customId: Swift.String? = nil)
+  @objc deinit
+}
 @_hasMissingDesignatedInitializers @objc(SNRSearchedEvent) final public class SearchedEvent : SyneriseSDK.Event {
   @objc override public init(label: Swift.String)
   @objc override public init(label: Swift.String, params: SyneriseSDK.TrackerParams?)
   @objc deinit
+}
+@objc(SNRTrackerDelegate) public protocol TrackerDelegate {
+  @objc optional func snr_locationUpdateRequired()
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(SNRTracker) final public class Tracker : ObjectiveC.NSObject {
+  @objc deinit
+  @objc(setDelegate:) public static func setDelegate(_ delegate: any SyneriseSDK.TrackerDelegate)
+  @objc(setCustomIdentifier:) public static func setCustomIdentifier(_ customIdentifier: Swift.String?)
+  @objc(setCustomEmail:) public static func setCustomEmail(_ customEmail: Swift.String?)
+  @objc(send:) public static func send(_ event: SyneriseSDK.Event)
+  @objc(flushEventsWithCompletionHandler:) public static func flushEvents(completionHandler: (() -> Swift.Void)? = nil)
+}
+extension SyneriseSDK.Tracker : SyneriseSDK._SNR_SignalReceivable {
+  @objc final public func signalReceived(_ signal: SyneriseSDK._SNR_BaseSignal, parameters: [Swift.String : Any])
 }
 public let SDK_UNKNOWN_VERSION: Swift.String
 @_hasMissingDesignatedInitializers @objc(SNRAppearedInLocationEvent) public class AppearedInLocationEvent : SyneriseSDK.Event {
@@ -479,12 +567,6 @@ public let SDK_UNKNOWN_VERSION: Swift.String
   @objc override dynamic public init()
   @objc deinit
 }
-@_inheritsConvenienceInitializers @objc(_SNR_Constants) public class _SNR_Constants : ObjectiveC.NSObject {
-  @objc public static func LOCALIZABLE_STRING_KEY_OK() -> SyneriseSDK.SNRLocalizableStringKey
-  @objc public static func LOCALIZABLE_STRING_KEY_CANCEL() -> SyneriseSDK.SNRLocalizableStringKey
-  @objc override dynamic public init()
-  @objc deinit
-}
 @_inheritsConvenienceInitializers @objc(_SNR_ImageProvider) public class _SNR_ImageProvider : ObjectiveC.NSObject {
   @objc(getCachedImageForURL:) public func getCachedImage(for url: Foundation.URL) -> UIKit.UIImage?
   @objc(downloadImageSynchronouslyFromURL:) public func downloadImageSynchronously(from url: Foundation.URL) -> UIKit.UIImage?
@@ -496,7 +578,14 @@ public let SDK_UNKNOWN_VERSION: Swift.String
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(SNRRecommendationEvent) public class RecommendationEvent : SyneriseSDK.Event {
   @objc override public init(label: Swift.String)
   @objc override public init(label: Swift.String, params: SyneriseSDK.TrackerParams?)
-  @objc override public init(type: Swift.String, label: Swift.String, action: Swift.String, client: [Swift.String : Any]?, parameters: [Swift.String : Any]?)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(SNRApiErrorCause) public class SNRApiErrorCause : ObjectiveC.NSObject {
+  @objc public var field: Swift.String?
+  @objc public var message: Swift.String?
+  @objc public var code: Swift.Int
+  @objc public var rejectedValue: Swift.String?
+  @objc override dynamic public init()
   @objc deinit
 }
 @_inheritsConvenienceInitializers @objc(_SNR_DelegateUtils) public class _SNR_DelegateUtils : ObjectiveC.NSObject {
@@ -505,9 +594,133 @@ public let SDK_UNKNOWN_VERSION: Swift.String
   @objc override dynamic public init()
   @objc deinit
 }
+@_hasMissingDesignatedInitializers @objc(SNRClientAccountInformation) public class ClientAccountInformation : SyneriseSDK.BaseModel, Foundation.NSSecureCoding {
+  @objc final public let clientId: Swift.Int
+  @objc final public let email: Swift.String
+  @objc final public let customId: Swift.String?
+  @objc final public let uuid: Swift.String
+  @objc final public let firstName: Swift.String?
+  @objc final public let lastName: Swift.String?
+  @objc final public let displayName: Swift.String?
+  @objc final public let phone: Swift.String?
+  @objc final public let sex: SyneriseSDK.ClientSex
+  @objc final public let birthDate: Swift.String?
+  @objc final public let avatarUrl: Swift.String?
+  @objc public var company: Swift.String?
+  @objc public var address: Swift.String?
+  @objc public var city: Swift.String?
+  @objc public var province: Swift.String?
+  @objc public var zipCode: Swift.String?
+  @objc public var countryCode: Swift.String?
+  @objc final public let lastActivityDate: Foundation.Date
+  @objc final public let anonymous: Swift.Bool
+  @objc final public let agreements: SyneriseSDK.ClientAgreements
+  @objc final public let attributes: [Swift.String : Any]?
+  @objc final public let tags: [Swift.String]?
+  @objc public static var supportsSecureCoding: Swift.Bool {
+    @objc get
+  }
+  @objc required public init?(coder: Foundation.NSCoder)
+  @objc public func encode(with coder: Foundation.NSCoder)
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc(SNRClientEventData) public class ClientEventData : SyneriseSDK.BaseModel {
+  @objc final public let time: Swift.String
+  @objc final public let label: Swift.String
+  @objc final public let action: Swift.String
+  @objc final public let client: [Swift.String : Any]
+  @objc final public let params: [Swift.String : Any]
+  @objc(getClientID) public func getClientID() -> Swift.Int
+  @objc(getClientUUIDString) public func getClientUUIDString() -> Swift.String?
+  @objc(getClientEmail) public func getClientEmail() -> Swift.String?
+  @objc deinit
+}
+@objc(SNRClientSex) public enum ClientSex : Swift.Int {
+  @objc(SNRClientSexNotSpecified) case notSpecified = 0
+  @objc(SNRClientSexMale) case male
+  @objc(SNRClientSexFemale) case female
+  @objc(SNRClientSexOther) case other
+  public static func fromString(_ string: Swift.String) -> SyneriseSDK.ClientSex
+  public func toString() -> Swift.String
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc(SNRClientConditionalAuthStatus) public enum ClientConditionalAuthStatus : Swift.Int {
+  @objc(SNRClientConditionalAuthStatusSuccess) case success
+  @objc(SNRClientConditionalAuthStatusUnauthorized) case unauthorized
+  @objc(SNRClientConditionalAuthStatusActivationRequired) case activationRequired
+  @objc(SNRClientConditionalAuthStatusRegistrationRequired) case registrationRequired
+  @objc(SNRClientConditionalAuthStatusApprovalRequired) case approvalRequired
+  @objc(SNRClientConditionalAuthStatusTermsAcceptanceRequired) case termsAcceptanceRequired
+  @objc(SNRClientConditionalAuthStatusMFARequired) case mfaRequired
+  @objc(SNRClientConditionalAuthStatusUnknown) case unknown
+  public static func fromString(_ string: Swift.String) -> SyneriseSDK.ClientConditionalAuthStatus
+  public func toString() -> Swift.String
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(SNRClientAgreements) public class ClientAgreements : SyneriseSDK.BaseModel, Foundation.NSSecureCoding, Foundation.NSCopying {
+  @objc public var email: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc public var sms: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc public var push: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc public var bluetooth: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc public var rfid: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc public var wifi: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc override dynamic public init()
+  @objc public static var supportsSecureCoding: Swift.Bool {
+    @objc get
+  }
+  @objc required public init?(coder: Foundation.NSCoder)
+  @objc public func encode(with coder: Foundation.NSCoder)
+  @objc public func copy(with zone: ObjectiveC.NSZone? = nil) -> Any
+  @objc override dynamic public func isEqual(_ object: Any?) -> Swift.Bool
+  @objc override dynamic public var hash: Swift.Int {
+    @objc get
+  }
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc(SNRClientConditionalAuthResult) public class ClientConditionalAuthResult : SyneriseSDK.BaseModel {
+  @objc final public let status: SyneriseSDK.ClientConditionalAuthStatus
+  @objc final public let conditions: [Any]?
+  @objc deinit
+}
 @_hasMissingDesignatedInitializers @objc(SNRPromotionDetails) public class PromotionDetails : SyneriseSDK.BaseModel {
   @objc final public let discountType: SyneriseSDK.PromotionDiscountTypeDetails
   @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc(SNRInAppMessageData) public class InAppMessageData : SyneriseSDK.BaseModel {
+  @objc final public let campaignHash: Swift.String
+  @objc final public let variantIdentifier: Swift.String
+  @objc final public let additionalParameters: [Swift.String : Swift.String]?
+  @objc final public let isTest: Swift.Bool
+  @objc(initWithCampaignHash:variantIdentifier:additionalParameters:isTest:) public init(campaignHash: Swift.String, variantIdentifier: Swift.String, additionalParameters: [Swift.String : Swift.String]?, isTest: Swift.Bool)
+  @objc deinit
+}
+public enum SNErrorUserInfoKey {
 }
 public protocol _SNR_ClientManagerType {
   func setClientId(_ clientId: Swift.String?)
@@ -574,6 +787,218 @@ public enum ClientModelUUIDOrigin : Swift.String {
   @objc override public init(label: Swift.String, params: SyneriseSDK.TrackerParams?)
   @objc deinit
 }
+@_inheritsConvenienceInitializers @objc(SNRClientUpdateAccountContext) public class ClientUpdateAccountContext : SyneriseSDK.BaseModel {
+  @objc public var email: Swift.String?
+  @objc public var customId: Swift.String?
+  @objc public var uuid: Swift.String?
+  @objc public var firstName: Swift.String?
+  @objc public var lastName: Swift.String?
+  @objc public var displayName: Swift.String?
+  @objc public var phone: Swift.String?
+  @objc public var sex: SyneriseSDK.ClientSex
+  @objc public var birthDate: Swift.String?
+  @objc public var avatarUrl: Swift.String?
+  @objc public var company: Swift.String?
+  @objc public var address: Swift.String?
+  @objc public var city: Swift.String?
+  @objc public var province: Swift.String?
+  @objc public var zipCode: Swift.String?
+  @objc public var countryCode: Swift.String?
+  @objc public var agreements: SyneriseSDK.ClientAgreements?
+  @objc public var attributes: [Swift.String : Any]? {
+    @objc get
+    @objc set
+  }
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(SNRClientConditionalAuthenticationContext) public class ClientConditionalAuthenticationContext : SyneriseSDK.BaseModel {
+  @objc public var agreements: SyneriseSDK.ClientAgreements?
+  @objc public var attributes: [Swift.String : Any]?
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc(SNRClientPasswordResetConfirmationContext) public class ClientPasswordResetConfirmationContext : SyneriseSDK.BaseModel {
+  @objc final public let password: Swift.String
+  @objc final public let token: Swift.String
+  @objc(initWithPassword:andToken:) public init(password: Swift.String, token: Swift.String)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(SNRClientAuthenticationContext) public class ClientAuthenticationContext : SyneriseSDK.BaseModel {
+  @objc public var agreements: SyneriseSDK.ClientAgreements?
+  @objc public var attributes: [Swift.String : Any]?
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc(SNRClientPasswordResetRequestContext) public class ClientPasswordResetRequestContext : SyneriseSDK.BaseModel {
+  @objc final public let email: Swift.String
+  @objc(initWithEmail:) public init(email: Swift.String)
+  @objc deinit
+}
+@objc(SNRClientRegisterAccountContext) public class ClientRegisterAccountContext : SyneriseSDK.BaseModel {
+  @objc final public let email: Swift.String
+  @objc final public let password: Swift.String
+  @objc public var customId: Swift.String?
+  @objc public var firstName: Swift.String?
+  @objc public var lastName: Swift.String?
+  @objc public var phone: Swift.String?
+  @objc public var sex: SyneriseSDK.ClientSex {
+    @objc get
+    @objc set
+  }
+  @objc public var company: Swift.String?
+  @objc public var address: Swift.String?
+  @objc public var city: Swift.String?
+  @objc public var province: Swift.String?
+  @objc public var zipCode: Swift.String?
+  @objc public var countryCode: Swift.String?
+  @objc public var agreements: SyneriseSDK.ClientAgreements?
+  @objc public var attributes: [Swift.String : Any]?
+  @objc(initWithEmail:andPassword:) public init(email: Swift.String, password: Swift.String)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(SNRClientUpdateAccountBasicInformationContext) public class ClientUpdateAccountBasicInformationContext : SyneriseSDK.BaseModel {
+  @objc public var firstName: Swift.String?
+  @objc public var lastName: Swift.String?
+  @objc public var displayName: Swift.String?
+  @objc public var phone: Swift.String?
+  @objc public var sex: SyneriseSDK.ClientSex {
+    @objc get
+    @objc set
+  }
+  @objc public var birthDate: Swift.String?
+  @objc public var avatarUrl: Swift.String?
+  @objc public var company: Swift.String?
+  @objc public var address: Swift.String?
+  @objc public var city: Swift.String?
+  @objc public var province: Swift.String?
+  @objc public var zipCode: Swift.String?
+  @objc public var countryCode: Swift.String?
+  @objc public var agreements: SyneriseSDK.ClientAgreements?
+  @objc public var attributes: [Swift.String : Any]? {
+    @objc get
+    @objc set
+  }
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(SNRClientSimpleAuthenticationData) public class ClientSimpleAuthenticationData : SyneriseSDK.BaseModel {
+  @objc public var email: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc public var customId: Swift.String?
+  @objc public var uuid: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc public var firstName: Swift.String?
+  @objc public var lastName: Swift.String?
+  @objc public var displayName: Swift.String?
+  @objc public var phone: Swift.String?
+  @objc public var sex: SyneriseSDK.ClientSex {
+    @objc get
+    @objc set
+  }
+  @objc public var birthDate: Foundation.Date?
+  @objc public var avatarUrl: Swift.String?
+  @objc public var company: Swift.String?
+  @objc public var address: Swift.String?
+  @objc public var city: Swift.String?
+  @objc public var province: Swift.String?
+  @objc public var zipCode: Swift.String?
+  @objc public var countryCode: Swift.String?
+  @objc public var agreements: SyneriseSDK.ClientAgreements?
+  @objc public var attributes: [Swift.String : Any]? {
+    @objc get
+    @objc set
+  }
+  @objc public var tags: [Swift.String]?
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc(SNRApiErrorType) public enum SNRApiErrorType : Swift.Int {
+  @objc(SNRApiErrorTypeUnknown) case unknown
+  @objc(SNRApiErrorTypeNetwork) case network
+  @objc(SNRApiErrorTypeUnauthorizedSession) case unauthorizedSession
+  @objc(SNRApiErrorTypeHttp) case http
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc(SNRApiErrorHttpErrorCategory) public enum SNRApiErrorHttpErrorCategory : Swift.Int {
+  @objc(SNRApiErrorHttpErrorCategoryBadRequest) case badRequest
+  @objc(SNRApiErrorHttpErrorCategoryUnauthorized) case unauthorized
+  @objc(SNRApiErrorHttpErrorCategoryForbidden) case forbidden
+  @objc(SNRApiErrorHttpErrorCategoryNotFound) case notFound
+  @objc(SNRApiErrorHttpErrorCategoryRangeNotSatisfable) case rangeNotSatisfable
+  @objc(SNRApiErrorHttpErrorCategoryServerError) case serverError
+  @objc(SNRApiErrorHttpErrorCategoryUnknown) case unknown
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(SNRApiError) public class SNRApiError : SyneriseSDK.SNRError, @unchecked Swift.Sendable {
+  @objc final public let errorBody: SyneriseSDK.SNRApiErrorBody?
+  @objc public var errorType: SyneriseSDK.SNRApiErrorType {
+    @objc get
+  }
+  @objc public var httpCode: Swift.Int {
+    @objc get
+  }
+  @objc public var httpErrorCategory: SyneriseSDK.SNRApiErrorHttpErrorCategory {
+    @objc get
+  }
+  @objc final public let errors: [SyneriseSDK.SNRError]?
+  @objc(initWithDomain:code:errorBody:userInfo:errors:) public init(domain: Foundation.NSErrorDomain, code: Swift.Int, errorBody: SyneriseSDK.SNRApiErrorBody? = nil, userInfo: [Swift.String : Any]? = nil, errors: [SyneriseSDK.SNRError]? = nil)
+  @objc override dynamic public init(domain: Swift.String, code: Swift.Int, userInfo: [Swift.String : Any]?)
+  @available(*, deprecated, message: "Use `errorType` property instead.")
+  @objc(getType) public func getType() -> SyneriseSDK.SNRApiErrorType
+  @available(*, deprecated, message: "Use `httpCode` property instead.")
+  @objc(getHttpCode) public func getHttpCode() -> Swift.Int
+  @available(*, deprecated, message: "Use `errorBody.internalErrorCode` property instead.")
+  @objc(getErrorCode) public func getErrorCode() -> Swift.String?
+  @available(*, deprecated, message: "Use `errorBody` property instead.")
+  @objc(getBody) public func getBody() -> Swift.String?
+  @objc deinit
+}
+@objc(SNRErrorCode) public enum SNRErrorCode : Swift.Int {
+  @objc(SNRErrorCodeUnknownError) case unknownError = -101
+  @objc(SNRErrorCodeInvalidArgument) case invalidArgument = 3050
+  @objc(SNRErrorCodeInternalInconsistency) case internalInconsistency = 3060
+  @objc(SNRErrorCodeInvalidImageResources) case invalidImageResources = 3090
+  @objc(SNRErrorCodeImageNotDownloaded) case imageNotDownloaded = 3110
+  @objc(SNRErrorCodeWebViewNotPreloaded) case webViewNotPreloaded = 3130
+  @objc(SNRErrorCodeCryptoFailedError) case cryptoFailedError = 3610
+  @objc(SNRErrorCodeMigrationError) case migrationError = 3710
+  @objc(SNRErrorCodeContentWidgetError) case contentWidgetError = 3810
+  @objc(SNRErrorCodeNotificationServiceExtensionError) case notificationServiceExtensionError = 3910
+  @objc(SNRErrorCodeObjectConsistencyError) case objectConsistencyError = 4010
+  @objc(SNRErrorCodeUnknownApiError) case unknownApiError = -102
+  @objc(SNRErrorCodeModuleNotReadyApiError) case moduleNotReadyApiError = -110
+  @objc(SNRErrorCodeNetworkApiError) case networkApiError = -105
+  @objc(SNRErrorCodeInvalidRequestApiError) case invalidRequestApiError = -103
+  @objc(SNRErrorCodeInvalidRequestSessionApiError) case invalidRequestSessionApiError = -104
+  @objc(SNRErrorCodeInvalidResponseApiError) case invalidResponseApiError = -106
+  @objc(SNRErrorCodeInvalidEtagCacheResponseApiError) case invalidEtagCacheResponseApiError = -107
+  @objc(SNRErrorCodeRequestBlockedByCircuitBreakerApiError) case requestBlockedByCircuitBreakerApiError = -108
+  @objc(SNRErrorCodeRequestBlockedByIncognitoModeApiError) case requestBlockedByIncognitoModeApiError = -109
+  @objc(SNRErrorCodeClientSessionUnauthorizedApiError) case clientSessionUnauthorizedApiError = 3200
+  @objc(SNRErrorCodeClientSessionExpiredApiError) case clientSessionExpiredApiError = 3210
+  @objc(SNRErrorCodeClientSessionAlreadySignedOutApiError) case clientSessionAlreadySignedOutApiError = 3220
+  @objc(SNRErrorCodeJWTValidationFailedApiError) case JWTValidationFailedApiError = 3300
+  @objc(SNRErrorCodeJWTProcessingFailedApiError) case JWTProcessingFailedApiError = 3310
+  @objc(SNRErrorCodeMissingPublicKeyApiError) case missingPublicKeyApiError = 3320
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
 @_inheritsConvenienceInitializers @objc(SNRCacheManager) final public class CacheManager : ObjectiveC.NSObject {
   @objc public static func get(_ aClass: Swift.AnyClass) -> Swift.AnyObject?
   @objc override dynamic public init()
@@ -582,8 +1007,8 @@ public enum ClientModelUUIDOrigin : Swift.String {
 @objc public protocol SNRSwiftCommandProxyProtocol {
   @objc init()
   @objc func execute(command: Swift.String, args: [Swift.String : Any]?)
-  @objc func getValue(command: Swift.String, args: [Swift.String : Any]?) -> Swift.AnyObject?
-  @objc func getValueForKey(_ key: Swift.String) -> Swift.AnyObject?
+  @objc func getValue(command: Swift.String, args: [Swift.String : Any]?) -> Any?
+  @objc func getValueForKey(_ key: Swift.String) -> Any?
 }
 @_hasMissingDesignatedInitializers @objc(SNRScreenView) public class ScreenView : SyneriseSDK.BaseModel, SyneriseSDK.HasResponseRawData {
   @objc final public let identifier: Swift.String
@@ -690,7 +1115,7 @@ public protocol _SNR_BackgroundTaskManagerType : AnyObject {
   @objc override dynamic public init()
   @objc deinit
 }
-@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(SNRPromotions) public class Promotions : ObjectiveC.NSObject {
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(SNRPromotions) final public class Promotions : ObjectiveC.NSObject {
   @objc(getPromotionsWithSuccess:failure:) public static func getPromotions(success: @escaping (SyneriseSDK.PromotionResponse) -> Swift.Void, failure: @escaping (SyneriseSDK.SNRApiError) -> Swift.Void)
   @objc(getPromotionsWithApiQuery:success:failure:) public static func getPromotions(apiQuery: SyneriseSDK.PromotionsApiQuery, success: @escaping (SyneriseSDK.PromotionResponse) -> Swift.Void, failure: @escaping (SyneriseSDK.SNRApiError) -> Swift.Void)
   @objc(getPromotionByUuid:success:failure:) public static func getPromotion(uuid: Swift.String, success: @escaping (SyneriseSDK.Promotion) -> Swift.Void, failure: @escaping (SyneriseSDK.SNRApiError) -> Swift.Void)
@@ -735,7 +1160,7 @@ public protocol _SNR_BackgroundTaskManagerType : AnyObject {
   @objc override public init(label: Swift.String, params: SyneriseSDK.TrackerParams?)
   @objc deinit
 }
-@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(SNRContent) public class Content : ObjectiveC.NSObject {
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(SNRContent) final public class Content : ObjectiveC.NSObject {
   @objc(generateDocument:success:failure:) public static func generateDocument(slug: Swift.String, success: @escaping (SyneriseSDK.Document) -> Swift.Void, failure: @escaping (SyneriseSDK.SNRApiError) -> Swift.Void)
   @objc(generateDocumentWithApiQuery:success:failure:) public static func generateDocument(apiQuery: SyneriseSDK.DocumentApiQuery, success: @escaping (SyneriseSDK.Document) -> Swift.Void, failure: @escaping (SyneriseSDK.SNRApiError) -> Swift.Void)
   @objc(getRecommendationsV2:success:failure:) public static func getRecommendationsV2(options: SyneriseSDK.RecommendationOptions, success: @escaping (SyneriseSDK.RecommendationResponse) -> Swift.Void, failure: @escaping (SyneriseSDK.SNRApiError) -> Swift.Void)
@@ -772,6 +1197,34 @@ public protocol _SNR_BackgroundTaskManagerType : AnyObject {
     get
   }
 }
+@objc(SNRInjectorInAppMessageDelegate) public protocol InjectorInAppMessageDelegate {
+  @objc(SNR_shouldInAppMessageAppear:) optional func snr_shouldInAppMessageAppear(data: SyneriseSDK.InAppMessageData) -> Swift.Bool
+  @objc(SNR_inAppMessageDidAppear:) optional func snr_inAppMessageDidAppear(data: SyneriseSDK.InAppMessageData)
+  @objc(SNR_inAppMessageDidDisappear:) optional func snr_inAppMessageDidDisappear(data: SyneriseSDK.InAppMessageData)
+  @objc(SNR_inAppMessageDidChangeSize:) optional func snr_inAppMessageDidChangeSize(rect: CoreFoundation.CGRect)
+  @objc(SNR_inAppMessageContextIsNeeded:) optional func snr_inAppMessageContextIsNeeded(data: SyneriseSDK.InAppMessageData) -> [Swift.AnyHashable : Any]?
+  @objc(SNR_inAppMessageHandledURLAction:url:) optional func snr_inAppMessageHandledAction(data: SyneriseSDK.InAppMessageData, url: Foundation.URL)
+  @available(*, deprecated, message: "Use `snr_inAppMessageHandledAction(data:deepLink:)` instead.")
+  @objc(SNR_inAppMessageHandledDeeplinkAction:deeplink:) optional func snr_inAppMessageHandledAction(data: SyneriseSDK.InAppMessageData, deeplink: Swift.String)
+  @objc(SNR_inAppMessageHandledDeepLinkAction:deepLink:) optional func snr_inAppMessageHandledAction(data: SyneriseSDK.InAppMessageData, deepLink: Swift.String)
+  @objc(SNR_inAppMessageHandledCustomAction:name:parameters:) optional func snr_inAppMessageHandledCustomAction(data: SyneriseSDK.InAppMessageData, name: Swift.String, parameters: [Swift.AnyHashable : Any])
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(SNRInjector) final public class Injector : ObjectiveC.NSObject {
+  @objc deinit
+  @objc(setInAppMessageDelegate:) public static func setInAppMessageDelegate(_ delegate: any SyneriseSDK.InjectorInAppMessageDelegate)
+}
+extension SyneriseSDK.Injector : SyneriseSDK._SNR_SignalReceivable {
+  @objc final public func signalReceived(_ signal: SyneriseSDK._SNR_BaseSignal, parameters: [Swift.String : Any])
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(SNRToken) public class Token : ObjectiveC.NSObject {
+  @objc final public let tokenString: Swift.String
+  @objc final public let expirationDate: Foundation.Date
+  @objc final public let rlm: Swift.String
+  @objc final public let origin: SyneriseSDK.TokenOrigin
+  @objc final public let clientId: Swift.String?
+  @objc final public let customId: Swift.String?
+  @objc deinit
+}
 @_hasMissingDesignatedInitializers @objc(SNRCustomEvent) open class CustomEvent : SyneriseSDK.Event {
   @objc override public init(label: Swift.String)
   @objc override public init(label: Swift.String, params: SyneriseSDK.TrackerParams?)
@@ -796,6 +1249,14 @@ public protocol _SNR_BackgroundTaskManagerType : AnyObject {
   @objc public var segments: [Swift.String]?
   @objc public var query: Swift.String?
   @objc public var targetType: Swift.String?
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(SNRClientEventsApiQuery) public class ClientEventsApiQuery : ObjectiveC.NSObject {
+  @objc public var actions: [Swift.String]?
+  @objc public var timeFrom: Foundation.Date?
+  @objc public var timeTo: Foundation.Date?
+  @objc public var limit: Foundation.NSNumber?
+  @objc override dynamic public init()
   @objc deinit
 }
 @objc(SNRPromotionItemScope) public enum PromotionItemScope : Swift.Int, Swift.RawRepresentable {
@@ -829,13 +1290,6 @@ public protocol _SNR_BackgroundTaskManagerType : AnyObject {
   @objc(initWithLabel:productName:productId:campaignID:campaignHash:andParams:) public init(label: Swift.String, productName: Swift.String, productId: Swift.String, campaignID: Swift.String, campaignHash: Swift.String, params: SyneriseSDK.TrackerParams?)
   @objc final public func setCategory(_ category: Swift.String)
   @objc final public func setURL(_ url: Foundation.URL)
-  @objc deinit
-}
-@_inheritsConvenienceInitializers @objc(_SNR_PushEventUtils) public class _SNR_PushEventUtils : ObjectiveC.NSObject {
-  @objc(sendPushOpenInAppEventFor:) public static func sendPushOpenInAppEvent(for model: Swift.AnyObject)
-  @objc(sendPushClickEventFor:actionIdentifier:url:) public static func sendPushClickEvent(for model: Swift.AnyObject, actionIdentifier: Swift.String?, url: Swift.String?)
-  @objc(sendPushDismissEventFor:) public static func sendPushDismissEvent(for model: Swift.AnyObject)
-  @objc override dynamic public init()
   @objc deinit
 }
 @objc(SNRPromotionImageType) public enum PromotionImageType : Swift.Int, Swift.RawRepresentable {
@@ -1027,7 +1481,7 @@ public let SNRViewTrackerEventAutotrackValueOnSelect: Swift.String
   @objc final public let feedSlug: Swift.String
   @objc public var productID: Swift.String?
   @objc public var params: [Swift.String : Any]?
-  @objc(initWithFeedSlug:) public init(slug: Swift.String)
+  @objc(initWithFeedSlug:) public init(feedSlug: Swift.String)
   @objc deinit
 }
 @objc(SNRTrackerParams) final public class TrackerParams : ObjectiveC.NSObject {
@@ -1057,11 +1511,6 @@ public let SNRViewTrackerEventAutotrackValueOnSelect: Swift.String
   @objc final public let attributes: [Swift.String : Any]
   @objc public func isAttributeSetForKey(_ key: Swift.String) -> Swift.Bool
   @objc public func getAttributeSetForKey(_ key: Swift.String) -> Any?
-  @objc deinit
-}
-@_inheritsConvenienceInitializers @objc(_SNR_IncognitoModeChangedSignal) public class _SNR_IncognitoModeChangedSignal : SyneriseSDK._SNR_BaseSignal {
-  @objc public func notifyIncognitoModeChanged()
-  @objc override dynamic public init()
   @objc deinit
 }
 @_hasMissingDesignatedInitializers @objc(SNRPushCancelledEvent) final public class PushCancelledEvent : SyneriseSDK.Event {
@@ -1110,9 +1559,6 @@ public let SNRViewTrackerEventAutotrackValueOnSelect: Swift.String
   @objc public static var _Proxy: any SyneriseSDK.SNRSwiftCommandProxyProtocol {
     @objc get
   }
-  @objc public static var Constants: SyneriseSDK._SNR_Constants.Type {
-    @objc get
-  }
   @objc public static var Logger: SyneriseSDK._SNR_Logger.Type {
     @objc get
   }
@@ -1146,9 +1592,6 @@ public let SNRViewTrackerEventAutotrackValueOnSelect: Swift.String
   @objc public static var PushRegistrationRequiredSignalSingleton: SyneriseSDK._SNR_PushRegistrationRequiredSignal {
     @objc get
   }
-  @objc public static var IncognitoModeChangedSignalSingleton: SyneriseSDK._SNR_IncognitoModeChangedSignal {
-    @objc get
-  }
   @objc public static var SyneriseReinitializationSignalSingleton: SyneriseSDK._SNR_SyneriseReinitializationSignal {
     @objc get
   }
@@ -1162,9 +1605,6 @@ public let SNRViewTrackerEventAutotrackValueOnSelect: Swift.String
     @objc get
   }
   @objc public static var MiscUtils: SyneriseSDK._SNR_MiscUtils.Type {
-    @objc get
-  }
-  @objc public static var PushEventUtils: SyneriseSDK._SNR_PushEventUtils.Type {
     @objc get
   }
   @objc public static var PushEventFactory: SyneriseSDK._SNR_PushEventFactory.Type {
@@ -1235,6 +1675,10 @@ public let SNRViewTrackerEventAutotrackValueOnSelect: Swift.String
   @objc final public func setItems(_ items: [Swift.String])
   @objc deinit
 }
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(SNRError) public class SNRError : Foundation.NSError, @unchecked Swift.Sendable {
+  @objc override dynamic public init(domain: Swift.String, code: Swift.Int, userInfo: [Swift.String : Any]?)
+  @objc deinit
+}
 @_hasMissingDesignatedInitializers @objc(SNRCartEvent) public class CartEvent : SyneriseSDK.Event {
   @objc override public init(label: Swift.String)
   @objc override public init(label: Swift.String, params: SyneriseSDK.TrackerParams?)
@@ -1268,9 +1712,20 @@ public let SNRViewTrackerEventAutotrackValueOnSelect: Swift.String
   @objc public static func dispatchSyncBlock(_ block: @escaping () -> Swift.Void, onQueue queue: Dispatch.DispatchQueue)
   @objc public static func dispatchAsyncBlockOnMainThread(_ block: @escaping () -> Swift.Void)
   @objc public static func dispatchAsyncBlockOnMainThread(_ block: @escaping () -> Swift.Void, ifMetCondition condition: Swift.Bool)
+  @objc public static func dispatchAsyncBlock(_ block: @escaping () -> Swift.Void, onQueue queue: Dispatch.DispatchQueue)
   @objc public static func dispatchAsyncBlockOnMainThread(_ block: @escaping () -> Swift.Void, withDelay delay: Foundation.TimeInterval)
   @objc public static func dispatchAsyncBlockOnBackgroundThread(_ block: @escaping () -> Swift.Void)
   @objc public static func dispatchAsyncBlockOnBackgroundThread(_ block: @escaping () -> Swift.Void, ifMetCondition condition: Swift.Bool)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(SNRApiErrorBody) public class SNRApiErrorBody : ObjectiveC.NSObject {
+  @objc public var internalErrorCode: Swift.String?
+  @objc public var error: Swift.String?
+  @objc public var message: Swift.String?
+  @objc public var path: Swift.String?
+  @objc public var status: Swift.Int
+  @objc public var errorCauses: [SyneriseSDK.SNRApiErrorCause]?
   @objc override dynamic public init()
   @objc deinit
 }
@@ -1291,9 +1746,26 @@ extension SyneriseSDK.InternalEventSource : Swift.Hashable {}
 extension SyneriseSDK.InternalEventSource : Swift.RawRepresentable {}
 extension SyneriseSDK.PromotionType : Swift.Equatable {}
 extension SyneriseSDK.PromotionType : Swift.Hashable {}
+extension SyneriseSDK.TokenOrigin : Swift.Equatable {}
+extension SyneriseSDK.TokenOrigin : Swift.Hashable {}
+extension SyneriseSDK.ClientSex : Swift.Equatable {}
+extension SyneriseSDK.ClientSex : Swift.Hashable {}
+extension SyneriseSDK.ClientSex : Swift.RawRepresentable {}
+extension SyneriseSDK.ClientConditionalAuthStatus : Swift.Equatable {}
+extension SyneriseSDK.ClientConditionalAuthStatus : Swift.Hashable {}
+extension SyneriseSDK.ClientConditionalAuthStatus : Swift.RawRepresentable {}
 extension SyneriseSDK.ClientModelUUIDOrigin : Swift.Equatable {}
 extension SyneriseSDK.ClientModelUUIDOrigin : Swift.Hashable {}
 extension SyneriseSDK.ClientModelUUIDOrigin : Swift.RawRepresentable {}
+extension SyneriseSDK.SNRApiErrorType : Swift.Equatable {}
+extension SyneriseSDK.SNRApiErrorType : Swift.Hashable {}
+extension SyneriseSDK.SNRApiErrorType : Swift.RawRepresentable {}
+extension SyneriseSDK.SNRApiErrorHttpErrorCategory : Swift.Equatable {}
+extension SyneriseSDK.SNRApiErrorHttpErrorCategory : Swift.Hashable {}
+extension SyneriseSDK.SNRApiErrorHttpErrorCategory : Swift.RawRepresentable {}
+extension SyneriseSDK.SNRErrorCode : Swift.Equatable {}
+extension SyneriseSDK.SNRErrorCode : Swift.Hashable {}
+extension SyneriseSDK.SNRErrorCode : Swift.RawRepresentable {}
 extension SyneriseSDK.PromotionStatus : Swift.Equatable {}
 extension SyneriseSDK.PromotionStatus : Swift.Hashable {}
 extension SyneriseSDK.VoucherCodeStatus : Swift.Equatable {}

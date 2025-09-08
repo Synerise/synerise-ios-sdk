@@ -22,6 +22,8 @@ FOUNDATION_EXPORT NSString * const SNRSyneriseDomain;
 FOUNDATION_EXPORT NSString * const SNRSyneriseBundleIdentifier;
 FOUNDATION_EXPORT NSString * const SNRSyneriseVersion;
 
+FOUNDATION_EXPORT NSErrorDomain const SNRErrorDomain;
+
 /**
  * @protocol SNRSyneriseDelegate
  *

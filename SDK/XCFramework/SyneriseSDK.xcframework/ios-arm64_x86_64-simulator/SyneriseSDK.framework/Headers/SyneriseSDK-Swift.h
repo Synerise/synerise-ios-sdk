@@ -280,6 +280,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #if __has_warning("-Watimport-in-framework-header")
 #pragma clang diagnostic ignored "-Watimport-in-framework-header"
 #endif
+@import CoreFoundation;
 @import Dispatch;
 @import Foundation;
 @import ObjectiveC;
@@ -307,24 +308,17 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 #if defined(__OBJC__)
 @class NSString;
-@class NSDate;
 @class SNRTrackerParams;
 
 SWIFT_CLASS_NAMED("Event")
 @interface SNREvent : NSObject <NSCopying>
-@property (nonatomic) NSInteger _id;
-@property (nonatomic, readonly, copy) NSString * _Nonnull _type;
-@property (nonatomic, readonly, copy) NSString * _Nonnull label;
-@property (nonatomic, readonly, copy) NSString * _Nonnull action;
-@property (nonatomic, copy) NSDate * _Nullable _timestamp;
-@property (nonatomic, copy) NSDate * _Nullable _time;
+@property (nonatomic, readonly, copy) NSString * _Nonnull _action;
 @property (nonatomic, copy) NSDictionary<NSString *, id> * _Nullable _client;
 @property (nonatomic, readonly, copy) NSDictionary<NSString *, id> * _Nullable parameters;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
-- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters OBJC_DESIGNATED_INITIALIZER;
 - (id _Nonnull)copyWithZone:(struct _NSZone * _Nullable)zone SWIFT_WARN_UNUSED_RESULT;
 - (void)_setParam:(id _Nullable)param forKey:(NSString * _Nonnull)key;
 - (NSDictionary<NSString *, id> * _Nonnull)_toDictionary SWIFT_WARN_UNUSED_RESULT;
@@ -338,7 +332,6 @@ SWIFT_CLASS_NAMED("AppearedInLocationEvent")
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andLocation:(CLLocation * _Nonnull)location;
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andLocation:(CLLocation * _Nonnull)location andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
-- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
 @end
 
 
@@ -348,9 +341,9 @@ SWIFT_CLASS_NAMED("ApplicationStartedEvent")
 + (SNRApplicationStartedEvent * _Nonnull)eventWithParameters:(NSDictionary<NSString *, NSString *> * _Nullable)parameters SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
-- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
 @end
 
+@class NSDate;
 
 /// <code>AssignVoucherData</code> class
 SWIFT_CLASS_NAMED("AssignVoucherData")
@@ -410,11 +403,681 @@ SWIFT_CLASS_NAMED("CartEvent")
 - (void)setDiscountedPrice:(SNRUnitPrice * _Nonnull)price;
 - (void)setURL:(NSURL * _Nonnull)url;
 - (void)setProducer:(NSString * _Nonnull)producer;
-- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
 @end
 
-@class SNRDocument;
+@protocol SNRClientStateDelegate;
+@class SNRClientRegisterAccountContext;
 @class SNRApiError;
+@class SNRClientConditionalAuthResult;
+@class SNRClientAuthenticationContext;
+@class SNRClientConditionalAuthenticationContext;
+@class SNRTokenPayload;
+@class SNRClientSimpleAuthenticationData;
+@class SNRToken;
+@class SNRClientAccountInformation;
+@class SNRClientEventsApiQuery;
+@class SNRClientEventData;
+@class SNRClientUpdateAccountBasicInformationContext;
+@class SNRClientUpdateAccountContext;
+@class SNRClientPasswordResetRequestContext;
+@class SNRClientPasswordResetConfirmationContext;
+
+/// <code>Client</code> class
+SWIFT_CLASS_NAMED("Client")
+@interface SNRClient : NSObject
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+/// This method sets object for a customer’s state delegate methods.
+/// \param delegate An object that implements the <code>ClientStateDelegate</code> protocol.
+///
++ (void)setClientStateDelegate:(id <SNRClientStateDelegate> _Nullable)delegate;
+/// This method registers a new customer with an email, password, and optional data.
+/// This method requires the context object with a customer’s email, password, and optional data. Omitted fields are not modified.
+/// Depending on the backend configuration, the account may require activation.
+/// note:
+/// Do NOT allow signing in again (or signing up) when a customer is already signed in. Sign the customer out first.
+/// note:
+/// Do NOT create multiple instances nor call this method multiple times before execution.
+/// \param context <code>ClientRegisterAccountContext</code> object with client’s email, password, and other optional data. Fields that are not provided are not modified.
+///
+/// \param success A closure to be executed when the operation finishes successfully.
+///
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
+///
++ (void)registerAccount:(SNRClientRegisterAccountContext * _Nonnull)context success:(void (^ _Nonnull)(void))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+/// This method requests sending an email with a URL that confirms the registration and activates the account.
+/// \param email Client’s email.
+///
+/// \param success A closure to be executed when the operation finishes successfully.
+///
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
+///
++ (void)requestAccountActivationWithEmail:(NSString * _Nonnull)email success:(void (^ _Nonnull)(void))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+/// This method confirms a customer account with the confirmation token.
+/// \param token Confirmation token.
+///
+/// \param success A closure to be executed when the operation finishes successfully.
+///
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
+///
++ (void)confirmAccountActivationByToken:(NSString * _Nonnull)token success:(void (^ _Nonnull)(void))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+/// This method requests a customer’s account registration process with the PIN code.
+/// \param email Client’s email.
+///
+/// \param success A closure to be executed when the operation finishes successfully.
+///
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
+///
++ (void)requestAccountActivationByPinWithEmail:(NSString * _Nonnull)email success:(void (^ _Nonnull)(void))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+/// This method confirms a customer’s account registration process with the PIN code.
+/// \param pinCode Code sent to your email.
+///
+/// \param email Client’s email.
+///
+/// \param success A closure to be executed when the operation finishes successfully.
+///
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
+///
++ (void)confirmAccountActivationByPin:(NSString * _Nonnull)pinCode email:(NSString * _Nonnull)email success:(void (^ _Nonnull)(void))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+/// This method signs a customer in to obtain a JSON Web Token (JWT) which can be used in subsequent requests.
+/// The SDK will refresh the token before each call if it is about to expire (but not expired).
+/// note:
+/// Do NOT allow signing in again (or signing up) when a customer is already signed in. First, sign the customer out.
+/// note:
+/// Do NOT create multiple instances nor call this method multiple times before execution.
+/// \param email Client’s email.
+///
+/// \param password Client’s password.
+///
+/// \param success A closure to be executed when the operation finishes successfully.
+///
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
+///
++ (void)signInWithEmail:(NSString * _Nonnull)email password:(NSString * _Nonnull)password success:(void (^ _Nonnull)(void))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+/// This method signs a customer in to obtain a JSON Web Token (JWT) which can be used in subsequent requests.
+/// The SDK will refresh the token before each call if it is about to expire (but not expired).
+/// note:
+/// Do NOT allow signing in again (or signing up) when a customer is already signed in. First, sign the customer out.
+/// note:
+/// Do NOT create multiple instances nor call this method multiple times before execution.
+/// \param email Client’s email.
+///
+/// \param password Client’s password.
+///
+/// \param success A closure to be executed when the operation finishes successfully.
+///
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
+///
++ (void)signInConditionallyWithEmail:(NSString * _Nonnull)email password:(NSString * _Nonnull)password success:(void (^ _Nonnull)(SNRClientConditionalAuthResult * _Nonnull))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+/// This method authenticates a customer with OAuth, Facebook, Google, Apple, or Synerise.
+/// If an account for the customer does not exist and the identity provider is different than Synerise, this request creates an account.
+/// \param token Client’s token (OAuth, Facebook, Apple etc.).
+///
+/// \param clientIdentityProvider Client’s identity provider.
+///
+/// \param authID Authorization custom identity.
+///
+/// \param context <code>ClientAuthenticationContext</code> object with agreements and optional attributes.
+///
+/// \param success A closure to be executed when the operation finishes successfully.
+///
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
+///
++ (void)authenticateWithToken:(id _Nonnull)token clientIdentityProvider:(enum SNRClientIdentityProvider)clientIdentityProvider authID:(NSString * _Nullable)authID context:(SNRClientAuthenticationContext * _Nullable)context success:(void (^ _Nonnull)(void))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+/// This method authenticates a customer with OAuth, Facebook, Google, Apple, or Synerise.
+/// If an account for the customer does not exist and the identity provider is different than Synerise, this request creates an account.
+/// \param token Client’s token (OAuth, Facebook, Apple etc.).
+///
+/// \param clientIdentityProvider Client’s identity provider.
+///
+/// \param authID Authorization custom identity.
+///
+/// \param context <code>ClientConditionalAuthenticationContext</code> object with agreements and optional attributes.
+///
+/// \param success A closure to be executed when the operation finishes successfully.
+///
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
+///
++ (void)authenticateConditionallyWithToken:(id _Nonnull)token clientIdentityProvider:(enum SNRClientIdentityProvider)clientIdentityProvider authID:(NSString * _Nullable)authID context:(SNRClientConditionalAuthenticationContext * _Nullable)context success:(void (^ _Nonnull)(SNRClientConditionalAuthResult * _Nonnull))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+/// This method signs in a customer in with the provided token payload.
+/// \param tokenPayload <code>TokenPayload</code> object with a token’s payload.
+///
+/// \param authID Authorization custom identity.
+///
+/// \param success A closure to be executed when the operation finishes successfully.
+///
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
+///
++ (void)authenticateWithTokenPayload:(SNRTokenPayload * _Nonnull)tokenPayload authID:(NSString * _Nonnull)authID success:(void (^ _Nonnull)(void))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+/// This method authenticates a customer with Simple Authentication.
+/// note:
+/// When you use this method, you must set a request validation salt by using the <code>Synerise.setRequestValidationSalt(_:)</code> method (if salt is enabled for Simple Authentication).
+/// \param data <code>ClientSimpleAuthenticationData</code> object with client’s data information to be modified. Fields that are not provided are not modified.
+///
+/// \param success A closure to be executed when the operation finishes successfully.
+///
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
+///
++ (void)simpleAuthentication:(SNRClientSimpleAuthenticationData * _Nonnull)data authID:(NSString * _Nonnull)authID success:(void (^ _Nonnull)(void))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+/// This method checks if a customer is signed in (via RaaS, OAuth, Facebook, Apple).
++ (BOOL)isSignedIn SWIFT_WARN_UNUSED_RESULT;
+/// This method checks if a customer is signed in (via Simple Authentication).
++ (BOOL)isSignedInViaSimpleAuthentication SWIFT_WARN_UNUSED_RESULT;
+/// This method signs out a customer out.
+/// note:
+/// This method works with every authentication type (via Synerise, External Provider, OAuth or Simple Authentication).
++ (void)signOut;
+/// This method signs out a customer out with a chosen mode.
+/// note:
+/// This method works with every authentication type (via Synerise, External Provider, OAuth or Simple Authentication).
+/// \param mode Logout mode.
+///
+/// \param fromAllDevices Determines whether it should sign out all devices.
+///
+/// \param success A closure to be executed when the operation finishes successfully.
+///
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
+///
++ (void)signOutWithMode:(enum SNRClientSignOutMode)mode fromAllDevices:(BOOL)fromAllDevices success:(void (^ _Nonnull)(void))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+/// This method refreshes the customer’s current token.
+/// note:
+/// Returns an error if the customer is not logged in or the token has expired and cannot be refreshed.
+/// \param success A closure to be executed when the operation finishes successfully.
+///
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
+///
++ (void)refreshTokenWithSuccess:(void (^ _Nonnull)(void))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+/// This method retrieves the customer’s current, active token.
+/// note:
+/// Returns an error if the customer is not logged in or the token has expired and cannot be retrieved.
+/// \param success A closure to be executed when the operation finishes successfully.
+///
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
+///
++ (void)retrieveTokenWithSuccess:(void (^ _Nonnull)(SNRToken * _Nonnull))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+/// This method retrieves the customer’s current UUID.
++ (NSString * _Nonnull)getUUID SWIFT_WARN_UNUSED_RESULT;
+/// This method retrieves the current UUID or generates a new one from a seed.
+/// This operation doesn’t affect the customer session in the SDK.
+/// \param authID A seed for UUID generation.
+///
++ (NSString * _Nonnull)getUUIDForAuthenticationWithAuthID:(NSString * _Nonnull)authID SWIFT_WARN_UNUSED_RESULT;
+/// This method regenerates the UUID and clears the authentication token, login session, custom email, and custom identifier.
+/// This operation works only if the customer is anonymous.
+/// This operation clears authentication token, login (if applicable), custom email and custom identifier.
++ (BOOL)regenerateUUID SWIFT_WARN_UNUSED_RESULT;
+/// This method regenerates the UUID and clears the authentication token, login session, custom email, and custom identifier.
+/// This operation works only if the customer is anonymous.
+/// This operation clears authentication token, login (if applicable), custom email and custom identifier.
+/// \param clientIdentifier A seed for UUID generation.
+///
++ (BOOL)regenerateUUIDWithClientIdentifier:(NSString * _Nullable)clientIdentifier SWIFT_WARN_UNUSED_RESULT;
+/// This method destroys the session completely.
+/// This method clears all session data (both client and anonymous) and removes cached data. Then, it regenerates the UUID and creates the new anonymous session.
++ (void)destroySession;
+/// This method gets a customer’s account information.
+/// note:
+/// This method requires customer authentication.
+/// \param success A closure to be executed when the operation finishes successfully.
+///
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
+///
++ (void)getAccountWithSuccess:(void (^ _Nonnull)(SNRClientAccountInformation * _Nonnull))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+/// This method retrieves events for an authenticated customer.
+/// note:
+/// This method requires customer authentication.
+/// \param apiQuery <code>ClientEventsApiQuery</code> object responsible for storing all query parameters.
+///
+/// \param success A closure to be executed when the operation finishes successfully.
+///
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
+///
++ (void)getEventsWithApiQuery:(SNRClientEventsApiQuery * _Nullable)apiQuery success:(void (^ _Nonnull)(NSArray<SNRClientEventData *> * _Nonnull))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+/// This method updates a customer’s account’s basic information (without identification data: uuid, customId, email).
+/// This method requires the context object with the customer’s account information. Omitted fields are not modified.
+/// This method does not require customer authentication and can be used for anonymous profiles.
+/// \param context <code>ClientUpdateAccountBasicInformationContext</code> object with account basic information to be modified. Fields that are not provided are not modified.
+///
+/// \param success A closure to be executed when the operation finishes successfully.
+///
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
+///
++ (void)updateAccountBasicInformation:(SNRClientUpdateAccountBasicInformationContext * _Nonnull)context success:(void (^ _Nonnull)(void))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+/// This method updates a customer’s account information.
+/// This method requires the context object with the customer’s account information. Omitted fields are not modified.
+/// note:
+/// This method requires customer authentication.
+/// \param context <code>ClientUpdateAccountContext</code> object with client’s account information to be modified. Fields that are not provided are not modified.
+///
+/// \param success A closure to be executed when the operation finishes successfully.
+///
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
+///
++ (void)updateAccount:(SNRClientUpdateAccountContext * _Nonnull)context success:(void (^ _Nonnull)(void))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+/// This method requests a customer’s password reset with email. The customer will receive a token to the provided email address. That token is then used for the confirmation of password reset.
+/// This method requires the customer’s email.
+/// note:
+/// This method is a global operation and doesn’t require customer authentication.
+/// \param context <code>ClientPasswordResetRequestContext</code> object with client’s email.
+///
+/// \param success A closure to be executed when the operation finishes successfully.
+///
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
+///
++ (void)requestPasswordReset:(SNRClientPasswordResetRequestContext * _Nonnull)context success:(void (^ _Nonnull)(void))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+/// This method confirm a customer’s password reset with the new password and token provided by password reset request.
+/// This method requires the customer’s new password and the confirmation token received by e-mail.
+/// note:
+/// This method is a global operation and doesn’t require customer authentication.
+/// \param context <code>ClientPasswordResetConfirmationContext</code> object with client’s new password and token.
+///
+/// \param success A closure to be executed when the operation finishes successfully.
+///
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
+///
++ (void)confirmResetPassword:(SNRClientPasswordResetConfirmationContext * _Nonnull)context success:(void (^ _Nonnull)(void))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+/// This method changes a customer’s password.
+/// note:
+/// This method requires customer authentication.
+/// note:
+/// Returns the HTTP 403 status code if the provided old password is invalid.
+/// \param password Client’s new password.
+///
+/// \param oldPassword Client’s old password.
+///
+/// \param success A closure to be executed when the operation finishes successfully.
+///
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
+///
++ (void)changePassword:(NSString * _Nonnull)password oldPassword:(NSString * _Nonnull)oldPassword success:(void (^ _Nonnull)(void))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+/// This method requests a customer’s email change.
+/// note:
+/// This method is a global operation and doesn’t require customer authentication.
+/// note:
+/// Returns the HTTP 403 status code if the provided token or the password is invalid.
+/// \param email Client’s new email.
+///
+/// \param password Client’s password (if Synerise account).
+///
+/// \param externalToken Client’s token (if OAuth, Facebook, Apple etc.).
+///
+/// \param authID Authorization custom identity.
+///
+/// \param success A closure to be executed when the operation finishes successfully.
+///
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
+///
++ (void)requestEmailChange:(NSString * _Nonnull)email password:(NSString * _Nullable)password externalToken:(id _Nullable)externalToken authID:(NSString * _Nullable)authID success:(void (^ _Nonnull)(void))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+/// This method confirms an email change.
+/// note:
+/// This method is a global operation and doesn’t require customer authentication.
+/// note:
+/// Returns the HTTP 403 status code if the provided token is invalid.
+/// \param token Client’s token provided by email.
+///
+/// \param newsletterAgreement Agreement for newsletter with email provided.
+///
+/// \param success A closure to be executed when the operation finishes successfully.
+///
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
+///
++ (void)confirmEmailChange:(NSString * _Nonnull)token newsletterAgreement:(BOOL)newsletterAgreement success:(void (^ _Nonnull)(void))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+/// This method requests a customer’s phone update. A confirmation code is sent to the phone number.
+/// note:
+/// This method is a global operation and doesn’t require customer authentication.
+/// \param phone Client’s phone number.
+///
+/// \param success A closure to be executed when the operation finishes successfully.
+///
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
+///
++ (void)requestPhoneUpdate:(NSString * _Nonnull)phone success:(void (^ _Nonnull)(void))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+/// This method confirms a phone number update. This action requires the new phone number and confirmation code as parameters.
+/// note:
+/// This method is a global operation and doesn’t require customer authentication.
+/// \param phone Client’s new phone number.
+///
+/// \param smsAgreement Agreement for SMS marketing for the new phone number.
+///
+/// \param confirmationCode Client’s confirmation code received by phone.
+///
+/// \param success A closure to be executed when the operation finishes successfully.
+///
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
+///
++ (void)confirmPhoneUpdate:(NSString * _Nonnull)phone confirmationCode:(NSString * _Nonnull)confirmationCode smsAgreement:(BOOL)smsAgreement success:(void (^ _Nonnull)(void))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+/// This method deletes a customer’s account.
+/// \param clientAuthFactor Client’s token (if OAuth, Facebook, Apple etc.) or password (if Synerise account).
+///
+/// \param clientIdentityProvider Client’s identity provider.
+///
+/// \param authID Authorization custom identity.
+///
+/// \param success A closure to be executed when the operation finishes successfully.
+///
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
+///
++ (void)deleteAccount:(id _Nonnull)clientAuthFactor clientIdentityProvider:(enum SNRClientIdentityProvider)clientIdentityProvider authID:(NSString * _Nullable)authID success:(void (^ _Nonnull)(void))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+/// This method recognizes anonymous customer and saves personal information in their database entries.
+/// \param email Client’s email.
+///
+/// \param customIdentify Client’s custom identifier.
+///
+/// \param parameters Client’s custom parameters.
+///
++ (void)recognizeAnonymousWithEmail:(NSString * _Nullable)email customIdentify:(NSString * _Nullable)customIdentify parameters:(NSDictionary<NSString *, id> * _Nullable)parameters;
+/// This method passes the Firebase Token to Synerise for notifications.
+/// \param registrationToken Firebase FCM Token returned after successful push notifications registration from Firebase.
+///
+/// \param success A closure to be executed when the operation finishes successfully.
+///
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
+///
++ (void)registerForPush:(NSString * _Nonnull)registrationToken success:(void (^ _Nonnull)(void))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+/// This method passes the Firebase Token to Synerise for notifications and doesn’t update the agreement of the profile.
+/// \param registrationToken Firebase FCM Token returned after successful push notifications registration from Firebase.
+///
+/// \param mobilePushAgreement Agreement (consent) for mobile push campaigns.
+///
+/// \param success A closure to be executed when the operation finishes successfully.
+///
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
+///
++ (void)registerForPush:(NSString * _Nonnull)registrationToken mobilePushAgreement:(BOOL)mobilePushAgreement success:(void (^ _Nonnull)(void))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+@end
+
+
+@class _SNR_BaseSignal;
+
+SWIFT_PROTOCOL_NAMED("_SNR_SignalReceivable")
+@protocol _SNR_SignalReceivable
+- (void)signalReceived:(_SNR_BaseSignal * _Nonnull)_ parameters:(NSDictionary<NSString *, id> * _Nonnull)parameters;
+@end
+
+
+@interface SNRClient (SWIFT_EXTENSION(SyneriseSDK)) <_SNR_SignalReceivable>
+- (void)signalReceived:(_SNR_BaseSignal * _Nonnull)signal parameters:(NSDictionary<NSString *, id> * _Nonnull)parameters;
+@end
+
+enum SNRClientSex : NSInteger;
+@class SNRClientAgreements;
+@class NSCoder;
+
+/// <code>ClientAccountInformation</code> class
+SWIFT_CLASS_NAMED("ClientAccountInformation")
+@interface SNRClientAccountInformation : SNRBaseModel <NSSecureCoding>
+@property (nonatomic, readonly) NSInteger clientId;
+@property (nonatomic, readonly, copy) NSString * _Nonnull email;
+@property (nonatomic, readonly, copy) NSString * _Nullable customId;
+@property (nonatomic, readonly, copy) NSString * _Nonnull uuid;
+@property (nonatomic, readonly, copy) NSString * _Nullable firstName;
+@property (nonatomic, readonly, copy) NSString * _Nullable lastName;
+@property (nonatomic, readonly, copy) NSString * _Nullable displayName;
+@property (nonatomic, readonly, copy) NSString * _Nullable phone;
+@property (nonatomic, readonly) enum SNRClientSex sex;
+@property (nonatomic, readonly, copy) NSString * _Nullable birthDate;
+@property (nonatomic, readonly, copy) NSString * _Nullable avatarUrl;
+@property (nonatomic, copy) NSString * _Nullable company;
+@property (nonatomic, copy) NSString * _Nullable address;
+@property (nonatomic, copy) NSString * _Nullable city;
+@property (nonatomic, copy) NSString * _Nullable province;
+@property (nonatomic, copy) NSString * _Nullable zipCode;
+@property (nonatomic, copy) NSString * _Nullable countryCode;
+@property (nonatomic, readonly, copy) NSDate * _Nonnull lastActivityDate;
+@property (nonatomic, readonly) BOOL anonymous;
+@property (nonatomic, readonly, strong) SNRClientAgreements * _Nonnull agreements;
+@property (nonatomic, readonly, copy) NSDictionary<NSString *, id> * _Nullable attributes;
+@property (nonatomic, readonly, copy) NSArray<NSString *> * _Nullable tags;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL supportsSecureCoding;)
++ (BOOL)supportsSecureCoding SWIFT_WARN_UNUSED_RESULT;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+- (void)encodeWithCoder:(NSCoder * _Nonnull)coder;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+
+/// <code>ClientAgreements</code> class
+SWIFT_CLASS_NAMED("ClientAgreements")
+@interface SNRClientAgreements : SNRBaseModel <NSCopying, NSSecureCoding>
+@property (nonatomic) BOOL email;
+@property (nonatomic) BOOL sms;
+@property (nonatomic) BOOL push;
+@property (nonatomic) BOOL bluetooth;
+@property (nonatomic) BOOL rfid;
+@property (nonatomic) BOOL wifi;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL supportsSecureCoding;)
++ (BOOL)supportsSecureCoding SWIFT_WARN_UNUSED_RESULT;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+- (void)encodeWithCoder:(NSCoder * _Nonnull)coder;
+- (id _Nonnull)copyWithZone:(struct _NSZone * _Nullable)zone SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)isEqual:(id _Nullable)object SWIFT_WARN_UNUSED_RESULT;
+@property (nonatomic, readonly) NSUInteger hash;
+@end
+
+
+
+/// <code>ClientAuthenticationContext</code> class
+SWIFT_CLASS_NAMED("ClientAuthenticationContext")
+@interface SNRClientAuthenticationContext : SNRBaseModel
+@property (nonatomic, strong) SNRClientAgreements * _Nullable agreements;
+@property (nonatomic, copy) NSDictionary<NSString *, id> * _Nullable attributes;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+enum SNRClientConditionalAuthStatus : NSInteger;
+
+/// <code>ClientConditionalAuthResult</code> class
+SWIFT_CLASS_NAMED("ClientConditionalAuthResult")
+@interface SNRClientConditionalAuthResult : SNRBaseModel
+@property (nonatomic, readonly) enum SNRClientConditionalAuthStatus status;
+@property (nonatomic, readonly, copy) NSArray * _Nullable conditions;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+/// <code>ClientConditionalAuthStatus</code> enum
+typedef SWIFT_ENUM_NAMED(NSInteger, SNRClientConditionalAuthStatus, "ClientConditionalAuthStatus", open) {
+  SNRClientConditionalAuthStatusSuccess SWIFT_COMPILE_NAME("success") = 0,
+  SNRClientConditionalAuthStatusUnauthorized SWIFT_COMPILE_NAME("unauthorized") = 1,
+  SNRClientConditionalAuthStatusActivationRequired SWIFT_COMPILE_NAME("activationRequired") = 2,
+  SNRClientConditionalAuthStatusRegistrationRequired SWIFT_COMPILE_NAME("registrationRequired") = 3,
+  SNRClientConditionalAuthStatusApprovalRequired SWIFT_COMPILE_NAME("approvalRequired") = 4,
+  SNRClientConditionalAuthStatusTermsAcceptanceRequired SWIFT_COMPILE_NAME("termsAcceptanceRequired") = 5,
+  SNRClientConditionalAuthStatusMFARequired SWIFT_COMPILE_NAME("mfaRequired") = 6,
+  SNRClientConditionalAuthStatusUnknown SWIFT_COMPILE_NAME("unknown") = 7,
+};
+
+
+/// <code>ClientConditionalAuthenticationContext</code> class
+SWIFT_CLASS_NAMED("ClientConditionalAuthenticationContext")
+@interface SNRClientConditionalAuthenticationContext : SNRBaseModel
+@property (nonatomic, strong) SNRClientAgreements * _Nullable agreements;
+@property (nonatomic, copy) NSDictionary<NSString *, id> * _Nullable attributes;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+
+/// <code>ClientEventData</code> class
+SWIFT_CLASS_NAMED("ClientEventData")
+@interface SNRClientEventData : SNRBaseModel
+@property (nonatomic, readonly, copy) NSString * _Nonnull time;
+@property (nonatomic, readonly, copy) NSString * _Nonnull label;
+@property (nonatomic, readonly, copy) NSString * _Nonnull action;
+@property (nonatomic, readonly, copy) NSDictionary<NSString *, id> * _Nonnull client;
+@property (nonatomic, readonly, copy) NSDictionary<NSString *, id> * _Nonnull params;
+- (NSInteger)getClientID SWIFT_WARN_UNUSED_RESULT;
+- (NSString * _Nullable)getClientUUIDString SWIFT_WARN_UNUSED_RESULT;
+- (NSString * _Nullable)getClientEmail SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+@class NSNumber;
+
+/// <code>ClientEventsApiQuery</code> class.
+SWIFT_CLASS_NAMED("ClientEventsApiQuery")
+@interface SNRClientEventsApiQuery : NSObject
+@property (nonatomic, copy) NSArray<NSString *> * _Nullable actions;
+@property (nonatomic, copy) NSDate * _Nullable timeFrom;
+@property (nonatomic, copy) NSDate * _Nullable timeTo;
+@property (nonatomic, strong) NSNumber * _Nullable limit;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+/// <code>ClientPasswordResetConfirmationContext</code> class
+SWIFT_CLASS_NAMED("ClientPasswordResetConfirmationContext")
+@interface SNRClientPasswordResetConfirmationContext : SNRBaseModel
+@property (nonatomic, readonly, copy) NSString * _Nonnull password;
+@property (nonatomic, readonly, copy) NSString * _Nonnull token;
+- (nonnull instancetype)initWithPassword:(NSString * _Nonnull)password andToken:(NSString * _Nonnull)token OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+
+/// <code>ClientPasswordResetRequestContext</code> class
+SWIFT_CLASS_NAMED("ClientPasswordResetRequestContext")
+@interface SNRClientPasswordResetRequestContext : SNRBaseModel
+@property (nonatomic, readonly, copy) NSString * _Nonnull email;
+- (nonnull instancetype)initWithEmail:(NSString * _Nonnull)email OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+
+/// <code>ClientRegisterAccountContext</code> class
+SWIFT_CLASS_NAMED("ClientRegisterAccountContext")
+@interface SNRClientRegisterAccountContext : SNRBaseModel
+@property (nonatomic, readonly, copy) NSString * _Nonnull email;
+@property (nonatomic, readonly, copy) NSString * _Nonnull password;
+@property (nonatomic, copy) NSString * _Nullable customId;
+@property (nonatomic, copy) NSString * _Nullable firstName;
+@property (nonatomic, copy) NSString * _Nullable lastName;
+@property (nonatomic, copy) NSString * _Nullable phone;
+@property (nonatomic) enum SNRClientSex sex;
+@property (nonatomic, copy) NSString * _Nullable company;
+@property (nonatomic, copy) NSString * _Nullable address;
+@property (nonatomic, copy) NSString * _Nullable city;
+@property (nonatomic, copy) NSString * _Nullable province;
+@property (nonatomic, copy) NSString * _Nullable zipCode;
+@property (nonatomic, copy) NSString * _Nullable countryCode;
+@property (nonatomic, strong) SNRClientAgreements * _Nullable agreements;
+@property (nonatomic, copy) NSDictionary<NSString *, id> * _Nullable attributes;
+- (nonnull instancetype)initWithEmail:(NSString * _Nonnull)email andPassword:(NSString * _Nonnull)password OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+/// <code>ClientSex</code> enum
+typedef SWIFT_ENUM_NAMED(NSInteger, SNRClientSex, "ClientSex", open) {
+  SNRClientSexNotSpecified SWIFT_COMPILE_NAME("notSpecified") = 0,
+  SNRClientSexMale SWIFT_COMPILE_NAME("male") = 1,
+  SNRClientSexFemale SWIFT_COMPILE_NAME("female") = 2,
+  SNRClientSexOther SWIFT_COMPILE_NAME("other") = 3,
+};
+
+
+/// <code>ClientSimpleAuthenticationData</code> class
+SWIFT_CLASS_NAMED("ClientSimpleAuthenticationData")
+@interface SNRClientSimpleAuthenticationData : SNRBaseModel
+@property (nonatomic, copy) NSString * _Nullable email;
+@property (nonatomic, copy) NSString * _Nullable customId;
+@property (nonatomic, copy) NSString * _Nullable uuid;
+@property (nonatomic, copy) NSString * _Nullable firstName;
+@property (nonatomic, copy) NSString * _Nullable lastName;
+@property (nonatomic, copy) NSString * _Nullable displayName;
+@property (nonatomic, copy) NSString * _Nullable phone;
+@property (nonatomic) enum SNRClientSex sex;
+@property (nonatomic, copy) NSDate * _Nullable birthDate;
+@property (nonatomic, copy) NSString * _Nullable avatarUrl;
+@property (nonatomic, copy) NSString * _Nullable company;
+@property (nonatomic, copy) NSString * _Nullable address;
+@property (nonatomic, copy) NSString * _Nullable city;
+@property (nonatomic, copy) NSString * _Nullable province;
+@property (nonatomic, copy) NSString * _Nullable zipCode;
+@property (nonatomic, copy) NSString * _Nullable countryCode;
+@property (nonatomic, strong) SNRClientAgreements * _Nullable agreements;
+@property (nonatomic, copy) NSDictionary<NSString *, id> * _Nullable attributes;
+@property (nonatomic, copy) NSArray<NSString *> * _Nullable tags;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+
+/// <code>ClientStateDelegate</code> protocol
+/// A delegate to handle Client’s sign-in state changes.
+SWIFT_PROTOCOL_NAMED("ClientStateDelegate")
+@protocol SNRClientStateDelegate
+@optional
+/// This method is called when a customer signs in.
+- (void)snr_clientIsSignedIn;
+/// This method is called when a customer signs out.
+/// \param reason Specifies the reason for signing out.
+///
+- (void)snr_clientIsSignedOutWithReason:(enum SNRClientSessionEndReason)reason;
+@end
+
+
+/// <code>ClientUpdateAccountBasicInformationContext</code> class
+SWIFT_CLASS_NAMED("ClientUpdateAccountBasicInformationContext")
+@interface SNRClientUpdateAccountBasicInformationContext : SNRBaseModel
+@property (nonatomic, copy) NSString * _Nullable firstName;
+@property (nonatomic, copy) NSString * _Nullable lastName;
+@property (nonatomic, copy) NSString * _Nullable displayName;
+@property (nonatomic, copy) NSString * _Nullable phone;
+@property (nonatomic) enum SNRClientSex sex;
+@property (nonatomic, copy) NSString * _Nullable birthDate;
+@property (nonatomic, copy) NSString * _Nullable avatarUrl;
+@property (nonatomic, copy) NSString * _Nullable company;
+@property (nonatomic, copy) NSString * _Nullable address;
+@property (nonatomic, copy) NSString * _Nullable city;
+@property (nonatomic, copy) NSString * _Nullable province;
+@property (nonatomic, copy) NSString * _Nullable zipCode;
+@property (nonatomic, copy) NSString * _Nullable countryCode;
+@property (nonatomic, strong) SNRClientAgreements * _Nullable agreements;
+@property (nonatomic, copy) NSDictionary<NSString *, id> * _Nullable attributes;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+
+/// <code>ClientUpdateAccountContext</code> class
+SWIFT_CLASS_NAMED("ClientUpdateAccountContext")
+@interface SNRClientUpdateAccountContext : SNRBaseModel
+@property (nonatomic, copy) NSString * _Nullable email;
+@property (nonatomic, copy) NSString * _Nullable customId;
+@property (nonatomic, copy) NSString * _Nullable uuid;
+@property (nonatomic, copy) NSString * _Nullable firstName;
+@property (nonatomic, copy) NSString * _Nullable lastName;
+@property (nonatomic, copy) NSString * _Nullable displayName;
+@property (nonatomic, copy) NSString * _Nullable phone;
+@property (nonatomic) enum SNRClientSex sex;
+@property (nonatomic, copy) NSString * _Nullable birthDate;
+@property (nonatomic, copy) NSString * _Nullable avatarUrl;
+@property (nonatomic, copy) NSString * _Nullable company;
+@property (nonatomic, copy) NSString * _Nullable address;
+@property (nonatomic, copy) NSString * _Nullable city;
+@property (nonatomic, copy) NSString * _Nullable province;
+@property (nonatomic, copy) NSString * _Nullable zipCode;
+@property (nonatomic, copy) NSString * _Nullable countryCode;
+@property (nonatomic, strong) SNRClientAgreements * _Nullable agreements;
+@property (nonatomic, copy) NSDictionary<NSString *, id> * _Nullable attributes;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+@class SNRDocument;
 @class SNRDocumentApiQuery;
 @class SNRRecommendationOptions;
 @class SNRRecommendationResponse;
@@ -476,7 +1139,6 @@ SWIFT_CLASS_NAMED("CrashEvent")
 - (void)setExceptionName:(NSString * _Nonnull)exceptionName;
 - (void)setExceptionReason:(NSString * _Nonnull)exceptionReason;
 - (void)setExceptionStacktrace:(NSString * _Nonnull)exceptionStacktrace;
-- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
 @end
 
 
@@ -487,7 +1149,6 @@ SWIFT_CLASS_NAMED("CustomEvent")
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label action:(NSString * _Nonnull)action OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label action:(NSString * _Nonnull)action andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
-- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
 @end
 
 
@@ -525,6 +1186,8 @@ SWIFT_CLASS_NAMED("DocumentApiQuery")
 
 
 
+
+
 SWIFT_CLASS_NAMED("GeneralSettings")
 @interface SNRGeneralSettings : NSObject
 @property (nonatomic) BOOL enabled;
@@ -550,7 +1213,18 @@ SWIFT_CLASS_NAMED("HitTimerEvent")
 @interface SNRHitTimerEvent : SNREvent
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
-- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
+@end
+
+
+SWIFT_CLASS_NAMED("InAppMessageData")
+@interface SNRInAppMessageData : SNRBaseModel
+@property (nonatomic, readonly, copy) NSString * _Nonnull campaignHash;
+@property (nonatomic, readonly, copy) NSString * _Nonnull variantIdentifier;
+@property (nonatomic, readonly, copy) NSDictionary<NSString *, NSString *> * _Nullable additionalParameters;
+@property (nonatomic, readonly) BOOL isTest;
+- (nonnull instancetype)initWithCampaignHash:(NSString * _Nonnull)campaignHash variantIdentifier:(NSString * _Nonnull)variantIdentifier additionalParameters:(NSDictionary<NSString *, NSString *> * _Nullable)additionalParameters isTest:(BOOL)isTest OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 
@@ -572,6 +1246,77 @@ SWIFT_CLASS_NAMED("InitializationConfig")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@protocol SNRInjectorInAppMessageDelegate;
+
+/// <code>Injector</code> class
+SWIFT_CLASS_NAMED("Injector")
+@interface SNRInjector : NSObject
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+/// This method sets an object for in-app messages delegate methods.
+/// \param delegate An object that implements the <code>SNRInAppMessageDelegate</code> protocol.
+///
++ (void)setInAppMessageDelegate:(id <SNRInjectorInAppMessageDelegate> _Nonnull)delegate;
+@end
+
+
+@interface SNRInjector (SWIFT_EXTENSION(SyneriseSDK)) <_SNR_SignalReceivable>
+- (void)signalReceived:(_SNR_BaseSignal * _Nonnull)signal parameters:(NSDictionary<NSString *, id> * _Nonnull)parameters;
+@end
+
+
+
+/// <code>InjectorInAppMessageDelegate</code> protocol
+/// A delegate to handle events from in-app message campaigns.
+SWIFT_PROTOCOL_NAMED("InjectorInAppMessageDelegate")
+@protocol SNRInjectorInAppMessageDelegate
+@optional
+/// This method is called after an in-app message is loaded and Synerise SDK asks for permission to show it.
+/// \param data Model representation of the in-app message.
+///
+- (BOOL)SNR_shouldInAppMessageAppear:(SNRInAppMessageData * _Nonnull)data SWIFT_WARN_UNUSED_RESULT;
+/// This method is called after an in-app message appears.
+/// \param data Model representation of the in-app message.
+///
+- (void)SNR_inAppMessageDidAppear:(SNRInAppMessageData * _Nonnull)data;
+/// This method is called after an in-app message disappears.
+/// \param data Model representation of the in-app message.
+///
+- (void)SNR_inAppMessageDidDisappear:(SNRInAppMessageData * _Nonnull)data;
+/// This method is called when an in-app message changes size.
+- (void)SNR_inAppMessageDidChangeSize:(CGRect)rect;
+/// This method is called when a individual context for an in-app message is needed.
+/// \param data Model representation of the in-app message.
+///
+- (NSDictionary * _Nullable)SNR_inAppMessageContextIsNeeded:(SNRInAppMessageData * _Nonnull)data SWIFT_WARN_UNUSED_RESULT;
+/// This method is called when Synerise handles URL action from in-app messages.
+/// \param data Model representation of the in-app message.
+///
+/// \param url URL address value from the activity.
+///
+- (void)SNR_inAppMessageHandledURLAction:(SNRInAppMessageData * _Nonnull)data url:(NSURL * _Nonnull)url;
+/// This method is called when Synerise handles deeplink action from in-app messages.
+/// \param data Model representation of the in-app message.
+///
+/// \param deeplink Literal text value from the activity.
+///
+- (void)SNR_inAppMessageHandledDeeplinkAction:(SNRInAppMessageData * _Nonnull)data deeplink:(NSString * _Nonnull)deeplink SWIFT_DEPRECATED_MSG("Use `snr_inAppMessageHandledAction(data:deepLink:)` instead.");
+/// This method is called when Synerise handles deeplink action from in-app messages.
+/// \param data Model representation of the in-app message.
+///
+/// \param deepLink Literal text value from the activity.
+///
+- (void)SNR_inAppMessageHandledDeepLinkAction:(SNRInAppMessageData * _Nonnull)data deepLink:(NSString * _Nonnull)deepLink;
+/// This method is called when Synerise handles custom action from in-app messages.
+/// \param data Model representation of the in-app message.
+///
+/// \param name Custom action name for identification.
+///
+/// \param parameters Custom action parameters.
+///
+- (void)SNR_inAppMessageHandledCustomAction:(SNRInAppMessageData * _Nonnull)data name:(NSString * _Nonnull)name parameters:(NSDictionary * _Nonnull)parameters;
+@end
+
 
 SWIFT_CLASS_NAMED("InjectorSettings")
 @interface SNRInjectorSettings : NSObject
@@ -588,7 +1333,6 @@ SWIFT_CLASS_NAMED("InternalEvent")
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label action:(NSString * _Nonnull)action OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label action:(NSString * _Nonnull)action andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
-- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
 @end
 
 typedef SWIFT_ENUM_NAMED(NSInteger, SNRInternalEventSource, "InternalEventSource", open) {
@@ -601,7 +1345,6 @@ SWIFT_CLASS_NAMED("LoggedInEvent")
 @interface SNRLoggedInEvent : SNREvent
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
-- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
 @end
 
 
@@ -609,13 +1352,6 @@ SWIFT_CLASS_NAMED("LoggedOutEvent")
 @interface SNRLoggedOutEvent : SNREvent
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
-- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
-@end
-
-
-SWIFT_CLASS("_TtC11SyneriseSDK26MobileOperatorInfoProvider")
-@interface MobileOperatorInfoProvider : NSObject
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
@@ -654,7 +1390,6 @@ SWIFT_CLASS_NAMED("ProductAddedToFavoritesEvent")
 @interface SNRProductAddedToFavoritesEvent : SNREvent
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
-- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
 @end
 
 
@@ -676,13 +1411,11 @@ SWIFT_CLASS_NAMED("ProductViewedEvent")
 - (void)setIsRecommended:(BOOL)isRecommended;
 - (void)setCategory:(NSString * _Nonnull)category;
 - (void)setURL:(NSURL * _Nonnull)url;
-- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
 @end
 
 enum SNRPromotionStatus : NSUInteger;
 enum SNRPromotionType : NSInteger;
 @class SNRPromotionDetails;
-@class NSNumber;
 enum SNRPromotionDiscountType : NSInteger;
 enum SNRPromotionDiscountMode : NSInteger;
 @class SNRPromotionDiscountModeDetails;
@@ -1015,7 +1748,6 @@ SWIFT_CLASS_NAMED("PushCancelledEvent")
 @interface SNRPushCancelledEvent : SNREvent
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
-- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
 @end
 
 
@@ -1023,7 +1755,6 @@ SWIFT_CLASS_NAMED("PushClickedEvent")
 @interface SNRPushClickedEvent : SNREvent
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
-- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
 @end
 
 
@@ -1031,7 +1762,6 @@ SWIFT_CLASS_NAMED("PushViewedEvent")
 @interface SNRPushViewedEvent : SNREvent
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
-- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
 @end
 
 
@@ -1041,7 +1771,6 @@ SWIFT_CLASS_NAMED("RecognizeClientEvent")
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithEmail:(NSString * _Nullable)email customIdentify:(NSString * _Nullable)customIdentify;
 - (nonnull instancetype)initWithEmail:(NSString * _Nullable)email customIdentify:(NSString * _Nullable)customIdentify parameters:(NSDictionary<NSString *, id> * _Nullable)parameters OBJC_DESIGNATED_INITIALIZER;
-- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
 @end
 
 
@@ -1060,7 +1789,6 @@ SWIFT_CLASS_NAMED("RecommendationEvent")
 @interface SNRRecommendationEvent : SNREvent
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
-- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
@@ -1071,7 +1799,6 @@ SWIFT_CLASS_NAMED("RecommendationClickEvent")
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label productName:(NSString * _Nonnull)productName productId:(NSString * _Nonnull)productId campaignID:(NSString * _Nonnull)campaignID campaignHash:(NSString * _Nonnull)campaignHash andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
 - (void)setCategory:(NSString * _Nonnull)category;
 - (void)setURL:(NSURL * _Nonnull)url;
-- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
 @end
 
 
@@ -1149,7 +1876,6 @@ SWIFT_CLASS_NAMED("RecommendationSeenEvent")
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label productName:(NSString * _Nonnull)productName productId:(NSString * _Nonnull)productId campaignID:(NSString * _Nonnull)campaignID campaignHash:(NSString * _Nonnull)campaignHash andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
 - (void)setCategory:(NSString * _Nonnull)category;
 - (void)setURL:(NSURL * _Nonnull)url;
-- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
 @end
 
 
@@ -1160,7 +1886,6 @@ SWIFT_CLASS_NAMED("RecommendationViewEvent")
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label campaignID:(NSString * _Nonnull)campaignID campaignHash:(NSString * _Nonnull)campaignHash correlationId:(NSString * _Nonnull)correlationId andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label items:(NSArray<NSString *> * _Nonnull)items campaignID:(NSString * _Nonnull)campaignID campaignHash:(NSString * _Nonnull)campaignHash correlationId:(NSString * _Nonnull)correlationId andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
 - (void)setItems:(NSArray<NSString *> * _Nonnull)items;
-- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
 @end
 
 
@@ -1168,7 +1893,6 @@ SWIFT_CLASS_NAMED("RegisteredEvent")
 @interface SNRRegisteredEvent : SNREvent
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
-- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
 @end
 
 @class NSData;
@@ -1179,6 +1903,76 @@ SWIFT_CLASS_NAMED("ResponseRawData")
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
+
+
+/// <code>SNRError</code> class
+SWIFT_CLASS_NAMED("SNRError")
+@interface SNRError : NSError
+- (nonnull instancetype)initWithDomain:(NSString * _Nonnull)domain code:(NSInteger)code userInfo:(NSDictionary<NSString *, id> * _Nullable)userInfo OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
+@end
+
+@class SNRApiErrorBody;
+enum SNRApiErrorType : NSInteger;
+enum SNRApiErrorHttpErrorCategory : NSInteger;
+
+/// <code>SNRApiError</code> class
+SWIFT_CLASS_NAMED("SNRApiError")
+@interface SNRApiError : SNRError
+@property (nonatomic, readonly, strong) SNRApiErrorBody * _Nullable errorBody;
+@property (nonatomic, readonly) enum SNRApiErrorType errorType;
+@property (nonatomic, readonly) NSInteger httpCode;
+@property (nonatomic, readonly) enum SNRApiErrorHttpErrorCategory httpErrorCategory;
+@property (nonatomic, readonly, copy) NSArray<SNRError *> * _Nullable errors;
+- (nonnull instancetype)initWithDomain:(NSErrorDomain _Nonnull)domain code:(NSInteger)code errorBody:(SNRApiErrorBody * _Nullable)errorBody userInfo:(NSDictionary<NSString *, id> * _Nullable)userInfo errors:(NSArray<SNRError *> * _Nullable)errors OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithDomain:(NSString * _Nonnull)domain code:(NSInteger)code userInfo:(NSDictionary<NSString *, id> * _Nullable)userInfo OBJC_DESIGNATED_INITIALIZER;
+- (enum SNRApiErrorType)getType SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_MSG("Use `errorType` property instead.");
+- (NSInteger)getHttpCode SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_MSG("Use `httpCode` property instead.");
+- (NSString * _Nullable)getErrorCode SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_MSG("Use `errorBody.internalErrorCode` property instead.");
+- (NSString * _Nullable)getBody SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_MSG("Use `errorBody` property instead.");
+@end
+
+@class SNRApiErrorCause;
+
+/// <code>SNRApiErrorBody</code> class
+SWIFT_CLASS_NAMED("SNRApiErrorBody")
+@interface SNRApiErrorBody : NSObject
+@property (nonatomic, copy) NSString * _Nullable internalErrorCode;
+@property (nonatomic, copy) NSString * _Nullable error;
+@property (nonatomic, copy) NSString * _Nullable message;
+@property (nonatomic, copy) NSString * _Nullable path;
+@property (nonatomic) NSInteger status;
+@property (nonatomic, copy) NSArray<SNRApiErrorCause *> * _Nullable errorCauses;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+/// <code>SNRApiErrorCause</code> class
+SWIFT_CLASS_NAMED("SNRApiErrorCause")
+@interface SNRApiErrorCause : NSObject
+@property (nonatomic, copy) NSString * _Nullable field;
+@property (nonatomic, copy) NSString * _Nullable message;
+@property (nonatomic) NSInteger code;
+@property (nonatomic, copy) NSString * _Nullable rejectedValue;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+typedef SWIFT_ENUM_NAMED(NSInteger, SNRApiErrorHttpErrorCategory, "SNRApiErrorHttpErrorCategory", open) {
+  SNRApiErrorHttpErrorCategoryBadRequest SWIFT_COMPILE_NAME("badRequest") = 0,
+  SNRApiErrorHttpErrorCategoryUnauthorized SWIFT_COMPILE_NAME("unauthorized") = 1,
+  SNRApiErrorHttpErrorCategoryForbidden SWIFT_COMPILE_NAME("forbidden") = 2,
+  SNRApiErrorHttpErrorCategoryNotFound SWIFT_COMPILE_NAME("notFound") = 3,
+  SNRApiErrorHttpErrorCategoryRangeNotSatisfable SWIFT_COMPILE_NAME("rangeNotSatisfable") = 4,
+  SNRApiErrorHttpErrorCategoryServerError SWIFT_COMPILE_NAME("serverError") = 5,
+  SNRApiErrorHttpErrorCategoryUnknown SWIFT_COMPILE_NAME("unknown") = 6,
+};
+
+typedef SWIFT_ENUM_NAMED(NSInteger, SNRApiErrorType, "SNRApiErrorType", open) {
+  SNRApiErrorTypeUnknown SWIFT_COMPILE_NAME("unknown") = 0,
+  SNRApiErrorTypeNetwork SWIFT_COMPILE_NAME("network") = 1,
+  SNRApiErrorTypeUnauthorizedSession SWIFT_COMPILE_NAME("unauthorizedSession") = 2,
+  SNRApiErrorTypeHttp SWIFT_COMPILE_NAME("http") = 3,
+};
 
 typedef SWIFT_ENUM(NSInteger, SNRApiRequestCompletedSignalResult, open) {
   SNRApiRequestCompletedSignalResultSuccess = 0,
@@ -1193,6 +1987,37 @@ typedef SWIFT_ENUM(NSInteger, SNRClientUUIDChangeSignalReason, open) {
 typedef SWIFT_ENUM(NSInteger, SNRClientUUIDChangeSignalState, open) {
   SNRClientUUIDChangeSignalStateBefore = 0,
   SNRClientUUIDChangeSignalStateAfter = 1,
+};
+
+
+/// <code>ErrorCode</code> enum
+typedef SWIFT_ENUM_NAMED(NSInteger, SNRErrorCode, "SNRErrorCode", open) {
+  SNRErrorCodeUnknownError SWIFT_COMPILE_NAME("unknownError") = -101,
+  SNRErrorCodeInvalidArgument SWIFT_COMPILE_NAME("invalidArgument") = 3050,
+  SNRErrorCodeInternalInconsistency SWIFT_COMPILE_NAME("internalInconsistency") = 3060,
+  SNRErrorCodeInvalidImageResources SWIFT_COMPILE_NAME("invalidImageResources") = 3090,
+  SNRErrorCodeImageNotDownloaded SWIFT_COMPILE_NAME("imageNotDownloaded") = 3110,
+  SNRErrorCodeWebViewNotPreloaded SWIFT_COMPILE_NAME("webViewNotPreloaded") = 3130,
+  SNRErrorCodeCryptoFailedError SWIFT_COMPILE_NAME("cryptoFailedError") = 3610,
+  SNRErrorCodeMigrationError SWIFT_COMPILE_NAME("migrationError") = 3710,
+  SNRErrorCodeContentWidgetError SWIFT_COMPILE_NAME("contentWidgetError") = 3810,
+  SNRErrorCodeNotificationServiceExtensionError SWIFT_COMPILE_NAME("notificationServiceExtensionError") = 3910,
+  SNRErrorCodeObjectConsistencyError SWIFT_COMPILE_NAME("objectConsistencyError") = 4010,
+  SNRErrorCodeUnknownApiError SWIFT_COMPILE_NAME("unknownApiError") = -102,
+  SNRErrorCodeModuleNotReadyApiError SWIFT_COMPILE_NAME("moduleNotReadyApiError") = -110,
+  SNRErrorCodeNetworkApiError SWIFT_COMPILE_NAME("networkApiError") = -105,
+  SNRErrorCodeInvalidRequestApiError SWIFT_COMPILE_NAME("invalidRequestApiError") = -103,
+  SNRErrorCodeInvalidRequestSessionApiError SWIFT_COMPILE_NAME("invalidRequestSessionApiError") = -104,
+  SNRErrorCodeInvalidResponseApiError SWIFT_COMPILE_NAME("invalidResponseApiError") = -106,
+  SNRErrorCodeInvalidEtagCacheResponseApiError SWIFT_COMPILE_NAME("invalidEtagCacheResponseApiError") = -107,
+  SNRErrorCodeRequestBlockedByCircuitBreakerApiError SWIFT_COMPILE_NAME("requestBlockedByCircuitBreakerApiError") = -108,
+  SNRErrorCodeRequestBlockedByIncognitoModeApiError SWIFT_COMPILE_NAME("requestBlockedByIncognitoModeApiError") = -109,
+  SNRErrorCodeClientSessionUnauthorizedApiError SWIFT_COMPILE_NAME("clientSessionUnauthorizedApiError") = 3200,
+  SNRErrorCodeClientSessionExpiredApiError SWIFT_COMPILE_NAME("clientSessionExpiredApiError") = 3210,
+  SNRErrorCodeClientSessionAlreadySignedOutApiError SWIFT_COMPILE_NAME("clientSessionAlreadySignedOutApiError") = 3220,
+  SNRErrorCodeJWTValidationFailedApiError SWIFT_COMPILE_NAME("JWTValidationFailedApiError") = 3300,
+  SNRErrorCodeJWTProcessingFailedApiError SWIFT_COMPILE_NAME("JWTProcessingFailedApiError") = 3310,
+  SNRErrorCodeMissingPublicKeyApiError SWIFT_COMPILE_NAME("missingPublicKeyApiError") = 3320,
 };
 
 
@@ -1235,7 +2060,7 @@ SWIFT_CLASS_NAMED("ScreenViewApiQuery")
 @property (nonatomic, readonly, copy) NSString * _Nonnull feedSlug;
 @property (nonatomic, copy) NSString * _Nullable productID;
 @property (nonatomic, copy) NSDictionary<NSString *, id> * _Nullable params;
-- (nonnull instancetype)initWithFeedSlug:(NSString * _Nonnull)slug OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithFeedSlug:(NSString * _Nonnull)feedSlug OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -1256,7 +2081,6 @@ SWIFT_CLASS_NAMED("SearchedEvent")
 @interface SNRSearchedEvent : SNREvent
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
-- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
 @end
 
 @class SNRTrackerSettings;
@@ -1281,7 +2105,86 @@ SWIFT_CLASS_NAMED("SharedEvent")
 @interface SNRSharedEvent : SNREvent
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
-- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
+@end
+
+enum SNRTokenOrigin : NSUInteger;
+
+SWIFT_CLASS_NAMED("Token")
+@interface SNRToken : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nonnull tokenString;
+@property (nonatomic, readonly, copy) NSDate * _Nonnull expirationDate;
+@property (nonatomic, readonly, copy) NSString * _Nonnull rlm;
+@property (nonatomic, readonly) enum SNRTokenOrigin origin;
+@property (nonatomic, readonly, copy) NSString * _Nullable clientId;
+@property (nonatomic, readonly, copy) NSString * _Nullable customId;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+/// <code>TokenOrigin</code> enum
+typedef SWIFT_ENUM_NAMED(NSUInteger, SNRTokenOrigin, "TokenOrigin", open) {
+  SNRTokenOriginUnknown SWIFT_COMPILE_NAME("unknown") = 0,
+  SNRTokenOriginIncognito SWIFT_COMPILE_NAME("incognito") = 1,
+  SNRTokenOriginAnonymous SWIFT_COMPILE_NAME("anonymous") = 2,
+  SNRTokenOriginSynerise SWIFT_COMPILE_NAME("synerise") = 3,
+  SNRTokenOriginSimpleAuth SWIFT_COMPILE_NAME("simpleAuth") = 4,
+  SNRTokenOriginFacebook SWIFT_COMPILE_NAME("facebook") = 5,
+  SNRTokenOriginOAuth SWIFT_COMPILE_NAME("oauth") = 6,
+  SNRTokenOriginApple SWIFT_COMPILE_NAME("apple") = 7,
+  SNRTokenOriginGoogle SWIFT_COMPILE_NAME("google") = 8,
+};
+
+
+SWIFT_CLASS_NAMED("TokenPayload")
+@interface SNRTokenPayload : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nonnull tokenString;
+@property (nonatomic, readonly, copy) NSDate * _Nonnull expirationDate;
+@property (nonatomic, readonly, copy) NSDate * _Nonnull creationDate;
+@property (nonatomic, readonly, copy) NSString * _Nonnull rlm;
+@property (nonatomic, readonly) enum SNRTokenOrigin origin;
+@property (nonatomic, readonly, copy) NSString * _Nonnull uuid;
+@property (nonatomic, readonly, copy) NSString * _Nonnull clientId;
+@property (nonatomic, copy) NSString * _Nullable customId;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+- (nonnull instancetype)initWithTokenString:(NSString * _Nonnull)tokenString expirationDate:(NSDate * _Nonnull)expirationDate creationDate:(NSDate * _Nonnull)creationDate rlm:(NSString * _Nonnull)rlm origin:(enum SNRTokenOrigin)origin uuid:(NSString * _Nonnull)uuid clientId:(NSString * _Nonnull)clientId customId:(NSString * _Nullable)customId OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@protocol SNRTrackerDelegate;
+
+/// <code>Tracker</code> class
+SWIFT_CLASS_NAMED("Tracker")
+@interface SNRTracker : NSObject
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+/// This method sets an object for Tracker module delegate methods.
+/// \param delegate An object that implements the <code>TrackerDelegate</code> protocol.
+///
++ (void)setDelegate:(id <SNRTrackerDelegate> _Nonnull)delegate;
+/// This method sets a custom identifier in the parameters of every event.
+/// You can pass a custom identifier to match your customers in our database.
+/// \param customIdentifier Client’s custom identifier.
+///
++ (void)setCustomIdentifier:(NSString * _Nullable)customIdentifier;
+/// This method sets a custom email in the parameters of every event.
+/// You can pass a custom email to match your customers in our database.
+/// \param customEmail Client’s custom email.
+///
++ (void)setCustomEmail:(NSString * _Nullable)customEmail;
+/// This method sends an event.
+/// The tracker caches and enqueues all your events locally, so they all will be sent eventually.
+/// \param event <code>Event</code> object.
+///
++ (void)send:(SNREvent * _Nonnull)event;
+/// This method forces sending the events from the queue to the server.
+/// \param completionHandler A block to be executed when the tracker has finished flushing events to Synerise backend, no matter the result.
+///
++ (void)flushEventsWithCompletionHandler:(void (^ _Nullable)(void))completionHandler;
+@end
+
+
+@interface SNRTracker (SWIFT_EXTENSION(SyneriseSDK)) <_SNR_SignalReceivable>
+- (void)signalReceived:(_SNR_BaseSignal * _Nonnull)signal parameters:(NSDictionary<NSString *, id> * _Nonnull)parameters;
 @end
 
 typedef SWIFT_ENUM_NAMED(NSInteger, SNRTrackerAutoTrackMode, "TrackerAutoTrackMode", open) {
@@ -1310,6 +2213,16 @@ SWIFT_CLASS_NAMED("TrackerDeclarativeTrackingSettings")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+
+/// <code>TrackerDelegate</code> protocol
+/// A delegate to handle events from the Tracker.
+SWIFT_PROTOCOL_NAMED("TrackerDelegate")
+@protocol SNRTrackerDelegate
+@optional
+/// This method is called when the Tracker requests a location update.
+- (void)snr_locationUpdateRequired;
+@end
+
 @class SNRTrackerParamsBuilder;
 
 SWIFT_CLASS_NAMED("TrackerParams")
@@ -1319,6 +2232,7 @@ SWIFT_CLASS_NAMED("TrackerParams")
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
+
 
 
 SWIFT_CLASS_NAMED("TrackerParamsBuilder")
@@ -1332,6 +2246,7 @@ SWIFT_CLASS_NAMED("TrackerParamsBuilder")
 - (NSDictionary<NSString *, id> * _Nonnull)_toDictionary SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
+
 
 
 SWIFT_CLASS_NAMED("TrackerSettings")
@@ -1375,7 +2290,6 @@ SWIFT_CLASS_NAMED("ViewTrackerEvent")
 - (void)setViewText:(NSString * _Nonnull)viewText;
 - (void)setViewParameters:(NSDictionary<NSString *, id> * _Nonnull)parameters;
 - (void)setAutotrackValue:(NSString * _Nonnull)autotrackValue;
-- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
 @end
 
 typedef SWIFT_ENUM_NAMED(NSInteger, SNRViewTrackerEventViewActionType, "ViewTrackerEventViewActionType", open) {
@@ -1397,7 +2311,6 @@ SWIFT_CLASS_NAMED("VisitedScreenEvent")
 @interface SNRVisitedScreenEvent : SNREvent
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
-- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
 @end
 
 /// <code>VoucherCodeStatus</code> enum
@@ -1435,7 +2348,6 @@ SWIFT_CLASS_NAMED("VoucherCodesResponse")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
-@class _SNR_Constants;
 @class _SNR_Logger;
 @class _SNR_SyneriseFrameworkInfoProvider;
 @class _SNR_ClientApplicationInfoProvider;
@@ -1446,13 +2358,11 @@ SWIFT_CLASS_NAMED("VoucherCodesResponse")
 @class _SNR_ClientUUIDChangeSignal;
 @class _SNR_DataInconsistencySignal;
 @class _SNR_PushRegistrationRequiredSignal;
-@class _SNR_IncognitoModeChangedSignal;
 @class _SNR_SyneriseReinitializationSignal;
 @class _SNR_ApiRequestCompletedSignal;
 @class _SNR_DispatchUtils;
 @class _SNR_DelegateUtils;
 @class _SNR_MiscUtils;
-@class _SNR_PushEventUtils;
 @class _SNR_PushEventFactory;
 @class _SNR_TimeZoneDateFormatter;
 @class _SNR_UTCDateFormatter;
@@ -1467,9 +2377,6 @@ SWIFT_CLASS_NAMED("_SNR")
 /// SWIFT COMMAND PROXY
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) id <SNRSwiftCommandProxyProtocol> _Nonnull _Proxy;)
 + (id <SNRSwiftCommandProxyProtocol> _Nonnull)_Proxy SWIFT_WARN_UNUSED_RESULT;
-/// CONSTANTS
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) SWIFT_METATYPE(_SNR_Constants) _Nonnull Constants;)
-+ (SWIFT_METATYPE(_SNR_Constants) _Nonnull)Constants SWIFT_WARN_UNUSED_RESULT;
 /// LOGGER
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) SWIFT_METATYPE(_SNR_Logger) _Nonnull Logger;)
 + (SWIFT_METATYPE(_SNR_Logger) _Nonnull)Logger SWIFT_WARN_UNUSED_RESULT;
@@ -1494,8 +2401,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) _SNR_DataInc
 + (_SNR_DataInconsistencySignal * _Nonnull)DataInconsistencySignalSingleton SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) _SNR_PushRegistrationRequiredSignal * _Nonnull PushRegistrationRequiredSignalSingleton;)
 + (_SNR_PushRegistrationRequiredSignal * _Nonnull)PushRegistrationRequiredSignalSingleton SWIFT_WARN_UNUSED_RESULT;
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) _SNR_IncognitoModeChangedSignal * _Nonnull IncognitoModeChangedSignalSingleton;)
-+ (_SNR_IncognitoModeChangedSignal * _Nonnull)IncognitoModeChangedSignalSingleton SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) _SNR_SyneriseReinitializationSignal * _Nonnull SyneriseReinitializationSignalSingleton;)
 + (_SNR_SyneriseReinitializationSignal * _Nonnull)SyneriseReinitializationSignalSingleton SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) _SNR_ApiRequestCompletedSignal * _Nonnull ApiRequestCompletedSignalSingleton;)
@@ -1506,8 +2411,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) SWIFT_METATYPE(_SNR_
 + (SWIFT_METATYPE(_SNR_DelegateUtils) _Nonnull)DelegateUtils SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) SWIFT_METATYPE(_SNR_MiscUtils) _Nonnull MiscUtils;)
 + (SWIFT_METATYPE(_SNR_MiscUtils) _Nonnull)MiscUtils SWIFT_WARN_UNUSED_RESULT;
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) SWIFT_METATYPE(_SNR_PushEventUtils) _Nonnull PushEventUtils;)
-+ (SWIFT_METATYPE(_SNR_PushEventUtils) _Nonnull)PushEventUtils SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) SWIFT_METATYPE(_SNR_PushEventFactory) _Nonnull PushEventFactory;)
 + (SWIFT_METATYPE(_SNR_PushEventFactory) _Nonnull)PushEventFactory SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) _SNR_TimeZoneDateFormatter * _Nonnull TimeZoneDateFormatterInstance;)
@@ -1600,15 +2503,10 @@ SWIFT_CLASS_NAMED("_SNR_ClientManager")
 @end
 
 
-SWIFT_PROTOCOL_NAMED("_SNR_SignalReceivable")
-@protocol _SNR_SignalReceivable
-- (void)signalReceived:(_SNR_BaseSignal * _Nonnull)_ parameters:(NSDictionary<NSString *, id> * _Nonnull)parameters;
-@end
-
-
 @interface _SNR_ClientManager (SWIFT_EXTENSION(SyneriseSDK)) <_SNR_SignalReceivable>
 - (void)signalReceived:(_SNR_BaseSignal * _Nonnull)signal parameters:(NSDictionary<NSString *, id> * _Nonnull)parameters;
 @end
+
 
 
 SWIFT_CLASS_NAMED("_SNR_ClientModel")
@@ -1648,14 +2546,6 @@ SWIFT_CLASS_NAMED("_SNR_ClientUUIDChangeSignal")
 @property (nonatomic, readonly, copy) NSString * _Nonnull REASON_KEY;
 - (void)notifyUUIDChangedIsBeforeCurrentUUIDString:(NSString * _Nonnull)currentUUIDString;
 - (void)notifyUUIDChangedWithReason:(enum SNRClientUUIDChangeSignalReason)reason;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-SWIFT_CLASS_NAMED("_SNR_Constants")
-@interface _SNR_Constants : NSObject
-+ (NSString * _Nonnull)LOCALIZABLE_STRING_KEY_OK SWIFT_WARN_UNUSED_RESULT;
-+ (NSString * _Nonnull)LOCALIZABLE_STRING_KEY_CANCEL SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -1701,6 +2591,7 @@ SWIFT_CLASS_NAMED("_SNR_DispatchUtils")
 + (void)dispatchSyncBlock:(void (^ _Nonnull)(void))block onQueue:(dispatch_queue_t _Nonnull)queue;
 + (void)dispatchAsyncBlockOnMainThread:(void (^ _Nonnull)(void))block;
 + (void)dispatchAsyncBlockOnMainThread:(void (^ _Nonnull)(void))block ifMetCondition:(BOOL)condition;
++ (void)dispatchAsyncBlock:(void (^ _Nonnull)(void))block onQueue:(dispatch_queue_t _Nonnull)queue;
 + (void)dispatchAsyncBlockOnMainThread:(void (^ _Nonnull)(void))block withDelay:(NSTimeInterval)delay;
 + (void)dispatchAsyncBlockOnBackgroundThread:(void (^ _Nonnull)(void))block;
 + (void)dispatchAsyncBlockOnBackgroundThread:(void (^ _Nonnull)(void))block ifMetCondition:(BOOL)condition;
@@ -1715,13 +2606,6 @@ SWIFT_CLASS_NAMED("_SNR_ImageProvider")
 - (UIImage * _Nullable)downloadImageSynchronouslyFromURL:(NSURL * _Nonnull)url SWIFT_WARN_UNUSED_RESULT;
 - (BOOL)downloadAndCacheImageSynchronouslyFromURL:(NSURL * _Nonnull)url SWIFT_WARN_UNUSED_RESULT;
 - (void)downloadImageAsynchronouslyFromURL:(NSURL * _Nonnull)url completionBlock:(void (^ _Nonnull)(UIImage * _Nullable, NSError * _Nullable))completion;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-SWIFT_CLASS_NAMED("_SNR_IncognitoModeChangedSignal")
-@interface _SNR_IncognitoModeChangedSignal : _SNR_BaseSignal
-- (void)notifyIncognitoModeChanged;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -1751,10 +2635,12 @@ SWIFT_CLASS_NAMED("_SNR_MiscUtils")
 + (NSString * _Nonnull)cleanupStringToAsciiEncoding:(NSString * _Nullable)string SWIFT_WARN_UNUSED_RESULT;
 + (BOOL)isUUID:(NSString * _Nullable)string SWIFT_WARN_UNUSED_RESULT;
 + (BOOL)isURL:(NSString * _Nonnull)string SWIFT_WARN_UNUSED_RESULT;
++ (NSURL * _Nullable)makeUrlWithString:(NSString * _Nonnull)urlString parameters:(NSDictionary<NSString *, NSString *> * _Nullable)parameters SWIFT_WARN_UNUSED_RESULT;
 + (BOOL)usesSDKHybridPlugin SWIFT_WARN_UNUSED_RESULT;
 + (BOOL)usesReactNativePlugin SWIFT_WARN_UNUSED_RESULT;
 + (BOOL)usesFlutterPlugin SWIFT_WARN_UNUSED_RESULT;
 + (BOOL)usesXamarinPlugin SWIFT_WARN_UNUSED_RESULT;
++ (NSString * _Nonnull)localizedString:(NSString * _Nonnull)key SWIFT_WARN_UNUSED_RESULT;
 + (NSString * _Nonnull)userLocalizedString:(NSString * _Nonnull)key SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -1776,15 +2662,6 @@ SWIFT_CLASS_NAMED("_SNR_PushEventFactory")
 + (SNREvent * _Nullable)makePushViewEvent:(id _Nonnull)model SWIFT_WARN_UNUSED_RESULT;
 + (SNREvent * _Nullable)makePushDismissEvent:(id _Nonnull)model SWIFT_WARN_UNUSED_RESULT;
 + (SNREvent * _Nullable)makePushImageTimeoutEvent:(id _Nonnull)model SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-SWIFT_CLASS_NAMED("_SNR_PushEventUtils")
-@interface _SNR_PushEventUtils : NSObject
-+ (void)sendPushOpenInAppEventFor:(id _Nonnull)model;
-+ (void)sendPushClickEventFor:(id _Nonnull)model actionIdentifier:(NSString * _Nullable)actionIdentifier url:(NSString * _Nullable)url;
-+ (void)sendPushDismissEventFor:(id _Nonnull)model;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -2161,6 +3038,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #if __has_warning("-Watimport-in-framework-header")
 #pragma clang diagnostic ignored "-Watimport-in-framework-header"
 #endif
+@import CoreFoundation;
 @import Dispatch;
 @import Foundation;
 @import ObjectiveC;
@@ -2188,24 +3066,17 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 #if defined(__OBJC__)
 @class NSString;
-@class NSDate;
 @class SNRTrackerParams;
 
 SWIFT_CLASS_NAMED("Event")
 @interface SNREvent : NSObject <NSCopying>
-@property (nonatomic) NSInteger _id;
-@property (nonatomic, readonly, copy) NSString * _Nonnull _type;
-@property (nonatomic, readonly, copy) NSString * _Nonnull label;
-@property (nonatomic, readonly, copy) NSString * _Nonnull action;
-@property (nonatomic, copy) NSDate * _Nullable _timestamp;
-@property (nonatomic, copy) NSDate * _Nullable _time;
+@property (nonatomic, readonly, copy) NSString * _Nonnull _action;
 @property (nonatomic, copy) NSDictionary<NSString *, id> * _Nullable _client;
 @property (nonatomic, readonly, copy) NSDictionary<NSString *, id> * _Nullable parameters;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
-- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters OBJC_DESIGNATED_INITIALIZER;
 - (id _Nonnull)copyWithZone:(struct _NSZone * _Nullable)zone SWIFT_WARN_UNUSED_RESULT;
 - (void)_setParam:(id _Nullable)param forKey:(NSString * _Nonnull)key;
 - (NSDictionary<NSString *, id> * _Nonnull)_toDictionary SWIFT_WARN_UNUSED_RESULT;
@@ -2219,7 +3090,6 @@ SWIFT_CLASS_NAMED("AppearedInLocationEvent")
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andLocation:(CLLocation * _Nonnull)location;
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andLocation:(CLLocation * _Nonnull)location andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
-- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
 @end
 
 
@@ -2229,9 +3099,9 @@ SWIFT_CLASS_NAMED("ApplicationStartedEvent")
 + (SNRApplicationStartedEvent * _Nonnull)eventWithParameters:(NSDictionary<NSString *, NSString *> * _Nullable)parameters SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
-- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
 @end
 
+@class NSDate;
 
 /// <code>AssignVoucherData</code> class
 SWIFT_CLASS_NAMED("AssignVoucherData")
@@ -2291,11 +3161,681 @@ SWIFT_CLASS_NAMED("CartEvent")
 - (void)setDiscountedPrice:(SNRUnitPrice * _Nonnull)price;
 - (void)setURL:(NSURL * _Nonnull)url;
 - (void)setProducer:(NSString * _Nonnull)producer;
-- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
 @end
 
-@class SNRDocument;
+@protocol SNRClientStateDelegate;
+@class SNRClientRegisterAccountContext;
 @class SNRApiError;
+@class SNRClientConditionalAuthResult;
+@class SNRClientAuthenticationContext;
+@class SNRClientConditionalAuthenticationContext;
+@class SNRTokenPayload;
+@class SNRClientSimpleAuthenticationData;
+@class SNRToken;
+@class SNRClientAccountInformation;
+@class SNRClientEventsApiQuery;
+@class SNRClientEventData;
+@class SNRClientUpdateAccountBasicInformationContext;
+@class SNRClientUpdateAccountContext;
+@class SNRClientPasswordResetRequestContext;
+@class SNRClientPasswordResetConfirmationContext;
+
+/// <code>Client</code> class
+SWIFT_CLASS_NAMED("Client")
+@interface SNRClient : NSObject
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+/// This method sets object for a customer’s state delegate methods.
+/// \param delegate An object that implements the <code>ClientStateDelegate</code> protocol.
+///
++ (void)setClientStateDelegate:(id <SNRClientStateDelegate> _Nullable)delegate;
+/// This method registers a new customer with an email, password, and optional data.
+/// This method requires the context object with a customer’s email, password, and optional data. Omitted fields are not modified.
+/// Depending on the backend configuration, the account may require activation.
+/// note:
+/// Do NOT allow signing in again (or signing up) when a customer is already signed in. Sign the customer out first.
+/// note:
+/// Do NOT create multiple instances nor call this method multiple times before execution.
+/// \param context <code>ClientRegisterAccountContext</code> object with client’s email, password, and other optional data. Fields that are not provided are not modified.
+///
+/// \param success A closure to be executed when the operation finishes successfully.
+///
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
+///
++ (void)registerAccount:(SNRClientRegisterAccountContext * _Nonnull)context success:(void (^ _Nonnull)(void))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+/// This method requests sending an email with a URL that confirms the registration and activates the account.
+/// \param email Client’s email.
+///
+/// \param success A closure to be executed when the operation finishes successfully.
+///
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
+///
++ (void)requestAccountActivationWithEmail:(NSString * _Nonnull)email success:(void (^ _Nonnull)(void))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+/// This method confirms a customer account with the confirmation token.
+/// \param token Confirmation token.
+///
+/// \param success A closure to be executed when the operation finishes successfully.
+///
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
+///
++ (void)confirmAccountActivationByToken:(NSString * _Nonnull)token success:(void (^ _Nonnull)(void))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+/// This method requests a customer’s account registration process with the PIN code.
+/// \param email Client’s email.
+///
+/// \param success A closure to be executed when the operation finishes successfully.
+///
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
+///
++ (void)requestAccountActivationByPinWithEmail:(NSString * _Nonnull)email success:(void (^ _Nonnull)(void))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+/// This method confirms a customer’s account registration process with the PIN code.
+/// \param pinCode Code sent to your email.
+///
+/// \param email Client’s email.
+///
+/// \param success A closure to be executed when the operation finishes successfully.
+///
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
+///
++ (void)confirmAccountActivationByPin:(NSString * _Nonnull)pinCode email:(NSString * _Nonnull)email success:(void (^ _Nonnull)(void))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+/// This method signs a customer in to obtain a JSON Web Token (JWT) which can be used in subsequent requests.
+/// The SDK will refresh the token before each call if it is about to expire (but not expired).
+/// note:
+/// Do NOT allow signing in again (or signing up) when a customer is already signed in. First, sign the customer out.
+/// note:
+/// Do NOT create multiple instances nor call this method multiple times before execution.
+/// \param email Client’s email.
+///
+/// \param password Client’s password.
+///
+/// \param success A closure to be executed when the operation finishes successfully.
+///
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
+///
++ (void)signInWithEmail:(NSString * _Nonnull)email password:(NSString * _Nonnull)password success:(void (^ _Nonnull)(void))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+/// This method signs a customer in to obtain a JSON Web Token (JWT) which can be used in subsequent requests.
+/// The SDK will refresh the token before each call if it is about to expire (but not expired).
+/// note:
+/// Do NOT allow signing in again (or signing up) when a customer is already signed in. First, sign the customer out.
+/// note:
+/// Do NOT create multiple instances nor call this method multiple times before execution.
+/// \param email Client’s email.
+///
+/// \param password Client’s password.
+///
+/// \param success A closure to be executed when the operation finishes successfully.
+///
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
+///
++ (void)signInConditionallyWithEmail:(NSString * _Nonnull)email password:(NSString * _Nonnull)password success:(void (^ _Nonnull)(SNRClientConditionalAuthResult * _Nonnull))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+/// This method authenticates a customer with OAuth, Facebook, Google, Apple, or Synerise.
+/// If an account for the customer does not exist and the identity provider is different than Synerise, this request creates an account.
+/// \param token Client’s token (OAuth, Facebook, Apple etc.).
+///
+/// \param clientIdentityProvider Client’s identity provider.
+///
+/// \param authID Authorization custom identity.
+///
+/// \param context <code>ClientAuthenticationContext</code> object with agreements and optional attributes.
+///
+/// \param success A closure to be executed when the operation finishes successfully.
+///
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
+///
++ (void)authenticateWithToken:(id _Nonnull)token clientIdentityProvider:(enum SNRClientIdentityProvider)clientIdentityProvider authID:(NSString * _Nullable)authID context:(SNRClientAuthenticationContext * _Nullable)context success:(void (^ _Nonnull)(void))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+/// This method authenticates a customer with OAuth, Facebook, Google, Apple, or Synerise.
+/// If an account for the customer does not exist and the identity provider is different than Synerise, this request creates an account.
+/// \param token Client’s token (OAuth, Facebook, Apple etc.).
+///
+/// \param clientIdentityProvider Client’s identity provider.
+///
+/// \param authID Authorization custom identity.
+///
+/// \param context <code>ClientConditionalAuthenticationContext</code> object with agreements and optional attributes.
+///
+/// \param success A closure to be executed when the operation finishes successfully.
+///
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
+///
++ (void)authenticateConditionallyWithToken:(id _Nonnull)token clientIdentityProvider:(enum SNRClientIdentityProvider)clientIdentityProvider authID:(NSString * _Nullable)authID context:(SNRClientConditionalAuthenticationContext * _Nullable)context success:(void (^ _Nonnull)(SNRClientConditionalAuthResult * _Nonnull))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+/// This method signs in a customer in with the provided token payload.
+/// \param tokenPayload <code>TokenPayload</code> object with a token’s payload.
+///
+/// \param authID Authorization custom identity.
+///
+/// \param success A closure to be executed when the operation finishes successfully.
+///
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
+///
++ (void)authenticateWithTokenPayload:(SNRTokenPayload * _Nonnull)tokenPayload authID:(NSString * _Nonnull)authID success:(void (^ _Nonnull)(void))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+/// This method authenticates a customer with Simple Authentication.
+/// note:
+/// When you use this method, you must set a request validation salt by using the <code>Synerise.setRequestValidationSalt(_:)</code> method (if salt is enabled for Simple Authentication).
+/// \param data <code>ClientSimpleAuthenticationData</code> object with client’s data information to be modified. Fields that are not provided are not modified.
+///
+/// \param success A closure to be executed when the operation finishes successfully.
+///
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
+///
++ (void)simpleAuthentication:(SNRClientSimpleAuthenticationData * _Nonnull)data authID:(NSString * _Nonnull)authID success:(void (^ _Nonnull)(void))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+/// This method checks if a customer is signed in (via RaaS, OAuth, Facebook, Apple).
++ (BOOL)isSignedIn SWIFT_WARN_UNUSED_RESULT;
+/// This method checks if a customer is signed in (via Simple Authentication).
++ (BOOL)isSignedInViaSimpleAuthentication SWIFT_WARN_UNUSED_RESULT;
+/// This method signs out a customer out.
+/// note:
+/// This method works with every authentication type (via Synerise, External Provider, OAuth or Simple Authentication).
++ (void)signOut;
+/// This method signs out a customer out with a chosen mode.
+/// note:
+/// This method works with every authentication type (via Synerise, External Provider, OAuth or Simple Authentication).
+/// \param mode Logout mode.
+///
+/// \param fromAllDevices Determines whether it should sign out all devices.
+///
+/// \param success A closure to be executed when the operation finishes successfully.
+///
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
+///
++ (void)signOutWithMode:(enum SNRClientSignOutMode)mode fromAllDevices:(BOOL)fromAllDevices success:(void (^ _Nonnull)(void))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+/// This method refreshes the customer’s current token.
+/// note:
+/// Returns an error if the customer is not logged in or the token has expired and cannot be refreshed.
+/// \param success A closure to be executed when the operation finishes successfully.
+///
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
+///
++ (void)refreshTokenWithSuccess:(void (^ _Nonnull)(void))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+/// This method retrieves the customer’s current, active token.
+/// note:
+/// Returns an error if the customer is not logged in or the token has expired and cannot be retrieved.
+/// \param success A closure to be executed when the operation finishes successfully.
+///
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
+///
++ (void)retrieveTokenWithSuccess:(void (^ _Nonnull)(SNRToken * _Nonnull))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+/// This method retrieves the customer’s current UUID.
++ (NSString * _Nonnull)getUUID SWIFT_WARN_UNUSED_RESULT;
+/// This method retrieves the current UUID or generates a new one from a seed.
+/// This operation doesn’t affect the customer session in the SDK.
+/// \param authID A seed for UUID generation.
+///
++ (NSString * _Nonnull)getUUIDForAuthenticationWithAuthID:(NSString * _Nonnull)authID SWIFT_WARN_UNUSED_RESULT;
+/// This method regenerates the UUID and clears the authentication token, login session, custom email, and custom identifier.
+/// This operation works only if the customer is anonymous.
+/// This operation clears authentication token, login (if applicable), custom email and custom identifier.
++ (BOOL)regenerateUUID SWIFT_WARN_UNUSED_RESULT;
+/// This method regenerates the UUID and clears the authentication token, login session, custom email, and custom identifier.
+/// This operation works only if the customer is anonymous.
+/// This operation clears authentication token, login (if applicable), custom email and custom identifier.
+/// \param clientIdentifier A seed for UUID generation.
+///
++ (BOOL)regenerateUUIDWithClientIdentifier:(NSString * _Nullable)clientIdentifier SWIFT_WARN_UNUSED_RESULT;
+/// This method destroys the session completely.
+/// This method clears all session data (both client and anonymous) and removes cached data. Then, it regenerates the UUID and creates the new anonymous session.
++ (void)destroySession;
+/// This method gets a customer’s account information.
+/// note:
+/// This method requires customer authentication.
+/// \param success A closure to be executed when the operation finishes successfully.
+///
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
+///
++ (void)getAccountWithSuccess:(void (^ _Nonnull)(SNRClientAccountInformation * _Nonnull))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+/// This method retrieves events for an authenticated customer.
+/// note:
+/// This method requires customer authentication.
+/// \param apiQuery <code>ClientEventsApiQuery</code> object responsible for storing all query parameters.
+///
+/// \param success A closure to be executed when the operation finishes successfully.
+///
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
+///
++ (void)getEventsWithApiQuery:(SNRClientEventsApiQuery * _Nullable)apiQuery success:(void (^ _Nonnull)(NSArray<SNRClientEventData *> * _Nonnull))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+/// This method updates a customer’s account’s basic information (without identification data: uuid, customId, email).
+/// This method requires the context object with the customer’s account information. Omitted fields are not modified.
+/// This method does not require customer authentication and can be used for anonymous profiles.
+/// \param context <code>ClientUpdateAccountBasicInformationContext</code> object with account basic information to be modified. Fields that are not provided are not modified.
+///
+/// \param success A closure to be executed when the operation finishes successfully.
+///
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
+///
++ (void)updateAccountBasicInformation:(SNRClientUpdateAccountBasicInformationContext * _Nonnull)context success:(void (^ _Nonnull)(void))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+/// This method updates a customer’s account information.
+/// This method requires the context object with the customer’s account information. Omitted fields are not modified.
+/// note:
+/// This method requires customer authentication.
+/// \param context <code>ClientUpdateAccountContext</code> object with client’s account information to be modified. Fields that are not provided are not modified.
+///
+/// \param success A closure to be executed when the operation finishes successfully.
+///
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
+///
++ (void)updateAccount:(SNRClientUpdateAccountContext * _Nonnull)context success:(void (^ _Nonnull)(void))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+/// This method requests a customer’s password reset with email. The customer will receive a token to the provided email address. That token is then used for the confirmation of password reset.
+/// This method requires the customer’s email.
+/// note:
+/// This method is a global operation and doesn’t require customer authentication.
+/// \param context <code>ClientPasswordResetRequestContext</code> object with client’s email.
+///
+/// \param success A closure to be executed when the operation finishes successfully.
+///
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
+///
++ (void)requestPasswordReset:(SNRClientPasswordResetRequestContext * _Nonnull)context success:(void (^ _Nonnull)(void))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+/// This method confirm a customer’s password reset with the new password and token provided by password reset request.
+/// This method requires the customer’s new password and the confirmation token received by e-mail.
+/// note:
+/// This method is a global operation and doesn’t require customer authentication.
+/// \param context <code>ClientPasswordResetConfirmationContext</code> object with client’s new password and token.
+///
+/// \param success A closure to be executed when the operation finishes successfully.
+///
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
+///
++ (void)confirmResetPassword:(SNRClientPasswordResetConfirmationContext * _Nonnull)context success:(void (^ _Nonnull)(void))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+/// This method changes a customer’s password.
+/// note:
+/// This method requires customer authentication.
+/// note:
+/// Returns the HTTP 403 status code if the provided old password is invalid.
+/// \param password Client’s new password.
+///
+/// \param oldPassword Client’s old password.
+///
+/// \param success A closure to be executed when the operation finishes successfully.
+///
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
+///
++ (void)changePassword:(NSString * _Nonnull)password oldPassword:(NSString * _Nonnull)oldPassword success:(void (^ _Nonnull)(void))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+/// This method requests a customer’s email change.
+/// note:
+/// This method is a global operation and doesn’t require customer authentication.
+/// note:
+/// Returns the HTTP 403 status code if the provided token or the password is invalid.
+/// \param email Client’s new email.
+///
+/// \param password Client’s password (if Synerise account).
+///
+/// \param externalToken Client’s token (if OAuth, Facebook, Apple etc.).
+///
+/// \param authID Authorization custom identity.
+///
+/// \param success A closure to be executed when the operation finishes successfully.
+///
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
+///
++ (void)requestEmailChange:(NSString * _Nonnull)email password:(NSString * _Nullable)password externalToken:(id _Nullable)externalToken authID:(NSString * _Nullable)authID success:(void (^ _Nonnull)(void))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+/// This method confirms an email change.
+/// note:
+/// This method is a global operation and doesn’t require customer authentication.
+/// note:
+/// Returns the HTTP 403 status code if the provided token is invalid.
+/// \param token Client’s token provided by email.
+///
+/// \param newsletterAgreement Agreement for newsletter with email provided.
+///
+/// \param success A closure to be executed when the operation finishes successfully.
+///
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
+///
++ (void)confirmEmailChange:(NSString * _Nonnull)token newsletterAgreement:(BOOL)newsletterAgreement success:(void (^ _Nonnull)(void))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+/// This method requests a customer’s phone update. A confirmation code is sent to the phone number.
+/// note:
+/// This method is a global operation and doesn’t require customer authentication.
+/// \param phone Client’s phone number.
+///
+/// \param success A closure to be executed when the operation finishes successfully.
+///
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
+///
++ (void)requestPhoneUpdate:(NSString * _Nonnull)phone success:(void (^ _Nonnull)(void))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+/// This method confirms a phone number update. This action requires the new phone number and confirmation code as parameters.
+/// note:
+/// This method is a global operation and doesn’t require customer authentication.
+/// \param phone Client’s new phone number.
+///
+/// \param smsAgreement Agreement for SMS marketing for the new phone number.
+///
+/// \param confirmationCode Client’s confirmation code received by phone.
+///
+/// \param success A closure to be executed when the operation finishes successfully.
+///
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
+///
++ (void)confirmPhoneUpdate:(NSString * _Nonnull)phone confirmationCode:(NSString * _Nonnull)confirmationCode smsAgreement:(BOOL)smsAgreement success:(void (^ _Nonnull)(void))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+/// This method deletes a customer’s account.
+/// \param clientAuthFactor Client’s token (if OAuth, Facebook, Apple etc.) or password (if Synerise account).
+///
+/// \param clientIdentityProvider Client’s identity provider.
+///
+/// \param authID Authorization custom identity.
+///
+/// \param success A closure to be executed when the operation finishes successfully.
+///
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
+///
++ (void)deleteAccount:(id _Nonnull)clientAuthFactor clientIdentityProvider:(enum SNRClientIdentityProvider)clientIdentityProvider authID:(NSString * _Nullable)authID success:(void (^ _Nonnull)(void))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+/// This method recognizes anonymous customer and saves personal information in their database entries.
+/// \param email Client’s email.
+///
+/// \param customIdentify Client’s custom identifier.
+///
+/// \param parameters Client’s custom parameters.
+///
++ (void)recognizeAnonymousWithEmail:(NSString * _Nullable)email customIdentify:(NSString * _Nullable)customIdentify parameters:(NSDictionary<NSString *, id> * _Nullable)parameters;
+/// This method passes the Firebase Token to Synerise for notifications.
+/// \param registrationToken Firebase FCM Token returned after successful push notifications registration from Firebase.
+///
+/// \param success A closure to be executed when the operation finishes successfully.
+///
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
+///
++ (void)registerForPush:(NSString * _Nonnull)registrationToken success:(void (^ _Nonnull)(void))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+/// This method passes the Firebase Token to Synerise for notifications and doesn’t update the agreement of the profile.
+/// \param registrationToken Firebase FCM Token returned after successful push notifications registration from Firebase.
+///
+/// \param mobilePushAgreement Agreement (consent) for mobile push campaigns.
+///
+/// \param success A closure to be executed when the operation finishes successfully.
+///
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
+///
++ (void)registerForPush:(NSString * _Nonnull)registrationToken mobilePushAgreement:(BOOL)mobilePushAgreement success:(void (^ _Nonnull)(void))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+@end
+
+
+@class _SNR_BaseSignal;
+
+SWIFT_PROTOCOL_NAMED("_SNR_SignalReceivable")
+@protocol _SNR_SignalReceivable
+- (void)signalReceived:(_SNR_BaseSignal * _Nonnull)_ parameters:(NSDictionary<NSString *, id> * _Nonnull)parameters;
+@end
+
+
+@interface SNRClient (SWIFT_EXTENSION(SyneriseSDK)) <_SNR_SignalReceivable>
+- (void)signalReceived:(_SNR_BaseSignal * _Nonnull)signal parameters:(NSDictionary<NSString *, id> * _Nonnull)parameters;
+@end
+
+enum SNRClientSex : NSInteger;
+@class SNRClientAgreements;
+@class NSCoder;
+
+/// <code>ClientAccountInformation</code> class
+SWIFT_CLASS_NAMED("ClientAccountInformation")
+@interface SNRClientAccountInformation : SNRBaseModel <NSSecureCoding>
+@property (nonatomic, readonly) NSInteger clientId;
+@property (nonatomic, readonly, copy) NSString * _Nonnull email;
+@property (nonatomic, readonly, copy) NSString * _Nullable customId;
+@property (nonatomic, readonly, copy) NSString * _Nonnull uuid;
+@property (nonatomic, readonly, copy) NSString * _Nullable firstName;
+@property (nonatomic, readonly, copy) NSString * _Nullable lastName;
+@property (nonatomic, readonly, copy) NSString * _Nullable displayName;
+@property (nonatomic, readonly, copy) NSString * _Nullable phone;
+@property (nonatomic, readonly) enum SNRClientSex sex;
+@property (nonatomic, readonly, copy) NSString * _Nullable birthDate;
+@property (nonatomic, readonly, copy) NSString * _Nullable avatarUrl;
+@property (nonatomic, copy) NSString * _Nullable company;
+@property (nonatomic, copy) NSString * _Nullable address;
+@property (nonatomic, copy) NSString * _Nullable city;
+@property (nonatomic, copy) NSString * _Nullable province;
+@property (nonatomic, copy) NSString * _Nullable zipCode;
+@property (nonatomic, copy) NSString * _Nullable countryCode;
+@property (nonatomic, readonly, copy) NSDate * _Nonnull lastActivityDate;
+@property (nonatomic, readonly) BOOL anonymous;
+@property (nonatomic, readonly, strong) SNRClientAgreements * _Nonnull agreements;
+@property (nonatomic, readonly, copy) NSDictionary<NSString *, id> * _Nullable attributes;
+@property (nonatomic, readonly, copy) NSArray<NSString *> * _Nullable tags;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL supportsSecureCoding;)
++ (BOOL)supportsSecureCoding SWIFT_WARN_UNUSED_RESULT;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+- (void)encodeWithCoder:(NSCoder * _Nonnull)coder;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+
+/// <code>ClientAgreements</code> class
+SWIFT_CLASS_NAMED("ClientAgreements")
+@interface SNRClientAgreements : SNRBaseModel <NSCopying, NSSecureCoding>
+@property (nonatomic) BOOL email;
+@property (nonatomic) BOOL sms;
+@property (nonatomic) BOOL push;
+@property (nonatomic) BOOL bluetooth;
+@property (nonatomic) BOOL rfid;
+@property (nonatomic) BOOL wifi;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL supportsSecureCoding;)
++ (BOOL)supportsSecureCoding SWIFT_WARN_UNUSED_RESULT;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+- (void)encodeWithCoder:(NSCoder * _Nonnull)coder;
+- (id _Nonnull)copyWithZone:(struct _NSZone * _Nullable)zone SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)isEqual:(id _Nullable)object SWIFT_WARN_UNUSED_RESULT;
+@property (nonatomic, readonly) NSUInteger hash;
+@end
+
+
+
+/// <code>ClientAuthenticationContext</code> class
+SWIFT_CLASS_NAMED("ClientAuthenticationContext")
+@interface SNRClientAuthenticationContext : SNRBaseModel
+@property (nonatomic, strong) SNRClientAgreements * _Nullable agreements;
+@property (nonatomic, copy) NSDictionary<NSString *, id> * _Nullable attributes;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+enum SNRClientConditionalAuthStatus : NSInteger;
+
+/// <code>ClientConditionalAuthResult</code> class
+SWIFT_CLASS_NAMED("ClientConditionalAuthResult")
+@interface SNRClientConditionalAuthResult : SNRBaseModel
+@property (nonatomic, readonly) enum SNRClientConditionalAuthStatus status;
+@property (nonatomic, readonly, copy) NSArray * _Nullable conditions;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+/// <code>ClientConditionalAuthStatus</code> enum
+typedef SWIFT_ENUM_NAMED(NSInteger, SNRClientConditionalAuthStatus, "ClientConditionalAuthStatus", open) {
+  SNRClientConditionalAuthStatusSuccess SWIFT_COMPILE_NAME("success") = 0,
+  SNRClientConditionalAuthStatusUnauthorized SWIFT_COMPILE_NAME("unauthorized") = 1,
+  SNRClientConditionalAuthStatusActivationRequired SWIFT_COMPILE_NAME("activationRequired") = 2,
+  SNRClientConditionalAuthStatusRegistrationRequired SWIFT_COMPILE_NAME("registrationRequired") = 3,
+  SNRClientConditionalAuthStatusApprovalRequired SWIFT_COMPILE_NAME("approvalRequired") = 4,
+  SNRClientConditionalAuthStatusTermsAcceptanceRequired SWIFT_COMPILE_NAME("termsAcceptanceRequired") = 5,
+  SNRClientConditionalAuthStatusMFARequired SWIFT_COMPILE_NAME("mfaRequired") = 6,
+  SNRClientConditionalAuthStatusUnknown SWIFT_COMPILE_NAME("unknown") = 7,
+};
+
+
+/// <code>ClientConditionalAuthenticationContext</code> class
+SWIFT_CLASS_NAMED("ClientConditionalAuthenticationContext")
+@interface SNRClientConditionalAuthenticationContext : SNRBaseModel
+@property (nonatomic, strong) SNRClientAgreements * _Nullable agreements;
+@property (nonatomic, copy) NSDictionary<NSString *, id> * _Nullable attributes;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+
+/// <code>ClientEventData</code> class
+SWIFT_CLASS_NAMED("ClientEventData")
+@interface SNRClientEventData : SNRBaseModel
+@property (nonatomic, readonly, copy) NSString * _Nonnull time;
+@property (nonatomic, readonly, copy) NSString * _Nonnull label;
+@property (nonatomic, readonly, copy) NSString * _Nonnull action;
+@property (nonatomic, readonly, copy) NSDictionary<NSString *, id> * _Nonnull client;
+@property (nonatomic, readonly, copy) NSDictionary<NSString *, id> * _Nonnull params;
+- (NSInteger)getClientID SWIFT_WARN_UNUSED_RESULT;
+- (NSString * _Nullable)getClientUUIDString SWIFT_WARN_UNUSED_RESULT;
+- (NSString * _Nullable)getClientEmail SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+@class NSNumber;
+
+/// <code>ClientEventsApiQuery</code> class.
+SWIFT_CLASS_NAMED("ClientEventsApiQuery")
+@interface SNRClientEventsApiQuery : NSObject
+@property (nonatomic, copy) NSArray<NSString *> * _Nullable actions;
+@property (nonatomic, copy) NSDate * _Nullable timeFrom;
+@property (nonatomic, copy) NSDate * _Nullable timeTo;
+@property (nonatomic, strong) NSNumber * _Nullable limit;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+/// <code>ClientPasswordResetConfirmationContext</code> class
+SWIFT_CLASS_NAMED("ClientPasswordResetConfirmationContext")
+@interface SNRClientPasswordResetConfirmationContext : SNRBaseModel
+@property (nonatomic, readonly, copy) NSString * _Nonnull password;
+@property (nonatomic, readonly, copy) NSString * _Nonnull token;
+- (nonnull instancetype)initWithPassword:(NSString * _Nonnull)password andToken:(NSString * _Nonnull)token OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+
+/// <code>ClientPasswordResetRequestContext</code> class
+SWIFT_CLASS_NAMED("ClientPasswordResetRequestContext")
+@interface SNRClientPasswordResetRequestContext : SNRBaseModel
+@property (nonatomic, readonly, copy) NSString * _Nonnull email;
+- (nonnull instancetype)initWithEmail:(NSString * _Nonnull)email OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+
+/// <code>ClientRegisterAccountContext</code> class
+SWIFT_CLASS_NAMED("ClientRegisterAccountContext")
+@interface SNRClientRegisterAccountContext : SNRBaseModel
+@property (nonatomic, readonly, copy) NSString * _Nonnull email;
+@property (nonatomic, readonly, copy) NSString * _Nonnull password;
+@property (nonatomic, copy) NSString * _Nullable customId;
+@property (nonatomic, copy) NSString * _Nullable firstName;
+@property (nonatomic, copy) NSString * _Nullable lastName;
+@property (nonatomic, copy) NSString * _Nullable phone;
+@property (nonatomic) enum SNRClientSex sex;
+@property (nonatomic, copy) NSString * _Nullable company;
+@property (nonatomic, copy) NSString * _Nullable address;
+@property (nonatomic, copy) NSString * _Nullable city;
+@property (nonatomic, copy) NSString * _Nullable province;
+@property (nonatomic, copy) NSString * _Nullable zipCode;
+@property (nonatomic, copy) NSString * _Nullable countryCode;
+@property (nonatomic, strong) SNRClientAgreements * _Nullable agreements;
+@property (nonatomic, copy) NSDictionary<NSString *, id> * _Nullable attributes;
+- (nonnull instancetype)initWithEmail:(NSString * _Nonnull)email andPassword:(NSString * _Nonnull)password OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+/// <code>ClientSex</code> enum
+typedef SWIFT_ENUM_NAMED(NSInteger, SNRClientSex, "ClientSex", open) {
+  SNRClientSexNotSpecified SWIFT_COMPILE_NAME("notSpecified") = 0,
+  SNRClientSexMale SWIFT_COMPILE_NAME("male") = 1,
+  SNRClientSexFemale SWIFT_COMPILE_NAME("female") = 2,
+  SNRClientSexOther SWIFT_COMPILE_NAME("other") = 3,
+};
+
+
+/// <code>ClientSimpleAuthenticationData</code> class
+SWIFT_CLASS_NAMED("ClientSimpleAuthenticationData")
+@interface SNRClientSimpleAuthenticationData : SNRBaseModel
+@property (nonatomic, copy) NSString * _Nullable email;
+@property (nonatomic, copy) NSString * _Nullable customId;
+@property (nonatomic, copy) NSString * _Nullable uuid;
+@property (nonatomic, copy) NSString * _Nullable firstName;
+@property (nonatomic, copy) NSString * _Nullable lastName;
+@property (nonatomic, copy) NSString * _Nullable displayName;
+@property (nonatomic, copy) NSString * _Nullable phone;
+@property (nonatomic) enum SNRClientSex sex;
+@property (nonatomic, copy) NSDate * _Nullable birthDate;
+@property (nonatomic, copy) NSString * _Nullable avatarUrl;
+@property (nonatomic, copy) NSString * _Nullable company;
+@property (nonatomic, copy) NSString * _Nullable address;
+@property (nonatomic, copy) NSString * _Nullable city;
+@property (nonatomic, copy) NSString * _Nullable province;
+@property (nonatomic, copy) NSString * _Nullable zipCode;
+@property (nonatomic, copy) NSString * _Nullable countryCode;
+@property (nonatomic, strong) SNRClientAgreements * _Nullable agreements;
+@property (nonatomic, copy) NSDictionary<NSString *, id> * _Nullable attributes;
+@property (nonatomic, copy) NSArray<NSString *> * _Nullable tags;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+
+/// <code>ClientStateDelegate</code> protocol
+/// A delegate to handle Client’s sign-in state changes.
+SWIFT_PROTOCOL_NAMED("ClientStateDelegate")
+@protocol SNRClientStateDelegate
+@optional
+/// This method is called when a customer signs in.
+- (void)snr_clientIsSignedIn;
+/// This method is called when a customer signs out.
+/// \param reason Specifies the reason for signing out.
+///
+- (void)snr_clientIsSignedOutWithReason:(enum SNRClientSessionEndReason)reason;
+@end
+
+
+/// <code>ClientUpdateAccountBasicInformationContext</code> class
+SWIFT_CLASS_NAMED("ClientUpdateAccountBasicInformationContext")
+@interface SNRClientUpdateAccountBasicInformationContext : SNRBaseModel
+@property (nonatomic, copy) NSString * _Nullable firstName;
+@property (nonatomic, copy) NSString * _Nullable lastName;
+@property (nonatomic, copy) NSString * _Nullable displayName;
+@property (nonatomic, copy) NSString * _Nullable phone;
+@property (nonatomic) enum SNRClientSex sex;
+@property (nonatomic, copy) NSString * _Nullable birthDate;
+@property (nonatomic, copy) NSString * _Nullable avatarUrl;
+@property (nonatomic, copy) NSString * _Nullable company;
+@property (nonatomic, copy) NSString * _Nullable address;
+@property (nonatomic, copy) NSString * _Nullable city;
+@property (nonatomic, copy) NSString * _Nullable province;
+@property (nonatomic, copy) NSString * _Nullable zipCode;
+@property (nonatomic, copy) NSString * _Nullable countryCode;
+@property (nonatomic, strong) SNRClientAgreements * _Nullable agreements;
+@property (nonatomic, copy) NSDictionary<NSString *, id> * _Nullable attributes;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+
+/// <code>ClientUpdateAccountContext</code> class
+SWIFT_CLASS_NAMED("ClientUpdateAccountContext")
+@interface SNRClientUpdateAccountContext : SNRBaseModel
+@property (nonatomic, copy) NSString * _Nullable email;
+@property (nonatomic, copy) NSString * _Nullable customId;
+@property (nonatomic, copy) NSString * _Nullable uuid;
+@property (nonatomic, copy) NSString * _Nullable firstName;
+@property (nonatomic, copy) NSString * _Nullable lastName;
+@property (nonatomic, copy) NSString * _Nullable displayName;
+@property (nonatomic, copy) NSString * _Nullable phone;
+@property (nonatomic) enum SNRClientSex sex;
+@property (nonatomic, copy) NSString * _Nullable birthDate;
+@property (nonatomic, copy) NSString * _Nullable avatarUrl;
+@property (nonatomic, copy) NSString * _Nullable company;
+@property (nonatomic, copy) NSString * _Nullable address;
+@property (nonatomic, copy) NSString * _Nullable city;
+@property (nonatomic, copy) NSString * _Nullable province;
+@property (nonatomic, copy) NSString * _Nullable zipCode;
+@property (nonatomic, copy) NSString * _Nullable countryCode;
+@property (nonatomic, strong) SNRClientAgreements * _Nullable agreements;
+@property (nonatomic, copy) NSDictionary<NSString *, id> * _Nullable attributes;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+@class SNRDocument;
 @class SNRDocumentApiQuery;
 @class SNRRecommendationOptions;
 @class SNRRecommendationResponse;
@@ -2357,7 +3897,6 @@ SWIFT_CLASS_NAMED("CrashEvent")
 - (void)setExceptionName:(NSString * _Nonnull)exceptionName;
 - (void)setExceptionReason:(NSString * _Nonnull)exceptionReason;
 - (void)setExceptionStacktrace:(NSString * _Nonnull)exceptionStacktrace;
-- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
 @end
 
 
@@ -2368,7 +3907,6 @@ SWIFT_CLASS_NAMED("CustomEvent")
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label action:(NSString * _Nonnull)action OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label action:(NSString * _Nonnull)action andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
-- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
 @end
 
 
@@ -2406,6 +3944,8 @@ SWIFT_CLASS_NAMED("DocumentApiQuery")
 
 
 
+
+
 SWIFT_CLASS_NAMED("GeneralSettings")
 @interface SNRGeneralSettings : NSObject
 @property (nonatomic) BOOL enabled;
@@ -2431,7 +3971,18 @@ SWIFT_CLASS_NAMED("HitTimerEvent")
 @interface SNRHitTimerEvent : SNREvent
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
-- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
+@end
+
+
+SWIFT_CLASS_NAMED("InAppMessageData")
+@interface SNRInAppMessageData : SNRBaseModel
+@property (nonatomic, readonly, copy) NSString * _Nonnull campaignHash;
+@property (nonatomic, readonly, copy) NSString * _Nonnull variantIdentifier;
+@property (nonatomic, readonly, copy) NSDictionary<NSString *, NSString *> * _Nullable additionalParameters;
+@property (nonatomic, readonly) BOOL isTest;
+- (nonnull instancetype)initWithCampaignHash:(NSString * _Nonnull)campaignHash variantIdentifier:(NSString * _Nonnull)variantIdentifier additionalParameters:(NSDictionary<NSString *, NSString *> * _Nullable)additionalParameters isTest:(BOOL)isTest OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 
@@ -2453,6 +4004,77 @@ SWIFT_CLASS_NAMED("InitializationConfig")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@protocol SNRInjectorInAppMessageDelegate;
+
+/// <code>Injector</code> class
+SWIFT_CLASS_NAMED("Injector")
+@interface SNRInjector : NSObject
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+/// This method sets an object for in-app messages delegate methods.
+/// \param delegate An object that implements the <code>SNRInAppMessageDelegate</code> protocol.
+///
++ (void)setInAppMessageDelegate:(id <SNRInjectorInAppMessageDelegate> _Nonnull)delegate;
+@end
+
+
+@interface SNRInjector (SWIFT_EXTENSION(SyneriseSDK)) <_SNR_SignalReceivable>
+- (void)signalReceived:(_SNR_BaseSignal * _Nonnull)signal parameters:(NSDictionary<NSString *, id> * _Nonnull)parameters;
+@end
+
+
+
+/// <code>InjectorInAppMessageDelegate</code> protocol
+/// A delegate to handle events from in-app message campaigns.
+SWIFT_PROTOCOL_NAMED("InjectorInAppMessageDelegate")
+@protocol SNRInjectorInAppMessageDelegate
+@optional
+/// This method is called after an in-app message is loaded and Synerise SDK asks for permission to show it.
+/// \param data Model representation of the in-app message.
+///
+- (BOOL)SNR_shouldInAppMessageAppear:(SNRInAppMessageData * _Nonnull)data SWIFT_WARN_UNUSED_RESULT;
+/// This method is called after an in-app message appears.
+/// \param data Model representation of the in-app message.
+///
+- (void)SNR_inAppMessageDidAppear:(SNRInAppMessageData * _Nonnull)data;
+/// This method is called after an in-app message disappears.
+/// \param data Model representation of the in-app message.
+///
+- (void)SNR_inAppMessageDidDisappear:(SNRInAppMessageData * _Nonnull)data;
+/// This method is called when an in-app message changes size.
+- (void)SNR_inAppMessageDidChangeSize:(CGRect)rect;
+/// This method is called when a individual context for an in-app message is needed.
+/// \param data Model representation of the in-app message.
+///
+- (NSDictionary * _Nullable)SNR_inAppMessageContextIsNeeded:(SNRInAppMessageData * _Nonnull)data SWIFT_WARN_UNUSED_RESULT;
+/// This method is called when Synerise handles URL action from in-app messages.
+/// \param data Model representation of the in-app message.
+///
+/// \param url URL address value from the activity.
+///
+- (void)SNR_inAppMessageHandledURLAction:(SNRInAppMessageData * _Nonnull)data url:(NSURL * _Nonnull)url;
+/// This method is called when Synerise handles deeplink action from in-app messages.
+/// \param data Model representation of the in-app message.
+///
+/// \param deeplink Literal text value from the activity.
+///
+- (void)SNR_inAppMessageHandledDeeplinkAction:(SNRInAppMessageData * _Nonnull)data deeplink:(NSString * _Nonnull)deeplink SWIFT_DEPRECATED_MSG("Use `snr_inAppMessageHandledAction(data:deepLink:)` instead.");
+/// This method is called when Synerise handles deeplink action from in-app messages.
+/// \param data Model representation of the in-app message.
+///
+/// \param deepLink Literal text value from the activity.
+///
+- (void)SNR_inAppMessageHandledDeepLinkAction:(SNRInAppMessageData * _Nonnull)data deepLink:(NSString * _Nonnull)deepLink;
+/// This method is called when Synerise handles custom action from in-app messages.
+/// \param data Model representation of the in-app message.
+///
+/// \param name Custom action name for identification.
+///
+/// \param parameters Custom action parameters.
+///
+- (void)SNR_inAppMessageHandledCustomAction:(SNRInAppMessageData * _Nonnull)data name:(NSString * _Nonnull)name parameters:(NSDictionary * _Nonnull)parameters;
+@end
+
 
 SWIFT_CLASS_NAMED("InjectorSettings")
 @interface SNRInjectorSettings : NSObject
@@ -2469,7 +4091,6 @@ SWIFT_CLASS_NAMED("InternalEvent")
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label action:(NSString * _Nonnull)action OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label action:(NSString * _Nonnull)action andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
-- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
 @end
 
 typedef SWIFT_ENUM_NAMED(NSInteger, SNRInternalEventSource, "InternalEventSource", open) {
@@ -2482,7 +4103,6 @@ SWIFT_CLASS_NAMED("LoggedInEvent")
 @interface SNRLoggedInEvent : SNREvent
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
-- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
 @end
 
 
@@ -2490,13 +4110,6 @@ SWIFT_CLASS_NAMED("LoggedOutEvent")
 @interface SNRLoggedOutEvent : SNREvent
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
-- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
-@end
-
-
-SWIFT_CLASS("_TtC11SyneriseSDK26MobileOperatorInfoProvider")
-@interface MobileOperatorInfoProvider : NSObject
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
@@ -2535,7 +4148,6 @@ SWIFT_CLASS_NAMED("ProductAddedToFavoritesEvent")
 @interface SNRProductAddedToFavoritesEvent : SNREvent
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
-- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
 @end
 
 
@@ -2557,13 +4169,11 @@ SWIFT_CLASS_NAMED("ProductViewedEvent")
 - (void)setIsRecommended:(BOOL)isRecommended;
 - (void)setCategory:(NSString * _Nonnull)category;
 - (void)setURL:(NSURL * _Nonnull)url;
-- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
 @end
 
 enum SNRPromotionStatus : NSUInteger;
 enum SNRPromotionType : NSInteger;
 @class SNRPromotionDetails;
-@class NSNumber;
 enum SNRPromotionDiscountType : NSInteger;
 enum SNRPromotionDiscountMode : NSInteger;
 @class SNRPromotionDiscountModeDetails;
@@ -2896,7 +4506,6 @@ SWIFT_CLASS_NAMED("PushCancelledEvent")
 @interface SNRPushCancelledEvent : SNREvent
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
-- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
 @end
 
 
@@ -2904,7 +4513,6 @@ SWIFT_CLASS_NAMED("PushClickedEvent")
 @interface SNRPushClickedEvent : SNREvent
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
-- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
 @end
 
 
@@ -2912,7 +4520,6 @@ SWIFT_CLASS_NAMED("PushViewedEvent")
 @interface SNRPushViewedEvent : SNREvent
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
-- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
 @end
 
 
@@ -2922,7 +4529,6 @@ SWIFT_CLASS_NAMED("RecognizeClientEvent")
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithEmail:(NSString * _Nullable)email customIdentify:(NSString * _Nullable)customIdentify;
 - (nonnull instancetype)initWithEmail:(NSString * _Nullable)email customIdentify:(NSString * _Nullable)customIdentify parameters:(NSDictionary<NSString *, id> * _Nullable)parameters OBJC_DESIGNATED_INITIALIZER;
-- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
 @end
 
 
@@ -2941,7 +4547,6 @@ SWIFT_CLASS_NAMED("RecommendationEvent")
 @interface SNRRecommendationEvent : SNREvent
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
-- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
@@ -2952,7 +4557,6 @@ SWIFT_CLASS_NAMED("RecommendationClickEvent")
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label productName:(NSString * _Nonnull)productName productId:(NSString * _Nonnull)productId campaignID:(NSString * _Nonnull)campaignID campaignHash:(NSString * _Nonnull)campaignHash andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
 - (void)setCategory:(NSString * _Nonnull)category;
 - (void)setURL:(NSURL * _Nonnull)url;
-- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
 @end
 
 
@@ -3030,7 +4634,6 @@ SWIFT_CLASS_NAMED("RecommendationSeenEvent")
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label productName:(NSString * _Nonnull)productName productId:(NSString * _Nonnull)productId campaignID:(NSString * _Nonnull)campaignID campaignHash:(NSString * _Nonnull)campaignHash andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
 - (void)setCategory:(NSString * _Nonnull)category;
 - (void)setURL:(NSURL * _Nonnull)url;
-- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
 @end
 
 
@@ -3041,7 +4644,6 @@ SWIFT_CLASS_NAMED("RecommendationViewEvent")
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label campaignID:(NSString * _Nonnull)campaignID campaignHash:(NSString * _Nonnull)campaignHash correlationId:(NSString * _Nonnull)correlationId andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label items:(NSArray<NSString *> * _Nonnull)items campaignID:(NSString * _Nonnull)campaignID campaignHash:(NSString * _Nonnull)campaignHash correlationId:(NSString * _Nonnull)correlationId andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
 - (void)setItems:(NSArray<NSString *> * _Nonnull)items;
-- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
 @end
 
 
@@ -3049,7 +4651,6 @@ SWIFT_CLASS_NAMED("RegisteredEvent")
 @interface SNRRegisteredEvent : SNREvent
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
-- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
 @end
 
 @class NSData;
@@ -3060,6 +4661,76 @@ SWIFT_CLASS_NAMED("ResponseRawData")
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
+
+
+/// <code>SNRError</code> class
+SWIFT_CLASS_NAMED("SNRError")
+@interface SNRError : NSError
+- (nonnull instancetype)initWithDomain:(NSString * _Nonnull)domain code:(NSInteger)code userInfo:(NSDictionary<NSString *, id> * _Nullable)userInfo OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
+@end
+
+@class SNRApiErrorBody;
+enum SNRApiErrorType : NSInteger;
+enum SNRApiErrorHttpErrorCategory : NSInteger;
+
+/// <code>SNRApiError</code> class
+SWIFT_CLASS_NAMED("SNRApiError")
+@interface SNRApiError : SNRError
+@property (nonatomic, readonly, strong) SNRApiErrorBody * _Nullable errorBody;
+@property (nonatomic, readonly) enum SNRApiErrorType errorType;
+@property (nonatomic, readonly) NSInteger httpCode;
+@property (nonatomic, readonly) enum SNRApiErrorHttpErrorCategory httpErrorCategory;
+@property (nonatomic, readonly, copy) NSArray<SNRError *> * _Nullable errors;
+- (nonnull instancetype)initWithDomain:(NSErrorDomain _Nonnull)domain code:(NSInteger)code errorBody:(SNRApiErrorBody * _Nullable)errorBody userInfo:(NSDictionary<NSString *, id> * _Nullable)userInfo errors:(NSArray<SNRError *> * _Nullable)errors OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithDomain:(NSString * _Nonnull)domain code:(NSInteger)code userInfo:(NSDictionary<NSString *, id> * _Nullable)userInfo OBJC_DESIGNATED_INITIALIZER;
+- (enum SNRApiErrorType)getType SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_MSG("Use `errorType` property instead.");
+- (NSInteger)getHttpCode SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_MSG("Use `httpCode` property instead.");
+- (NSString * _Nullable)getErrorCode SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_MSG("Use `errorBody.internalErrorCode` property instead.");
+- (NSString * _Nullable)getBody SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_MSG("Use `errorBody` property instead.");
+@end
+
+@class SNRApiErrorCause;
+
+/// <code>SNRApiErrorBody</code> class
+SWIFT_CLASS_NAMED("SNRApiErrorBody")
+@interface SNRApiErrorBody : NSObject
+@property (nonatomic, copy) NSString * _Nullable internalErrorCode;
+@property (nonatomic, copy) NSString * _Nullable error;
+@property (nonatomic, copy) NSString * _Nullable message;
+@property (nonatomic, copy) NSString * _Nullable path;
+@property (nonatomic) NSInteger status;
+@property (nonatomic, copy) NSArray<SNRApiErrorCause *> * _Nullable errorCauses;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+/// <code>SNRApiErrorCause</code> class
+SWIFT_CLASS_NAMED("SNRApiErrorCause")
+@interface SNRApiErrorCause : NSObject
+@property (nonatomic, copy) NSString * _Nullable field;
+@property (nonatomic, copy) NSString * _Nullable message;
+@property (nonatomic) NSInteger code;
+@property (nonatomic, copy) NSString * _Nullable rejectedValue;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+typedef SWIFT_ENUM_NAMED(NSInteger, SNRApiErrorHttpErrorCategory, "SNRApiErrorHttpErrorCategory", open) {
+  SNRApiErrorHttpErrorCategoryBadRequest SWIFT_COMPILE_NAME("badRequest") = 0,
+  SNRApiErrorHttpErrorCategoryUnauthorized SWIFT_COMPILE_NAME("unauthorized") = 1,
+  SNRApiErrorHttpErrorCategoryForbidden SWIFT_COMPILE_NAME("forbidden") = 2,
+  SNRApiErrorHttpErrorCategoryNotFound SWIFT_COMPILE_NAME("notFound") = 3,
+  SNRApiErrorHttpErrorCategoryRangeNotSatisfable SWIFT_COMPILE_NAME("rangeNotSatisfable") = 4,
+  SNRApiErrorHttpErrorCategoryServerError SWIFT_COMPILE_NAME("serverError") = 5,
+  SNRApiErrorHttpErrorCategoryUnknown SWIFT_COMPILE_NAME("unknown") = 6,
+};
+
+typedef SWIFT_ENUM_NAMED(NSInteger, SNRApiErrorType, "SNRApiErrorType", open) {
+  SNRApiErrorTypeUnknown SWIFT_COMPILE_NAME("unknown") = 0,
+  SNRApiErrorTypeNetwork SWIFT_COMPILE_NAME("network") = 1,
+  SNRApiErrorTypeUnauthorizedSession SWIFT_COMPILE_NAME("unauthorizedSession") = 2,
+  SNRApiErrorTypeHttp SWIFT_COMPILE_NAME("http") = 3,
+};
 
 typedef SWIFT_ENUM(NSInteger, SNRApiRequestCompletedSignalResult, open) {
   SNRApiRequestCompletedSignalResultSuccess = 0,
@@ -3074,6 +4745,37 @@ typedef SWIFT_ENUM(NSInteger, SNRClientUUIDChangeSignalReason, open) {
 typedef SWIFT_ENUM(NSInteger, SNRClientUUIDChangeSignalState, open) {
   SNRClientUUIDChangeSignalStateBefore = 0,
   SNRClientUUIDChangeSignalStateAfter = 1,
+};
+
+
+/// <code>ErrorCode</code> enum
+typedef SWIFT_ENUM_NAMED(NSInteger, SNRErrorCode, "SNRErrorCode", open) {
+  SNRErrorCodeUnknownError SWIFT_COMPILE_NAME("unknownError") = -101,
+  SNRErrorCodeInvalidArgument SWIFT_COMPILE_NAME("invalidArgument") = 3050,
+  SNRErrorCodeInternalInconsistency SWIFT_COMPILE_NAME("internalInconsistency") = 3060,
+  SNRErrorCodeInvalidImageResources SWIFT_COMPILE_NAME("invalidImageResources") = 3090,
+  SNRErrorCodeImageNotDownloaded SWIFT_COMPILE_NAME("imageNotDownloaded") = 3110,
+  SNRErrorCodeWebViewNotPreloaded SWIFT_COMPILE_NAME("webViewNotPreloaded") = 3130,
+  SNRErrorCodeCryptoFailedError SWIFT_COMPILE_NAME("cryptoFailedError") = 3610,
+  SNRErrorCodeMigrationError SWIFT_COMPILE_NAME("migrationError") = 3710,
+  SNRErrorCodeContentWidgetError SWIFT_COMPILE_NAME("contentWidgetError") = 3810,
+  SNRErrorCodeNotificationServiceExtensionError SWIFT_COMPILE_NAME("notificationServiceExtensionError") = 3910,
+  SNRErrorCodeObjectConsistencyError SWIFT_COMPILE_NAME("objectConsistencyError") = 4010,
+  SNRErrorCodeUnknownApiError SWIFT_COMPILE_NAME("unknownApiError") = -102,
+  SNRErrorCodeModuleNotReadyApiError SWIFT_COMPILE_NAME("moduleNotReadyApiError") = -110,
+  SNRErrorCodeNetworkApiError SWIFT_COMPILE_NAME("networkApiError") = -105,
+  SNRErrorCodeInvalidRequestApiError SWIFT_COMPILE_NAME("invalidRequestApiError") = -103,
+  SNRErrorCodeInvalidRequestSessionApiError SWIFT_COMPILE_NAME("invalidRequestSessionApiError") = -104,
+  SNRErrorCodeInvalidResponseApiError SWIFT_COMPILE_NAME("invalidResponseApiError") = -106,
+  SNRErrorCodeInvalidEtagCacheResponseApiError SWIFT_COMPILE_NAME("invalidEtagCacheResponseApiError") = -107,
+  SNRErrorCodeRequestBlockedByCircuitBreakerApiError SWIFT_COMPILE_NAME("requestBlockedByCircuitBreakerApiError") = -108,
+  SNRErrorCodeRequestBlockedByIncognitoModeApiError SWIFT_COMPILE_NAME("requestBlockedByIncognitoModeApiError") = -109,
+  SNRErrorCodeClientSessionUnauthorizedApiError SWIFT_COMPILE_NAME("clientSessionUnauthorizedApiError") = 3200,
+  SNRErrorCodeClientSessionExpiredApiError SWIFT_COMPILE_NAME("clientSessionExpiredApiError") = 3210,
+  SNRErrorCodeClientSessionAlreadySignedOutApiError SWIFT_COMPILE_NAME("clientSessionAlreadySignedOutApiError") = 3220,
+  SNRErrorCodeJWTValidationFailedApiError SWIFT_COMPILE_NAME("JWTValidationFailedApiError") = 3300,
+  SNRErrorCodeJWTProcessingFailedApiError SWIFT_COMPILE_NAME("JWTProcessingFailedApiError") = 3310,
+  SNRErrorCodeMissingPublicKeyApiError SWIFT_COMPILE_NAME("missingPublicKeyApiError") = 3320,
 };
 
 
@@ -3116,7 +4818,7 @@ SWIFT_CLASS_NAMED("ScreenViewApiQuery")
 @property (nonatomic, readonly, copy) NSString * _Nonnull feedSlug;
 @property (nonatomic, copy) NSString * _Nullable productID;
 @property (nonatomic, copy) NSDictionary<NSString *, id> * _Nullable params;
-- (nonnull instancetype)initWithFeedSlug:(NSString * _Nonnull)slug OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithFeedSlug:(NSString * _Nonnull)feedSlug OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -3137,7 +4839,6 @@ SWIFT_CLASS_NAMED("SearchedEvent")
 @interface SNRSearchedEvent : SNREvent
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
-- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
 @end
 
 @class SNRTrackerSettings;
@@ -3162,7 +4863,86 @@ SWIFT_CLASS_NAMED("SharedEvent")
 @interface SNRSharedEvent : SNREvent
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
-- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
+@end
+
+enum SNRTokenOrigin : NSUInteger;
+
+SWIFT_CLASS_NAMED("Token")
+@interface SNRToken : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nonnull tokenString;
+@property (nonatomic, readonly, copy) NSDate * _Nonnull expirationDate;
+@property (nonatomic, readonly, copy) NSString * _Nonnull rlm;
+@property (nonatomic, readonly) enum SNRTokenOrigin origin;
+@property (nonatomic, readonly, copy) NSString * _Nullable clientId;
+@property (nonatomic, readonly, copy) NSString * _Nullable customId;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+/// <code>TokenOrigin</code> enum
+typedef SWIFT_ENUM_NAMED(NSUInteger, SNRTokenOrigin, "TokenOrigin", open) {
+  SNRTokenOriginUnknown SWIFT_COMPILE_NAME("unknown") = 0,
+  SNRTokenOriginIncognito SWIFT_COMPILE_NAME("incognito") = 1,
+  SNRTokenOriginAnonymous SWIFT_COMPILE_NAME("anonymous") = 2,
+  SNRTokenOriginSynerise SWIFT_COMPILE_NAME("synerise") = 3,
+  SNRTokenOriginSimpleAuth SWIFT_COMPILE_NAME("simpleAuth") = 4,
+  SNRTokenOriginFacebook SWIFT_COMPILE_NAME("facebook") = 5,
+  SNRTokenOriginOAuth SWIFT_COMPILE_NAME("oauth") = 6,
+  SNRTokenOriginApple SWIFT_COMPILE_NAME("apple") = 7,
+  SNRTokenOriginGoogle SWIFT_COMPILE_NAME("google") = 8,
+};
+
+
+SWIFT_CLASS_NAMED("TokenPayload")
+@interface SNRTokenPayload : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nonnull tokenString;
+@property (nonatomic, readonly, copy) NSDate * _Nonnull expirationDate;
+@property (nonatomic, readonly, copy) NSDate * _Nonnull creationDate;
+@property (nonatomic, readonly, copy) NSString * _Nonnull rlm;
+@property (nonatomic, readonly) enum SNRTokenOrigin origin;
+@property (nonatomic, readonly, copy) NSString * _Nonnull uuid;
+@property (nonatomic, readonly, copy) NSString * _Nonnull clientId;
+@property (nonatomic, copy) NSString * _Nullable customId;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+- (nonnull instancetype)initWithTokenString:(NSString * _Nonnull)tokenString expirationDate:(NSDate * _Nonnull)expirationDate creationDate:(NSDate * _Nonnull)creationDate rlm:(NSString * _Nonnull)rlm origin:(enum SNRTokenOrigin)origin uuid:(NSString * _Nonnull)uuid clientId:(NSString * _Nonnull)clientId customId:(NSString * _Nullable)customId OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@protocol SNRTrackerDelegate;
+
+/// <code>Tracker</code> class
+SWIFT_CLASS_NAMED("Tracker")
+@interface SNRTracker : NSObject
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+/// This method sets an object for Tracker module delegate methods.
+/// \param delegate An object that implements the <code>TrackerDelegate</code> protocol.
+///
++ (void)setDelegate:(id <SNRTrackerDelegate> _Nonnull)delegate;
+/// This method sets a custom identifier in the parameters of every event.
+/// You can pass a custom identifier to match your customers in our database.
+/// \param customIdentifier Client’s custom identifier.
+///
++ (void)setCustomIdentifier:(NSString * _Nullable)customIdentifier;
+/// This method sets a custom email in the parameters of every event.
+/// You can pass a custom email to match your customers in our database.
+/// \param customEmail Client’s custom email.
+///
++ (void)setCustomEmail:(NSString * _Nullable)customEmail;
+/// This method sends an event.
+/// The tracker caches and enqueues all your events locally, so they all will be sent eventually.
+/// \param event <code>Event</code> object.
+///
++ (void)send:(SNREvent * _Nonnull)event;
+/// This method forces sending the events from the queue to the server.
+/// \param completionHandler A block to be executed when the tracker has finished flushing events to Synerise backend, no matter the result.
+///
++ (void)flushEventsWithCompletionHandler:(void (^ _Nullable)(void))completionHandler;
+@end
+
+
+@interface SNRTracker (SWIFT_EXTENSION(SyneriseSDK)) <_SNR_SignalReceivable>
+- (void)signalReceived:(_SNR_BaseSignal * _Nonnull)signal parameters:(NSDictionary<NSString *, id> * _Nonnull)parameters;
 @end
 
 typedef SWIFT_ENUM_NAMED(NSInteger, SNRTrackerAutoTrackMode, "TrackerAutoTrackMode", open) {
@@ -3191,6 +4971,16 @@ SWIFT_CLASS_NAMED("TrackerDeclarativeTrackingSettings")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+
+/// <code>TrackerDelegate</code> protocol
+/// A delegate to handle events from the Tracker.
+SWIFT_PROTOCOL_NAMED("TrackerDelegate")
+@protocol SNRTrackerDelegate
+@optional
+/// This method is called when the Tracker requests a location update.
+- (void)snr_locationUpdateRequired;
+@end
+
 @class SNRTrackerParamsBuilder;
 
 SWIFT_CLASS_NAMED("TrackerParams")
@@ -3200,6 +4990,7 @@ SWIFT_CLASS_NAMED("TrackerParams")
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
+
 
 
 SWIFT_CLASS_NAMED("TrackerParamsBuilder")
@@ -3213,6 +5004,7 @@ SWIFT_CLASS_NAMED("TrackerParamsBuilder")
 - (NSDictionary<NSString *, id> * _Nonnull)_toDictionary SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
+
 
 
 SWIFT_CLASS_NAMED("TrackerSettings")
@@ -3256,7 +5048,6 @@ SWIFT_CLASS_NAMED("ViewTrackerEvent")
 - (void)setViewText:(NSString * _Nonnull)viewText;
 - (void)setViewParameters:(NSDictionary<NSString *, id> * _Nonnull)parameters;
 - (void)setAutotrackValue:(NSString * _Nonnull)autotrackValue;
-- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
 @end
 
 typedef SWIFT_ENUM_NAMED(NSInteger, SNRViewTrackerEventViewActionType, "ViewTrackerEventViewActionType", open) {
@@ -3278,7 +5069,6 @@ SWIFT_CLASS_NAMED("VisitedScreenEvent")
 @interface SNRVisitedScreenEvent : SNREvent
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
-- (nonnull instancetype)initWithType:(NSString * _Nonnull)type label:(NSString * _Nonnull)label action:(NSString * _Nonnull)action client:(NSDictionary<NSString *, id> * _Nullable)client parameters:(NSDictionary<NSString *, id> * _Nullable)parameters SWIFT_UNAVAILABLE;
 @end
 
 /// <code>VoucherCodeStatus</code> enum
@@ -3316,7 +5106,6 @@ SWIFT_CLASS_NAMED("VoucherCodesResponse")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
-@class _SNR_Constants;
 @class _SNR_Logger;
 @class _SNR_SyneriseFrameworkInfoProvider;
 @class _SNR_ClientApplicationInfoProvider;
@@ -3327,13 +5116,11 @@ SWIFT_CLASS_NAMED("VoucherCodesResponse")
 @class _SNR_ClientUUIDChangeSignal;
 @class _SNR_DataInconsistencySignal;
 @class _SNR_PushRegistrationRequiredSignal;
-@class _SNR_IncognitoModeChangedSignal;
 @class _SNR_SyneriseReinitializationSignal;
 @class _SNR_ApiRequestCompletedSignal;
 @class _SNR_DispatchUtils;
 @class _SNR_DelegateUtils;
 @class _SNR_MiscUtils;
-@class _SNR_PushEventUtils;
 @class _SNR_PushEventFactory;
 @class _SNR_TimeZoneDateFormatter;
 @class _SNR_UTCDateFormatter;
@@ -3348,9 +5135,6 @@ SWIFT_CLASS_NAMED("_SNR")
 /// SWIFT COMMAND PROXY
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) id <SNRSwiftCommandProxyProtocol> _Nonnull _Proxy;)
 + (id <SNRSwiftCommandProxyProtocol> _Nonnull)_Proxy SWIFT_WARN_UNUSED_RESULT;
-/// CONSTANTS
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) SWIFT_METATYPE(_SNR_Constants) _Nonnull Constants;)
-+ (SWIFT_METATYPE(_SNR_Constants) _Nonnull)Constants SWIFT_WARN_UNUSED_RESULT;
 /// LOGGER
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) SWIFT_METATYPE(_SNR_Logger) _Nonnull Logger;)
 + (SWIFT_METATYPE(_SNR_Logger) _Nonnull)Logger SWIFT_WARN_UNUSED_RESULT;
@@ -3375,8 +5159,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) _SNR_DataInc
 + (_SNR_DataInconsistencySignal * _Nonnull)DataInconsistencySignalSingleton SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) _SNR_PushRegistrationRequiredSignal * _Nonnull PushRegistrationRequiredSignalSingleton;)
 + (_SNR_PushRegistrationRequiredSignal * _Nonnull)PushRegistrationRequiredSignalSingleton SWIFT_WARN_UNUSED_RESULT;
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) _SNR_IncognitoModeChangedSignal * _Nonnull IncognitoModeChangedSignalSingleton;)
-+ (_SNR_IncognitoModeChangedSignal * _Nonnull)IncognitoModeChangedSignalSingleton SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) _SNR_SyneriseReinitializationSignal * _Nonnull SyneriseReinitializationSignalSingleton;)
 + (_SNR_SyneriseReinitializationSignal * _Nonnull)SyneriseReinitializationSignalSingleton SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) _SNR_ApiRequestCompletedSignal * _Nonnull ApiRequestCompletedSignalSingleton;)
@@ -3387,8 +5169,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) SWIFT_METATYPE(_SNR_
 + (SWIFT_METATYPE(_SNR_DelegateUtils) _Nonnull)DelegateUtils SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) SWIFT_METATYPE(_SNR_MiscUtils) _Nonnull MiscUtils;)
 + (SWIFT_METATYPE(_SNR_MiscUtils) _Nonnull)MiscUtils SWIFT_WARN_UNUSED_RESULT;
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) SWIFT_METATYPE(_SNR_PushEventUtils) _Nonnull PushEventUtils;)
-+ (SWIFT_METATYPE(_SNR_PushEventUtils) _Nonnull)PushEventUtils SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) SWIFT_METATYPE(_SNR_PushEventFactory) _Nonnull PushEventFactory;)
 + (SWIFT_METATYPE(_SNR_PushEventFactory) _Nonnull)PushEventFactory SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) _SNR_TimeZoneDateFormatter * _Nonnull TimeZoneDateFormatterInstance;)
@@ -3481,15 +5261,10 @@ SWIFT_CLASS_NAMED("_SNR_ClientManager")
 @end
 
 
-SWIFT_PROTOCOL_NAMED("_SNR_SignalReceivable")
-@protocol _SNR_SignalReceivable
-- (void)signalReceived:(_SNR_BaseSignal * _Nonnull)_ parameters:(NSDictionary<NSString *, id> * _Nonnull)parameters;
-@end
-
-
 @interface _SNR_ClientManager (SWIFT_EXTENSION(SyneriseSDK)) <_SNR_SignalReceivable>
 - (void)signalReceived:(_SNR_BaseSignal * _Nonnull)signal parameters:(NSDictionary<NSString *, id> * _Nonnull)parameters;
 @end
+
 
 
 SWIFT_CLASS_NAMED("_SNR_ClientModel")
@@ -3529,14 +5304,6 @@ SWIFT_CLASS_NAMED("_SNR_ClientUUIDChangeSignal")
 @property (nonatomic, readonly, copy) NSString * _Nonnull REASON_KEY;
 - (void)notifyUUIDChangedIsBeforeCurrentUUIDString:(NSString * _Nonnull)currentUUIDString;
 - (void)notifyUUIDChangedWithReason:(enum SNRClientUUIDChangeSignalReason)reason;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-SWIFT_CLASS_NAMED("_SNR_Constants")
-@interface _SNR_Constants : NSObject
-+ (NSString * _Nonnull)LOCALIZABLE_STRING_KEY_OK SWIFT_WARN_UNUSED_RESULT;
-+ (NSString * _Nonnull)LOCALIZABLE_STRING_KEY_CANCEL SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -3582,6 +5349,7 @@ SWIFT_CLASS_NAMED("_SNR_DispatchUtils")
 + (void)dispatchSyncBlock:(void (^ _Nonnull)(void))block onQueue:(dispatch_queue_t _Nonnull)queue;
 + (void)dispatchAsyncBlockOnMainThread:(void (^ _Nonnull)(void))block;
 + (void)dispatchAsyncBlockOnMainThread:(void (^ _Nonnull)(void))block ifMetCondition:(BOOL)condition;
++ (void)dispatchAsyncBlock:(void (^ _Nonnull)(void))block onQueue:(dispatch_queue_t _Nonnull)queue;
 + (void)dispatchAsyncBlockOnMainThread:(void (^ _Nonnull)(void))block withDelay:(NSTimeInterval)delay;
 + (void)dispatchAsyncBlockOnBackgroundThread:(void (^ _Nonnull)(void))block;
 + (void)dispatchAsyncBlockOnBackgroundThread:(void (^ _Nonnull)(void))block ifMetCondition:(BOOL)condition;
@@ -3596,13 +5364,6 @@ SWIFT_CLASS_NAMED("_SNR_ImageProvider")
 - (UIImage * _Nullable)downloadImageSynchronouslyFromURL:(NSURL * _Nonnull)url SWIFT_WARN_UNUSED_RESULT;
 - (BOOL)downloadAndCacheImageSynchronouslyFromURL:(NSURL * _Nonnull)url SWIFT_WARN_UNUSED_RESULT;
 - (void)downloadImageAsynchronouslyFromURL:(NSURL * _Nonnull)url completionBlock:(void (^ _Nonnull)(UIImage * _Nullable, NSError * _Nullable))completion;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-SWIFT_CLASS_NAMED("_SNR_IncognitoModeChangedSignal")
-@interface _SNR_IncognitoModeChangedSignal : _SNR_BaseSignal
-- (void)notifyIncognitoModeChanged;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -3632,10 +5393,12 @@ SWIFT_CLASS_NAMED("_SNR_MiscUtils")
 + (NSString * _Nonnull)cleanupStringToAsciiEncoding:(NSString * _Nullable)string SWIFT_WARN_UNUSED_RESULT;
 + (BOOL)isUUID:(NSString * _Nullable)string SWIFT_WARN_UNUSED_RESULT;
 + (BOOL)isURL:(NSString * _Nonnull)string SWIFT_WARN_UNUSED_RESULT;
++ (NSURL * _Nullable)makeUrlWithString:(NSString * _Nonnull)urlString parameters:(NSDictionary<NSString *, NSString *> * _Nullable)parameters SWIFT_WARN_UNUSED_RESULT;
 + (BOOL)usesSDKHybridPlugin SWIFT_WARN_UNUSED_RESULT;
 + (BOOL)usesReactNativePlugin SWIFT_WARN_UNUSED_RESULT;
 + (BOOL)usesFlutterPlugin SWIFT_WARN_UNUSED_RESULT;
 + (BOOL)usesXamarinPlugin SWIFT_WARN_UNUSED_RESULT;
++ (NSString * _Nonnull)localizedString:(NSString * _Nonnull)key SWIFT_WARN_UNUSED_RESULT;
 + (NSString * _Nonnull)userLocalizedString:(NSString * _Nonnull)key SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -3657,15 +5420,6 @@ SWIFT_CLASS_NAMED("_SNR_PushEventFactory")
 + (SNREvent * _Nullable)makePushViewEvent:(id _Nonnull)model SWIFT_WARN_UNUSED_RESULT;
 + (SNREvent * _Nullable)makePushDismissEvent:(id _Nonnull)model SWIFT_WARN_UNUSED_RESULT;
 + (SNREvent * _Nullable)makePushImageTimeoutEvent:(id _Nonnull)model SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-SWIFT_CLASS_NAMED("_SNR_PushEventUtils")
-@interface _SNR_PushEventUtils : NSObject
-+ (void)sendPushOpenInAppEventFor:(id _Nonnull)model;
-+ (void)sendPushClickEventFor:(id _Nonnull)model actionIdentifier:(NSString * _Nullable)actionIdentifier url:(NSString * _Nullable)url;
-+ (void)sendPushDismissEventFor:(id _Nonnull)model;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
