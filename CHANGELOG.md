@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 Note that Objective-C class names are prefixed by `SNR`. In the changelog below, these are names used in Swift, without the prefix.
 
+## [5.5.0] - 2025-09-08
+
+### Added
+- `SRInApp.internalMethod` method to JS interface in the In-app messaging module. This method allows to invoke the native SDK method from predefined methods. You can read more in the documentation about available methods and params you may use. 
+
+
 ## [5.4.5] - 2025-08-14
 
 ### Fixed
