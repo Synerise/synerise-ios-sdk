@@ -387,7 +387,7 @@ extension SyneriseSDK.Client : SyneriseSDK._SNR_SignalReceivable {
   @objc public static func operatingSystemLanguage() -> Swift.String?
   @objc public static func isPhone() -> Swift.Bool
   @objc public static func isTablet() -> Swift.Bool
-  @objc public static func isDeviceWithNotch() -> Swift.Bool
+  @objc public static func isDarkModeEnabled() -> Swift.Bool
   @objc override dynamic public init()
   @objc deinit
 }

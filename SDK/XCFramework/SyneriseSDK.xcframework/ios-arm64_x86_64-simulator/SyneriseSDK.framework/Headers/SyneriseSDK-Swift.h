@@ -2578,7 +2578,7 @@ SWIFT_CLASS_NAMED("_SNR_DeviceInfoProvider")
 + (NSString * _Nullable)operatingSystemLanguage SWIFT_WARN_UNUSED_RESULT;
 + (BOOL)isPhone SWIFT_WARN_UNUSED_RESULT;
 + (BOOL)isTablet SWIFT_WARN_UNUSED_RESULT;
-+ (BOOL)isDeviceWithNotch SWIFT_WARN_UNUSED_RESULT;
++ (BOOL)isDarkModeEnabled SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -5336,7 +5336,7 @@ SWIFT_CLASS_NAMED("_SNR_DeviceInfoProvider")
 + (NSString * _Nullable)operatingSystemLanguage SWIFT_WARN_UNUSED_RESULT;
 + (BOOL)isPhone SWIFT_WARN_UNUSED_RESULT;
 + (BOOL)isTablet SWIFT_WARN_UNUSED_RESULT;
-+ (BOOL)isDeviceWithNotch SWIFT_WARN_UNUSED_RESULT;
++ (BOOL)isDarkModeEnabled SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
