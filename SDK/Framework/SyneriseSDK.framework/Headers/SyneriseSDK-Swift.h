@@ -999,7 +999,7 @@ SWIFT_CLASS_NAMED("ClientSimpleAuthenticationData")
 @property (nonatomic, copy) NSString * _Nullable displayName;
 @property (nonatomic, copy) NSString * _Nullable phone;
 @property (nonatomic) enum SNRClientSex sex;
-@property (nonatomic, copy) NSDate * _Nullable birthDate;
+@property (nonatomic, copy) NSString * _Nullable birthDate;
 @property (nonatomic, copy) NSString * _Nullable avatarUrl;
 @property (nonatomic, copy) NSString * _Nullable company;
 @property (nonatomic, copy) NSString * _Nullable address;
