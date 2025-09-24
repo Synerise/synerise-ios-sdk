@@ -900,7 +900,7 @@ public enum ClientModelUUIDOrigin : Swift.String {
     @objc get
     @objc set
   }
-  @objc public var birthDate: Foundation.Date?
+  @objc public var birthDate: Swift.String?
   @objc public var avatarUrl: Swift.String?
   @objc public var company: Swift.String?
   @objc public var address: Swift.String?

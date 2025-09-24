@@ -40507,13 +40507,13 @@
               {
                 "kind": "TypeNominal",
                 "name": "Optional",
-                "printedName": "Foundation.Date?",
+                "printedName": "Swift.String?",
                 "children": [
                   {
                     "kind": "TypeNominal",
-                    "name": "Date",
-                    "printedName": "Foundation.Date",
-                    "usr": "s:10Foundation4DateV"
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
                   }
                 ],
                 "usr": "s:Sq"
@@ -40521,7 +40521,7 @@
             ],
             "declKind": "Var",
             "usr": "c:@M@SyneriseSDK@objc(cs)SNRClientSimpleAuthenticationData(py)birthDate",
-            "mangledName": "$s11SyneriseSDK30ClientSimpleAuthenticationDataC9birthDate10Foundation0H0VSgvp",
+            "mangledName": "$s11SyneriseSDK30ClientSimpleAuthenticationDataC9birthDateSSSgvp",
             "moduleName": "SyneriseSDK",
             "declAttributes": [
               "HasInitialValue",
@@ -40539,13 +40539,13 @@
                   {
                     "kind": "TypeNominal",
                     "name": "Optional",
-                    "printedName": "Foundation.Date?",
+                    "printedName": "Swift.String?",
                     "children": [
                       {
                         "kind": "TypeNominal",
-                        "name": "Date",
-                        "printedName": "Foundation.Date",
-                        "usr": "s:10Foundation4DateV"
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
                       }
                     ],
                     "usr": "s:Sq"
@@ -40553,7 +40553,7 @@
                 ],
                 "declKind": "Accessor",
                 "usr": "c:@M@SyneriseSDK@objc(cs)SNRClientSimpleAuthenticationData(im)birthDate",
-                "mangledName": "$s11SyneriseSDK30ClientSimpleAuthenticationDataC9birthDate10Foundation0H0VSgvg",
+                "mangledName": "$s11SyneriseSDK30ClientSimpleAuthenticationDataC9birthDateSSSgvg",
                 "moduleName": "SyneriseSDK",
                 "implicit": true,
                 "declAttributes": [
@@ -40574,13 +40574,13 @@
                   {
                     "kind": "TypeNominal",
                     "name": "Optional",
-                    "printedName": "Foundation.Date?",
+                    "printedName": "Swift.String?",
                     "children": [
                       {
                         "kind": "TypeNominal",
-                        "name": "Date",
-                        "printedName": "Foundation.Date",
-                        "usr": "s:10Foundation4DateV"
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
                       }
                     ],
                     "usr": "s:Sq"
@@ -40588,7 +40588,7 @@
                 ],
                 "declKind": "Accessor",
                 "usr": "c:@M@SyneriseSDK@objc(cs)SNRClientSimpleAuthenticationData(im)setBirthDate:",
-                "mangledName": "$s11SyneriseSDK30ClientSimpleAuthenticationDataC9birthDate10Foundation0H0VSgvs",
+                "mangledName": "$s11SyneriseSDK30ClientSimpleAuthenticationDataC9birthDateSSSgvs",
                 "moduleName": "SyneriseSDK",
                 "implicit": true,
                 "declAttributes": [
@@ -40608,8 +40608,8 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:11SyneriseSDK30ClientSimpleAuthenticationDataC9birthDate10Foundation0H0VSgvM",
-                "mangledName": "$s11SyneriseSDK30ClientSimpleAuthenticationDataC9birthDate10Foundation0H0VSgvM",
+                "usr": "s:11SyneriseSDK30ClientSimpleAuthenticationDataC9birthDateSSSgvM",
+                "mangledName": "$s11SyneriseSDK30ClientSimpleAuthenticationDataC9birthDateSSSgvM",
                 "moduleName": "SyneriseSDK",
                 "implicit": true,
                 "accessorKind": "_modify"
@@ -75690,7 +75690,7 @@
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Managers\/ServerTimeManager.swift",
       "kind": "StringLiteral",
-      "offset": 1465,
+      "offset": 1479,
       "length": 42,
       "value": "\"com.synerise.sdk.queue.server-time-fetch\""
     },
@@ -76544,21 +76544,21 @@
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Injector.swift",
       "kind": "BooleanLiteral",
-      "offset": 5986,
+      "offset": 6137,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Injector.swift",
       "kind": "BooleanLiteral",
-      "offset": 6567,
+      "offset": 6718,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Injector.swift",
       "kind": "BooleanLiteral",
-      "offset": 6856,
+      "offset": 7007,
       "length": 5,
       "value": "false"
     },
