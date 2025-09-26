@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 Note that Objective-C class names are prefixed by `SNR`. In the changelog below, these are names used in Swift, without the prefix.
 
+## [5.6.2] - 2025-09-26
+
+### Fixed
+- The `SRInApp.trackCustomEvent` method in the JS interface in the in-app messaging module. The method didn't work correctly since version 5.0.0.
+
+
 ## [5.6.1] - 2025-09-24
 
 ### Fixed
