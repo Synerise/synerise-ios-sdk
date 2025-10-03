@@ -1357,6 +1357,9 @@ SWIFT_CLASS_NAMED("LoggedOutEvent")
 
 SWIFT_CLASS_NAMED("NotificationInfo")
 @interface SNRNotificationInfo : SNRBaseModel
+@property (nonatomic, readonly, copy) NSString * _Nonnull campaignHashId;
+@property (nonatomic, readonly, copy) NSString * _Nonnull campaignTitle;
+@property (nonatomic, readonly, copy) NSDictionary<NSString *, id> * _Nonnull payload;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
