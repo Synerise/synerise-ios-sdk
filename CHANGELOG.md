@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 Note that Objective-C class names are prefixed by `SNR`. In the changelog below, these are names used in Swift, without the prefix.
 
+## [5.6.3] - 2025-10-03
+
+### Fixed
+- `NotificationInfo` properties visibility to public.
+
+
 ## [5.6.2] - 2025-09-26
 
 ### Fixed

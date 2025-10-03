@@ -272,6 +272,9 @@ public enum SyneriseLocalizable {
   @objc func toNotificationInfo() -> SyneriseSDK.NotificationInfo?
 }
 @_hasMissingDesignatedInitializers @objc(SNRNotificationInfo) public class NotificationInfo : SyneriseSDK.BaseModel {
+  @objc final public let campaignHashId: Swift.String
+  @objc final public let campaignTitle: Swift.String
+  @objc final public let payload: [Swift.String : Any]
   @objc deinit
 }
 @_hasMissingDesignatedInitializers @objc(SNRProductAddedToFavoritesEvent) final public class ProductAddedToFavoritesEvent : SyneriseSDK.Event {
