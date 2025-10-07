@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 Note that Objective-C class names are prefixed by `SNR`. In the changelog below, these are names used in Swift, without the prefix.
 
+## [5.7.0] - 2025-10-07
+
+### Added
+- The `Injector.closeInAppMessage(campaignHash:)` method to programmaticaly close a currently opened inapp from the application.
+
+
 ## [5.6.3] - 2025-10-03
 
 ### Fixed

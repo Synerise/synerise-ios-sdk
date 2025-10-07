@@ -53771,6 +53771,37 @@
           },
           {
             "kind": "Function",
+            "name": "closeInAppMessage",
+            "printedName": "closeInAppMessage(campaignHash:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@SyneriseSDK@objc(cs)SNRInjector(cm)closeInAppMessageWithCampaignHash:",
+            "mangledName": "$s11SyneriseSDK8InjectorC17closeInAppMessage12campaignHashySS_tFZ",
+            "moduleName": "SyneriseSDK",
+            "static": true,
+            "objc_name": "closeInAppMessageWithCampaignHash:",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
             "name": "signalReceived",
             "printedName": "signalReceived(_:parameters:)",
             "children": [
@@ -76720,21 +76751,21 @@
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Injector.swift",
       "kind": "BooleanLiteral",
-      "offset": 6137,
+      "offset": 6577,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Injector.swift",
       "kind": "BooleanLiteral",
-      "offset": 6718,
+      "offset": 7158,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Injector.swift",
       "kind": "BooleanLiteral",
-      "offset": 7007,
+      "offset": 7447,
       "length": 5,
       "value": "false"
     },
@@ -79009,23 +79040,44 @@
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Main\/Campaigns\/InAppMessageEventFactory.swift",
       "kind": "StringLiteral",
-      "offset": 676,
+      "offset": 656,
       "length": 4,
       "value": "\"id\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Main\/Campaigns\/InAppMessageEventFactory.swift",
       "kind": "StringLiteral",
-      "offset": 728,
+      "offset": 688,
       "length": 11,
       "value": "\"variantId\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Main\/Campaigns\/InAppMessageEventFactory.swift",
       "kind": "StringLiteral",
-      "offset": 789,
+      "offset": 729,
       "length": 14,
       "value": "\"test_message\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Main\/Campaigns\/InAppMessageEventFactory.swift",
+      "kind": "StringLiteral",
+      "offset": 770,
+      "length": 10,
+      "value": "\"closedBy\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Main\/Campaigns\/InAppMessageEventFactory.swift",
+      "kind": "StringLiteral",
+      "offset": 849,
+      "length": 5,
+      "value": "\"app\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Main\/Campaigns\/InAppMessageEventFactory.swift",
+      "kind": "StringLiteral",
+      "offset": 879,
+      "length": 6,
+      "value": "\"user\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Tracker\/Events\/Misc\/HitTimerEvent.swift",

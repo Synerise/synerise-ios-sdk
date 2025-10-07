@@ -1215,6 +1215,7 @@ public protocol _SNR_BackgroundTaskManagerType : AnyObject {
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(SNRInjector) final public class Injector : ObjectiveC.NSObject {
   @objc deinit
   @objc(setInAppMessageDelegate:) public static func setInAppMessageDelegate(_ delegate: any SyneriseSDK.InjectorInAppMessageDelegate)
+  @objc(closeInAppMessageWithCampaignHash:) public static func closeInAppMessage(campaignHash: Swift.String)
 }
 extension SyneriseSDK.Injector : SyneriseSDK._SNR_SignalReceivable {
   @objc final public func signalReceived(_ signal: SyneriseSDK._SNR_BaseSignal, parameters: [Swift.String : Any])

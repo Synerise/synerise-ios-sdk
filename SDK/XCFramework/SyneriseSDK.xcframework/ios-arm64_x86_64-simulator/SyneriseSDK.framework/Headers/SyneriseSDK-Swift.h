@@ -1257,6 +1257,10 @@ SWIFT_CLASS_NAMED("Injector")
 /// \param delegate An object that implements the <code>SNRInAppMessageDelegate</code> protocol.
 ///
 + (void)setInAppMessageDelegate:(id <SNRInjectorInAppMessageDelegate> _Nonnull)delegate;
+/// This method closes the current in-app message.
+/// \param campaignHash An identifier of the in-app message campaign that is currently opened.
+///
++ (void)closeInAppMessageWithCampaignHash:(NSString * _Nonnull)campaignHash;
 @end
 
 
@@ -4018,6 +4022,10 @@ SWIFT_CLASS_NAMED("Injector")
 /// \param delegate An object that implements the <code>SNRInAppMessageDelegate</code> protocol.
 ///
 + (void)setInAppMessageDelegate:(id <SNRInjectorInAppMessageDelegate> _Nonnull)delegate;
+/// This method closes the current in-app message.
+/// \param campaignHash An identifier of the in-app message campaign that is currently opened.
+///
++ (void)closeInAppMessageWithCampaignHash:(NSString * _Nonnull)campaignHash;
 @end
 
 
