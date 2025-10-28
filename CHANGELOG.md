@@ -18,25 +18,33 @@ Note that Objective-C class names are prefixed by `SNR`. In the changelog below,
 - Improvements to stability.
 
 
-## [5.7.0] - 2025-10-07
+## [5.7.0] - 2025-10-07 - REMOVED
+
+!!! THIS VERSION HAS BEEN REMOVED DUE TO POTENTIAL ISSUES WITH MANAGING ACCOUNT. USE VERSION 5.8.0 !!!
 
 ### Added
 - The `Injector.closeInAppMessage(campaignHash:)` method to programmaticaly close a currently opened inapp from the application.
 
 
-## [5.6.3] - 2025-10-03
+## [5.6.3] - 2025-10-03 - REMOVED
+
+!!! THIS VERSION HAS BEEN REMOVED DUE TO POTENTIAL ISSUES WITH MANAGING ACCOUNT. USE VERSION 5.8.0 !!!
 
 ### Fixed
 - `NotificationInfo` properties visibility to public.
 
 
-## [5.6.2] - 2025-09-26
+## [5.6.2] - 2025-09-26 - REMOVED
+
+!!! THIS VERSION HAS BEEN REMOVED DUE TO POTENTIAL ISSUES WITH MANAGING ACCOUNT. USE VERSION 5.8.0 !!!
 
 ### Fixed
 - The `SRInApp.trackCustomEvent` method in the JS interface in the in-app messaging module. The method didn't work correctly since version 5.0.0.
 
 
-## [5.6.1] - 2025-09-24
+## [5.6.1] - 2025-09-24 - REMOVED
+
+!!! THIS VERSION HAS BEEN REMOVED DUE TO POTENTIAL ISSUES WITH MANAGING ACCOUNT. USE VERSION 5.8.0 !!!
 
 ### Fixed
 - The issue with fetching the server time. The problem occurred since version 5.0.0.
