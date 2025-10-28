@@ -382,6 +382,20 @@ SWIFT_CLASS("_TtC11SyneriseSDK24BasicNotificationPayload")
 @end
 
 
+/// <code>BrickworksApiQuery</code> class.
+SWIFT_CLASS_NAMED("BrickworksApiQuery")
+@interface SNRBrickworksApiQuery : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nonnull schemaSlug;
+@property (nonatomic, copy) NSString * _Nullable recordSlug;
+@property (nonatomic, copy) NSString * _Nullable recordId;
+@property (nonatomic, copy) NSDictionary<NSString *, id> * _Nullable params;
+- (nonnull instancetype)initWithSchemaSlug:(NSString * _Nonnull)schemaSlug recordSlug:(NSString * _Nonnull)recordSlug OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithSchemaSlug:(NSString * _Nonnull)schemaSlug recordId:(NSString * _Nonnull)recordId OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
 SWIFT_CLASS_NAMED("CacheManager")
 @interface SNRCacheManager : NSObject
 + (id _Nullable)get:(Class _Nonnull)aClass SWIFT_WARN_UNUSED_RESULT;
@@ -786,7 +800,6 @@ SWIFT_CLASS_NAMED("Client")
 + (void)registerForPush:(NSString * _Nonnull)registrationToken mobilePushAgreement:(BOOL)mobilePushAgreement success:(void (^ _Nonnull)(void))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
 @end
 
-
 @class _SNR_BaseSignal;
 
 SWIFT_PROTOCOL_NAMED("_SNR_SignalReceivable")
@@ -798,6 +811,7 @@ SWIFT_PROTOCOL_NAMED("_SNR_SignalReceivable")
 @interface SNRClient (SWIFT_EXTENSION(SyneriseSDK)) <_SNR_SignalReceivable>
 - (void)signalReceived:(_SNR_BaseSignal * _Nonnull)signal parameters:(NSDictionary<NSString *, id> * _Nonnull)parameters;
 @end
+
 
 enum SNRClientSex : NSInteger;
 @class SNRClientAgreements;
@@ -835,7 +849,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL supportsSecureC
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
-
 
 
 /// <code>ClientAgreements</code> class
@@ -917,7 +930,6 @@ SWIFT_CLASS_NAMED("ClientEventData")
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
-
 
 @class NSNumber;
 
@@ -1129,6 +1141,14 @@ SWIFT_CLASS_NAMED("Content")
 /// \param failure A closure to be executed when the operation finishes unsuccessfully.
 ///
 + (void)generateScreenViewWithApiQuery:(SNRScreenViewApiQuery * _Nonnull)apiQuery success:(void (^ _Nonnull)(SNRScreenView * _Nonnull))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+/// This method generates Brickworks record that is defined for parameters provided in the query object.
+/// \param apiQuery <code>BrickworksApiQuery</code> object responsible for storing all query parameters.
+///
+/// \param success A closure to be executed when the operation finishes successfully.
+///
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
+///
++ (void)generateBrickworksWithApiQuery:(SNRBrickworksApiQuery * _Nonnull)apiQuery success:(void (^ _Nonnull)(NSDictionary<NSString *, id> * _Nonnull))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
 @end
 
 
@@ -1550,6 +1570,7 @@ SWIFT_CLASS_NAMED("PromotionIdentifier")
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
+
 
 /// <code>PromotionIdentifierType</code> enum
 typedef SWIFT_ENUM_NAMED(NSInteger, SNRPromotionIdentifierType, "PromotionIdentifierType", open) {
@@ -2510,10 +2531,10 @@ SWIFT_CLASS_NAMED("_SNR_ClientManager")
 @end
 
 
+
 @interface _SNR_ClientManager (SWIFT_EXTENSION(SyneriseSDK)) <_SNR_SignalReceivable>
 - (void)signalReceived:(_SNR_BaseSignal * _Nonnull)signal parameters:(NSDictionary<NSString *, id> * _Nonnull)parameters;
 @end
-
 
 
 SWIFT_CLASS_NAMED("_SNR_ClientModel")
@@ -3147,6 +3168,20 @@ SWIFT_CLASS("_TtC11SyneriseSDK24BasicNotificationPayload")
 @end
 
 
+/// <code>BrickworksApiQuery</code> class.
+SWIFT_CLASS_NAMED("BrickworksApiQuery")
+@interface SNRBrickworksApiQuery : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nonnull schemaSlug;
+@property (nonatomic, copy) NSString * _Nullable recordSlug;
+@property (nonatomic, copy) NSString * _Nullable recordId;
+@property (nonatomic, copy) NSDictionary<NSString *, id> * _Nullable params;
+- (nonnull instancetype)initWithSchemaSlug:(NSString * _Nonnull)schemaSlug recordSlug:(NSString * _Nonnull)recordSlug OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithSchemaSlug:(NSString * _Nonnull)schemaSlug recordId:(NSString * _Nonnull)recordId OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
 SWIFT_CLASS_NAMED("CacheManager")
 @interface SNRCacheManager : NSObject
 + (id _Nullable)get:(Class _Nonnull)aClass SWIFT_WARN_UNUSED_RESULT;
@@ -3551,7 +3586,6 @@ SWIFT_CLASS_NAMED("Client")
 + (void)registerForPush:(NSString * _Nonnull)registrationToken mobilePushAgreement:(BOOL)mobilePushAgreement success:(void (^ _Nonnull)(void))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
 @end
 
-
 @class _SNR_BaseSignal;
 
 SWIFT_PROTOCOL_NAMED("_SNR_SignalReceivable")
@@ -3563,6 +3597,7 @@ SWIFT_PROTOCOL_NAMED("_SNR_SignalReceivable")
 @interface SNRClient (SWIFT_EXTENSION(SyneriseSDK)) <_SNR_SignalReceivable>
 - (void)signalReceived:(_SNR_BaseSignal * _Nonnull)signal parameters:(NSDictionary<NSString *, id> * _Nonnull)parameters;
 @end
+
 
 enum SNRClientSex : NSInteger;
 @class SNRClientAgreements;
@@ -3600,7 +3635,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL supportsSecureC
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
-
 
 
 /// <code>ClientAgreements</code> class
@@ -3682,7 +3716,6 @@ SWIFT_CLASS_NAMED("ClientEventData")
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
-
 
 @class NSNumber;
 
@@ -3894,6 +3927,14 @@ SWIFT_CLASS_NAMED("Content")
 /// \param failure A closure to be executed when the operation finishes unsuccessfully.
 ///
 + (void)generateScreenViewWithApiQuery:(SNRScreenViewApiQuery * _Nonnull)apiQuery success:(void (^ _Nonnull)(SNRScreenView * _Nonnull))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+/// This method generates Brickworks record that is defined for parameters provided in the query object.
+/// \param apiQuery <code>BrickworksApiQuery</code> object responsible for storing all query parameters.
+///
+/// \param success A closure to be executed when the operation finishes successfully.
+///
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
+///
++ (void)generateBrickworksWithApiQuery:(SNRBrickworksApiQuery * _Nonnull)apiQuery success:(void (^ _Nonnull)(NSDictionary<NSString *, id> * _Nonnull))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
 @end
 
 
@@ -4315,6 +4356,7 @@ SWIFT_CLASS_NAMED("PromotionIdentifier")
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
+
 
 /// <code>PromotionIdentifierType</code> enum
 typedef SWIFT_ENUM_NAMED(NSInteger, SNRPromotionIdentifierType, "PromotionIdentifierType", open) {
@@ -5275,10 +5317,10 @@ SWIFT_CLASS_NAMED("_SNR_ClientManager")
 @end
 
 
+
 @interface _SNR_ClientManager (SWIFT_EXTENSION(SyneriseSDK)) <_SNR_SignalReceivable>
 - (void)signalReceived:(_SNR_BaseSignal * _Nonnull)signal parameters:(NSDictionary<NSString *, id> * _Nonnull)parameters;
 @end
-
 
 
 SWIFT_CLASS_NAMED("_SNR_ClientModel")
