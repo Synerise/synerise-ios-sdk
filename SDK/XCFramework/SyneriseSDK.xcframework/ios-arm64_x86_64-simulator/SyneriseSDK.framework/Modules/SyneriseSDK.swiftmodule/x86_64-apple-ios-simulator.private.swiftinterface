@@ -150,7 +150,7 @@ import os
   @objc public var displayAttribute: [Swift.String]?
   @objc public var includeContextItems: Swift.Bool
   @objc public var params: [Swift.String : Any]?
-  @objc public init(slug: Swift.String)
+  @objc(initWithSlug:) public init(slug: Swift.String)
   @objc deinit
 }
 @objc(SNRInternalEventSource) public enum InternalEventSource : Swift.Int {
@@ -456,7 +456,7 @@ public enum SyneriseApiUrls {
   @objc public var elasticFiltersJoiner: SyneriseSDK.RecommendationFiltersJoinerRule
   @objc public var displayAttribute: [Swift.String]?
   @objc public var includeContextItems: Swift.Bool
-  @objc public init(slug: Swift.String)
+  @objc(initWithSlug:) public init(slug: Swift.String)
   @objc deinit
 }
 @_hasMissingDesignatedInitializers @objc(SNRPromotionDiscountStep) public class PromotionDiscountStep : SyneriseSDK.BaseModel {
@@ -576,6 +576,15 @@ public let SDK_UNKNOWN_VERSION: Swift.String
   @objc(downloadAndCacheImageSynchronouslyFromURL:) public func downloadAndCacheImageSynchronously(from url: Foundation.URL) -> Swift.Bool
   @objc(downloadImageAsynchronouslyFromURL:completionBlock:) public func downloadImageAsynchronously(from url: Foundation.URL, completion: @escaping (UIKit.UIImage?, (any Swift.Error)?) -> Swift.Void)
   @objc override dynamic public init()
+  @objc deinit
+}
+@objc(SNRBrickworksApiQuery) public class BrickworksApiQuery : ObjectiveC.NSObject {
+  @objc final public let schemaSlug: Swift.String
+  @objc public var recordSlug: Swift.String?
+  @objc public var recordId: Swift.String?
+  @objc public var params: [Swift.String : Any]?
+  @objc(initWithSchemaSlug:recordSlug:) public init(schemaSlug: Swift.String, recordSlug: Swift.String)
+  @objc(initWithSchemaSlug:recordId:) public init(schemaSlug: Swift.String, recordId: Swift.String)
   @objc deinit
 }
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(SNRRecommendationEvent) public class RecommendationEvent : SyneriseSDK.Event {
@@ -798,7 +807,10 @@ public enum ClientModelUUIDOrigin : Swift.String {
   @objc public var lastName: Swift.String?
   @objc public var displayName: Swift.String?
   @objc public var phone: Swift.String?
-  @objc public var sex: SyneriseSDK.ClientSex
+  @objc public var sex: SyneriseSDK.ClientSex {
+    @objc get
+    @objc set
+  }
   @objc public var birthDate: Swift.String?
   @objc public var avatarUrl: Swift.String?
   @objc public var company: Swift.String?
@@ -1169,6 +1181,7 @@ public protocol _SNR_BackgroundTaskManagerType : AnyObject {
   @objc(getRecommendationsV2:success:failure:) public static func getRecommendationsV2(options: SyneriseSDK.RecommendationOptions, success: @escaping (SyneriseSDK.RecommendationResponse) -> Swift.Void, failure: @escaping (SyneriseSDK.SNRApiError) -> Swift.Void)
   @objc(generateScreenView:success:failure:) public static func generateScreenView(feedSlug: Swift.String, success: @escaping (SyneriseSDK.ScreenView) -> Swift.Void, failure: @escaping (SyneriseSDK.SNRApiError) -> Swift.Void)
   @objc(generateScreenViewWithApiQuery:success:failure:) public static func generateScreenView(apiQuery: SyneriseSDK.ScreenViewApiQuery, success: @escaping (SyneriseSDK.ScreenView) -> Swift.Void, failure: @escaping (SyneriseSDK.SNRApiError) -> Swift.Void)
+  @objc(generateBrickworksWithApiQuery:success:failure:) public static func generateBrickworks(apiQuery: SyneriseSDK.BrickworksApiQuery, success: @escaping ([Swift.String : Any]) -> Swift.Void, failure: @escaping (SyneriseSDK.SNRApiError) -> Swift.Void)
   @objc deinit
 }
 @_inheritsConvenienceInitializers @objc(SNRSettings) public class Settings : ObjectiveC.NSObject {

@@ -4,6 +4,20 @@ All notable changes to this project will be documented in this file.
 
 Note that Objective-C class names are prefixed by `SNR`. In the changelog below, these are names used in Swift, without the prefix.
 
+## [5.8.0] - 2025-10-28
+
+### Fixed
+- Potential issues with registering and updating accounts using Simple Authentication when the `sex` property was set to `.notSpecified`. This caused a `Bad Request` error. The problem occurred since version 5.5.0.
+- Issue with the `sex` property in the `ClientUpdateAccountContext` model. It could not be updated. The problem occurred since version 5.5.0.
+- Issue with the `agreements` property while registering, authenticating, and updating accounts when using Simple Authentication. The property could not be updated. The problem occurred since version 5.5.0.
+
+### Added
+- The `Content.generateBrickworks(apiQuery:success:failure:)` method. The new method generates a Brickworks record for the parameters provided in the query object.
+
+### Changed
+- Improvements to stability.
+
+
 ## [5.7.0] - 2025-10-07
 
 ### Added
@@ -32,7 +46,9 @@ Note that Objective-C class names are prefixed by `SNR`. In the changelog below,
 - Improvements to stability.
 
 
-## [5.6.0] - 2025-09-24
+## [5.6.0] - 2025-09-24 - REMOVED
+
+!!! THIS VERSION HAS BEEN REMOVED DUE TO POTENTIAL ISSUES WITH TRACKING API. USE VERSION 5.6.1 !!!
 
 ### Added
 - `SRInApp.resize` method to the JS interface in the in-app messaging module, allowing you resize an in-app message. You can read more in the documentation.
@@ -42,7 +58,9 @@ Note that Objective-C class names are prefixed by `SNR`. In the changelog below,
 - We implemented a new format of input in the `SRInApp.internalMethod` method in the JS interface in the in-app messaging module. Old parameters still work, but we changed the format for consistency.
 
 
-## [5.5.0] - 2025-09-08
+## [5.5.0] - 2025-09-08 - REMOVED
+
+!!! THIS VERSION HAS BEEN REMOVED DUE TO POTENTIAL ISSUES WITH TRACKING API. USE VERSION 5.6.1 !!!
 
 ### Added
 - `SRInApp.internalMethod` method to JS interface in the in-app messaging module. This method allows to invoke the native SDK method from predefined methods. You can read more in the documentation about available methods and params you may use. 
@@ -60,7 +78,9 @@ Note that Objective-C class names are prefixed by `SNR`. In the changelog below,
 - The issue with vouchers api methods.
 
 
-## [5.4.3] - 2025-06-22
+## [5.4.3] - 2025-06-22 - REMOVED
+
+!!! THIS VERSION HAS BEEN REMOVED DUE TO POTENTIAL ISSUES WITH VOUCHERS API. USE VERSION 5.4.4 !!!
 
 ### Fixed
 - Potential issues with URL and deeplink actions when the delegate is set after SDK initialization.
@@ -68,19 +88,25 @@ Note that Objective-C class names are prefixed by `SNR`. In the changelog below,
 - The `discountValue` property in `PromotionDiscountStep` now uses the correct Objective-C type (`NSNumber`) - fixed broken compatibility.
 
 
-## [5.4.2] - 2025-06-17
+## [5.4.2] - 2025-06-17 - REMOVED
+
+!!! THIS VERSION HAS BEEN REMOVED DUE TO POTENTIAL ISSUES WITH VOUCHERS API. USE VERSION 5.4.4 !!!
 
 ### Fixed
 - Some potential issues with notification processing in `NotificationServiceExtension`.
 
 
-## [5.4.1] - 2025-06-13
+## [5.4.1] - 2025-06-13 - REMOVED
+
+!!! THIS VERSION HAS BEEN REMOVED DUE TO POTENTIAL ISSUES WITH VOUCHERS API. USE VERSION 5.4.4 !!!
 
 ### Fixed
 - Some potential issues with notification processing in `NotificationServiceExtension`.
 
 
-## [5.4.0] - 2025-06-09
+## [5.4.0] - 2025-06-09 - REMOVED
+
+!!! THIS VERSION HAS BEEN REMOVED DUE TO POTENTIAL ISSUES WITH VOUCHERS API. USE VERSION 5.4.4 !!!
 
 ### Fixed
 - InAppMessage deeplink action.
