@@ -7,9 +7,9 @@ Note that Objective-C class names are prefixed by `SNR`. In the changelog below,
 ## [5.8.0] - 2025-10-28
 
 ### Fixed
-- Potential issues with registering and updating accounts using Simple Authentication when the `sex` property was set to `.notSpecified`. This caused a `Bad Request` error. The problem occurred since version 5.5.0.
+- Potential issues with registering and updating accounts (also Simple Authentication) when the `sex` property was set to `.notSpecified`. This caused a `Bad Request` error. The problem occurred since version 5.5.0.
 - Issue with the `sex` property in the `ClientUpdateAccountContext` model. It could not be updated. The problem occurred since version 5.5.0.
-- Issue with the `agreements` property while registering, authenticating, and updating accounts when using Simple Authentication. The property could not be updated. The problem occurred since version 5.5.0.
+- Issue with the `agreements` property while registering, authenticating, and updating accounts (also Simple Authentication). The property could not be updated. The problem occurred since version 5.5.0.
 
 ### Added
 - The `Content.generateBrickworks(apiQuery:success:failure:)` method. The new method generates a Brickworks record for the parameters provided in the query object.
