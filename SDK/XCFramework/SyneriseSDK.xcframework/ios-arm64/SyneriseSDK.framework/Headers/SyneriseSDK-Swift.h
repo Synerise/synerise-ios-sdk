@@ -388,7 +388,8 @@ SWIFT_CLASS_NAMED("BrickworksApiQuery")
 @property (nonatomic, readonly, copy) NSString * _Nonnull schemaSlug;
 @property (nonatomic, copy) NSString * _Nullable recordSlug;
 @property (nonatomic, copy) NSString * _Nullable recordId;
-@property (nonatomic, copy) NSDictionary<NSString *, id> * _Nullable params;
+@property (nonatomic, copy) NSDictionary<NSString *, id> * _Nullable context;
+@property (nonatomic, copy) NSDictionary<NSString *, id> * _Nullable fieldContext;
 - (nonnull instancetype)initWithSchemaSlug:(NSString * _Nonnull)schemaSlug recordSlug:(NSString * _Nonnull)recordSlug OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithSchemaSlug:(NSString * _Nonnull)schemaSlug recordId:(NSString * _Nonnull)recordId OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;

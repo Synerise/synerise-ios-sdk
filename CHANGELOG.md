@@ -4,12 +4,18 @@ All notable changes to this project will be documented in this file.
 
 Note that Objective-C class names are prefixed by `SNR`. In the changelog below, these are names used in Swift, without the prefix.
 
+## [5.8.1] - 2025-10-29
+ 
+### Changed
+- Changes in generating Brickworks requests (new properties in `BrickworksApiQuery`: `context` and `fieldContext`. The `params` property was removed).
+
+
 ## [5.8.0] - 2025-10-28
 
 ### Fixed
-- Potential issues with registering and updating accounts (also with Simple Authentication) when the `sex` property was set to `.notSpecified`. This caused a `Bad Request` error. The problem occurred since version 5.5.0.
+- Potential issues with registering and updating accounts using Simple Authentication when the `sex` property was set to `.notSpecified`. This caused a `Bad Request` error. The problem occurred since version 5.5.0.
 - Issue with the `sex` property in the `ClientUpdateAccountContext` model. It could not be updated. The problem occurred since version 5.5.0.
-- Issue with the `agreements` property while registering, authenticating, and updating accounts (also with Simple Authentication). The property could not be updated. The problem occurred since version 5.5.0.
+- Issue with the `agreements` property while registering, authenticating, and updating accounts when using Simple Authentication. The property could not be updated. The problem occurred since version 5.5.0.
 
 ### Added
 - The `Content.generateBrickworks(apiQuery:success:failure:)` method. The new method generates a Brickworks record for the parameters provided in the query object.

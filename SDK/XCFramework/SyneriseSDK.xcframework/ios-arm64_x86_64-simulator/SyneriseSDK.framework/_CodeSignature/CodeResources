@@ -154,7 +154,7 @@
 		</data>
 		<key>Headers/SyneriseSDK-Swift.h</key>
 		<data>
-		AM2nhk1S+bpxs4OFN1vrLXren+M=
+		OIk2HpZSfbsEt7KzGhWZQqvTQ38=
 		</data>
 		<key>Headers/SyneriseSDK.h</key>
 		<data>
@@ -162,15 +162,15 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		c8vkSo5UPHSg7I0DNdxrdirxB70=
+		hZZz6cp1DZAYf1QuG6XDBH7CXSE=
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		Gla/z6GRzAfaQ811e3vyihqxwLs=
+		xAtFbO2zmrC+yyW+ICpfPH51el8=
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		Wl7GdH1ByvtNfG3gXQzf1Ddagdo=
+		LOb5DoBy6rPh8qXibLDMxTmLL7o=
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -178,19 +178,19 @@
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		Wl7GdH1ByvtNfG3gXQzf1Ddagdo=
+		LOb5DoBy6rPh8qXibLDMxTmLL7o=
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		JPIahfM9ENsd9U5xGnENkeLOH5g=
+		8IZl29J7B8PSWyncbHC2RQlOV60=
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		Gla/z6GRzAfaQ811e3vyihqxwLs=
+		xAtFbO2zmrC+yyW+ICpfPH51el8=
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		/DSOWmM4pyOCMyXTl+nGFswAgyo=
+		taP2a810EO65NGUccnDkSnCKNcc=
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -198,11 +198,11 @@
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		/DSOWmM4pyOCMyXTl+nGFswAgyo=
+		taP2a810EO65NGUccnDkSnCKNcc=
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		rqgxMtpCv82JIS8zTNQuc7mdtVA=
+		flnQoF88ypHT8JCbOLBaYA7IFbw=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -512,7 +512,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			XrQN7pq9oOb2Zih+LFu0Ypv6TbWEDmnmXaNe/CKcqto=
+			IbV56qXBPMQ2x4ax3a9AHZzptiu4FeKPHvtlihLhdU4=
 			</data>
 		</dict>
 		<key>Headers/SyneriseSDK.h</key>
@@ -526,14 +526,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			bbusFv8wslKuS3B0s8XjcmZYgk+H8TsxBXasLL5WCNc=
+			WakcsvHcTRma3esr4nU+oKRJMm3sSVaNY+gVMWZA3HU=
 			</data>
 		</dict>
 		<key>Modules/SyneriseSDK.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			pzsj9rFBmCdJfI9JiJOmEfRpMSToDhm1t61CZ+un0/o=
+			pO7ZPlCbBL3PQrALdqYvCSct+fLEGkoEkVe/0mIhVWM=
 			</data>
 		</dict>
 		<key>Modules/SyneriseSDK.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
@@ -547,28 +547,28 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			pzsj9rFBmCdJfI9JiJOmEfRpMSToDhm1t61CZ+un0/o=
+			pO7ZPlCbBL3PQrALdqYvCSct+fLEGkoEkVe/0mIhVWM=
 			</data>
 		</dict>
 		<key>Modules/SyneriseSDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			2KJit6+fY6SvE1LGuFz2HHUMWc3EnyOrDLjPvY4l9Ns=
+			d3plCEva3s7XvqbsRJLpuvmX/HfZMNrmwm7GkN0N+qI=
 			</data>
 		</dict>
 		<key>Modules/SyneriseSDK.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			bbusFv8wslKuS3B0s8XjcmZYgk+H8TsxBXasLL5WCNc=
+			WakcsvHcTRma3esr4nU+oKRJMm3sSVaNY+gVMWZA3HU=
 			</data>
 		</dict>
 		<key>Modules/SyneriseSDK.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			NN8zsGuljq+ur3EOrrAzQ37TRo+OmQDPocFVLklz8+M=
+			03c3qSS6hv4Xb+Fja2iL5yxiW+h8VkXZdfVX23FtRUY=
 			</data>
 		</dict>
 		<key>Modules/SyneriseSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
@@ -582,14 +582,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			NN8zsGuljq+ur3EOrrAzQ37TRo+OmQDPocFVLklz8+M=
+			03c3qSS6hv4Xb+Fja2iL5yxiW+h8VkXZdfVX23FtRUY=
 			</data>
 		</dict>
 		<key>Modules/SyneriseSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			+meZjNkhOEAAk4oorjzMgojZ6Bmo2JzFxAM61guKikE=
+			n5V2ng8Ie5JO+Z8vdNxsrq2AIxStDZvyn+t++mKwYwc=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

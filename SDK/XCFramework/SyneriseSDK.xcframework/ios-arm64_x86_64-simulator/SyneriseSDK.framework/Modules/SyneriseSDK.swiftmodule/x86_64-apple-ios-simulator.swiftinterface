@@ -582,7 +582,8 @@ public let SDK_UNKNOWN_VERSION: Swift.String
   @objc final public let schemaSlug: Swift.String
   @objc public var recordSlug: Swift.String?
   @objc public var recordId: Swift.String?
-  @objc public var params: [Swift.String : Any]?
+  @objc public var context: [Swift.String : Any]?
+  @objc public var fieldContext: [Swift.String : Any]?
   @objc(initWithSchemaSlug:recordSlug:) public init(schemaSlug: Swift.String, recordSlug: Swift.String)
   @objc(initWithSchemaSlug:recordId:) public init(schemaSlug: Swift.String, recordId: Swift.String)
   @objc deinit
