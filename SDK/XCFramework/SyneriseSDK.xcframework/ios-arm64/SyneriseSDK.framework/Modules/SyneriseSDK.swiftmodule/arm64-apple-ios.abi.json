@@ -24041,8 +24041,8 @@
           },
           {
             "kind": "Var",
-            "name": "params",
-            "printedName": "params",
+            "name": "context",
+            "printedName": "context",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -24073,8 +24073,8 @@
               }
             ],
             "declKind": "Var",
-            "usr": "c:@M@SyneriseSDK@objc(cs)SNRBrickworksApiQuery(py)params",
-            "mangledName": "$s11SyneriseSDK18BrickworksApiQueryC6paramsSDySSypGSgvp",
+            "usr": "c:@M@SyneriseSDK@objc(cs)SNRBrickworksApiQuery(py)context",
+            "mangledName": "$s11SyneriseSDK18BrickworksApiQueryC7contextSDySSypGSgvp",
             "moduleName": "SyneriseSDK",
             "declAttributes": [
               "HasInitialValue",
@@ -24118,8 +24118,8 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "c:@M@SyneriseSDK@objc(cs)SNRBrickworksApiQuery(im)params",
-                "mangledName": "$s11SyneriseSDK18BrickworksApiQueryC6paramsSDySSypGSgvg",
+                "usr": "c:@M@SyneriseSDK@objc(cs)SNRBrickworksApiQuery(im)context",
+                "mangledName": "$s11SyneriseSDK18BrickworksApiQueryC7contextSDySSypGSgvg",
                 "moduleName": "SyneriseSDK",
                 "implicit": true,
                 "declAttributes": [
@@ -24166,8 +24166,8 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "c:@M@SyneriseSDK@objc(cs)SNRBrickworksApiQuery(im)setParams:",
-                "mangledName": "$s11SyneriseSDK18BrickworksApiQueryC6paramsSDySSypGSgvs",
+                "usr": "c:@M@SyneriseSDK@objc(cs)SNRBrickworksApiQuery(im)setContext:",
+                "mangledName": "$s11SyneriseSDK18BrickworksApiQueryC7contextSDySSypGSgvs",
                 "moduleName": "SyneriseSDK",
                 "implicit": true,
                 "declAttributes": [
@@ -24187,8 +24187,164 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:11SyneriseSDK18BrickworksApiQueryC6paramsSDySSypGSgvM",
-                "mangledName": "$s11SyneriseSDK18BrickworksApiQueryC6paramsSDySSypGSgvM",
+                "usr": "s:11SyneriseSDK18BrickworksApiQueryC7contextSDySSypGSgvM",
+                "mangledName": "$s11SyneriseSDK18BrickworksApiQueryC7contextSDySSypGSgvM",
+                "moduleName": "SyneriseSDK",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "fieldContext",
+            "printedName": "fieldContext",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "[Swift.String : Any]?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Dictionary",
+                    "printedName": "[Swift.String : Any]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ProtocolComposition",
+                        "printedName": "Any"
+                      }
+                    ],
+                    "usr": "s:SD"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@SyneriseSDK@objc(cs)SNRBrickworksApiQuery(py)fieldContext",
+            "mangledName": "$s11SyneriseSDK18BrickworksApiQueryC12fieldContextSDySSypGSgvp",
+            "moduleName": "SyneriseSDK",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "[Swift.String : Any]?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Dictionary",
+                        "printedName": "[Swift.String : Any]",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "ProtocolComposition",
+                            "printedName": "Any"
+                          }
+                        ],
+                        "usr": "s:SD"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@SyneriseSDK@objc(cs)SNRBrickworksApiQuery(im)fieldContext",
+                "mangledName": "$s11SyneriseSDK18BrickworksApiQueryC12fieldContextSDySSypGSgvg",
+                "moduleName": "SyneriseSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "[Swift.String : Any]?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Dictionary",
+                        "printedName": "[Swift.String : Any]",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "ProtocolComposition",
+                            "printedName": "Any"
+                          }
+                        ],
+                        "usr": "s:SD"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@SyneriseSDK@objc(cs)SNRBrickworksApiQuery(im)setFieldContext:",
+                "mangledName": "$s11SyneriseSDK18BrickworksApiQueryC12fieldContextSDySSypGSgvs",
+                "moduleName": "SyneriseSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11SyneriseSDK18BrickworksApiQueryC12fieldContextSDySSypGSgvM",
+                "mangledName": "$s11SyneriseSDK18BrickworksApiQueryC12fieldContextSDySSypGSgvM",
                 "moduleName": "SyneriseSDK",
                 "implicit": true,
                 "accessorKind": "_modify"
@@ -73914,28 +74070,35 @@
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 2186,
+      "offset": 2188,
+      "length": 14,
+      "value": "\"fieldContext\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
+      "kind": "StringLiteral",
+      "offset": 2229,
       "length": 5,
       "value": "\"app\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 2220,
+      "offset": 2263,
       "length": 7,
       "value": "\"event\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 2250,
+      "offset": 2293,
       "length": 8,
       "value": "\"render\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 2279,
+      "offset": 2322,
       "length": 6,
       "value": "\"test\""
     },
