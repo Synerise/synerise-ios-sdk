@@ -312,6 +312,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 SWIFT_CLASS_NAMED("Event")
 @interface SNREvent : NSObject <NSCopying>
+@property (nonatomic, readonly, copy) NSString * _Nonnull _label;
 @property (nonatomic, readonly, copy) NSString * _Nonnull _action;
 @property (nonatomic, copy) NSDictionary<NSString *, id> * _Nullable _client;
 @property (nonatomic, readonly, copy) NSDictionary<NSString *, id> * _Nullable parameters;
@@ -838,7 +839,7 @@ SWIFT_CLASS_NAMED("ClientAccountInformation")
 @property (nonatomic, copy) NSString * _Nullable province;
 @property (nonatomic, copy) NSString * _Nullable zipCode;
 @property (nonatomic, copy) NSString * _Nullable countryCode;
-@property (nonatomic, readonly, copy) NSDate * _Nonnull lastActivityDate;
+@property (nonatomic, readonly, copy) NSDate * _Nullable lastActivityDate SWIFT_DEPRECATED_MSG("Don't use the values from this field. The last activity calculation mechanism is disabled and the value is always the profile's creation date.");
 @property (nonatomic, readonly) BOOL anonymous;
 @property (nonatomic, readonly, strong) SNRClientAgreements * _Nonnull agreements;
 @property (nonatomic, readonly, copy) NSDictionary<NSString *, id> * _Nullable attributes;
@@ -1763,9 +1764,10 @@ SWIFT_CLASS_NAMED("Promotions")
 /// <code>PromotionsApiQuery</code> class
 SWIFT_CLASS_NAMED("PromotionsApiQuery")
 @interface SNRPromotionsApiQuery : NSObject
-@property (nonatomic, copy) NSArray<SNRPromotionStatusString> * _Nonnull statuses;
-@property (nonatomic, copy) NSArray<SNRPromotionTypeString> * _Nonnull types;
-@property (nonatomic, copy) NSArray<NSDictionary<SNRPromotionSortingKey, SNRApiQuerySortingOrderString> *> * _Nullable sorting;
+@property (nonatomic, copy) NSArray<NSString *> * _Nonnull statuses;
+@property (nonatomic, copy) NSArray<NSString *> * _Nonnull types;
+@property (nonatomic) BOOL checkGlobalActivationLimits;
+@property (nonatomic, copy) NSArray<NSDictionary<NSString *, NSString *> *> * _Nullable sorting;
 @property (nonatomic) NSInteger limit;
 @property (nonatomic) NSInteger page;
 @property (nonatomic) BOOL includeMeta;

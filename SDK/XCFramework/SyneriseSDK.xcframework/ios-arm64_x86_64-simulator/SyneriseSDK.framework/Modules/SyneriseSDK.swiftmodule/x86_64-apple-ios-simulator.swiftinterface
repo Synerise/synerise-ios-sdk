@@ -216,6 +216,14 @@ public enum SyneriseLocalizable {
   @objc override dynamic public init()
   @objc deinit
 }
+public typealias SNRPromotionTypeString = Swift.String
+public enum PromotionTypeString {
+  public static let unknown: Swift.String
+  public static let membersOnly: Swift.String
+  public static let custom: Swift.String
+  public static let general: Swift.String
+  public static let handbill: Swift.String
+}
 @objc(SNRPromotionType) public enum PromotionType : Swift.Int, Swift.RawRepresentable {
   @objc(SNRPromotionTypeUnknown) case unknown = 0
   @objc(SNRPromotionTypeMembersOnly) case membersOnly
@@ -416,6 +424,9 @@ extension SyneriseSDK.Client : SyneriseSDK._SNR_SignalReceivable {
   @objc deinit
 }
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(SNREvent) open class Event : ObjectiveC.NSObject, Foundation.NSCopying {
+  @objc public var _label: Swift.String {
+    @objc get
+  }
   @objc public var _action: Swift.String {
     @objc get
   }
@@ -502,6 +513,21 @@ public let SDK_UNKNOWN_VERSION: Swift.String
   @objc(initWithLabel:andLocation:) convenience public init(label: Swift.String, location: CoreLocation.CLLocation)
   @objc(initWithLabel:andLocation:andParams:) public init(label: Swift.String, location: CoreLocation.CLLocation, params: SyneriseSDK.TrackerParams?)
   @objc deinit
+}
+public typealias SNRPromotionSortingKey = Swift.String
+public enum PromotionSortingKey {
+  public static let expireAt: Swift.String
+  public static let createdAt: Swift.String
+  public static let lastingAt: Swift.String
+  public static let requireRedeemedPoints: Swift.String
+  public static let updatedAt: Swift.String
+  public static let type: Swift.String
+  public static let priority: Swift.String
+}
+public typealias SNRApiQuerySortingOrderString = Swift.String
+public enum SyneriseApiQuerySortingOrderString {
+  public static let asc: Swift.String
+  public static let desc: Swift.String
 }
 @_hasMissingDesignatedInitializers @objc(SNRPromotion) public class Promotion : SyneriseSDK.BaseModel {
   @objc final public let uuid: Swift.String
@@ -625,7 +651,8 @@ public let SDK_UNKNOWN_VERSION: Swift.String
   @objc public var province: Swift.String?
   @objc public var zipCode: Swift.String?
   @objc public var countryCode: Swift.String?
-  @objc final public let lastActivityDate: Foundation.Date
+  @available(*, deprecated, message: "Don't use the values from this field. The last activity calculation mechanism is disabled and the value is always the profile's creation date.")
+  @objc final public let lastActivityDate: Foundation.Date?
   @objc final public let anonymous: Swift.Bool
   @objc final public let agreements: SyneriseSDK.ClientAgreements
   @objc final public let attributes: [Swift.String : Any]?
@@ -733,7 +760,7 @@ public let SDK_UNKNOWN_VERSION: Swift.String
   @objc(initWithCampaignHash:variantIdentifier:additionalParameters:isTest:) public init(campaignHash: Swift.String, variantIdentifier: Swift.String, additionalParameters: [Swift.String : Swift.String]?, isTest: Swift.Bool)
   @objc deinit
 }
-public enum SNErrorUserInfoKey {
+public enum SNRErrorUserInfoKey {
 }
 public protocol _SNR_ClientManagerType {
   func setClientId(_ clientId: Swift.String?)
@@ -1094,6 +1121,7 @@ public protocol _SNR_BackgroundTaskManagerType : AnyObject {
 @_inheritsConvenienceInitializers @objc(SNRPromotionsApiQuery) public class PromotionsApiQuery : ObjectiveC.NSObject {
   @objc public var statuses: [SyneriseSDK.SNRPromotionStatusString]
   @objc public var types: [SyneriseSDK.SNRPromotionTypeString]
+  @objc public var checkGlobalActivationLimits: Swift.Bool
   @objc public var sorting: [[SyneriseSDK.SNRPromotionSortingKey : SyneriseSDK.SNRApiQuerySortingOrderString]]?
   @objc public var limit: Swift.Int
   @objc public var page: Swift.Int
@@ -1146,6 +1174,13 @@ public protocol _SNR_BackgroundTaskManagerType : AnyObject {
   @objc(assignVoucherCodeWithPoolUUID:success:failure:) public static func assignVoucherCode(poolUUID: Swift.String, success: @escaping (SyneriseSDK.AssignVoucherResponse) -> Swift.Void, failure: @escaping (SyneriseSDK.SNRApiError) -> Swift.Void)
   @objc(getAssignedVoucherCodesWithSuccess:failure:) public static func getAssignedVoucherCodes(success: @escaping (SyneriseSDK.VoucherCodesResponse) -> Swift.Void, failure: @escaping (SyneriseSDK.SNRApiError) -> Swift.Void)
   @objc deinit
+}
+public typealias SNRPromotionStatusString = Swift.String
+public enum PromotionStatusString {
+  public static let none: Swift.String
+  public static let active: Swift.String
+  public static let assigned: Swift.String
+  public static let redeemed: Swift.String
 }
 @objc(SNRPromotionStatus) public enum PromotionStatus : Swift.UInt, Swift.RawRepresentable {
   @objc(SNRPromotionStatusNone) case none = 0
