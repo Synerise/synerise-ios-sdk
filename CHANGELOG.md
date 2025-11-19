@@ -4,6 +4,27 @@ All notable changes to this project will be documented in this file.
 
 Note that Objective-C class names are prefixed by `SNR`. In the changelog below, these are names used in Swift, without the prefix.
 
+## [5.9.0] - 2025-11-19
+
+### Fixed
+- Issue with the `sortParamerters` key of the `Promotions/getPromotions` input when using the `SRInApp.internalMethod` method in the JS interface in the in-app messaging module. It was not mapped correctly.
+- Issue that could have caused crash in the SDK reinitialization.
+- Some potential issues with notification processing in `NotificationServiceExtension`.
+- Issue with mapping `descriptionText` property in `Promotion` model.
+- Incorrect naming: `SNErrorUserInfoKey` is changed to `SNRErrorUserInfoKey`.
+
+### Added
+- `checkGlobalActivationLimits` property in `PromotionsApiQuery` model to set param that checks if the promotion is available considering how many times it was activated.
+- `PromotionStatusString.active`, `PromotionStatusString.assigned` and other promotion status string values as a Swift public interface. This corresponds with `SNR_PROMOTION_STATUS_ACTIVE`, `SNR_PROMOTION_STATUS_ASSIGNED` and other promotion status string values in the Objective-C interface.
+- `PromotionTypeString.membersOnly`, `PromotionTypeString.custom` and other promotion type string values as a Swift public interface. This corresponds with `SNR_PROMOTION_TYPE_MEMBERS_ONLY`, `SNR_PROMOTION_TYPE_CUSTOM` and other promotion type string values in the Objective-C interface.
+- `PromotionSortingKey.expireAt`, `PromotionSortingKey.type` and other promotion sorting keys as a Swift public interface. This corresponds with `SNR_PROMOTION_SORTING_KEY_EXPIRE_AT`, `SNR_PROMOTION_SORTING_KEY_TYPE` and other promotion sorting keys in the Objective-C interface.
+- `SyneriseApiQuerySortingOrderString.asc`, `SyneriseApiQuerySortingOrderString.desc` api query sorting order values as a Swift public interface. This corresponds with `SNR_API_QUERY_SORTING_ASC`, `SNR_API_QUERY_SORTING_DESC` api query sorting order values in the Objective-C interface.
+
+### Changed
+- The `lastActivityDate` property in `ClientAccountInformation` now is optional. It is also deprecated.
+- Improvements to stability.
+
+
 ## [5.8.1] - 2025-10-29
  
 ### Changed

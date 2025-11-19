@@ -7685,6 +7685,271 @@
       },
       {
         "kind": "TypeDecl",
+        "name": "PromotionTypeString",
+        "printedName": "PromotionTypeString",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "unknown",
+            "printedName": "unknown",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11SyneriseSDK19PromotionTypeStringO7unknownSSvpZ",
+            "mangledName": "$s11SyneriseSDK19PromotionTypeStringO7unknownSSvpZ",
+            "moduleName": "SyneriseSDK",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11SyneriseSDK19PromotionTypeStringO7unknownSSvgZ",
+                "mangledName": "$s11SyneriseSDK19PromotionTypeStringO7unknownSSvgZ",
+                "moduleName": "SyneriseSDK",
+                "static": true,
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "membersOnly",
+            "printedName": "membersOnly",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11SyneriseSDK19PromotionTypeStringO11membersOnlySSvpZ",
+            "mangledName": "$s11SyneriseSDK19PromotionTypeStringO11membersOnlySSvpZ",
+            "moduleName": "SyneriseSDK",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11SyneriseSDK19PromotionTypeStringO11membersOnlySSvgZ",
+                "mangledName": "$s11SyneriseSDK19PromotionTypeStringO11membersOnlySSvgZ",
+                "moduleName": "SyneriseSDK",
+                "static": true,
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "custom",
+            "printedName": "custom",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11SyneriseSDK19PromotionTypeStringO6customSSvpZ",
+            "mangledName": "$s11SyneriseSDK19PromotionTypeStringO6customSSvpZ",
+            "moduleName": "SyneriseSDK",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11SyneriseSDK19PromotionTypeStringO6customSSvgZ",
+                "mangledName": "$s11SyneriseSDK19PromotionTypeStringO6customSSvgZ",
+                "moduleName": "SyneriseSDK",
+                "static": true,
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "general",
+            "printedName": "general",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11SyneriseSDK19PromotionTypeStringO7generalSSvpZ",
+            "mangledName": "$s11SyneriseSDK19PromotionTypeStringO7generalSSvpZ",
+            "moduleName": "SyneriseSDK",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11SyneriseSDK19PromotionTypeStringO7generalSSvgZ",
+                "mangledName": "$s11SyneriseSDK19PromotionTypeStringO7generalSSvgZ",
+                "moduleName": "SyneriseSDK",
+                "static": true,
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "handbill",
+            "printedName": "handbill",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11SyneriseSDK19PromotionTypeStringO8handbillSSvpZ",
+            "mangledName": "$s11SyneriseSDK19PromotionTypeStringO8handbillSSvpZ",
+            "moduleName": "SyneriseSDK",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11SyneriseSDK19PromotionTypeStringO8handbillSSvgZ",
+                "mangledName": "$s11SyneriseSDK19PromotionTypeStringO8handbillSSvgZ",
+                "moduleName": "SyneriseSDK",
+                "static": true,
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "s:11SyneriseSDK19PromotionTypeStringO",
+        "mangledName": "$s11SyneriseSDK19PromotionTypeStringO",
+        "moduleName": "SyneriseSDK",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
         "name": "PromotionType",
         "printedName": "PromotionType",
         "children": [
@@ -15617,6 +15882,50 @@
         "children": [
           {
             "kind": "Var",
+            "name": "_label",
+            "printedName": "_label",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@SyneriseSDK@objc(cs)SNREvent(py)_label",
+            "mangledName": "$s11SyneriseSDK5EventC6_labelSSvp",
+            "moduleName": "SyneriseSDK",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@SyneriseSDK@objc(cs)SNREvent(im)_label",
+                "mangledName": "$s11SyneriseSDK5EventC6_labelSSvg",
+                "moduleName": "SyneriseSDK",
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
             "name": "_action",
             "printedName": "_action",
             "children": [
@@ -19766,6 +20075,489 @@
         "moduleName": "SyneriseSDK",
         "declAttributes": [
           "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "PromotionSortingKey",
+        "printedName": "PromotionSortingKey",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "expireAt",
+            "printedName": "expireAt",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11SyneriseSDK19PromotionSortingKeyO8expireAtSSvpZ",
+            "mangledName": "$s11SyneriseSDK19PromotionSortingKeyO8expireAtSSvpZ",
+            "moduleName": "SyneriseSDK",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11SyneriseSDK19PromotionSortingKeyO8expireAtSSvgZ",
+                "mangledName": "$s11SyneriseSDK19PromotionSortingKeyO8expireAtSSvgZ",
+                "moduleName": "SyneriseSDK",
+                "static": true,
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "createdAt",
+            "printedName": "createdAt",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11SyneriseSDK19PromotionSortingKeyO9createdAtSSvpZ",
+            "mangledName": "$s11SyneriseSDK19PromotionSortingKeyO9createdAtSSvpZ",
+            "moduleName": "SyneriseSDK",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11SyneriseSDK19PromotionSortingKeyO9createdAtSSvgZ",
+                "mangledName": "$s11SyneriseSDK19PromotionSortingKeyO9createdAtSSvgZ",
+                "moduleName": "SyneriseSDK",
+                "static": true,
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "lastingAt",
+            "printedName": "lastingAt",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11SyneriseSDK19PromotionSortingKeyO9lastingAtSSvpZ",
+            "mangledName": "$s11SyneriseSDK19PromotionSortingKeyO9lastingAtSSvpZ",
+            "moduleName": "SyneriseSDK",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11SyneriseSDK19PromotionSortingKeyO9lastingAtSSvgZ",
+                "mangledName": "$s11SyneriseSDK19PromotionSortingKeyO9lastingAtSSvgZ",
+                "moduleName": "SyneriseSDK",
+                "static": true,
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "requireRedeemedPoints",
+            "printedName": "requireRedeemedPoints",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11SyneriseSDK19PromotionSortingKeyO21requireRedeemedPointsSSvpZ",
+            "mangledName": "$s11SyneriseSDK19PromotionSortingKeyO21requireRedeemedPointsSSvpZ",
+            "moduleName": "SyneriseSDK",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11SyneriseSDK19PromotionSortingKeyO21requireRedeemedPointsSSvgZ",
+                "mangledName": "$s11SyneriseSDK19PromotionSortingKeyO21requireRedeemedPointsSSvgZ",
+                "moduleName": "SyneriseSDK",
+                "static": true,
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "updatedAt",
+            "printedName": "updatedAt",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11SyneriseSDK19PromotionSortingKeyO9updatedAtSSvpZ",
+            "mangledName": "$s11SyneriseSDK19PromotionSortingKeyO9updatedAtSSvpZ",
+            "moduleName": "SyneriseSDK",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11SyneriseSDK19PromotionSortingKeyO9updatedAtSSvgZ",
+                "mangledName": "$s11SyneriseSDK19PromotionSortingKeyO9updatedAtSSvgZ",
+                "moduleName": "SyneriseSDK",
+                "static": true,
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "type",
+            "printedName": "type",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11SyneriseSDK19PromotionSortingKeyO4typeSSvpZ",
+            "mangledName": "$s11SyneriseSDK19PromotionSortingKeyO4typeSSvpZ",
+            "moduleName": "SyneriseSDK",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11SyneriseSDK19PromotionSortingKeyO4typeSSvgZ",
+                "mangledName": "$s11SyneriseSDK19PromotionSortingKeyO4typeSSvgZ",
+                "moduleName": "SyneriseSDK",
+                "static": true,
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "priority",
+            "printedName": "priority",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11SyneriseSDK19PromotionSortingKeyO8prioritySSvpZ",
+            "mangledName": "$s11SyneriseSDK19PromotionSortingKeyO8prioritySSvpZ",
+            "moduleName": "SyneriseSDK",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11SyneriseSDK19PromotionSortingKeyO8prioritySSvgZ",
+                "mangledName": "$s11SyneriseSDK19PromotionSortingKeyO8prioritySSvgZ",
+                "moduleName": "SyneriseSDK",
+                "static": true,
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "s:11SyneriseSDK19PromotionSortingKeyO",
+        "mangledName": "$s11SyneriseSDK19PromotionSortingKeyO",
+        "moduleName": "SyneriseSDK",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "SyneriseApiQuerySortingOrderString",
+        "printedName": "SyneriseApiQuerySortingOrderString",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "asc",
+            "printedName": "asc",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11SyneriseSDK0A26ApiQuerySortingOrderStringO3ascSSvpZ",
+            "mangledName": "$s11SyneriseSDK0A26ApiQuerySortingOrderStringO3ascSSvpZ",
+            "moduleName": "SyneriseSDK",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11SyneriseSDK0A26ApiQuerySortingOrderStringO3ascSSvgZ",
+                "mangledName": "$s11SyneriseSDK0A26ApiQuerySortingOrderStringO3ascSSvgZ",
+                "moduleName": "SyneriseSDK",
+                "static": true,
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "desc",
+            "printedName": "desc",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11SyneriseSDK0A26ApiQuerySortingOrderStringO4descSSvpZ",
+            "mangledName": "$s11SyneriseSDK0A26ApiQuerySortingOrderStringO4descSSvpZ",
+            "moduleName": "SyneriseSDK",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11SyneriseSDK0A26ApiQuerySortingOrderStringO4descSSvgZ",
+                "mangledName": "$s11SyneriseSDK0A26ApiQuerySortingOrderStringO4descSSvgZ",
+                "moduleName": "SyneriseSDK",
+                "static": true,
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "s:11SyneriseSDK0A26ApiQuerySortingOrderStringO",
+        "mangledName": "$s11SyneriseSDK0A26ApiQuerySortingOrderStringO",
+        "moduleName": "SyneriseSDK",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
         ]
       },
       {
@@ -26877,20 +27669,30 @@
             "children": [
               {
                 "kind": "TypeNominal",
-                "name": "Date",
-                "printedName": "Foundation.Date",
-                "usr": "s:10Foundation4DateV"
+                "name": "Optional",
+                "printedName": "Foundation.Date?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Date",
+                    "printedName": "Foundation.Date",
+                    "usr": "s:10Foundation4DateV"
+                  }
+                ],
+                "usr": "s:Sq"
               }
             ],
             "declKind": "Var",
             "usr": "c:@M@SyneriseSDK@objc(cs)SNRClientAccountInformation(py)lastActivityDate",
-            "mangledName": "$s11SyneriseSDK24ClientAccountInformationC16lastActivityDate10Foundation0H0Vvp",
+            "mangledName": "$s11SyneriseSDK24ClientAccountInformationC16lastActivityDate10Foundation0H0VSgvp",
             "moduleName": "SyneriseSDK",
+            "deprecated": true,
             "declAttributes": [
               "Final",
               "HasStorage",
               "AccessControl",
-              "ObjC"
+              "ObjC",
+              "Available"
             ],
             "isLet": true,
             "hasStorage": true,
@@ -26902,14 +27704,22 @@
                 "children": [
                   {
                     "kind": "TypeNominal",
-                    "name": "Date",
-                    "printedName": "Foundation.Date",
-                    "usr": "s:10Foundation4DateV"
+                    "name": "Optional",
+                    "printedName": "Foundation.Date?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Date",
+                        "printedName": "Foundation.Date",
+                        "usr": "s:10Foundation4DateV"
+                      }
+                    ],
+                    "usr": "s:Sq"
                   }
                 ],
                 "declKind": "Accessor",
                 "usr": "c:@M@SyneriseSDK@objc(cs)SNRClientAccountInformation(im)lastActivityDate",
-                "mangledName": "$s11SyneriseSDK24ClientAccountInformationC16lastActivityDate10Foundation0H0Vvg",
+                "mangledName": "$s11SyneriseSDK24ClientAccountInformationC16lastActivityDate10Foundation0H0VSgvg",
                 "moduleName": "SyneriseSDK",
                 "implicit": true,
                 "declAttributes": [
@@ -30704,11 +31514,11 @@
       },
       {
         "kind": "TypeDecl",
-        "name": "SNErrorUserInfoKey",
-        "printedName": "SNErrorUserInfoKey",
+        "name": "SNRErrorUserInfoKey",
+        "printedName": "SNRErrorUserInfoKey",
         "declKind": "Enum",
-        "usr": "s:11SyneriseSDK18SNErrorUserInfoKeyO",
-        "mangledName": "$s11SyneriseSDK18SNErrorUserInfoKeyO",
+        "usr": "s:11SyneriseSDK19SNRErrorUserInfoKeyO",
+        "mangledName": "$s11SyneriseSDK19SNRErrorUserInfoKeyO",
         "moduleName": "SyneriseSDK",
         "declAttributes": [
           "AccessControl"
@@ -48739,13 +49549,13 @@
               {
                 "kind": "TypeNominal",
                 "name": "Array",
-                "printedName": "[Foundation.NSString]",
+                "printedName": "[Swift.String]",
                 "children": [
                   {
                     "kind": "TypeNominal",
-                    "name": "NSString",
-                    "printedName": "Foundation.NSString",
-                    "usr": "c:objc(cs)NSString"
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
                   }
                 ],
                 "usr": "s:Sa"
@@ -48753,7 +49563,7 @@
             ],
             "declKind": "Var",
             "usr": "c:@M@SyneriseSDK@objc(cs)SNRPromotionsApiQuery(py)statuses",
-            "mangledName": "$s11SyneriseSDK18PromotionsApiQueryC8statusesSaySo8NSStringCGvp",
+            "mangledName": "$s11SyneriseSDK18PromotionsApiQueryC8statusesSaySSGvp",
             "moduleName": "SyneriseSDK",
             "declAttributes": [
               "HasStorage",
@@ -48770,13 +49580,13 @@
                   {
                     "kind": "TypeNominal",
                     "name": "Array",
-                    "printedName": "[Foundation.NSString]",
+                    "printedName": "[Swift.String]",
                     "children": [
                       {
                         "kind": "TypeNominal",
-                        "name": "NSString",
-                        "printedName": "Foundation.NSString",
-                        "usr": "c:objc(cs)NSString"
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
                       }
                     ],
                     "usr": "s:Sa"
@@ -48784,7 +49594,7 @@
                 ],
                 "declKind": "Accessor",
                 "usr": "c:@M@SyneriseSDK@objc(cs)SNRPromotionsApiQuery(im)statuses",
-                "mangledName": "$s11SyneriseSDK18PromotionsApiQueryC8statusesSaySo8NSStringCGvg",
+                "mangledName": "$s11SyneriseSDK18PromotionsApiQueryC8statusesSaySSGvg",
                 "moduleName": "SyneriseSDK",
                 "implicit": true,
                 "declAttributes": [
@@ -48805,13 +49615,13 @@
                   {
                     "kind": "TypeNominal",
                     "name": "Array",
-                    "printedName": "[Foundation.NSString]",
+                    "printedName": "[Swift.String]",
                     "children": [
                       {
                         "kind": "TypeNominal",
-                        "name": "NSString",
-                        "printedName": "Foundation.NSString",
-                        "usr": "c:objc(cs)NSString"
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
                       }
                     ],
                     "usr": "s:Sa"
@@ -48819,7 +49629,7 @@
                 ],
                 "declKind": "Accessor",
                 "usr": "c:@M@SyneriseSDK@objc(cs)SNRPromotionsApiQuery(im)setStatuses:",
-                "mangledName": "$s11SyneriseSDK18PromotionsApiQueryC8statusesSaySo8NSStringCGvs",
+                "mangledName": "$s11SyneriseSDK18PromotionsApiQueryC8statusesSaySSGvs",
                 "moduleName": "SyneriseSDK",
                 "implicit": true,
                 "declAttributes": [
@@ -48839,8 +49649,8 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:11SyneriseSDK18PromotionsApiQueryC8statusesSaySo8NSStringCGvM",
-                "mangledName": "$s11SyneriseSDK18PromotionsApiQueryC8statusesSaySo8NSStringCGvM",
+                "usr": "s:11SyneriseSDK18PromotionsApiQueryC8statusesSaySSGvM",
+                "mangledName": "$s11SyneriseSDK18PromotionsApiQueryC8statusesSaySSGvM",
                 "moduleName": "SyneriseSDK",
                 "implicit": true,
                 "accessorKind": "_modify"
@@ -48855,13 +49665,13 @@
               {
                 "kind": "TypeNominal",
                 "name": "Array",
-                "printedName": "[Foundation.NSString]",
+                "printedName": "[Swift.String]",
                 "children": [
                   {
                     "kind": "TypeNominal",
-                    "name": "NSString",
-                    "printedName": "Foundation.NSString",
-                    "usr": "c:objc(cs)NSString"
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
                   }
                 ],
                 "usr": "s:Sa"
@@ -48869,7 +49679,7 @@
             ],
             "declKind": "Var",
             "usr": "c:@M@SyneriseSDK@objc(cs)SNRPromotionsApiQuery(py)types",
-            "mangledName": "$s11SyneriseSDK18PromotionsApiQueryC5typesSaySo8NSStringCGvp",
+            "mangledName": "$s11SyneriseSDK18PromotionsApiQueryC5typesSaySSGvp",
             "moduleName": "SyneriseSDK",
             "declAttributes": [
               "HasStorage",
@@ -48886,13 +49696,13 @@
                   {
                     "kind": "TypeNominal",
                     "name": "Array",
-                    "printedName": "[Foundation.NSString]",
+                    "printedName": "[Swift.String]",
                     "children": [
                       {
                         "kind": "TypeNominal",
-                        "name": "NSString",
-                        "printedName": "Foundation.NSString",
-                        "usr": "c:objc(cs)NSString"
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
                       }
                     ],
                     "usr": "s:Sa"
@@ -48900,7 +49710,7 @@
                 ],
                 "declKind": "Accessor",
                 "usr": "c:@M@SyneriseSDK@objc(cs)SNRPromotionsApiQuery(im)types",
-                "mangledName": "$s11SyneriseSDK18PromotionsApiQueryC5typesSaySo8NSStringCGvg",
+                "mangledName": "$s11SyneriseSDK18PromotionsApiQueryC5typesSaySSGvg",
                 "moduleName": "SyneriseSDK",
                 "implicit": true,
                 "declAttributes": [
@@ -48921,13 +49731,13 @@
                   {
                     "kind": "TypeNominal",
                     "name": "Array",
-                    "printedName": "[Foundation.NSString]",
+                    "printedName": "[Swift.String]",
                     "children": [
                       {
                         "kind": "TypeNominal",
-                        "name": "NSString",
-                        "printedName": "Foundation.NSString",
-                        "usr": "c:objc(cs)NSString"
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
                       }
                     ],
                     "usr": "s:Sa"
@@ -48935,7 +49745,7 @@
                 ],
                 "declKind": "Accessor",
                 "usr": "c:@M@SyneriseSDK@objc(cs)SNRPromotionsApiQuery(im)setTypes:",
-                "mangledName": "$s11SyneriseSDK18PromotionsApiQueryC5typesSaySo8NSStringCGvs",
+                "mangledName": "$s11SyneriseSDK18PromotionsApiQueryC5typesSaySSGvs",
                 "moduleName": "SyneriseSDK",
                 "implicit": true,
                 "declAttributes": [
@@ -48955,8 +49765,100 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:11SyneriseSDK18PromotionsApiQueryC5typesSaySo8NSStringCGvM",
-                "mangledName": "$s11SyneriseSDK18PromotionsApiQueryC5typesSaySo8NSStringCGvM",
+                "usr": "s:11SyneriseSDK18PromotionsApiQueryC5typesSaySSGvM",
+                "mangledName": "$s11SyneriseSDK18PromotionsApiQueryC5typesSaySSGvM",
+                "moduleName": "SyneriseSDK",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "checkGlobalActivationLimits",
+            "printedName": "checkGlobalActivationLimits",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@SyneriseSDK@objc(cs)SNRPromotionsApiQuery(py)checkGlobalActivationLimits",
+            "mangledName": "$s11SyneriseSDK18PromotionsApiQueryC27checkGlobalActivationLimitsSbvp",
+            "moduleName": "SyneriseSDK",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@SyneriseSDK@objc(cs)SNRPromotionsApiQuery(im)checkGlobalActivationLimits",
+                "mangledName": "$s11SyneriseSDK18PromotionsApiQueryC27checkGlobalActivationLimitsSbvg",
+                "moduleName": "SyneriseSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@SyneriseSDK@objc(cs)SNRPromotionsApiQuery(im)setCheckGlobalActivationLimits:",
+                "mangledName": "$s11SyneriseSDK18PromotionsApiQueryC27checkGlobalActivationLimitsSbvs",
+                "moduleName": "SyneriseSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11SyneriseSDK18PromotionsApiQueryC27checkGlobalActivationLimitsSbvM",
+                "mangledName": "$s11SyneriseSDK18PromotionsApiQueryC27checkGlobalActivationLimitsSbvM",
                 "moduleName": "SyneriseSDK",
                 "implicit": true,
                 "accessorKind": "_modify"
@@ -48971,29 +49873,29 @@
               {
                 "kind": "TypeNominal",
                 "name": "Optional",
-                "printedName": "[[Foundation.NSString : Foundation.NSString]]?",
+                "printedName": "[[Swift.String : Swift.String]]?",
                 "children": [
                   {
                     "kind": "TypeNominal",
                     "name": "Array",
-                    "printedName": "[[Foundation.NSString : Foundation.NSString]]",
+                    "printedName": "[[Swift.String : Swift.String]]",
                     "children": [
                       {
                         "kind": "TypeNominal",
                         "name": "Dictionary",
-                        "printedName": "[Foundation.NSString : Foundation.NSString]",
+                        "printedName": "[Swift.String : Swift.String]",
                         "children": [
                           {
                             "kind": "TypeNominal",
-                            "name": "NSString",
-                            "printedName": "Foundation.NSString",
-                            "usr": "c:objc(cs)NSString"
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
                           },
                           {
                             "kind": "TypeNominal",
-                            "name": "NSString",
-                            "printedName": "Foundation.NSString",
-                            "usr": "c:objc(cs)NSString"
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
                           }
                         ],
                         "usr": "s:SD"
@@ -49007,7 +49909,7 @@
             ],
             "declKind": "Var",
             "usr": "c:@M@SyneriseSDK@objc(cs)SNRPromotionsApiQuery(py)sorting",
-            "mangledName": "$s11SyneriseSDK18PromotionsApiQueryC7sortingSaySDySo8NSStringCAFGGSgvp",
+            "mangledName": "$s11SyneriseSDK18PromotionsApiQueryC7sortingSaySDyS2SGGSgvp",
             "moduleName": "SyneriseSDK",
             "declAttributes": [
               "HasInitialValue",
@@ -49025,29 +49927,29 @@
                   {
                     "kind": "TypeNominal",
                     "name": "Optional",
-                    "printedName": "[[Foundation.NSString : Foundation.NSString]]?",
+                    "printedName": "[[Swift.String : Swift.String]]?",
                     "children": [
                       {
                         "kind": "TypeNominal",
                         "name": "Array",
-                        "printedName": "[[Foundation.NSString : Foundation.NSString]]",
+                        "printedName": "[[Swift.String : Swift.String]]",
                         "children": [
                           {
                             "kind": "TypeNominal",
                             "name": "Dictionary",
-                            "printedName": "[Foundation.NSString : Foundation.NSString]",
+                            "printedName": "[Swift.String : Swift.String]",
                             "children": [
                               {
                                 "kind": "TypeNominal",
-                                "name": "NSString",
-                                "printedName": "Foundation.NSString",
-                                "usr": "c:objc(cs)NSString"
+                                "name": "String",
+                                "printedName": "Swift.String",
+                                "usr": "s:SS"
                               },
                               {
                                 "kind": "TypeNominal",
-                                "name": "NSString",
-                                "printedName": "Foundation.NSString",
-                                "usr": "c:objc(cs)NSString"
+                                "name": "String",
+                                "printedName": "Swift.String",
+                                "usr": "s:SS"
                               }
                             ],
                             "usr": "s:SD"
@@ -49061,7 +49963,7 @@
                 ],
                 "declKind": "Accessor",
                 "usr": "c:@M@SyneriseSDK@objc(cs)SNRPromotionsApiQuery(im)sorting",
-                "mangledName": "$s11SyneriseSDK18PromotionsApiQueryC7sortingSaySDySo8NSStringCAFGGSgvg",
+                "mangledName": "$s11SyneriseSDK18PromotionsApiQueryC7sortingSaySDyS2SGGSgvg",
                 "moduleName": "SyneriseSDK",
                 "implicit": true,
                 "declAttributes": [
@@ -49082,29 +49984,29 @@
                   {
                     "kind": "TypeNominal",
                     "name": "Optional",
-                    "printedName": "[[Foundation.NSString : Foundation.NSString]]?",
+                    "printedName": "[[Swift.String : Swift.String]]?",
                     "children": [
                       {
                         "kind": "TypeNominal",
                         "name": "Array",
-                        "printedName": "[[Foundation.NSString : Foundation.NSString]]",
+                        "printedName": "[[Swift.String : Swift.String]]",
                         "children": [
                           {
                             "kind": "TypeNominal",
                             "name": "Dictionary",
-                            "printedName": "[Foundation.NSString : Foundation.NSString]",
+                            "printedName": "[Swift.String : Swift.String]",
                             "children": [
                               {
                                 "kind": "TypeNominal",
-                                "name": "NSString",
-                                "printedName": "Foundation.NSString",
-                                "usr": "c:objc(cs)NSString"
+                                "name": "String",
+                                "printedName": "Swift.String",
+                                "usr": "s:SS"
                               },
                               {
                                 "kind": "TypeNominal",
-                                "name": "NSString",
-                                "printedName": "Foundation.NSString",
-                                "usr": "c:objc(cs)NSString"
+                                "name": "String",
+                                "printedName": "Swift.String",
+                                "usr": "s:SS"
                               }
                             ],
                             "usr": "s:SD"
@@ -49118,7 +50020,7 @@
                 ],
                 "declKind": "Accessor",
                 "usr": "c:@M@SyneriseSDK@objc(cs)SNRPromotionsApiQuery(im)setSorting:",
-                "mangledName": "$s11SyneriseSDK18PromotionsApiQueryC7sortingSaySDySo8NSStringCAFGGSgvs",
+                "mangledName": "$s11SyneriseSDK18PromotionsApiQueryC7sortingSaySDyS2SGGSgvs",
                 "moduleName": "SyneriseSDK",
                 "implicit": true,
                 "declAttributes": [
@@ -49138,8 +50040,8 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:11SyneriseSDK18PromotionsApiQueryC7sortingSaySDySo8NSStringCAFGGSgvM",
-                "mangledName": "$s11SyneriseSDK18PromotionsApiQueryC7sortingSaySDySo8NSStringCAFGGSgvM",
+                "usr": "s:11SyneriseSDK18PromotionsApiQueryC7sortingSaySDyS2SGGSgvM",
+                "mangledName": "$s11SyneriseSDK18PromotionsApiQueryC7sortingSaySDyS2SGGSgvM",
                 "moduleName": "SyneriseSDK",
                 "implicit": true,
                 "accessorKind": "_modify"
@@ -51579,6 +52481,224 @@
         "moduleName": "SyneriseSDK",
         "declAttributes": [
           "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "PromotionStatusString",
+        "printedName": "PromotionStatusString",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "none",
+            "printedName": "none",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11SyneriseSDK21PromotionStatusStringO4noneSSvpZ",
+            "mangledName": "$s11SyneriseSDK21PromotionStatusStringO4noneSSvpZ",
+            "moduleName": "SyneriseSDK",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11SyneriseSDK21PromotionStatusStringO4noneSSvgZ",
+                "mangledName": "$s11SyneriseSDK21PromotionStatusStringO4noneSSvgZ",
+                "moduleName": "SyneriseSDK",
+                "static": true,
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "active",
+            "printedName": "active",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11SyneriseSDK21PromotionStatusStringO6activeSSvpZ",
+            "mangledName": "$s11SyneriseSDK21PromotionStatusStringO6activeSSvpZ",
+            "moduleName": "SyneriseSDK",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11SyneriseSDK21PromotionStatusStringO6activeSSvgZ",
+                "mangledName": "$s11SyneriseSDK21PromotionStatusStringO6activeSSvgZ",
+                "moduleName": "SyneriseSDK",
+                "static": true,
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "assigned",
+            "printedName": "assigned",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11SyneriseSDK21PromotionStatusStringO8assignedSSvpZ",
+            "mangledName": "$s11SyneriseSDK21PromotionStatusStringO8assignedSSvpZ",
+            "moduleName": "SyneriseSDK",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11SyneriseSDK21PromotionStatusStringO8assignedSSvgZ",
+                "mangledName": "$s11SyneriseSDK21PromotionStatusStringO8assignedSSvgZ",
+                "moduleName": "SyneriseSDK",
+                "static": true,
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "redeemed",
+            "printedName": "redeemed",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11SyneriseSDK21PromotionStatusStringO8redeemedSSvpZ",
+            "mangledName": "$s11SyneriseSDK21PromotionStatusStringO8redeemedSSvpZ",
+            "moduleName": "SyneriseSDK",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11SyneriseSDK21PromotionStatusStringO8redeemedSSvgZ",
+                "mangledName": "$s11SyneriseSDK21PromotionStatusStringO8redeemedSSvgZ",
+                "moduleName": "SyneriseSDK",
+                "static": true,
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "s:11SyneriseSDK21PromotionStatusStringO",
+        "mangledName": "$s11SyneriseSDK21PromotionStatusStringO",
+        "moduleName": "SyneriseSDK",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
         ]
       },
       {
@@ -73279,70 +74399,70 @@
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Promotions\/Models\/Promotions\/PromotionType.swift",
       "kind": "StringLiteral",
-      "offset": 205,
+      "offset": 284,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Promotions\/Models\/Promotions\/PromotionType.swift",
       "kind": "StringLiteral",
-      "offset": 235,
+      "offset": 345,
       "length": 14,
       "value": "\"MEMBERS_ONLY\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Promotions\/Models\/Promotions\/PromotionType.swift",
       "kind": "StringLiteral",
-      "offset": 272,
+      "offset": 413,
       "length": 8,
       "value": "\"CUSTOM\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Promotions\/Models\/Promotions\/PromotionType.swift",
       "kind": "StringLiteral",
-      "offset": 304,
+      "offset": 476,
       "length": 9,
       "value": "\"GENERAL\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Promotions\/Models\/Promotions\/PromotionType.swift",
       "kind": "StringLiteral",
-      "offset": 338,
+      "offset": 541,
       "length": 10,
       "value": "\"HANDBILL\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Promotions\/Models\/Promotions\/PromotionType.swift",
       "kind": "IntegerLiteral",
-      "offset": 500,
+      "offset": 703,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Promotions\/Models\/Promotions\/PromotionType.swift",
       "kind": "IntegerLiteral",
-      "offset": 544,
+      "offset": 747,
       "length": 11,
       "value": "1"
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Promotions\/Models\/Promotions\/PromotionType.swift",
       "kind": "IntegerLiteral",
-      "offset": 593,
+      "offset": 796,
       "length": 6,
       "value": "2"
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Promotions\/Models\/Promotions\/PromotionType.swift",
       "kind": "IntegerLiteral",
-      "offset": 638,
+      "offset": 841,
       "length": 7,
       "value": "3"
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Promotions\/Models\/Promotions\/PromotionType.swift",
       "kind": "IntegerLiteral",
-      "offset": 685,
+      "offset": 888,
       "length": 8,
       "value": "4"
     },
@@ -73797,308 +74917,315 @@
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 523,
+      "offset": 546,
+      "length": 29,
+      "value": "\"checkGlobalActivationLimits\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
+      "kind": "StringLiteral",
+      "offset": 596,
       "length": 5,
       "value": "\"key\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 550,
+      "offset": 623,
       "length": 7,
       "value": "\"value\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 578,
+      "offset": 651,
       "length": 6,
       "value": "\"uuid\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 607,
+      "offset": 680,
       "length": 8,
       "value": "\"apiKey\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 640,
+      "offset": 713,
       "length": 10,
       "value": "\"deviceId\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 675,
+      "offset": 748,
       "length": 10,
       "value": "\"deviceId\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 707,
+      "offset": 780,
       "length": 7,
       "value": "\"email\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 739,
+      "offset": 812,
       "length": 10,
       "value": "\"password\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 777,
+      "offset": 850,
       "length": 13,
       "value": "\"oldPassword\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 815,
+      "offset": 888,
       "length": 10,
       "value": "\"customId\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 850,
+      "offset": 923,
       "length": 10,
       "value": "\"customId\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 882,
+      "offset": 955,
       "length": 7,
       "value": "\"token\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 917,
+      "offset": 990,
       "length": 13,
       "value": "\"accessToken\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 960,
+      "offset": 1033,
       "length": 15,
       "value": "\"facebookToken\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 1005,
+      "offset": 1078,
       "length": 15,
       "value": "\"externalToken\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 1042,
+      "offset": 1115,
       "length": 7,
       "value": "\"phone\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 1088,
+      "offset": 1161,
       "length": 18,
       "value": "\"identityProvider\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 1139,
+      "offset": 1212,
       "length": 18,
       "value": "\"identityProvider\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 1201,
+      "offset": 1274,
       "length": 23,
       "value": "\"identityProviderToken\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 1262,
+      "offset": 1335,
       "length": 23,
       "value": "\"identityProviderToken\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 1318,
+      "offset": 1391,
       "length": 18,
       "value": "\"confirmationCode\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 1360,
+      "offset": 1433,
       "length": 9,
       "value": "\"pinCode\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 1394,
+      "offset": 1467,
       "length": 10,
       "value": "\"poolUuid\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 1431,
+      "offset": 1504,
       "length": 12,
       "value": "\"clientUuid\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 1468,
+      "offset": 1541,
       "length": 10,
       "value": "\"itemsIds\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 1516,
+      "offset": 1589,
       "length": 26,
       "value": "\"product:retailer_part_no\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 1568,
+      "offset": 1641,
       "length": 11,
       "value": "\"productId\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 1608,
+      "offset": 1681,
       "length": 14,
       "value": "\"smsAgreement\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 1658,
+      "offset": 1731,
       "length": 21,
       "value": "\"newsletterAgreement\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 1713,
+      "offset": 1786,
       "length": 19,
       "value": "\"systemPushConsent\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 1768,
+      "offset": 1841,
       "length": 21,
       "value": "\"mobilePushAgreement\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 1812,
+      "offset": 1885,
       "length": 8,
       "value": "\"action\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 1843,
+      "offset": 1916,
       "length": 8,
       "value": "\"params\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 1897,
+      "offset": 1970,
       "length": 31,
       "value": "\"campaignHashesForSegmentCheck\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 1977,
+      "offset": 2050,
       "length": 34,
       "value": "\"campaignHashesForAbxVariantCheck\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 2036,
+      "offset": 2109,
       "length": 10,
       "value": "\"campaign\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 2075,
+      "offset": 2148,
       "length": 14,
       "value": "\"campaignHash\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 2115,
+      "offset": 2188,
       "length": 11,
       "value": "\"variantId\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 2150,
+      "offset": 2223,
       "length": 9,
       "value": "\"context\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 2188,
+      "offset": 2261,
       "length": 14,
       "value": "\"fieldContext\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 2229,
+      "offset": 2302,
       "length": 5,
       "value": "\"app\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 2263,
+      "offset": 2336,
       "length": 7,
       "value": "\"event\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 2293,
+      "offset": 2366,
       "length": 8,
       "value": "\"render\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 2322,
+      "offset": 2395,
       "length": 6,
       "value": "\"test\""
     },
@@ -74511,7 +75638,7 @@
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Tracker\/Events\/Base\/Event.swift",
       "kind": "Dictionary",
-      "offset": 1253,
+      "offset": 1316,
       "length": 3,
       "value": "[]"
     },
@@ -74938,9 +76065,51 @@
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Promotions\/Models\/Promotions\/Promotion.swift",
       "kind": "StringLiteral",
-      "offset": 170,
+      "offset": 281,
+      "length": 10,
+      "value": "\"expireAt\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Promotions\/Models\/Promotions\/Promotion.swift",
+      "kind": "StringLiteral",
+      "offset": 348,
+      "length": 11,
+      "value": "\"createdAt\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Promotions\/Models\/Promotions\/Promotion.swift",
+      "kind": "StringLiteral",
+      "offset": 612,
+      "length": 11,
+      "value": "\"updatedAt\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Promotions\/Models\/Promotions\/Promotion.swift",
+      "kind": "StringLiteral",
+      "offset": 949,
+      "length": 5,
+      "value": "\"asc\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Promotions\/Models\/Promotions\/Promotion.swift",
+      "kind": "StringLiteral",
+      "offset": 1013,
+      "length": 6,
+      "value": "\"desc\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Promotions\/Models\/Promotions\/Promotion.swift",
+      "kind": "StringLiteral",
+      "offset": 1050,
       "length": 6,
       "value": "\"data\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Promotions\/Models\/Promotions\/Promotion.swift",
+      "kind": "StringLiteral",
+      "offset": 1096,
+      "length": 13,
+      "value": "\"description\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/HTTP\/HTTPStatusCode.swift",
@@ -75022,21 +76191,28 @@
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Config\/StoragesConfig.swift",
       "kind": "StringLiteral",
+      "offset": 195,
+      "length": 18,
+      "value": "\"com.synerise.sdk\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Config\/StoragesConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 263,
+      "length": 26,
+      "value": "\"com.synerise.SyneriseSDK\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Config\/StoragesConfig.swift",
+      "kind": "StringLiteral",
       "offset": 338,
-      "length": 39,
-      "value": "\"\""
+      "length": 33,
+      "value": "\"com.synerise.SyneriseSDK.shared\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Config\/StoragesConfig.swift",
       "kind": "StringLiteral",
-      "offset": 369,
-      "length": 1,
-      "value": "\".shared\""
-    },
-    {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Config\/StoragesConfig.swift",
-      "kind": "StringLiteral",
-      "offset": 418,
+      "offset": 412,
       "length": 5,
       "value": "\"snr\""
     },
@@ -75323,7 +76499,7 @@
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Client\/Models\/ClientAccountInformation.swift",
       "kind": "BooleanLiteral",
-      "offset": 3904,
+      "offset": 4033,
       "length": 4,
       "value": "true"
     },
@@ -75603,49 +76779,49 @@
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Common\/Errors\/ErrorUserInfoKey.swift",
       "kind": "StringLiteral",
-      "offset": 203,
+      "offset": 204,
       "length": 25,
       "value": "\"SNRErrorUserInfoCodeKey\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Common\/Errors\/ErrorUserInfoKey.swift",
       "kind": "StringLiteral",
-      "offset": 250,
+      "offset": 251,
       "length": 26,
       "value": "\"SNRErrorUserInfoTitleKey\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Common\/Errors\/ErrorUserInfoKey.swift",
       "kind": "StringLiteral",
-      "offset": 300,
+      "offset": 301,
       "length": 28,
       "value": "\"SNRErrorUserInfoMessageKey\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Common\/Errors\/ErrorUserInfoKey.swift",
       "kind": "StringLiteral",
-      "offset": 350,
+      "offset": 351,
       "length": 26,
       "value": "\"SNRErrorUserInfoFieldKey\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Common\/Errors\/ErrorUserInfoKey.swift",
       "kind": "StringLiteral",
-      "offset": 397,
+      "offset": 398,
       "length": 25,
       "value": "\"SNRErrorUserInfoPathKey\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Common\/Errors\/ErrorUserInfoKey.swift",
       "kind": "StringLiteral",
-      "offset": 452,
+      "offset": 453,
       "length": 34,
       "value": "\"SNRErrorUserInfoRejectedValueKey\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Common\/Errors\/ErrorUserInfoKey.swift",
       "kind": "StringLiteral",
-      "offset": 509,
+      "offset": 510,
       "length": 27,
       "value": "\"SNRErrorUserInfoErrorsKey\""
     },
@@ -77164,56 +78340,56 @@
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Promotions\/Models\/Promotions\/PromotionStatus.swift",
       "kind": "StringLiteral",
-      "offset": 206,
+      "offset": 289,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Promotions\/Models\/Promotions\/PromotionStatus.swift",
       "kind": "StringLiteral",
-      "offset": 231,
+      "offset": 347,
       "length": 8,
       "value": "\"ACTIVE\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Promotions\/Models\/Promotions\/PromotionStatus.swift",
       "kind": "StringLiteral",
-      "offset": 264,
+      "offset": 413,
       "length": 10,
       "value": "\"ASSIGNED\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Promotions\/Models\/Promotions\/PromotionStatus.swift",
       "kind": "StringLiteral",
-      "offset": 299,
+      "offset": 481,
       "length": 10,
       "value": "\"REDEEMED\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Promotions\/Models\/Promotions\/PromotionStatus.swift",
       "kind": "IntegerLiteral",
-      "offset": 464,
+      "offset": 646,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Promotions\/Models\/Promotions\/PromotionStatus.swift",
       "kind": "IntegerLiteral",
-      "offset": 505,
+      "offset": 687,
       "length": 6,
       "value": "1"
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Promotions\/Models\/Promotions\/PromotionStatus.swift",
       "kind": "IntegerLiteral",
-      "offset": 553,
+      "offset": 735,
       "length": 8,
       "value": "2"
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Promotions\/Models\/Promotions\/PromotionStatus.swift",
       "kind": "IntegerLiteral",
-      "offset": 603,
+      "offset": 785,
       "length": 8,
       "value": "3"
     },
@@ -77248,49 +78424,49 @@
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Tracker\/Main\/EventsManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 747,
+      "offset": 827,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Tracker\/Main\/EventsManager.swift",
       "kind": "Array",
-      "offset": 821,
+      "offset": 901,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Tracker\/Main\/EventsManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 861,
+      "offset": 941,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Tracker\/Main\/EventsManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 904,
+      "offset": 984,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Tracker\/Main\/EventsManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 952,
+      "offset": 1032,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Tracker\/Main\/EventsManager.swift",
       "kind": "StringLiteral",
-      "offset": 1083,
+      "offset": 1163,
       "length": 50,
       "value": "\"com.synerise.sdk.queue.tracker.events.processing\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Tracker\/Main\/EventsManager.swift",
       "kind": "StringLiteral",
-      "offset": 1273,
+      "offset": 1353,
       "length": 47,
       "value": "\"com.synerise.sdk.queue.tracker.events.sending\""
     },
