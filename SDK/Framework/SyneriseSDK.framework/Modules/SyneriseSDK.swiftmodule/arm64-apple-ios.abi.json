@@ -78410,63 +78410,63 @@
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Tracker\/Main\/EventsManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 215,
+      "offset": 417,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Tracker\/Main\/EventsManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 255,
+      "offset": 457,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Tracker\/Main\/EventsManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 827,
+      "offset": 1029,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Tracker\/Main\/EventsManager.swift",
       "kind": "Array",
-      "offset": 901,
+      "offset": 1103,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Tracker\/Main\/EventsManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 941,
+      "offset": 1202,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Tracker\/Main\/EventsManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 984,
+      "offset": 1245,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Tracker\/Main\/EventsManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 1032,
+      "offset": 1293,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Tracker\/Main\/EventsManager.swift",
       "kind": "StringLiteral",
-      "offset": 1163,
+      "offset": 1424,
       "length": 50,
       "value": "\"com.synerise.sdk.queue.tracker.events.processing\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Tracker\/Main\/EventsManager.swift",
       "kind": "StringLiteral",
-      "offset": 1353,
+      "offset": 1614,
       "length": 47,
       "value": "\"com.synerise.sdk.queue.tracker.events.sending\""
     },
