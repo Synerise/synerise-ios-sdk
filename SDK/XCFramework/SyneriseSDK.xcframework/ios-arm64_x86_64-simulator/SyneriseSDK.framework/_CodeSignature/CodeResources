@@ -154,7 +154,7 @@
 		</data>
 		<key>Headers/SyneriseSDK-Swift.h</key>
 		<data>
-		CxWYvXmBfQLvPuuW+xrMNIIg4U0=
+		tgZQsg9iSulXi/NzUM54RFkHZgA=
 		</data>
 		<key>Headers/SyneriseSDK.h</key>
 		<data>
@@ -162,47 +162,47 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		ZuiCD8qEuF1aiIPZQJGz6i+zhso=
+		A87n7lBD7bG3mbOlj0PeJeCOhEA=
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		whWEz7jgEoXmGrVz1mKGv6aX9js=
+		iqcnhU0KX+EHbpCr9ZHIuXPj0Dg=
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		S5at0QNSsAi9T4UwT0cYxFVQSlc=
+		Y4BmFX2apOqR3AGSAyAXTHhFoS4=
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		NXhCrY9HovdH3DyESYrQ7mxTbcE=
+		hqvyOYRxYRrclPZ7rj3c9pWkLPQ=
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		S5at0QNSsAi9T4UwT0cYxFVQSlc=
+		Y4BmFX2apOqR3AGSAyAXTHhFoS4=
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		focSV99DjKN8gPos6wKxtTxbrQo=
+		9/LXS+xxtFbR3+mXB2E50cFy2tg=
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		whWEz7jgEoXmGrVz1mKGv6aX9js=
+		iqcnhU0KX+EHbpCr9ZHIuXPj0Dg=
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		arnWSrLnE4SjKUdn7MNrDyjhX9w=
+		FFxErzsYFS4eo+HKPZbQ7ntqR2Y=
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		N5TNddtmXWV6NmJYbXmryx7qVFA=
+		YOhF7fRYLbgZ5iyDc8+wUIjMeqc=
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		arnWSrLnE4SjKUdn7MNrDyjhX9w=
+		FFxErzsYFS4eo+HKPZbQ7ntqR2Y=
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		aZXV1k2zyS99/7qUDW57RFwN9ps=
+		R3+D00QgZJBrY35nbPIf7L30NF0=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -512,7 +512,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			uRxVokznK+YL9mlqqoJiZ4GmnwHbNmv3KhmZogExSxs=
+			1WGGVcV4cT1kvpXJhBvSyh9OGCrYnQzWeRIAveR7oBo=
 			</data>
 		</dict>
 		<key>Headers/SyneriseSDK.h</key>
@@ -526,70 +526,70 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			U0u7e2RPGpUA1dg6i/XfSI18fQHMBYeXbxKEZ7v2UFo=
+			UD1RXrqpO3yOKGfvprO1NTnsTiZftgKDzWXIac5Kvqc=
 			</data>
 		</dict>
 		<key>Modules/SyneriseSDK.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			PCgFo8IYNNbi7539IGU2MVPWDQjMKWLWvbtpvk81IwE=
+			+1+/kUW4Tss66gemv8zeSvxi7kYL2jA5bSAcPtBjBXk=
 			</data>
 		</dict>
 		<key>Modules/SyneriseSDK.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			rcxL/HEHvBaNuUi/bOxUKVpX0tsOq1Mo0B0cTwydthc=
+			y/ADBg2tyEWqrpufj79nYTU7WIVVjNRY7G5n+vCO62I=
 			</data>
 		</dict>
 		<key>Modules/SyneriseSDK.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			PCgFo8IYNNbi7539IGU2MVPWDQjMKWLWvbtpvk81IwE=
+			+1+/kUW4Tss66gemv8zeSvxi7kYL2jA5bSAcPtBjBXk=
 			</data>
 		</dict>
 		<key>Modules/SyneriseSDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			O1Y0p15fLGC4nzX+KeQSQr+bK0ijKr/MqDVTRhjrGNw=
+			3OdGZDUgsxWWD/fHmwSFIf4mNBgfbhMCHDvluVmn5Gw=
 			</data>
 		</dict>
 		<key>Modules/SyneriseSDK.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			U0u7e2RPGpUA1dg6i/XfSI18fQHMBYeXbxKEZ7v2UFo=
+			UD1RXrqpO3yOKGfvprO1NTnsTiZftgKDzWXIac5Kvqc=
 			</data>
 		</dict>
 		<key>Modules/SyneriseSDK.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			zadGfyDXeuDIYItRBhjbus7oOvMD3v3OysnMkP7TJoE=
+			caGpSjgt5y+Q25JwoBq91y+cEe+RkBiesn/vXwR5g/c=
 			</data>
 		</dict>
 		<key>Modules/SyneriseSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Bq+g9Is8L7fHbKtma/PstPQDebNRfhxiLg1PECzjBUE=
+			tPF6Uit0WpcAC94Ohma5ORyqzP3dtI0yWOPQDbWzTV0=
 			</data>
 		</dict>
 		<key>Modules/SyneriseSDK.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			zadGfyDXeuDIYItRBhjbus7oOvMD3v3OysnMkP7TJoE=
+			caGpSjgt5y+Q25JwoBq91y+cEe+RkBiesn/vXwR5g/c=
 			</data>
 		</dict>
 		<key>Modules/SyneriseSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			SvzPdnuqu8/TaMEl/F2RR4tajCacShAn7xK8E6PrrCg=
+			5KVvKrKiz/5ZRN2h8hzzf8YYvfemnkev0C0MqidozAU=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
