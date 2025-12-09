@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 
 Note that Objective-C class names are prefixed by `SNR`. In the changelog below, these are names used in Swift, without the prefix.
 
+## [5.9.2] - 2025-12-09
+
+### Fixed
+- Some potential issues with notification processing in `NotificationServiceExtension`.
+- Potential issue with the incorrect anonymous session after reinstalling an app.
+- Potential issues with synchronizing data for shared storage when data was deleted.
+ 
+### Changed
+- Improvements to stability.
+
+
 ## [5.9.1] - 2025-11-21
 
 ### Fixed
