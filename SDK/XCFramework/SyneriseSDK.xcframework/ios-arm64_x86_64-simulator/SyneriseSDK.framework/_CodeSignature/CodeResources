@@ -162,11 +162,11 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		A87n7lBD7bG3mbOlj0PeJeCOhEA=
+		4W3h4VrDb8y7uidXoaJcXq88KYA=
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		iqcnhU0KX+EHbpCr9ZHIuXPj0Dg=
+		3f1o9vMbnkilYoXVAP3CITbAjqE=
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -182,11 +182,11 @@
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		9/LXS+xxtFbR3+mXB2E50cFy2tg=
+		sgqZzTlASnWcroJlM9mCz/nSMg0=
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		iqcnhU0KX+EHbpCr9ZHIuXPj0Dg=
+		3f1o9vMbnkilYoXVAP3CITbAjqE=
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -202,7 +202,7 @@
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		R3+D00QgZJBrY35nbPIf7L30NF0=
+		1K+UBjfYTkU/XQNkI372ZKVs/0M=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -526,7 +526,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			UD1RXrqpO3yOKGfvprO1NTnsTiZftgKDzWXIac5Kvqc=
+			NrReGJ0tKRxNW0YXIg6R/HqcX/G8IP/ey5W2o8Ty2YY=
 			</data>
 		</dict>
 		<key>Modules/SyneriseSDK.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
@@ -554,14 +554,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			3OdGZDUgsxWWD/fHmwSFIf4mNBgfbhMCHDvluVmn5Gw=
+			HI+FrDCeFoGmwCgePB6/fm/QBdsPca6lQv6knMkl6bA=
 			</data>
 		</dict>
 		<key>Modules/SyneriseSDK.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			UD1RXrqpO3yOKGfvprO1NTnsTiZftgKDzWXIac5Kvqc=
+			NrReGJ0tKRxNW0YXIg6R/HqcX/G8IP/ey5W2o8Ty2YY=
 			</data>
 		</dict>
 		<key>Modules/SyneriseSDK.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
@@ -589,7 +589,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			5KVvKrKiz/5ZRN2h8hzzf8YYvfemnkev0C0MqidozAU=
+			9g5KE4CuXese4j67Mn7Mk30cldnNw0G0LTHQq/0/KDI=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
