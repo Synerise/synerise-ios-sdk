@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file.
 
 Note that Objective-C class names are prefixed by `SNR`. In the changelog below, these are names used in Swift, without the prefix.
 
+## [5.9.3] - 2025-12-15
+
+### Fixed
+- Potential issue with session destroy after manual api key change (`Synerise.settings.sdk.shouldDestroySessionOnApiKeyChange` on `true`).
+- Potential issues with authentication requests when there is slow internet connection.
+- Issue that could have caused freeze during delete account operation.
+- Issue with double invoking client sign-out state in `ClientStateDelegate` when there is sign out from `SIGN_OUT` sdk command by silent notification.
+
+### Changed
+- Improvements to stability.
+
+
 ## [5.9.2] - 2025-12-09
 
 ### Fixed
