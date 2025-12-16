@@ -7,10 +7,10 @@ Note that Objective-C class names are prefixed by `SNR`. In the changelog below,
 ## [5.9.3] - 2025-12-15
 
 ### Fixed
-- Potential issue with session destroy after manual api key change (`Synerise.settings.sdk.shouldDestroySessionOnApiKeyChange` on `true`).
-- Potential issues with authentication requests when there is slow internet connection.
-- Issue that could have caused freeze during delete account operation.
-- Issue with double invoking client sign-out state in `ClientStateDelegate` when there is sign out from `SIGN_OUT` sdk command by silent notification.
+- Potential issue with destroying a session after a manual API key change (`Synerise.settings.sdk.shouldDestroySessionOnApiKeyChange` on `true`).
+- Potential issues with authentication requests with a slow internet connection.
+- Issue that could have caused a freeze when deleting an account.
+- Issue with invoking client sign-out state twice in `ClientStateDelegate` when there is sign out from the `SIGN_OUT` SDK command by silent notification.
 
 ### Changed
 - Improvements to stability.
