@@ -3668,6 +3668,48 @@
             "fixedbinaryorder": 6
           },
           {
+            "kind": "Var",
+            "name": "digitalCashback",
+            "printedName": "digitalCashback",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(SyneriseSDK.PromotionDiscountType.Type) -> SyneriseSDK.PromotionDiscountType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PromotionDiscountType",
+                    "printedName": "SyneriseSDK.PromotionDiscountType",
+                    "usr": "c:@M@SyneriseSDK@E@SNRPromotionDiscountType"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "SyneriseSDK.PromotionDiscountType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PromotionDiscountType",
+                        "printedName": "SyneriseSDK.PromotionDiscountType",
+                        "usr": "c:@M@SyneriseSDK@E@SNRPromotionDiscountType"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@SyneriseSDK@E@SNRPromotionDiscountType@SNRPromotionDiscountTypeDigitalCashback",
+            "mangledName": "$s11SyneriseSDK21PromotionDiscountTypeO15digitalCashbackyA2CmF",
+            "moduleName": "SyneriseSDK",
+            "objc_name": "SNRPromotionDiscountTypeDigitalCashback",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 7
+          },
+          {
             "kind": "Function",
             "name": "fromString",
             "printedName": "fromString(_:)",
@@ -16909,6 +16951,246 @@
         "moduleName": "SyneriseSDK",
         "declAttributes": [
           "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "SyneriseSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "PromotionActivationOptions",
+        "printedName": "PromotionActivationOptions",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "pointsToUse",
+            "printedName": "pointsToUse",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@SyneriseSDK@objc(cs)SNRPromotionActivationOptions(py)pointsToUse",
+            "mangledName": "$s11SyneriseSDK26PromotionActivationOptionsC11pointsToUseSivp",
+            "moduleName": "SyneriseSDK",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@SyneriseSDK@objc(cs)SNRPromotionActivationOptions(im)pointsToUse",
+                "mangledName": "$s11SyneriseSDK26PromotionActivationOptionsC11pointsToUseSivg",
+                "moduleName": "SyneriseSDK",
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@SyneriseSDK@objc(cs)SNRPromotionActivationOptions(im)setPointsToUse:",
+                "mangledName": "$s11SyneriseSDK26PromotionActivationOptionsC11pointsToUseSivs",
+                "moduleName": "SyneriseSDK",
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11SyneriseSDK26PromotionActivationOptionsC11pointsToUseSivM",
+                "mangledName": "$s11SyneriseSDK26PromotionActivationOptionsC11pointsToUseSivM",
+                "moduleName": "SyneriseSDK",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(identifier:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "PromotionActivationOptions",
+                "printedName": "SyneriseSDK.PromotionActivationOptions",
+                "usr": "c:@M@SyneriseSDK@objc(cs)SNRPromotionActivationOptions"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "PromotionIdentifier",
+                "printedName": "SyneriseSDK.PromotionIdentifier",
+                "usr": "c:@M@SyneriseSDK@objc(cs)SNRPromotionIdentifier"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@SyneriseSDK@objc(cs)SNRPromotionActivationOptions(im)initWithIdentifier:",
+            "mangledName": "$s11SyneriseSDK26PromotionActivationOptionsC10identifierAcA0C10IdentifierC_tcfc",
+            "moduleName": "SyneriseSDK",
+            "objc_name": "initWithIdentifier:",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "PromotionActivationOptions",
+                "printedName": "SyneriseSDK.PromotionActivationOptions",
+                "usr": "c:@M@SyneriseSDK@objc(cs)SNRPromotionActivationOptions"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@SyneriseSDK@objc(cs)SNRPromotionActivationOptions(im)init",
+            "mangledName": "$s11SyneriseSDK26PromotionActivationOptionsCACycfc",
+            "moduleName": "SyneriseSDK",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@SyneriseSDK@objc(cs)SNRPromotionActivationOptions",
+        "mangledName": "$s11SyneriseSDK26PromotionActivationOptionsC",
+        "moduleName": "SyneriseSDK",
+        "objc_name": "SNRPromotionActivationOptions",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC",
+          "RawDocComment"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
         ]
       },
       {
@@ -52060,6 +52342,73 @@
           },
           {
             "kind": "Function",
+            "name": "activatePromotion",
+            "printedName": "activatePromotion(options:success:failure:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "PromotionActivationOptions",
+                "printedName": "SyneriseSDK.PromotionActivationOptions",
+                "usr": "c:@M@SyneriseSDK@objc(cs)SNRPromotionActivationOptions"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(SyneriseSDK.Promotion) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Promotion",
+                    "printedName": "SyneriseSDK.Promotion",
+                    "usr": "c:@M@SyneriseSDK@objc(cs)SNRPromotion"
+                  }
+                ]
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(SyneriseSDK.SNRApiError) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "SNRApiError",
+                    "printedName": "SyneriseSDK.SNRApiError",
+                    "usr": "c:@M@SyneriseSDK@objc(cs)SNRApiError"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@SyneriseSDK@objc(cs)SNRPromotions(cm)activatePromotionWithOptions:success:failure:",
+            "mangledName": "$s11SyneriseSDK10PromotionsC17activatePromotion7options7success7failureyAA0E17ActivationOptionsC_yAA0E0CcyAA11SNRApiErrorCctFZ",
+            "moduleName": "SyneriseSDK",
+            "static": true,
+            "objc_name": "activatePromotionWithOptions:success:failure:",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
             "name": "activatePromotions",
             "printedName": "activatePromotions(identifiers:success:failure:)",
             "children": [
@@ -73484,6 +73833,16 @@
         ]
       },
       {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "SyneriseSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
         "kind": "TypeDecl",
         "name": "SNRApiErrorBody",
         "printedName": "SNRApiErrorBody",
@@ -74921,52 +75280,66 @@
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Promotions\/Models\/Promotions\/PromotionDiscountType.swift",
+      "kind": "StringLiteral",
+      "offset": 461,
+      "length": 18,
+      "value": "\"DIGITAL_CASHBACK\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Promotions\/Models\/Promotions\/PromotionDiscountType.swift",
       "kind": "IntegerLiteral",
-      "offset": 607,
+      "offset": 657,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Promotions\/Models\/Promotions\/PromotionDiscountType.swift",
       "kind": "IntegerLiteral",
-      "offset": 655,
+      "offset": 705,
       "length": 7,
       "value": "1"
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Promotions\/Models\/Promotions\/PromotionDiscountType.swift",
       "kind": "IntegerLiteral",
-      "offset": 708,
+      "offset": 758,
       "length": 6,
       "value": "2"
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Promotions\/Models\/Promotions\/PromotionDiscountType.swift",
       "kind": "IntegerLiteral",
-      "offset": 759,
+      "offset": 809,
       "length": 9,
       "value": "3"
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Promotions\/Models\/Promotions\/PromotionDiscountType.swift",
       "kind": "IntegerLiteral",
-      "offset": 814,
+      "offset": 864,
       "length": 6,
       "value": "4"
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Promotions\/Models\/Promotions\/PromotionDiscountType.swift",
       "kind": "IntegerLiteral",
-      "offset": 868,
+      "offset": 918,
       "length": 8,
       "value": "5"
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Promotions\/Models\/Promotions\/PromotionDiscountType.swift",
       "kind": "IntegerLiteral",
-      "offset": 926,
+      "offset": 976,
       "length": 10,
       "value": "6"
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Promotions\/Models\/Promotions\/PromotionDiscountType.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1041,
+      "length": 15,
+      "value": "7"
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Promotions\/Requests\/Vouchers\/GetOrAssignVoucherRequest.swift",
@@ -75622,329 +75995,336 @@
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 493,
+      "offset": 489,
+      "length": 13,
+      "value": "\"pointsToUse\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
+      "kind": "StringLiteral",
+      "offset": 534,
       "length": 17,
       "value": "\"includeVouchers\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 538,
+      "offset": 579,
       "length": 13,
       "value": "\"includeMeta\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 595,
+      "offset": 636,
       "length": 29,
       "value": "\"checkGlobalActivationLimits\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 644,
+      "offset": 685,
       "length": 5,
       "value": "\"key\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 671,
+      "offset": 712,
       "length": 7,
       "value": "\"value\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 699,
+      "offset": 740,
       "length": 6,
       "value": "\"uuid\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 728,
+      "offset": 769,
       "length": 8,
       "value": "\"apiKey\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 761,
+      "offset": 802,
       "length": 10,
       "value": "\"deviceId\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 796,
+      "offset": 837,
       "length": 10,
       "value": "\"deviceId\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 828,
+      "offset": 869,
       "length": 7,
       "value": "\"email\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 860,
+      "offset": 901,
       "length": 10,
       "value": "\"password\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 898,
+      "offset": 939,
       "length": 13,
       "value": "\"oldPassword\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 936,
+      "offset": 977,
       "length": 10,
       "value": "\"customId\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 971,
+      "offset": 1012,
       "length": 10,
       "value": "\"customId\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 1003,
+      "offset": 1044,
       "length": 7,
       "value": "\"token\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 1038,
+      "offset": 1079,
       "length": 13,
       "value": "\"accessToken\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 1081,
+      "offset": 1122,
       "length": 15,
       "value": "\"facebookToken\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 1126,
+      "offset": 1167,
       "length": 15,
       "value": "\"externalToken\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 1163,
+      "offset": 1204,
       "length": 7,
       "value": "\"phone\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 1209,
+      "offset": 1250,
       "length": 18,
       "value": "\"identityProvider\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 1260,
+      "offset": 1301,
       "length": 18,
       "value": "\"identityProvider\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 1322,
+      "offset": 1363,
       "length": 23,
       "value": "\"identityProviderToken\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 1383,
+      "offset": 1424,
       "length": 23,
       "value": "\"identityProviderToken\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 1439,
+      "offset": 1480,
       "length": 18,
       "value": "\"confirmationCode\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 1481,
+      "offset": 1522,
       "length": 9,
       "value": "\"pinCode\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 1515,
+      "offset": 1556,
       "length": 10,
       "value": "\"poolUuid\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 1552,
+      "offset": 1593,
       "length": 12,
       "value": "\"clientUuid\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 1589,
+      "offset": 1630,
       "length": 10,
       "value": "\"itemsIds\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 1637,
+      "offset": 1678,
       "length": 26,
       "value": "\"product:retailer_part_no\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 1689,
+      "offset": 1730,
       "length": 11,
       "value": "\"productId\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 1729,
+      "offset": 1770,
       "length": 14,
       "value": "\"smsAgreement\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 1779,
+      "offset": 1820,
       "length": 21,
       "value": "\"newsletterAgreement\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 1834,
+      "offset": 1875,
       "length": 19,
       "value": "\"systemPushConsent\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 1889,
+      "offset": 1930,
       "length": 21,
       "value": "\"mobilePushAgreement\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 1933,
+      "offset": 1974,
       "length": 8,
       "value": "\"action\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 1964,
+      "offset": 2005,
       "length": 8,
       "value": "\"params\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 2018,
+      "offset": 2059,
       "length": 31,
       "value": "\"campaignHashesForSegmentCheck\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 2098,
+      "offset": 2139,
       "length": 34,
       "value": "\"campaignHashesForAbxVariantCheck\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 2157,
+      "offset": 2198,
       "length": 10,
       "value": "\"campaign\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 2196,
+      "offset": 2237,
       "length": 14,
       "value": "\"campaignHash\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 2236,
+      "offset": 2277,
       "length": 11,
       "value": "\"variantId\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 2271,
+      "offset": 2312,
       "length": 9,
       "value": "\"context\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 2309,
+      "offset": 2350,
       "length": 14,
       "value": "\"fieldContext\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 2350,
+      "offset": 2391,
       "length": 5,
       "value": "\"app\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 2384,
+      "offset": 2425,
       "length": 7,
       "value": "\"event\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 2414,
+      "offset": 2455,
       "length": 8,
       "value": "\"render\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 2443,
+      "offset": 2484,
       "length": 6,
       "value": "\"test\""
     },
@@ -79872,99 +80252,106 @@
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/InAppInternalMethodBridge\/InAppInternalMethod.swift",
       "kind": "IntegerLiteral",
       "offset": 351,
-      "length": 23,
+      "length": 17,
       "value": "5"
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/InAppInternalMethodBridge\/InAppInternalMethod.swift",
       "kind": "IntegerLiteral",
-      "offset": 382,
+      "offset": 376,
       "length": 23,
       "value": "6"
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/InAppInternalMethodBridge\/InAppInternalMethod.swift",
       "kind": "IntegerLiteral",
-      "offset": 413,
-      "length": 25,
+      "offset": 407,
+      "length": 23,
       "value": "7"
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/InAppInternalMethodBridge\/InAppInternalMethod.swift",
       "kind": "IntegerLiteral",
-      "offset": 446,
+      "offset": 438,
       "length": 25,
       "value": "8"
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/InAppInternalMethodBridge\/InAppInternalMethod.swift",
       "kind": "IntegerLiteral",
-      "offset": 479,
-      "length": 23,
+      "offset": 471,
+      "length": 25,
       "value": "9"
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/InAppInternalMethodBridge\/InAppInternalMethod.swift",
       "kind": "IntegerLiteral",
-      "offset": 510,
-      "length": 25,
+      "offset": 504,
+      "length": 23,
       "value": "10"
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/InAppInternalMethodBridge\/InAppInternalMethod.swift",
       "kind": "IntegerLiteral",
-      "offset": 543,
-      "length": 18,
+      "offset": 535,
+      "length": 25,
       "value": "11"
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/InAppInternalMethodBridge\/InAppInternalMethod.swift",
       "kind": "IntegerLiteral",
-      "offset": 569,
-      "length": 17,
+      "offset": 568,
+      "length": 18,
       "value": "12"
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/InAppInternalMethodBridge\/InAppInternalMethod.swift",
       "kind": "IntegerLiteral",
       "offset": 594,
-      "length": 23,
+      "length": 17,
       "value": "13"
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/InAppInternalMethodBridge\/InAppInternalMethod.swift",
       "kind": "IntegerLiteral",
-      "offset": 639,
-      "length": 20,
+      "offset": 619,
+      "length": 23,
       "value": "14"
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/InAppInternalMethodBridge\/InAppInternalMethod.swift",
       "kind": "IntegerLiteral",
-      "offset": 667,
-      "length": 16,
+      "offset": 664,
+      "length": 20,
       "value": "15"
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/InAppInternalMethodBridge\/InAppInternalMethod.swift",
       "kind": "IntegerLiteral",
-      "offset": 691,
-      "length": 18,
+      "offset": 692,
+      "length": 16,
       "value": "16"
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/InAppInternalMethodBridge\/InAppInternalMethod.swift",
       "kind": "IntegerLiteral",
-      "offset": 717,
+      "offset": 716,
       "length": 18,
       "value": "17"
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/InAppInternalMethodBridge\/InAppInternalMethod.swift",
       "kind": "IntegerLiteral",
-      "offset": 757,
-      "length": 7,
+      "offset": 742,
+      "length": 18,
       "value": "18"
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/InAppInternalMethodBridge\/InAppInternalMethod.swift",
+      "kind": "IntegerLiteral",
+      "offset": 782,
+      "length": 7,
+      "value": "19"
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Client\/Requests\/ChangePasswordRequest.swift",
@@ -81799,6 +82186,13 @@
       "offset": 181,
       "length": 22,
       "value": "\"vouchers\/item\/assign\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Promotions\/Requests\/Promotions\/ActivatePromotionWithOptionsRequest.swift",
+      "kind": "StringLiteral",
+      "offset": 192,
+      "length": 31,
+      "value": "\"promotions\/promotion\/activate\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Main\/Assembly\/Registrations\/DefaultRegistry\/DefaultAssemblyRegistry.swift",

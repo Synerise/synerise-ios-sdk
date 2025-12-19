@@ -802,7 +802,6 @@ SWIFT_CLASS_NAMED("Client")
 + (void)registerForPush:(NSString * _Nonnull)registrationToken mobilePushAgreement:(BOOL)mobilePushAgreement success:(void (^ _Nonnull)(void))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
 @end
 
-
 @class _SNR_BaseSignal;
 
 SWIFT_PROTOCOL_NAMED("_SNR_SignalReceivable")
@@ -814,6 +813,7 @@ SWIFT_PROTOCOL_NAMED("_SNR_SignalReceivable")
 @interface SNRClient (SWIFT_EXTENSION(SyneriseSDK)) <_SNR_SignalReceivable>
 - (void)signalReceived:(_SNR_BaseSignal * _Nonnull)signal parameters:(NSDictionary<NSString *, id> * _Nonnull)parameters;
 @end
+
 
 enum SNRClientSex : NSInteger;
 @class SNRClientAgreements;
@@ -1494,6 +1494,17 @@ SWIFT_CLASS_NAMED("Promotion")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
+@class SNRPromotionIdentifier;
+
+/// <code>PromotionActivationOptions</code> class
+SWIFT_CLASS_NAMED("PromotionActivationOptions")
+@interface SNRPromotionActivationOptions : NSObject
+@property (nonatomic) NSInteger pointsToUse;
+- (nonnull instancetype)initWithIdentifier:(SNRPromotionIdentifier * _Nonnull)identifier OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
 @class SNRPromotionDiscountTypeDetails;
 
 /// <code>PromotionDetails</code> class
@@ -1541,6 +1552,7 @@ typedef SWIFT_ENUM_NAMED(NSInteger, SNRPromotionDiscountType, "PromotionDiscount
   SNRPromotionDiscountTypePoints SWIFT_COMPILE_NAME("points") = 4,
   SNRPromotionDiscountTypeMultibuy SWIFT_COMPILE_NAME("multibuy") = 5,
   SNRPromotionDiscountTypeExactPrice SWIFT_COMPILE_NAME("exactPrice") = 6,
+  SNRPromotionDiscountTypeDigitalCashback SWIFT_COMPILE_NAME("digitalCashback") = 7,
 };
 
 
@@ -1715,6 +1727,14 @@ SWIFT_CLASS_NAMED("Promotions")
 /// \param failure A closure to be executed when the operation finishes unsuccessfully.
 ///
 + (void)activatePromotionByCode:(NSString * _Nonnull)code success:(void (^ _Nonnull)(void))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+/// This method activates and gets the promotion defined for the options provided.
+/// \param options <code>PromotionActivationOptions</code> object with parameters for promotion activation.
+///
+/// \param success A closure to be executed when the operation finishes successfully.
+///
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
+///
++ (void)activatePromotionWithOptions:(SNRPromotionActivationOptions * _Nonnull)options success:(void (^ _Nonnull)(SNRPromotion * _Nonnull))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
 /// This method activates promotions with a code or with UUID in a batch.
 /// \param identifiers List of promotion identifiers to be activated.
 ///
@@ -3611,7 +3631,6 @@ SWIFT_CLASS_NAMED("Client")
 + (void)registerForPush:(NSString * _Nonnull)registrationToken mobilePushAgreement:(BOOL)mobilePushAgreement success:(void (^ _Nonnull)(void))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
 @end
 
-
 @class _SNR_BaseSignal;
 
 SWIFT_PROTOCOL_NAMED("_SNR_SignalReceivable")
@@ -3623,6 +3642,7 @@ SWIFT_PROTOCOL_NAMED("_SNR_SignalReceivable")
 @interface SNRClient (SWIFT_EXTENSION(SyneriseSDK)) <_SNR_SignalReceivable>
 - (void)signalReceived:(_SNR_BaseSignal * _Nonnull)signal parameters:(NSDictionary<NSString *, id> * _Nonnull)parameters;
 @end
+
 
 enum SNRClientSex : NSInteger;
 @class SNRClientAgreements;
@@ -4303,6 +4323,17 @@ SWIFT_CLASS_NAMED("Promotion")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
+@class SNRPromotionIdentifier;
+
+/// <code>PromotionActivationOptions</code> class
+SWIFT_CLASS_NAMED("PromotionActivationOptions")
+@interface SNRPromotionActivationOptions : NSObject
+@property (nonatomic) NSInteger pointsToUse;
+- (nonnull instancetype)initWithIdentifier:(SNRPromotionIdentifier * _Nonnull)identifier OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
 @class SNRPromotionDiscountTypeDetails;
 
 /// <code>PromotionDetails</code> class
@@ -4350,6 +4381,7 @@ typedef SWIFT_ENUM_NAMED(NSInteger, SNRPromotionDiscountType, "PromotionDiscount
   SNRPromotionDiscountTypePoints SWIFT_COMPILE_NAME("points") = 4,
   SNRPromotionDiscountTypeMultibuy SWIFT_COMPILE_NAME("multibuy") = 5,
   SNRPromotionDiscountTypeExactPrice SWIFT_COMPILE_NAME("exactPrice") = 6,
+  SNRPromotionDiscountTypeDigitalCashback SWIFT_COMPILE_NAME("digitalCashback") = 7,
 };
 
 
@@ -4524,6 +4556,14 @@ SWIFT_CLASS_NAMED("Promotions")
 /// \param failure A closure to be executed when the operation finishes unsuccessfully.
 ///
 + (void)activatePromotionByCode:(NSString * _Nonnull)code success:(void (^ _Nonnull)(void))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
+/// This method activates and gets the promotion defined for the options provided.
+/// \param options <code>PromotionActivationOptions</code> object with parameters for promotion activation.
+///
+/// \param success A closure to be executed when the operation finishes successfully.
+///
+/// \param failure A closure to be executed when the operation finishes unsuccessfully.
+///
++ (void)activatePromotionWithOptions:(SNRPromotionActivationOptions * _Nonnull)options success:(void (^ _Nonnull)(SNRPromotion * _Nonnull))success failure:(void (^ _Nonnull)(SNRApiError * _Nonnull))failure;
 /// This method activates promotions with a code or with UUID in a batch.
 /// \param identifiers List of promotion identifiers to be activated.
 ///

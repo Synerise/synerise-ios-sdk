@@ -117,6 +117,7 @@ import os
   @objc(SNRPromotionDiscountTypePoints) case points
   @objc(SNRPromotionDiscountTypeMultibuy) case multibuy
   @objc(SNRPromotionDiscountTypeExactPrice) case exactPrice
+  @objc(SNRPromotionDiscountTypeDigitalCashback) case digitalCashback
   public static func fromString(_ string: Swift.String?) -> SyneriseSDK.PromotionDiscountType
   public func toString() -> Swift.String
   public init?(rawValue: Swift.Int)
@@ -454,6 +455,14 @@ public enum SyneriseApiUrls {
   @objc(setDecimalSeparator:) final public func setDecimalSeparator(_ decimalSeparator: Swift.String?)
   @objc(stringFromNumber:) final public func string(from number: Foundation.NSNumber) -> Swift.String?
   @objc override dynamic public init()
+  @objc deinit
+}
+@objc(SNRPromotionActivationOptions) public class PromotionActivationOptions : ObjectiveC.NSObject {
+  @objc public var pointsToUse: Swift.Int {
+    @objc get
+    @objc set
+  }
+  @objc(initWithIdentifier:) public init(identifier: SyneriseSDK.PromotionIdentifier)
   @objc deinit
 }
 @objc(SNRRecommendationOptions) public class RecommendationOptions : ObjectiveC.NSObject {
@@ -1168,6 +1177,7 @@ public protocol _SNR_BackgroundTaskManagerType : AnyObject {
   @objc(getPromotionByCode:success:failure:) public static func getPromotion(code: Swift.String, success: @escaping (SyneriseSDK.Promotion) -> Swift.Void, failure: @escaping (SyneriseSDK.SNRApiError) -> Swift.Void)
   @objc(activatePromotionByUuid:success:failure:) public static func activatePromotion(uuid: Swift.String, success: @escaping () -> Swift.Void, failure: @escaping (SyneriseSDK.SNRApiError) -> Swift.Void)
   @objc(activatePromotionByCode:success:failure:) public static func activatePromotion(code: Swift.String, success: @escaping () -> Swift.Void, failure: @escaping (SyneriseSDK.SNRApiError) -> Swift.Void)
+  @objc(activatePromotionWithOptions:success:failure:) public static func activatePromotion(options: SyneriseSDK.PromotionActivationOptions, success: @escaping (SyneriseSDK.Promotion) -> Swift.Void, failure: @escaping (SyneriseSDK.SNRApiError) -> Swift.Void)
   @objc(activatePromotionsWithIdentifiers:success:failure:) public static func activatePromotions(identifiers: [SyneriseSDK.PromotionIdentifier], success: @escaping () -> Swift.Void, failure: @escaping (SyneriseSDK.SNRApiError) -> Swift.Void)
   @objc(deactivatePromotionByUuid:success:failure:) public static func deactivatePromotion(uuid: Swift.String, success: @escaping () -> Swift.Void, failure: @escaping (SyneriseSDK.SNRApiError) -> Swift.Void)
   @objc(deactivatePromotionByCode:success:failure:) public static func deactivatePromotion(code: Swift.String, success: @escaping () -> Swift.Void, failure: @escaping (SyneriseSDK.SNRApiError) -> Swift.Void)
