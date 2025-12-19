@@ -1,8 +1,20 @@
-
 # Changelog
 All notable changes to this project will be documented in this file.
 
 Note that Objective-C class names are prefixed by `SNR`. In the changelog below, these are names used in Swift, without the prefix.
+
+## [5.10.0] - 2025-12-19
+
+### Added
+- We added a new `Promotions.activatePromotion(options:success:failure:)` method. It's analogous to `Promotions.activatePromotion(uuid:success:failure:)` and `Promotions.activatePromotion(code:success:failure:)`. The new method activates the promotion that is defined for the provided options and fetches the promotion as a response.
+- The `includeVouchers` property in `PromotionsApiQuery` model to set a param that indicates if the promotion should contain vouchers.
+- The `vouchers` property in the `Promotion` model. The property contains vouchers as an array with the `PromotionVoucherData` models.
+- `PromotionVoucherData` model representing a voucher that can be included in the `Promotion` model.
+- `.digitalCashback` in `PromotionDiscountType` enumeration type.
+
+### Changed
+- Improvements to stability.
+
 
 ## [5.9.3] - 2025-12-15
 
