@@ -4409,6 +4409,23 @@
         ]
       },
       {
+        "kind": "Import",
+        "name": "CoreData",
+        "printedName": "CoreData",
+        "declKind": "Import",
+        "moduleName": "SyneriseSDK"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "SyneriseSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
         "kind": "TypeDecl",
         "name": "DocumentApiQuery",
         "printedName": "DocumentApiQuery",
@@ -11574,6 +11591,36 @@
           },
           {
             "kind": "Function",
+            "name": "escapeJavaScriptString",
+            "printedName": "escapeJavaScriptString(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_MiscUtils(cm)escapeJavaScriptString:",
+            "mangledName": "$s11SyneriseSDK14_SNR_MiscUtilsC22escapeJavaScriptStringyS2SFZ",
+            "moduleName": "SyneriseSDK",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
             "name": "isUUID",
             "printedName": "isUUID(_:)",
             "children": [
@@ -14619,6 +14666,16 @@
       },
       {
         "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "SyneriseSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
         "name": "UIKit",
         "printedName": "UIKit",
         "declKind": "Import",
@@ -16519,6 +16576,16 @@
         "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "SyneriseSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "WebKit",
+        "printedName": "WebKit",
         "declKind": "Import",
         "moduleName": "SyneriseSDK",
         "declAttributes": [
@@ -20202,7 +20269,7 @@
               {
                 "kind": "TypeNominal",
                 "name": "CLLocation",
-                "printedName": "CoreLocation.CLLocation",
+                "printedName": "_LocationEssentials.CLLocation",
                 "usr": "c:objc(cs)CLLocation"
               }
             ],
@@ -20238,7 +20305,7 @@
               {
                 "kind": "TypeNominal",
                 "name": "CLLocation",
-                "printedName": "CoreLocation.CLLocation",
+                "printedName": "_LocationEssentials.CLLocation",
                 "usr": "c:objc(cs)CLLocation"
               },
               {
@@ -34552,6 +34619,16 @@
         ]
       },
       {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "SyneriseSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
         "kind": "TypeDecl",
         "name": "ClientUpdateAccountContext",
         "printedName": "ClientUpdateAccountContext",
@@ -37836,6 +37913,16 @@
       },
       {
         "kind": "Import",
+        "name": "CoreData",
+        "printedName": "CoreData",
+        "declKind": "Import",
+        "moduleName": "SyneriseSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
         "declKind": "Import",
@@ -38035,6 +38122,16 @@
             "usr": "s:s28CustomDebugStringConvertibleP",
             "mangledName": "$ss28CustomDebugStringConvertibleP"
           }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "SyneriseSDK",
+        "declAttributes": [
+          "RawDocComment"
         ]
       },
       {
@@ -45529,6 +45626,13 @@
             "printedName": "CustomDebugStringConvertible",
             "usr": "s:s28CustomDebugStringConvertibleP",
             "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           },
           {
             "kind": "Conformance",
@@ -55145,6 +55249,26 @@
         ]
       },
       {
+        "kind": "Import",
+        "name": "CoreData",
+        "printedName": "CoreData",
+        "declKind": "Import",
+        "moduleName": "SyneriseSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "SyneriseSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
         "kind": "TypeDecl",
         "name": "PromotionDiscountTypeDetails",
         "printedName": "PromotionDiscountTypeDetails",
@@ -58326,6 +58450,16 @@
         ]
       },
       {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "SyneriseSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
         "kind": "TypeDecl",
         "name": "ClientEventsApiQuery",
         "printedName": "ClientEventsApiQuery",
@@ -60026,6 +60160,16 @@
             "usr": "s:s28CustomDebugStringConvertibleP",
             "mangledName": "$ss28CustomDebugStringConvertibleP"
           }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "SyneriseSDK",
+        "declAttributes": [
+          "RawDocComment"
         ]
       },
       {
@@ -67650,6 +67794,30 @@
         ]
       },
       {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "SyneriseSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "CoreData",
+        "printedName": "CoreData",
+        "declKind": "Import",
+        "moduleName": "SyneriseSDK"
+      },
+      {
+        "kind": "Import",
+        "name": "SQLite3",
+        "printedName": "SQLite3",
+        "declKind": "Import",
+        "moduleName": "SyneriseSDK"
+      },
+      {
         "kind": "TypeDecl",
         "name": "PushCancelledEvent",
         "printedName": "PushCancelledEvent",
@@ -71934,6 +72102,13 @@
           },
           {
             "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
+          },
+          {
+            "kind": "Conformance",
             "name": "Error",
             "printedName": "Error",
             "usr": "s:s5ErrorP",
@@ -74830,21 +75005,14 @@
         "usr": "s:Sq",
         "mangledName": "$sSq",
         "moduleName": "Swift",
-        "genericSig": "<τ_0_0 where τ_0_0 : ~Copyable>",
-        "sugared_genericSig": "<Wrapped where Wrapped : ~Copyable>",
+        "genericSig": "<τ_0_0 where τ_0_0 : ~Copyable, τ_0_0 : ~Escapable>",
+        "sugared_genericSig": "<Wrapped where Wrapped : ~Copyable, Wrapped : ~Escapable>",
         "declAttributes": [
           "Frozen"
         ],
         "isExternal": true,
         "isEnumExhaustive": true,
         "conformances": [
-          {
-            "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          },
           {
             "kind": "Conformance",
             "name": "Encodable",
@@ -74868,10 +75036,10 @@
           },
           {
             "kind": "Conformance",
-            "name": "Sendable",
-            "printedName": "Sendable",
-            "usr": "s:s8SendableP",
-            "mangledName": "$ss8SendableP"
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
           },
           {
             "kind": "Conformance",
@@ -74879,6 +75047,20 @@
             "printedName": "BitwiseCopyable",
             "usr": "s:s15BitwiseCopyableP",
             "mangledName": "$ss15BitwiseCopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           },
           {
             "kind": "Conformance",
@@ -74977,6 +75159,103 @@
             ],
             "usr": "s:10Foundation26DecodableWithConfigurationP",
             "mangledName": "$s10Foundation26DecodableWithConfigurationP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "AttributedTextFormattingDefinition",
+            "printedName": "AttributedTextFormattingDefinition",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "Body",
+                "printedName": "Body",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "OpaqueTypeArchetype",
+                    "printedName": "some SwiftUICore.AttributedTextFormattingDefinition<Wrapped.Scope>",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "AttributedTextFormattingDefinition",
+                        "printedName": "SwiftUICore.AttributedTextFormattingDefinition",
+                        "usr": "s:7SwiftUI34AttributedTextFormattingDefinitionP"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "kind": "TypeWitness",
+                "name": "Scope",
+                "printedName": "Scope",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "DependentMember",
+                    "printedName": "τ_0_0.Scope"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:7SwiftUI34AttributedTextFormattingDefinitionP",
+            "mangledName": "$s7SwiftUI34AttributedTextFormattingDefinitionP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Gesture",
+            "printedName": "Gesture",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "Value",
+                "printedName": "Value",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "DependentMember",
+                    "printedName": "τ_0_0.Value"
+                  }
+                ]
+              },
+              {
+                "kind": "TypeWitness",
+                "name": "Body",
+                "printedName": "Body",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Never",
+                    "printedName": "Swift.Never",
+                    "usr": "s:s5NeverO"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:7SwiftUI7GestureP",
+            "mangledName": "$s7SwiftUI7GestureP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "View",
+            "printedName": "View",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "Body",
+                "printedName": "Body",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Never",
+                    "printedName": "Swift.Never",
+                    "usr": "s:s5NeverO"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:7SwiftUI4ViewP",
+            "mangledName": "$s7SwiftUI4ViewP"
           }
         ]
       }
@@ -76329,6 +76608,13 @@
       "value": "\"test\""
     },
     {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/UI\/ViewControllers\/InAppExternalStorageDataSource.swift",
+      "kind": "StringLiteral",
+      "offset": 221,
+      "length": 7,
+      "value": "\"value\""
+    },
+    {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Providers\/DeviceInfoProvider.swift",
       "kind": "StringLiteral",
       "offset": 195,
@@ -76747,6 +77033,48 @@
       "offset": 271,
       "length": 5,
       "value": "false"
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/UI\/ViewControllers\/InAppExternalStorageFeature.swift",
+      "kind": "StringLiteral",
+      "offset": 217,
+      "length": 17,
+      "value": "\"setItemFunction\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/UI\/ViewControllers\/InAppExternalStorageFeature.swift",
+      "kind": "StringLiteral",
+      "offset": 298,
+      "length": 20,
+      "value": "\"removeItemFunction\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/UI\/ViewControllers\/InAppExternalStorageFeature.swift",
+      "kind": "StringLiteral",
+      "offset": 377,
+      "length": 15,
+      "value": "\"clearFunction\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/UI\/ViewControllers\/InAppExternalStorageFeature.swift",
+      "kind": "StringLiteral",
+      "offset": 439,
+      "length": 5,
+      "value": "\"key\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/UI\/ViewControllers\/InAppExternalStorageFeature.swift",
+      "kind": "StringLiteral",
+      "offset": 492,
+      "length": 7,
+      "value": "\"value\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/UI\/ViewControllers\/InAppExternalStorageFeature.swift",
+      "kind": "StringLiteral",
+      "offset": 552,
+      "length": 12,
+      "value": "\"callbackId\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Config\/SyneriseApiUrls.swift",
@@ -77969,7 +78297,7 @@
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Main\/Assembly\/SyneriseAssembly+Dependencies.swift",
       "kind": "Dictionary",
-      "offset": 1529,
+      "offset": 1900,
       "length": 3,
       "value": "[]"
     },
@@ -78140,6 +78468,13 @@
       "offset": 579,
       "length": 21,
       "value": "\"rich-media.carousel\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Common\/Errors\/DatabaseOperationError.swift",
+      "kind": "StringLiteral",
+      "offset": 343,
+      "length": 37,
+      "value": "\"An unknown database error occurred.\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterValue.swift",
@@ -79815,6 +80150,41 @@
       "value": "\"variantId\""
     },
     {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataManagement\/Services\/CoreStorageService.swift",
+      "kind": "IntegerLiteral",
+      "offset": 236,
+      "length": 1,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataManagement\/Services\/CoreStorageService.swift",
+      "kind": "IntegerLiteral",
+      "offset": 240,
+      "length": 2,
+      "value": "30"
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataManagement\/Services\/CoreStorageService.swift",
+      "kind": "IntegerLiteral",
+      "offset": 245,
+      "length": 2,
+      "value": "24"
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataManagement\/Services\/CoreStorageService.swift",
+      "kind": "IntegerLiteral",
+      "offset": 250,
+      "length": 2,
+      "value": "60"
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataManagement\/Services\/CoreStorageService.swift",
+      "kind": "IntegerLiteral",
+      "offset": 255,
+      "length": 2,
+      "value": "60"
+    },
+    {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Services\/NotificationService\/Models\/SimplePushNotification\/Action\/SyneriseActionType.swift",
       "kind": "StringLiteral",
       "offset": 192,
@@ -79929,21 +80299,21 @@
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Injector.swift",
       "kind": "BooleanLiteral",
-      "offset": 6577,
+      "offset": 6632,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Injector.swift",
       "kind": "BooleanLiteral",
-      "offset": 7158,
+      "offset": 7213,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Injector.swift",
       "kind": "BooleanLiteral",
-      "offset": 7447,
+      "offset": 7502,
       "length": 5,
       "value": "false"
     },
@@ -80149,6 +80519,13 @@
       "offset": 191,
       "length": 33,
       "value": "\"my-account\/personal-information\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Common\/Errors\/PlatformError.swift",
+      "kind": "StringLiteral",
+      "offset": 325,
+      "length": 28,
+      "value": "\"An unknown error occurred.\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Client\/Requests\/ConfirmClientPhoneNumberRequest.swift",
@@ -80692,14 +81069,14 @@
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/UI\/ViewControllers\/InAppMessageWebViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 1845,
+      "offset": 1935,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/UI\/ViewControllers\/InAppMessageWebViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 13269,
+      "offset": 13318,
       "length": 4,
       "value": "true"
     },
@@ -81528,6 +81905,34 @@
       "offset": 157,
       "length": 21,
       "value": "\"auth\/refresh\/client\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataManagement\/Databases\/CoreDatabase\/CoreDatabase.swift",
+      "kind": "StringLiteral",
+      "offset": 237,
+      "length": 20,
+      "value": "\"CoreDatabaseSchema\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataManagement\/Databases\/CoreDatabase\/CoreDatabase.swift",
+      "kind": "StringLiteral",
+      "offset": 302,
+      "length": 10,
+      "value": "\"Synerise\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataManagement\/Databases\/CoreDatabase\/CoreDatabase.swift",
+      "kind": "StringLiteral",
+      "offset": 352,
+      "length": 10,
+      "value": "\"snr_core\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataManagement\/Databases\/CoreDatabase\/CoreDatabase.swift",
+      "kind": "StringLiteral",
+      "offset": 407,
+      "length": 8,
+      "value": "\"sqlite\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Tracker\/Events\/Push\/PushCancelledEvent.swift",

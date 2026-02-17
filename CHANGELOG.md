@@ -3,6 +3,12 @@ All notable changes to this project will be documented in this file.
 
 Note that Objective-C class names are prefixed by `SNR`. In the changelog below, these are names used in Swift, without the prefix.
 
+## [5.11.0] - 2026-02-17
+
+### Added
+- `SRInApp.getItem`, `SRInApp.setItem`, `SRInApp.removeItem` and `SRInApp.clear` methods to the JS interface in the in-app messaging module, allowing you to manage storage for the in-app message scoped to the current client context. You can read more in the documentation.
+
+
 ## [5.10.1] - 2025-12-30
 
 ### Fixed
