@@ -50243,6 +50243,98 @@
           },
           {
             "kind": "Var",
+            "name": "presentOnly",
+            "printedName": "presentOnly",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@SyneriseSDK@objc(cs)SNRPromotionsApiQuery(py)presentOnly",
+            "mangledName": "$s11SyneriseSDK18PromotionsApiQueryC11presentOnlySbvp",
+            "moduleName": "SyneriseSDK",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@SyneriseSDK@objc(cs)SNRPromotionsApiQuery(im)presentOnly",
+                "mangledName": "$s11SyneriseSDK18PromotionsApiQueryC11presentOnlySbvg",
+                "moduleName": "SyneriseSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@SyneriseSDK@objc(cs)SNRPromotionsApiQuery(im)setPresentOnly:",
+                "mangledName": "$s11SyneriseSDK18PromotionsApiQueryC11presentOnlySbvs",
+                "moduleName": "SyneriseSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11SyneriseSDK18PromotionsApiQueryC11presentOnlySbvM",
+                "mangledName": "$s11SyneriseSDK18PromotionsApiQueryC11presentOnlySbvM",
+                "moduleName": "SyneriseSDK",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
             "name": "checkGlobalActivationLimits",
             "printedName": "checkGlobalActivationLimits",
             "children": [
@@ -76267,343 +76359,357 @@
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 455,
+      "offset": 462,
+      "length": 13,
+      "value": "\"presentOnly\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
+      "kind": "StringLiteral",
+      "offset": 507,
+      "length": 17,
+      "value": "\"displayableOnly\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
+      "kind": "StringLiteral",
+      "offset": 545,
       "length": 6,
       "value": "\"sort\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 489,
+      "offset": 579,
       "length": 13,
       "value": "\"pointsToUse\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 534,
+      "offset": 624,
       "length": 17,
       "value": "\"includeVouchers\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 579,
+      "offset": 669,
       "length": 13,
       "value": "\"includeMeta\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 636,
+      "offset": 726,
       "length": 29,
       "value": "\"checkGlobalActivationLimits\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 685,
+      "offset": 775,
       "length": 5,
       "value": "\"key\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 712,
+      "offset": 802,
       "length": 7,
       "value": "\"value\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 740,
+      "offset": 830,
       "length": 6,
       "value": "\"uuid\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 769,
+      "offset": 859,
       "length": 8,
       "value": "\"apiKey\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 802,
+      "offset": 892,
       "length": 10,
       "value": "\"deviceId\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 837,
+      "offset": 927,
       "length": 10,
       "value": "\"deviceId\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 869,
+      "offset": 959,
       "length": 7,
       "value": "\"email\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 901,
+      "offset": 991,
       "length": 10,
       "value": "\"password\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 939,
+      "offset": 1029,
       "length": 13,
       "value": "\"oldPassword\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 977,
+      "offset": 1067,
       "length": 10,
       "value": "\"customId\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 1012,
+      "offset": 1102,
       "length": 10,
       "value": "\"customId\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 1044,
+      "offset": 1134,
       "length": 7,
       "value": "\"token\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 1079,
+      "offset": 1169,
       "length": 13,
       "value": "\"accessToken\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 1122,
+      "offset": 1212,
       "length": 15,
       "value": "\"facebookToken\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 1167,
+      "offset": 1257,
       "length": 15,
       "value": "\"externalToken\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 1204,
+      "offset": 1294,
       "length": 7,
       "value": "\"phone\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 1250,
+      "offset": 1340,
       "length": 18,
       "value": "\"identityProvider\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 1301,
+      "offset": 1391,
       "length": 18,
       "value": "\"identityProvider\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 1363,
+      "offset": 1453,
       "length": 23,
       "value": "\"identityProviderToken\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 1424,
+      "offset": 1514,
       "length": 23,
       "value": "\"identityProviderToken\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 1480,
+      "offset": 1570,
       "length": 18,
       "value": "\"confirmationCode\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 1522,
+      "offset": 1612,
       "length": 9,
       "value": "\"pinCode\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 1556,
+      "offset": 1646,
       "length": 10,
       "value": "\"poolUuid\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 1593,
+      "offset": 1683,
       "length": 12,
       "value": "\"clientUuid\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 1630,
+      "offset": 1720,
       "length": 10,
       "value": "\"itemsIds\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 1678,
+      "offset": 1768,
       "length": 26,
       "value": "\"product:retailer_part_no\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 1730,
+      "offset": 1820,
       "length": 11,
       "value": "\"productId\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 1770,
+      "offset": 1860,
       "length": 14,
       "value": "\"smsAgreement\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 1820,
+      "offset": 1910,
       "length": 21,
       "value": "\"newsletterAgreement\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 1875,
+      "offset": 1965,
       "length": 19,
       "value": "\"systemPushConsent\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 1930,
+      "offset": 2020,
       "length": 21,
       "value": "\"mobilePushAgreement\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 1974,
+      "offset": 2064,
       "length": 8,
       "value": "\"action\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 2005,
+      "offset": 2095,
       "length": 8,
       "value": "\"params\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 2059,
+      "offset": 2149,
       "length": 31,
       "value": "\"campaignHashesForSegmentCheck\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 2139,
+      "offset": 2229,
       "length": 34,
       "value": "\"campaignHashesForAbxVariantCheck\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 2198,
+      "offset": 2288,
       "length": 10,
       "value": "\"campaign\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 2237,
+      "offset": 2327,
       "length": 14,
       "value": "\"campaignHash\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 2277,
+      "offset": 2367,
       "length": 11,
       "value": "\"variantId\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 2312,
+      "offset": 2402,
       "length": 9,
       "value": "\"context\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 2350,
+      "offset": 2440,
       "length": 14,
       "value": "\"fieldContext\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 2391,
+      "offset": 2481,
       "length": 5,
       "value": "\"app\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 2425,
+      "offset": 2515,
       "length": 7,
       "value": "\"event\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 2455,
+      "offset": 2545,
       "length": 8,
       "value": "\"render\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Networking\/Requests\/SyneriseApiParameterKey.swift",
       "kind": "StringLiteral",
-      "offset": 2484,
+      "offset": 2574,
       "length": 6,
       "value": "\"test\""
     },

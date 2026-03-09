@@ -1355,6 +1355,7 @@ public protocol _SNR_BackgroundTaskManagerType : AnyObject {
 @_inheritsConvenienceInitializers @objc(SNRPromotionsApiQuery) public class PromotionsApiQuery : ObjectiveC.NSObject {
   @objc public var statuses: [SyneriseSDK.SNRPromotionStatusString]
   @objc public var types: [SyneriseSDK.SNRPromotionTypeString]
+  @objc public var presentOnly: Swift.Bool
   @objc public var checkGlobalActivationLimits: Swift.Bool
   @objc public var sorting: [[SyneriseSDK.SNRPromotionSortingKey : SyneriseSDK.SNRApiQuerySortingOrderString]]?
   @objc public var limit: Swift.Int
