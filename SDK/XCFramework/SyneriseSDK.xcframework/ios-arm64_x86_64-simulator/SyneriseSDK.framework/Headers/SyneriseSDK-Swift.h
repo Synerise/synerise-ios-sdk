@@ -1725,6 +1725,7 @@ SWIFT_CLASS_NAMED("PromotionsApiQuery")
 @interface SNRPromotionsApiQuery : NSObject
 @property (nonatomic, copy) NSArray<NSString *> * _Nonnull statuses;
 @property (nonatomic, copy) NSArray<NSString *> * _Nonnull types;
+@property (nonatomic) BOOL presentOnly;
 @property (nonatomic) BOOL checkGlobalActivationLimits;
 @property (nonatomic, copy) NSArray<NSDictionary<NSString *, NSString *> *> * _Nullable sorting;
 @property (nonatomic) NSInteger limit;
@@ -4400,6 +4401,7 @@ SWIFT_CLASS_NAMED("PromotionsApiQuery")
 @interface SNRPromotionsApiQuery : NSObject
 @property (nonatomic, copy) NSArray<NSString *> * _Nonnull statuses;
 @property (nonatomic, copy) NSArray<NSString *> * _Nonnull types;
+@property (nonatomic) BOOL presentOnly;
 @property (nonatomic) BOOL checkGlobalActivationLimits;
 @property (nonatomic, copy) NSArray<NSDictionary<NSString *, NSString *> *> * _Nullable sorting;
 @property (nonatomic) NSInteger limit;

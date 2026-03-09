@@ -3,6 +3,19 @@ All notable changes to this project will be documented in this file.
 
 Note that Objective-C class names are prefixed by `SNR`. In the changelog below, these are names used in Swift, without the prefix.
 
+## [5.12.0] - 2026-03-09
+
+### Fixed
+- Issue that could have caused crash during SDK reinitialization.
+- Potential issues with mapping event triggers in in-app messaging.
+
+### Added
+- The `presentOnly` property in `PromotionsApiQuery` model to set a param that indicates if only currently active promotions should be returned.
+
+### Changed
+- Improvements to stability.
+
+
 ## [5.11.0] - 2026-02-17
 
 ### Added
