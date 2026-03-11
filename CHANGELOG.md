@@ -3,6 +3,16 @@ All notable changes to this project will be documented in this file.
 
 Note that Objective-C class names are prefixed by `SNR`. In the changelog below, these are names used in Swift, without the prefix.
 
+## [5.12.1] - 2026-03-11
+
+### Fixed
+- Potential issue that could have caused a freeze in rare cases when use `Synerise.settings.sdk.doNotTrack`.
+
+### Changed
+- Management token optimalizations.
+- Improvements to stability.
+
+
 ## [5.12.0] - 2026-03-09
 
 ### Fixed
