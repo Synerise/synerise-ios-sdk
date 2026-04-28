@@ -170,11 +170,11 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		6h+qG6YNL4ZZx4PHGQLStRS0J28=
+		3hta1W6GAWceNjJuGnpZu8BgJfs=
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		SSo8qzm0UCt1uid4ZKM2e0ICsAE=
+		zPrwP13m9npI0Rg5ZbE8VgyE5i8=
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -190,11 +190,11 @@
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		v2C1p691aIAM5xKxLSdVNpZkMug=
+		pKKktIomEZPZbKohd/gozS5o6js=
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		SSo8qzm0UCt1uid4ZKM2e0ICsAE=
+		zPrwP13m9npI0Rg5ZbE8VgyE5i8=
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -210,7 +210,7 @@
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		v12ST+Ly5cYAwAAvur/kQNnCwa8=
+		3IjaYcjesnb5ksPyH1B41Zc7GgE=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -548,7 +548,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Ra89wGYccDWwvrj1xif/oxAXzP2gF2fKXDsDlBRqw+g=
+			Cv30h3iIusbpaDryrMmHCRDkIGEJmLcQmsoZc4Ybb+Y=
 			</data>
 		</dict>
 		<key>Modules/SyneriseSDK.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
@@ -576,14 +576,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			KaUlNZjFMfHrDWr51il03QsMaK71ZkfU4AWninbIqiA=
+			bH3sNQj5+at4or+8dbe2R9M2UjlPdcD0K4K2l9Oj1dU=
 			</data>
 		</dict>
 		<key>Modules/SyneriseSDK.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Ra89wGYccDWwvrj1xif/oxAXzP2gF2fKXDsDlBRqw+g=
+			Cv30h3iIusbpaDryrMmHCRDkIGEJmLcQmsoZc4Ybb+Y=
 			</data>
 		</dict>
 		<key>Modules/SyneriseSDK.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
@@ -611,7 +611,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			EUDrdhk9wKYDLjlPRWj2POuT7y/pE3NxPkLX+EWFRPI=
+			S3kIbjCKVfAss3LMWzrJq7hSVb/DmJXx/U47bXy3Jnk=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

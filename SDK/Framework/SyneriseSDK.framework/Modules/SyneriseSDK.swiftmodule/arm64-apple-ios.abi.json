@@ -20418,6 +20418,16 @@
       },
       {
         "kind": "Import",
+        "name": "WebKit",
+        "printedName": "WebKit",
+        "declKind": "Import",
+        "moduleName": "SyneriseSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
         "declKind": "Import",
@@ -55352,6 +55362,16 @@
       },
       {
         "kind": "Import",
+        "name": "WebKit",
+        "printedName": "WebKit",
+        "declKind": "Import",
+        "moduleName": "SyneriseSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
         "declKind": "Import",
@@ -76714,7 +76734,7 @@
       "value": "\"test\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/UI\/ViewControllers\/InAppExternalStorageDataSource.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/UI\/ViewControllers\/InAppMessageWebViewController\/Features\/InAppExternalStorageFeature\/InAppExternalStorageDataSource.swift",
       "kind": "StringLiteral",
       "offset": 221,
       "length": 7,
@@ -77141,42 +77161,42 @@
       "value": "false"
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/UI\/ViewControllers\/InAppExternalStorageFeature.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/UI\/ViewControllers\/InAppMessageWebViewController\/Features\/InAppExternalStorageFeature\/InAppExternalStorageFeature.swift",
       "kind": "StringLiteral",
       "offset": 217,
       "length": 17,
       "value": "\"setItemFunction\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/UI\/ViewControllers\/InAppExternalStorageFeature.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/UI\/ViewControllers\/InAppMessageWebViewController\/Features\/InAppExternalStorageFeature\/InAppExternalStorageFeature.swift",
       "kind": "StringLiteral",
       "offset": 298,
       "length": 20,
       "value": "\"removeItemFunction\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/UI\/ViewControllers\/InAppExternalStorageFeature.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/UI\/ViewControllers\/InAppMessageWebViewController\/Features\/InAppExternalStorageFeature\/InAppExternalStorageFeature.swift",
       "kind": "StringLiteral",
       "offset": 377,
       "length": 15,
       "value": "\"clearFunction\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/UI\/ViewControllers\/InAppExternalStorageFeature.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/UI\/ViewControllers\/InAppMessageWebViewController\/Features\/InAppExternalStorageFeature\/InAppExternalStorageFeature.swift",
       "kind": "StringLiteral",
       "offset": 439,
       "length": 5,
       "value": "\"key\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/UI\/ViewControllers\/InAppExternalStorageFeature.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/UI\/ViewControllers\/InAppMessageWebViewController\/Features\/InAppExternalStorageFeature\/InAppExternalStorageFeature.swift",
       "kind": "StringLiteral",
       "offset": 492,
       "length": 7,
       "value": "\"value\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/UI\/ViewControllers\/InAppExternalStorageFeature.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/UI\/ViewControllers\/InAppMessageWebViewController\/Features\/InAppExternalStorageFeature\/InAppExternalStorageFeature.swift",
       "kind": "StringLiteral",
       "offset": 552,
       "length": 12,
@@ -77594,6 +77614,34 @@
       "offset": 328,
       "length": 5,
       "value": "\"lon\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/UI\/ViewControllers\/InAppMessageWebViewController\/Features\/InAppInternalMethodFeature\/InAppInternalMethodFeature.swift",
+      "kind": "StringLiteral",
+      "offset": 229,
+      "length": 24,
+      "value": "\"internalMethodFunction\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/UI\/ViewControllers\/InAppMessageWebViewController\/Features\/InAppInternalMethodFeature\/InAppInternalMethodFeature.swift",
+      "kind": "StringLiteral",
+      "offset": 306,
+      "length": 12,
+      "value": "\"methodName\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/UI\/ViewControllers\/InAppMessageWebViewController\/Features\/InAppInternalMethodFeature\/InAppInternalMethodFeature.swift",
+      "kind": "StringLiteral",
+      "offset": 369,
+      "length": 11,
+      "value": "\"arguments\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/UI\/ViewControllers\/InAppMessageWebViewController\/Features\/InAppInternalMethodFeature\/InAppInternalMethodFeature.swift",
+      "kind": "StringLiteral",
+      "offset": 432,
+      "length": 12,
+      "value": "\"callbackId\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Promotions\/Models\/Promotions\/Promotion.swift",
@@ -79458,14 +79506,14 @@
       "value": "\"client.logout\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/UI\/ViewControllers\/PresentableViewController.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/UI\/ViewControllers\/Base\/PresentableViewController.swift",
       "kind": "BooleanLiteral",
       "offset": 356,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/UI\/ViewControllers\/PresentableViewController.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/UI\/ViewControllers\/Base\/PresentableViewController.swift",
       "kind": "BooleanLiteral",
       "offset": 435,
       "length": 5,
@@ -80704,137 +80752,144 @@
       "value": "\"my-account\/email-change\/confirmation\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/InAppInternalMethodBridge\/InAppInternalMethod.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/UI\/ViewControllers\/InAppMessageWebViewController\/Features\/InAppInternalMethodFeature\/InAppInternalMethod.swift",
       "kind": "IntegerLiteral",
-      "offset": 245,
-      "length": 13,
+      "offset": 229,
+      "length": 14,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/InAppInternalMethodBridge\/InAppInternalMethod.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/UI\/ViewControllers\/InAppMessageWebViewController\/Features\/InAppInternalMethodFeature\/InAppInternalMethod.swift",
       "kind": "IntegerLiteral",
-      "offset": 266,
-      "length": 25,
+      "offset": 268,
+      "length": 13,
       "value": "2"
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/InAppInternalMethodBridge\/InAppInternalMethod.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/UI\/ViewControllers\/InAppMessageWebViewController\/Features\/InAppInternalMethodFeature\/InAppInternalMethod.swift",
       "kind": "IntegerLiteral",
-      "offset": 299,
-      "length": 18,
+      "offset": 289,
+      "length": 25,
       "value": "3"
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/InAppInternalMethodBridge\/InAppInternalMethod.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/UI\/ViewControllers\/InAppMessageWebViewController\/Features\/InAppInternalMethodFeature\/InAppInternalMethod.swift",
       "kind": "IntegerLiteral",
-      "offset": 325,
+      "offset": 322,
       "length": 18,
       "value": "4"
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/InAppInternalMethodBridge\/InAppInternalMethod.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/UI\/ViewControllers\/InAppMessageWebViewController\/Features\/InAppInternalMethodFeature\/InAppInternalMethod.swift",
       "kind": "IntegerLiteral",
-      "offset": 351,
-      "length": 17,
+      "offset": 348,
+      "length": 18,
       "value": "5"
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/InAppInternalMethodBridge\/InAppInternalMethod.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/UI\/ViewControllers\/InAppMessageWebViewController\/Features\/InAppInternalMethodFeature\/InAppInternalMethod.swift",
       "kind": "IntegerLiteral",
-      "offset": 376,
-      "length": 23,
+      "offset": 374,
+      "length": 17,
       "value": "6"
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/InAppInternalMethodBridge\/InAppInternalMethod.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/UI\/ViewControllers\/InAppMessageWebViewController\/Features\/InAppInternalMethodFeature\/InAppInternalMethod.swift",
       "kind": "IntegerLiteral",
-      "offset": 407,
+      "offset": 399,
       "length": 23,
       "value": "7"
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/InAppInternalMethodBridge\/InAppInternalMethod.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/UI\/ViewControllers\/InAppMessageWebViewController\/Features\/InAppInternalMethodFeature\/InAppInternalMethod.swift",
       "kind": "IntegerLiteral",
-      "offset": 438,
-      "length": 25,
+      "offset": 430,
+      "length": 23,
       "value": "8"
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/InAppInternalMethodBridge\/InAppInternalMethod.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/UI\/ViewControllers\/InAppMessageWebViewController\/Features\/InAppInternalMethodFeature\/InAppInternalMethod.swift",
       "kind": "IntegerLiteral",
-      "offset": 471,
+      "offset": 461,
       "length": 25,
       "value": "9"
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/InAppInternalMethodBridge\/InAppInternalMethod.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/UI\/ViewControllers\/InAppMessageWebViewController\/Features\/InAppInternalMethodFeature\/InAppInternalMethod.swift",
       "kind": "IntegerLiteral",
-      "offset": 504,
-      "length": 23,
+      "offset": 494,
+      "length": 25,
       "value": "10"
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/InAppInternalMethodBridge\/InAppInternalMethod.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/UI\/ViewControllers\/InAppMessageWebViewController\/Features\/InAppInternalMethodFeature\/InAppInternalMethod.swift",
       "kind": "IntegerLiteral",
-      "offset": 535,
-      "length": 25,
+      "offset": 527,
+      "length": 23,
       "value": "11"
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/InAppInternalMethodBridge\/InAppInternalMethod.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/UI\/ViewControllers\/InAppMessageWebViewController\/Features\/InAppInternalMethodFeature\/InAppInternalMethod.swift",
       "kind": "IntegerLiteral",
-      "offset": 568,
-      "length": 18,
+      "offset": 558,
+      "length": 25,
       "value": "12"
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/InAppInternalMethodBridge\/InAppInternalMethod.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/UI\/ViewControllers\/InAppMessageWebViewController\/Features\/InAppInternalMethodFeature\/InAppInternalMethod.swift",
       "kind": "IntegerLiteral",
-      "offset": 594,
-      "length": 17,
+      "offset": 591,
+      "length": 18,
       "value": "13"
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/InAppInternalMethodBridge\/InAppInternalMethod.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/UI\/ViewControllers\/InAppMessageWebViewController\/Features\/InAppInternalMethodFeature\/InAppInternalMethod.swift",
       "kind": "IntegerLiteral",
-      "offset": 619,
-      "length": 23,
+      "offset": 617,
+      "length": 17,
       "value": "14"
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/InAppInternalMethodBridge\/InAppInternalMethod.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/UI\/ViewControllers\/InAppMessageWebViewController\/Features\/InAppInternalMethodFeature\/InAppInternalMethod.swift",
       "kind": "IntegerLiteral",
-      "offset": 664,
-      "length": 20,
+      "offset": 642,
+      "length": 23,
       "value": "15"
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/InAppInternalMethodBridge\/InAppInternalMethod.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/UI\/ViewControllers\/InAppMessageWebViewController\/Features\/InAppInternalMethodFeature\/InAppInternalMethod.swift",
       "kind": "IntegerLiteral",
-      "offset": 692,
-      "length": 16,
+      "offset": 687,
+      "length": 20,
       "value": "16"
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/InAppInternalMethodBridge\/InAppInternalMethod.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/UI\/ViewControllers\/InAppMessageWebViewController\/Features\/InAppInternalMethodFeature\/InAppInternalMethod.swift",
       "kind": "IntegerLiteral",
-      "offset": 716,
-      "length": 18,
+      "offset": 715,
+      "length": 16,
       "value": "17"
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/InAppInternalMethodBridge\/InAppInternalMethod.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/UI\/ViewControllers\/InAppMessageWebViewController\/Features\/InAppInternalMethodFeature\/InAppInternalMethod.swift",
       "kind": "IntegerLiteral",
-      "offset": 742,
+      "offset": 739,
       "length": 18,
       "value": "18"
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/InAppInternalMethodBridge\/InAppInternalMethod.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/UI\/ViewControllers\/InAppMessageWebViewController\/Features\/InAppInternalMethodFeature\/InAppInternalMethod.swift",
       "kind": "IntegerLiteral",
-      "offset": 782,
-      "length": 7,
+      "offset": 765,
+      "length": 18,
       "value": "19"
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/UI\/ViewControllers\/InAppMessageWebViewController\/Features\/InAppInternalMethodFeature\/InAppInternalMethod.swift",
+      "kind": "IntegerLiteral",
+      "offset": 805,
+      "length": 7,
+      "value": "20"
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Client\/Requests\/ChangePasswordRequest.swift",
@@ -81075,114 +81130,107 @@
       "value": "1"
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/UI\/ViewControllers\/InAppMessageWebViewController.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/UI\/ViewControllers\/InAppMessageWebViewController\/InAppMessageWebViewController.swift",
       "kind": "StringLiteral",
       "offset": 246,
       "length": 14,
       "value": "\"hideFunction\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/UI\/ViewControllers\/InAppMessageWebViewController.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/UI\/ViewControllers\/InAppMessageWebViewController\/InAppMessageWebViewController.swift",
       "kind": "StringLiteral",
       "offset": 329,
       "length": 24,
       "value": "\"hideAndTriggerFunction\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/UI\/ViewControllers\/InAppMessageWebViewController.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/UI\/ViewControllers\/InAppMessageWebViewController\/InAppMessageWebViewController.swift",
       "kind": "StringLiteral",
       "offset": 413,
       "length": 15,
       "value": "\"closeFunction\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/UI\/ViewControllers\/InAppMessageWebViewController.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/UI\/ViewControllers\/InAppMessageWebViewController\/InAppMessageWebViewController.swift",
       "kind": "StringLiteral",
       "offset": 498,
       "length": 25,
       "value": "\"closeAndTriggerFunction\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/UI\/ViewControllers\/InAppMessageWebViewController.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/UI\/ViewControllers\/InAppMessageWebViewController\/InAppMessageWebViewController.swift",
       "kind": "StringLiteral",
       "offset": 585,
       "length": 17,
       "value": "\"openURLFunction\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/UI\/ViewControllers\/InAppMessageWebViewController.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/UI\/ViewControllers\/InAppMessageWebViewController\/InAppMessageWebViewController.swift",
       "kind": "StringLiteral",
       "offset": 669,
       "length": 22,
       "value": "\"openDeeplinkFunction\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/UI\/ViewControllers\/InAppMessageWebViewController.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/UI\/ViewControllers\/InAppMessageWebViewController\/InAppMessageWebViewController.swift",
       "kind": "StringLiteral",
       "offset": 762,
       "length": 26,
       "value": "\"trackCustomEventFunction\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/UI\/ViewControllers\/InAppMessageWebViewController.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/UI\/ViewControllers\/InAppMessageWebViewController\/InAppMessageWebViewController.swift",
       "kind": "StringLiteral",
       "offset": 861,
       "length": 26,
       "value": "\"handleUserActionFunction\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/UI\/ViewControllers\/InAppMessageWebViewController.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/UI\/ViewControllers\/InAppMessageWebViewController\/InAppMessageWebViewController.swift",
       "kind": "StringLiteral",
-      "offset": 956,
-      "length": 24,
-      "value": "\"internalMethodFunction\""
-    },
-    {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/UI\/ViewControllers\/InAppMessageWebViewController.swift",
-      "kind": "StringLiteral",
-      "offset": 1041,
+      "offset": 948,
       "length": 16,
       "value": "\"resizeFunction\""
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/UI\/ViewControllers\/InAppMessageWebViewController.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/UI\/ViewControllers\/InAppMessageWebViewController\/InAppMessageWebViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 1569,
+      "offset": 1476,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/UI\/ViewControllers\/InAppMessageWebViewController.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/UI\/ViewControllers\/InAppMessageWebViewController\/InAppMessageWebViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 1608,
+      "offset": 1515,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/UI\/ViewControllers\/InAppMessageWebViewController.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/UI\/ViewControllers\/InAppMessageWebViewController\/InAppMessageWebViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 1661,
+      "offset": 1568,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/UI\/ViewControllers\/InAppMessageWebViewController.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/UI\/ViewControllers\/InAppMessageWebViewController\/InAppMessageWebViewController.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1636,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/UI\/ViewControllers\/InAppMessageWebViewController\/InAppMessageWebViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 1687,
+      "offset": 1662,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/UI\/ViewControllers\/InAppMessageWebViewController.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1935,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/UI\/ViewControllers\/InAppMessageWebViewController.swift",
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/UI\/ViewControllers\/InAppMessageWebViewController\/InAppMessageWebViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 13318,
+      "offset": 13450,
       "length": 4,
       "value": "true"
     },
