@@ -3,6 +3,15 @@ All notable changes to this project will be documented in this file.
 
 Note that Objective-C class names are prefixed by `SNR`. In the changelog below, these are names used in Swift, without the prefix.
 
+## [5.13.0] - 2026-04-28
+
+### Fixed
+- Issue with invoking helper methods for notifications (for example, `Synerise.isSyneriseNotification(_:)`) in notification service and content extensions.
+
+### Added
+- `Client/destroySession` method available in the `SRInApp.internalMethod` method in the JS interface in the in-app messaging module. This method is equivalent to the `Client.destroySession` method in in-app messaging.
+
+
 ## [5.12.1] - 2026-03-11
 
 ### Fixed
