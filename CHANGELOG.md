@@ -3,6 +3,12 @@ All notable changes to this project will be documented in this file.
 
 Note that Objective-C class names are prefixed by `SNR`. In the changelog below, these are names used in Swift, without the prefix.
 
+## [5.13.1] - 2026-05-06
+
+### Fixed
+- Issue that could have caused problems with re-authorizing anonymous tokens when the app was removed and installed again. The problem occurred since version 5.12.1.
+
+
 ## [5.13.0] - 2026-04-28
 
 ### Fixed
