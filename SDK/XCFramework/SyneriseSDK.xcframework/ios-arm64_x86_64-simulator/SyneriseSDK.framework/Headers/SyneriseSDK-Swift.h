@@ -2435,6 +2435,7 @@ SWIFT_CLASS_NAMED("_SNR_ClientManager")
 - (void)setNewAnonymousClientWithClientIdentifier:(NSString * _Nullable)clientIdentifier;
 - (void)setNewClientWithRecoveredClientUUID:(NSUUID * _Nonnull)clientUUID;
 - (void)setNewInitialAnonymousClient;
+- (void)setCurrentAnonymousClientWithDictionary:(NSDictionary<NSString *, id> * _Nonnull)dictionary;
 - (NSString * _Nonnull)getUUIDStringForAuthenticationWithAuthID:(NSString * _Nonnull)authID SWIFT_WARN_UNUSED_RESULT;
 - (NSString * _Nonnull)prepareSigningWithLogin:(NSString * _Nullable)login SWIFT_WARN_UNUSED_RESULT;
 - (NSString * _Nonnull)prepareSigningWithLogin:(NSString * _Nullable)login orUUIDString:(NSString * _Nullable)UUIDString SWIFT_WARN_UNUSED_RESULT;
@@ -5111,6 +5112,7 @@ SWIFT_CLASS_NAMED("_SNR_ClientManager")
 - (void)setNewAnonymousClientWithClientIdentifier:(NSString * _Nullable)clientIdentifier;
 - (void)setNewClientWithRecoveredClientUUID:(NSUUID * _Nonnull)clientUUID;
 - (void)setNewInitialAnonymousClient;
+- (void)setCurrentAnonymousClientWithDictionary:(NSDictionary<NSString *, id> * _Nonnull)dictionary;
 - (NSString * _Nonnull)getUUIDStringForAuthenticationWithAuthID:(NSString * _Nonnull)authID SWIFT_WARN_UNUSED_RESULT;
 - (NSString * _Nonnull)prepareSigningWithLogin:(NSString * _Nullable)login SWIFT_WARN_UNUSED_RESULT;
 - (NSString * _Nonnull)prepareSigningWithLogin:(NSString * _Nullable)login orUUIDString:(NSString * _Nullable)UUIDString SWIFT_WARN_UNUSED_RESULT;

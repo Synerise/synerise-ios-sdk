@@ -983,6 +983,7 @@ public protocol _SNR_ClientManagerType {
   #endif
   @objc public func setNewClientWithRecoveredClientUUID(_ clientUUID: Foundation.UUID)
   @objc public func setNewInitialAnonymousClient()
+  @objc public func setCurrentAnonymousClientWithDictionary(_ dictionary: [Swift.String : Any])
   @objc public func getUUIDStringForAuthentication(withAuthID authID: Swift.String) -> Swift.String
   #if compiler(>=5.3) && $NonescapableTypes
   @objc public func prepareSigning(withLogin login: Swift.String?) -> Swift.String

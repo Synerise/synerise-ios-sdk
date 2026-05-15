@@ -32899,6 +32899,46 @@
           },
           {
             "kind": "Function",
+            "name": "setCurrentAnonymousClientWithDictionary",
+            "printedName": "setCurrentAnonymousClientWithDictionary(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Dictionary",
+                "printedName": "[Swift.String : Any]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ],
+                "usr": "s:SD"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_ClientManager(im)setCurrentAnonymousClientWithDictionary:",
+            "mangledName": "$s11SyneriseSDK18_SNR_ClientManagerC019setCurrentAnonymousD14WithDictionaryyySDySSypGF",
+            "moduleName": "SyneriseSDK",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
             "name": "getUUIDStringForAuthentication",
             "printedName": "getUUIDStringForAuthentication(withAuthID:)",
             "children": [
