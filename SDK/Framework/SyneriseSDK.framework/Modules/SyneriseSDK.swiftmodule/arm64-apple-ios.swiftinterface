@@ -944,7 +944,6 @@ public protocol _SNR_ClientManagerType {
   #if compiler(>=5.3) && $NonescapableTypes
   func setNewAnonymousClientWithClientIdentifier(_ clientIdentifier: Swift.String?)
   #endif
-  func setNewClientWithRecoveredClientUUID(_ clientUUID: Foundation.UUID)
   func setNewInitialAnonymousClient()
   func getUUIDStringForAuthentication(withAuthID authID: Swift.String) -> Swift.String
   #if compiler(>=5.3) && $NonescapableTypes
@@ -958,9 +957,6 @@ public protocol _SNR_ClientManagerType {
 }
 @_hasMissingDesignatedInitializers @objc(_SNR_ClientManager) public class _SNR_ClientManager : ObjectiveC.NSObject, SyneriseSDK._SNR_ClientManagerType {
   @objc public var client: SyneriseSDK._SNR_ClientModel!
-  #if compiler(>=5.3) && $NonescapableTypes
-  @objc public static func setRecoveredClientUUID(_ uuid: Foundation.UUID?)
-  #endif
   @objc deinit
   #if compiler(>=5.3) && $NonescapableTypes
   @objc public func setClientId(_ clientId: Swift.String?)
@@ -981,7 +977,6 @@ public protocol _SNR_ClientManagerType {
   #if compiler(>=5.3) && $NonescapableTypes
   @objc public func setNewAnonymousClientWithClientIdentifier(_ clientIdentifier: Swift.String?)
   #endif
-  @objc public func setNewClientWithRecoveredClientUUID(_ clientUUID: Foundation.UUID)
   @objc public func setNewInitialAnonymousClient()
   @objc public func setCurrentAnonymousClientWithDictionary(_ dictionary: [Swift.String : Any])
   @objc public func getUUIDStringForAuthentication(withAuthID authID: Swift.String) -> Swift.String
@@ -1770,7 +1765,6 @@ public let SNRViewTrackerEventAutotrackValueOnSelect: Swift.String
 @objc public enum SNRClientUUIDChangeSignalReason : Swift.Int {
   case authentication = 0
   case regeneration
-  case recovered
   case initial
   #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)

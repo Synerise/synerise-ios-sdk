@@ -32229,33 +32229,6 @@
           },
           {
             "kind": "Function",
-            "name": "setNewClientWithRecoveredClientUUID",
-            "printedName": "setNewClientWithRecoveredClientUUID(_:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "UUID",
-                "printedName": "Foundation.UUID",
-                "usr": "s:10Foundation4UUIDV"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:11SyneriseSDK22_SNR_ClientManagerTypeP06setNewd13WithRecoveredD4UUIDyy10Foundation0K0VF",
-            "mangledName": "$s11SyneriseSDK22_SNR_ClientManagerTypeP06setNewd13WithRecoveredD4UUIDyy10Foundation0K0VF",
-            "moduleName": "SyneriseSDK",
-            "genericSig": "<τ_0_0 where τ_0_0 : SyneriseSDK._SNR_ClientManagerType>",
-            "sugared_genericSig": "<Self where Self : SyneriseSDK._SNR_ClientManagerType>",
-            "protocolReq": true,
-            "reqNewWitnessTableEntry": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
             "name": "setNewInitialAnonymousClient",
             "printedName": "setNewInitialAnonymousClient()",
             "children": [
@@ -32581,44 +32554,6 @@
           },
           {
             "kind": "Function",
-            "name": "setRecoveredClientUUID",
-            "printedName": "setRecoveredClientUUID(_:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "Foundation.UUID?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "UUID",
-                    "printedName": "Foundation.UUID",
-                    "usr": "s:10Foundation4UUIDV"
-                  }
-                ],
-                "usr": "s:Sq"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_ClientManager(cm)setRecoveredClientUUID:",
-            "mangledName": "$s11SyneriseSDK18_SNR_ClientManagerC012setRecoveredD4UUIDyy10Foundation0H0VSgFZ",
-            "moduleName": "SyneriseSDK",
-            "static": true,
-            "declAttributes": [
-              "Final",
-              "AccessControl",
-              "ObjC",
-              "RawDocComment"
-            ],
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
             "name": "setClientId",
             "printedName": "setClientId(_:)",
             "children": [
@@ -32842,33 +32777,6 @@
             "declKind": "Func",
             "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_ClientManager(im)setNewAnonymousClientWithClientIdentifier:",
             "mangledName": "$s11SyneriseSDK18_SNR_ClientManagerC015setNewAnonymousd4WithD10IdentifieryySSSgF",
-            "moduleName": "SyneriseSDK",
-            "declAttributes": [
-              "AccessControl",
-              "ObjC"
-            ],
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "setNewClientWithRecoveredClientUUID",
-            "printedName": "setNewClientWithRecoveredClientUUID(_:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "UUID",
-                "printedName": "Foundation.UUID",
-                "usr": "s:10Foundation4UUIDV"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@M@SyneriseSDK@objc(cs)_SNR_ClientManager(im)setNewClientWithRecoveredClientUUID:",
-            "mangledName": "$s11SyneriseSDK18_SNR_ClientManagerC06setNewd13WithRecoveredD4UUIDyy10Foundation0J0VF",
             "moduleName": "SyneriseSDK",
             "declAttributes": [
               "AccessControl",
@@ -64380,47 +64288,6 @@
           },
           {
             "kind": "Var",
-            "name": "recovered",
-            "printedName": "recovered",
-            "children": [
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "(SyneriseSDK.SNRClientUUIDChangeSignalReason.Type) -> SyneriseSDK.SNRClientUUIDChangeSignalReason",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "SNRClientUUIDChangeSignalReason",
-                    "printedName": "SyneriseSDK.SNRClientUUIDChangeSignalReason",
-                    "usr": "c:@M@SyneriseSDK@E@SNRClientUUIDChangeSignalReason"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Metatype",
-                    "printedName": "SyneriseSDK.SNRClientUUIDChangeSignalReason.Type",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "SNRClientUUIDChangeSignalReason",
-                        "printedName": "SyneriseSDK.SNRClientUUIDChangeSignalReason",
-                        "usr": "c:@M@SyneriseSDK@E@SNRClientUUIDChangeSignalReason"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "declKind": "EnumElement",
-            "usr": "c:@M@SyneriseSDK@E@SNRClientUUIDChangeSignalReason@SNRClientUUIDChangeSignalReasonRecovered",
-            "mangledName": "$s11SyneriseSDK31SNRClientUUIDChangeSignalReasonO9recoveredyA2CmF",
-            "moduleName": "SyneriseSDK",
-            "declAttributes": [
-              "ObjC"
-            ],
-            "fixedbinaryorder": 2
-          },
-          {
-            "kind": "Var",
             "name": "initial",
             "printedName": "initial",
             "children": [
@@ -64458,7 +64325,7 @@
             "declAttributes": [
               "ObjC"
             ],
-            "fixedbinaryorder": 3
+            "fixedbinaryorder": 2
           },
           {
             "kind": "Constructor",
@@ -81270,7 +81137,7 @@
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Modules\/Injector\/Main\/UI\/ViewControllers\/InAppMessageWebViewController\/InAppMessageWebViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 13450,
+      "offset": 13452,
       "length": 4,
       "value": "true"
     },
@@ -81375,7 +81242,7 @@
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Main\/Launcher\/SyneriseLauncher.swift",
       "kind": "BooleanLiteral",
-      "offset": 10216,
+      "offset": 10131,
       "length": 5,
       "value": "false"
     },
@@ -81894,34 +81761,27 @@
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Signals\/ClientUUIDChangeSignal.swift",
       "kind": "IntegerLiteral",
       "offset": 356,
-      "length": 9,
+      "length": 7,
       "value": "2"
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Signals\/ClientUUIDChangeSignal.swift",
-      "kind": "IntegerLiteral",
-      "offset": 373,
-      "length": 7,
-      "value": "3"
-    },
-    {
-      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Signals\/ClientUUIDChangeSignal.swift",
       "kind": "StringLiteral",
-      "offset": 510,
+      "offset": 493,
       "length": 35,
       "value": "\"SNRClientUUIDChangeSignalStateKey\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Signals\/ClientUUIDChangeSignal.swift",
       "kind": "StringLiteral",
-      "offset": 584,
+      "offset": 567,
       "length": 41,
       "value": "\"SNRClientUUIDChangeSignalCurrentUUIDKey\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Signals\/ClientUUIDChangeSignal.swift",
       "kind": "StringLiteral",
-      "offset": 658,
+      "offset": 641,
       "length": 36,
       "value": "\"SNRClientUUIDChangeSignalReasonKey\""
     },

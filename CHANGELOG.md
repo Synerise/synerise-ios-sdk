@@ -3,11 +3,14 @@ All notable changes to this project will be documented in this file.
 
 Note that Objective-C class names are prefixed by `SNR`. In the changelog below, these are names used in Swift, without the prefix.
 
-## [5.13.2] - 2026-05-15
-
+## [5.13.3] - 2026-05-21
+ 
 ### Added
 - More debug logs.
-
+ 
+### Removed
+- Client recovery mechanism that allowed recovering an UUID for an anonymous client after the app was reinstalled while the client was logged in.
+ 
 ### Changed
 - Optimization of the in-app messaging module.
 - Improvements to stability.

@@ -1954,8 +1954,7 @@ typedef SWIFT_ENUM(NSInteger, SNRApiRequestCompletedSignalResult, open) {
 typedef SWIFT_ENUM(NSInteger, SNRClientUUIDChangeSignalReason, open) {
   SNRClientUUIDChangeSignalReasonAuthentication = 0,
   SNRClientUUIDChangeSignalReasonRegeneration = 1,
-  SNRClientUUIDChangeSignalReasonRecovered = 2,
-  SNRClientUUIDChangeSignalReasonInitial = 3,
+  SNRClientUUIDChangeSignalReasonInitial = 2,
 };
 
 typedef SWIFT_ENUM(NSInteger, SNRClientUUIDChangeSignalState, open) {
@@ -2425,7 +2424,6 @@ SWIFT_CLASS_NAMED("_SNR_ClientApplicationInfoProvider")
 SWIFT_CLASS_NAMED("_SNR_ClientManager")
 @interface _SNR_ClientManager : NSObject
 @property (nonatomic, strong) _SNR_ClientModel * _Null_unspecified client;
-+ (void)setRecoveredClientUUID:(NSUUID * _Nullable)uuid;
 - (void)setClientId:(NSString * _Nullable)clientId;
 - (void)setCustomIdentifier:(NSString * _Nullable)customIdentifier;
 - (void)setCustomEmail:(NSString * _Nullable)customEmail;
@@ -2433,7 +2431,6 @@ SWIFT_CLASS_NAMED("_SNR_ClientManager")
 - (void)setClientUUID:(NSUUID * _Nullable)uuid;
 - (void)setNewAnonymousClient;
 - (void)setNewAnonymousClientWithClientIdentifier:(NSString * _Nullable)clientIdentifier;
-- (void)setNewClientWithRecoveredClientUUID:(NSUUID * _Nonnull)clientUUID;
 - (void)setNewInitialAnonymousClient;
 - (void)setCurrentAnonymousClientWithDictionary:(NSDictionary<NSString *, id> * _Nonnull)dictionary;
 - (NSString * _Nonnull)getUUIDStringForAuthenticationWithAuthID:(NSString * _Nonnull)authID SWIFT_WARN_UNUSED_RESULT;
@@ -4631,8 +4628,7 @@ typedef SWIFT_ENUM(NSInteger, SNRApiRequestCompletedSignalResult, open) {
 typedef SWIFT_ENUM(NSInteger, SNRClientUUIDChangeSignalReason, open) {
   SNRClientUUIDChangeSignalReasonAuthentication = 0,
   SNRClientUUIDChangeSignalReasonRegeneration = 1,
-  SNRClientUUIDChangeSignalReasonRecovered = 2,
-  SNRClientUUIDChangeSignalReasonInitial = 3,
+  SNRClientUUIDChangeSignalReasonInitial = 2,
 };
 
 typedef SWIFT_ENUM(NSInteger, SNRClientUUIDChangeSignalState, open) {
@@ -5102,7 +5098,6 @@ SWIFT_CLASS_NAMED("_SNR_ClientApplicationInfoProvider")
 SWIFT_CLASS_NAMED("_SNR_ClientManager")
 @interface _SNR_ClientManager : NSObject
 @property (nonatomic, strong) _SNR_ClientModel * _Null_unspecified client;
-+ (void)setRecoveredClientUUID:(NSUUID * _Nullable)uuid;
 - (void)setClientId:(NSString * _Nullable)clientId;
 - (void)setCustomIdentifier:(NSString * _Nullable)customIdentifier;
 - (void)setCustomEmail:(NSString * _Nullable)customEmail;
@@ -5110,7 +5105,6 @@ SWIFT_CLASS_NAMED("_SNR_ClientManager")
 - (void)setClientUUID:(NSUUID * _Nullable)uuid;
 - (void)setNewAnonymousClient;
 - (void)setNewAnonymousClientWithClientIdentifier:(NSString * _Nullable)clientIdentifier;
-- (void)setNewClientWithRecoveredClientUUID:(NSUUID * _Nonnull)clientUUID;
 - (void)setNewInitialAnonymousClient;
 - (void)setCurrentAnonymousClientWithDictionary:(NSDictionary<NSString *, id> * _Nonnull)dictionary;
 - (NSString * _Nonnull)getUUIDStringForAuthenticationWithAuthID:(NSString * _Nonnull)authID SWIFT_WARN_UNUSED_RESULT;
