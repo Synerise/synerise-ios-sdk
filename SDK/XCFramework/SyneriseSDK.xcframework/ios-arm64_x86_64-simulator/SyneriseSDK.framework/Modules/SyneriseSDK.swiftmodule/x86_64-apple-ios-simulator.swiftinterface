@@ -1525,10 +1525,16 @@ public enum PromotionStatusString {
   @objc(SNR_inAppMessageHandledDeeplinkAction:deeplink:) optional func snr_inAppMessageHandledAction(data: SyneriseSDK.InAppMessageData, deeplink: Swift.String)
   @objc(SNR_inAppMessageHandledDeepLinkAction:deepLink:) optional func snr_inAppMessageHandledAction(data: SyneriseSDK.InAppMessageData, deepLink: Swift.String)
   @objc(SNR_inAppMessageHandledCustomAction:name:parameters:) optional func snr_inAppMessageHandledCustomAction(data: SyneriseSDK.InAppMessageData, name: Swift.String, parameters: [Swift.AnyHashable : Any])
+  @objc(SNR_inAppMessageHandledCustomMethod:name:parameters:completion:) optional func snr_inAppMessageHandledCustomMethod(data: SyneriseSDK.InAppMessageData, name: Swift.String, parameters: [Swift.AnyHashable : Any], completion: SyneriseSDK.InAppCustomMethodCompletion)
 }
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(SNRInjector) final public class Injector : ObjectiveC.NSObject {
+  @objc public static var inAppContext: [Swift.String : Any] {
+    @objc get
+    @objc set
+  }
   @objc deinit
   @objc(setInAppMessageDelegate:) public static func setInAppMessageDelegate(_ delegate: any SyneriseSDK.InjectorInAppMessageDelegate)
+  @objc(notifyInAppContextChange) public static func notifyInAppContextChange()
   @objc(closeInAppMessageWithCampaignHash:) public static func closeInAppMessage(campaignHash: Swift.String)
 }
 extension SyneriseSDK.Injector : SyneriseSDK._SNR_SignalReceivable {
@@ -1895,6 +1901,13 @@ public let SNRViewTrackerEventAutotrackValueOnSelect: Swift.String
   public var rawValue: Swift.Int {
     get
   }
+}
+@_hasMissingDesignatedInitializers @objc(SNRInAppCustomMethodCompletion) final public class InAppCustomMethodCompletion : ObjectiveC.NSObject {
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc final public func success(_ result: Any?)
+  #endif
+  @objc final public func failure(_ errorMessage: Swift.String)
+  @objc deinit
 }
 @_hasMissingDesignatedInitializers @objc(SNRPushViewedEvent) final public class PushViewedEvent : SyneriseSDK.Event {
   @objc override public init(label: Swift.String)

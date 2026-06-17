@@ -3,6 +3,19 @@ All notable changes to this project will be documented in this file.
 
 Note that Objective-C class names are prefixed by `SNR`. In the changelog below, these are names used in Swift, without the prefix.
 
+## [5.14.0] - 2026-06-17
+
+### Added
+- `Injector.inAppContext` property to set the context for use in JS interface in the in-app messaging module.
+- `Injector.notifyInAppContextChange()` method to trigger JS interface callback function in the in-app messaging module (`SRInApp.onContextFromApp(context)`).
+- `SRInApp.onContextFromApp(context)` callback function to JS interface in the in-app messaging module. This callback function allows notifying about the context change after `Injector.notifyInAppContextChange()` is invoked.  
+- `SRInApp.getContextFromApp()` method to JS interface in the in-app messaging module. This method allows to get the context from the host app available in JS interface in the in-app messaging module.
+- `SRInApp.handleCustomMethod(name, params, timeoutMs)` method to JS interface in the in-app messaging module. This method allows communicating with your host app.
+- `snr_inAppMessageHandledCustomMethod(data:name:parameters:completion:)` delegate method to `InjectorInAppMessageDelegate`. This method is invoked when the JS interface of the in-app messaging module invokes the `SRInApp.handleCustomMethod(name, params, timeoutMs)` method. Notice, that it is required to invoke `completion.success(_:)` or `completion.error(_:)` to resolve the pending in-app message JS Promise.
+
+To learn how to use the new methods and properties, see https://hub.synerise.com/docs/campaign/in-app-messages/creating-inapp-templates/creating-inapp-template#receive-context-from-the-application
+
+
 ## [5.13.3] - 2026-05-21
  
 ### Added
