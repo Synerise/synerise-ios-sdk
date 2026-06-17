@@ -1191,6 +1191,14 @@ SWIFT_CLASS_NAMED("HitTimerEvent")
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label andParams:(SNRTrackerParams * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
 @end
 
+SWIFT_CLASS_NAMED("InAppCustomMethodCompletion")
+@interface SNRInAppCustomMethodCompletion : NSObject
+- (void)success:(id _Nullable)result;
+- (void)failure:(NSString * _Nonnull)errorMessage;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
 SWIFT_CLASS_NAMED("InAppMessageData")
 @interface SNRInAppMessageData : SNRBaseModel
 @property (nonatomic, readonly, copy) NSString * _Nonnull campaignHash;
@@ -1223,12 +1231,17 @@ SWIFT_CLASS_NAMED("InitializationConfig")
 /// <code>Injector</code> class
 SWIFT_CLASS_NAMED("Injector")
 @interface SNRInjector : NSObject
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSDictionary<NSString *, id> * _Nonnull inAppContext;)
++ (NSDictionary<NSString *, id> * _Nonnull)inAppContext SWIFT_WARN_UNUSED_RESULT;
++ (void)setInAppContext:(NSDictionary<NSString *, id> * _Nonnull)newValue;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 /// This method sets an object for in-app messages delegate methods.
 /// \param delegate An object that implements the <code>SNRInAppMessageDelegate</code> protocol.
 ///
 + (void)setInAppMessageDelegate:(id <SNRInjectorInAppMessageDelegate> _Nonnull)delegate;
+/// This method notifies current in-app messages that context from the app was changed
++ (void)notifyInAppContextChange;
 /// This method closes the current in-app message.
 /// \param campaignHash An identifier of the in-app message campaign that is currently opened.
 ///
@@ -1288,6 +1301,17 @@ SWIFT_PROTOCOL_NAMED("InjectorInAppMessageDelegate")
 /// \param parameters Custom action parameters.
 ///
 - (void)SNR_inAppMessageHandledCustomAction:(SNRInAppMessageData * _Nonnull)data name:(NSString * _Nonnull)name parameters:(NSDictionary * _Nonnull)parameters;
+/// This method is called when Synerise handles a custom method from in-app messages.
+/// The host must resolve the pending in-app message JS Promise by calling <code>completion.success(_:)</code> or <code>completion.failure(_:)</code>.
+/// \param data Model representation of the in-app message.
+///
+/// \param name Custom method name for identification.
+///
+/// \param parameters Custom method parameters.
+///
+/// \param completion Completion handler used to resolve the pending in-app message JS Promise.
+///
+- (void)SNR_inAppMessageHandledCustomMethod:(SNRInAppMessageData * _Nonnull)data name:(NSString * _Nonnull)name parameters:(NSDictionary * _Nonnull)parameters completion:(SNRInAppCustomMethodCompletion * _Nonnull)completion;
 @end
 
 SWIFT_CLASS_NAMED("InjectorSettings")
