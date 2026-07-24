@@ -3,6 +3,16 @@ All notable changes to this project will be documented in this file.
 
 Note that Objective-C class names are prefixed by `SNR`. In the changelog below, these are names used in Swift, without the prefix.
 
+## [5.14.1] - 2026-07-24
+
+### Added
+- SBOM is added for each GitHub release and it is available in the repository root.
+
+### Changed
+- Optimization of the in-app messaging module.
+- Improvements to stability.
+
+
 ## [5.14.0] - 2026-06-17
 
 ### Added
@@ -11,7 +21,7 @@ Note that Objective-C class names are prefixed by `SNR`. In the changelog below,
 - `SRInApp.onContextFromApp(context)` callback function to JS interface in the in-app messaging module. This callback function allows notifying about the context change after `Injector.notifyInAppContextChange()` is invoked.  
 - `SRInApp.getContextFromApp()` method to JS interface in the in-app messaging module. This method allows to get the context from the host app available in JS interface in the in-app messaging module.
 - `SRInApp.handleCustomMethod(name, params, timeoutMs)` method to JS interface in the in-app messaging module. This method allows communicating with your host app.
-- `snr_inAppMessageHandledCustomMethod(data:name:parameters:completion:)` delegate method to `InjectorInAppMessageDelegate`. This method is invoked when the JS interface of the in-app messaging module invokes the `SRInApp.handleCustomMethod(name, params, timeoutMs)` method. Notice, that it is required to invoke `completion.success(_:)` or `completion.error(_:)` to resolve the pending in-app message JS Promise.
+- `snr_inAppMessageHandledCustomMethod(data:name:parameters:completion:)` delegate method to `InjectorInAppMessageDelegate`. This method is invoked when the JS interface of the in-app messaging module invokes the `SRInApp.handleCustomMethod(name, params, timeoutMs)` method. Notice, that it is required to invoke `completion.success(_:)` or `completion.failure(_:)` to resolve the pending in-app message JS Promise.
 
 To learn how to use the new methods and properties, see https://hub.synerise.com/docs/campaign/in-app-messages/creating-inapp-templates/creating-inapp-template#receive-context-from-the-application
 
@@ -70,7 +80,7 @@ To learn how to use the new methods and properties, see https://hub.synerise.com
 ## [5.11.0] - 2026-02-17
 
 ### Added
-- `SRInApp.getItem`, `SRInApp.setItem`, `SRInApp.removeItem` and `SRInApp.clear` methods to the JS interface in the in-app messaging module, allowing you to manage storage for the in-app message scoped to the current client context. You can read more in the documentation.
+- `SRInApp.storage.getItem`, `SRInApp.storage.setItem`, `SRInApp.storage.removeItem` and `SRInApp.storage.clear` methods to the JS interface in the in-app messaging module, allowing you to manage storage for the in-app message scoped to the current client context. You can read more in the documentation.
 
 
 ## [5.10.1] - 2025-12-30
