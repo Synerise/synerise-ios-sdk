@@ -3,6 +3,12 @@ All notable changes to this project will be documented in this file.
 
 Note that Objective-C class names are prefixed by `SNR`. In the changelog below, these are names used in Swift, without the prefix.
 
+## [5.14.2] - 2026-08-12
+
+### Changed
+- Improvements to stability.
+
+
 ## [5.14.1] - 2026-07-24
 
 ### Added
