@@ -9,7 +9,7 @@
 /**
  * @const SNRSyneriseApiUrl
  */
-
+NS_SWIFT_NAME(SNRSyneriseApiUrl)
 typedef NSString * SNRSyneriseApiUrl;
 
 FOUNDATION_EXPORT SNRSyneriseApiUrl const SNR_SYNERISE_AZ_API_URL;

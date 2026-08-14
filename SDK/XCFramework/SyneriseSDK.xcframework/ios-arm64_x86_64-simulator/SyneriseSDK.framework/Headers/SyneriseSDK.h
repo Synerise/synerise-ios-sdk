@@ -11,33 +11,18 @@
 #import <UserNotifications/UserNotifications.h>
 #import <UserNotificationsUI/UserNotificationsUI.h>
 
-#import <SyneriseSDK/SNRSynerise.h>
-
-// Exceptions
-#import <SyneriseSDK/SNRExceptionHandler.h>
-#import <SyneriseSDK/SNRException.h>
-#import <SyneriseSDK/SNRInvalidArgumentException.h>
-#import <SyneriseSDK/SNRInternalInconsistencyException.h>
-
-// Errors
+// Constants
+#import <SyneriseSDK/SNRSyneriseConstants.h>
+#import <SyneriseSDK/SNRSyneriseApiUrl.h>
+#import <SyneriseSDK/SNRLocalizableStringKey.h>
 #import <SyneriseSDK/SNRErrorUserInfoKey.h>
+#import <SyneriseSDK/SNRNotificationServiceExtensionOptionsKey.h>
 
 // Other Types
-#import <SyneriseSDK/SNRSyneriseApiUrl.h>
-#import <SyneriseSDK/SNRSyneriseSource.h>
-#import <SyneriseSDK/SNRSyneriseActivity.h>
-#import <SyneriseSDK/SNRHostApplicationType.h>
-#import <SyneriseSDK/SNRLocalizableStringKey.h>
-#import <SyneriseSDK/SNRPushNotificationsRegistrationOrigin.h>
-#import <SyneriseSDK/SNRClientSignOutMode.h>
-#import <SyneriseSDK/SNRClientSessionEndReason.h>
-
-// API Queries and Arguments
 #import <SyneriseSDK/SNRApiQuerySortingOrder.h>
 #import <SyneriseSDK/SNRPromotionStatusString.h>
 #import <SyneriseSDK/SNRPromotionTypeString.h>
 #import <SyneriseSDK/SNRPromotionSortingKey.h>
-#import <SyneriseSDK/SNRClientIdentityProvider.h>
 
 // API Models
 #import <SyneriseSDK/SNRBaseModel.h>
@@ -56,8 +41,3 @@
 #import <SyneriseSDK/SNRContentWidgetRecommendationDataModel.h>
 #import <SyneriseSDK/SNRContentWidgetBadgeDataModel.h>
 #import <SyneriseSDK/SNRContentWidget.h>
-
-// Notification Service/Content Extensions & Helpers
-#import <SyneriseSDK/SNRNotificationServiceExtension.h>
-#import <SyneriseSDK/SNRSingleMediaContentExtensionViewController.h>
-#import <SyneriseSDK/SNRCarouselContentExtensionViewController.h>

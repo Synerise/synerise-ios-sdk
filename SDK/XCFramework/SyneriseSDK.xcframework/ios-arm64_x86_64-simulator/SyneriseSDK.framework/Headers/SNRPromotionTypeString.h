@@ -9,7 +9,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- * @typedef SNRPromotionTypeString
+ * @const SNRPromotionTypeString
  */
 
 typedef NSString * SNRPromotionTypeString;
