@@ -8,6 +8,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/**
+ * @const SNRApiQuerySortingOrderString
+ */
 typedef NSString * SNRApiQuerySortingOrderString;
 
 FOUNDATION_EXPORT SNRApiQuerySortingOrderString const SNR_API_QUERY_SORTING_ASC;

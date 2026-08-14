@@ -3,6 +3,36 @@ All notable changes to this project will be documented in this file.
 
 Note that Objective-C class names are prefixed by `SNR`. In the changelog below, these are names used in Swift, without the prefix.
 
+## [6.0.0] - 2026-08-14
+
+IMPORTANT:
+- Notification content extensions are no longer supported in Objective-C. Use Swift instead.
+
+### Removed:
+- `SNRExceptionHandler` class. It is unnecessary because most of the SDK code invoked in a host app is in Swift.
+- `SNRSyneriseActivity`, `SNRSyneriseActivityAction`, `SNRSyneriseActivityActionCompletionBlock`, `SNRSyneriseActivityCompletionHandler` types.
+- `func snr_handledAction(url: URL, activity: SyneriseActivity, completionHandler: @escaping SyneriseActivityCompletionHandler)` and `func snr_handledAction(deepLink: String, activity: SyneriseActivity, completionHandler: @escaping SyneriseActivityCompletionHandler)` from the `SyneriseDelegate`. You should use other methods.
+- `getType()`, `getHttpCode()`, `getErrorCode()`, `getBody()` methods and the `errors` property from `SNRApiError`. You should use other correlating methods and properties.
+
+### Fixed
+- `Injector.inAppContext` is cleared when the API key changes, so context from a previous workspace is not passed.
+
+### Added
+- We added inline in-app messages. It's a new in-app type rendered inside your own layout instead of over it.
+- `InjectorInlineInAppMessageDelegate` for handling actions from inline in-app message campaigns. It's analogous to `InjectorInAppMessageDelegate`, but handles inline in-app messages.
+- `InlineInAppView` as component view to place and render inline in-app messages in the host app.
+- `InlineInAppViewDelegate` for controlling the state state and handling actions from the component (`InlineInAppView`).
+- `Injector.createInlineInAppView(placementKey:)` method to create a component with an inline in-app message.
+- `SRInApp.setComponentSize(width, height)` method to the JS interface in the in-app messaging module. This method allows reporting the content size to change the component view size in the host app.
+- `SRInApp.getComponentSize()` method to the JS interface in the in-app messaging module. This method allows getting the current size of the component view containing the web view with the in-app message.
+
+### Changed
+- `RecommendationOptions` class name changed to `RecommendationApiQuery`.
+- `Content.getRecommendationsV2(options:success:failure:)` method name to `Content.getRecommendationsV2(apiQuery:success:failure:)`.
+- `ClientIdentityProvider.oAuth` enum value changed to `ClientIdentityProvider.oauth`.
+- Improvements to stability.
+
+
 ## [5.14.2] - 2026-08-12
 
 ### Changed
@@ -40,6 +70,16 @@ To learn how to use the new methods and properties, see https://hub.synerise.com
 ### Removed
 - Client recovery mechanism that allowed recovering an UUID for an anonymous client after the app was reinstalled while the client was logged in.
  
+### Changed
+- Optimization of the in-app messaging module.
+- Improvements to stability.
+
+
+## [5.13.2] - 2026-05-15
+
+### Added
+- More debug logs.
+
 ### Changed
 - Optimization of the in-app messaging module.
 - Improvements to stability.
@@ -140,7 +180,7 @@ To learn how to use the new methods and properties, see https://hub.synerise.com
 - Improvements to stability.
 
 
-## [5.9.0] - 2025-11-19
+## [5.9.0] - 2025-11-18
 
 ### Fixed
 - Issue with the `sortParamerters` key of the `Promotions/getPromotions` input when using the `SRInApp.internalMethod` method in the JS interface in the in-app messaging module. It was not mapped correctly.
@@ -170,9 +210,9 @@ To learn how to use the new methods and properties, see https://hub.synerise.com
 ## [5.8.0] - 2025-10-28
 
 ### Fixed
-- Potential issues with registering and updating accounts using Simple Authentication when the `sex` property was set to `.notSpecified`. This caused a `Bad Request` error. The problem occurred since version 5.5.0.
+- Potential issues with registering and updating accounts (also with Simple Authentication) when the `sex` property was set to `.notSpecified`. This caused a `Bad Request` error. The problem occurred since version 5.5.0.
 - Issue with the `sex` property in the `ClientUpdateAccountContext` model. It could not be updated. The problem occurred since version 5.5.0.
-- Issue with the `agreements` property while registering, authenticating, and updating accounts when using Simple Authentication. The property could not be updated. The problem occurred since version 5.5.0.
+- Issue with the `agreements` property while registering, authenticating, and updating accounts (also with Simple Authentication). The property could not be updated. The problem occurred since version 5.5.0.
 
 ### Added
 - The `Content.generateBrickworks(apiQuery:success:failure:)` method. The new method generates a Brickworks record for the parameters provided in the query object.
@@ -229,9 +269,7 @@ To learn how to use the new methods and properties, see https://hub.synerise.com
 - We implemented a new format of input in the `SRInApp.internalMethod` method in the JS interface in the in-app messaging module. Old parameters still work, but we changed the format for consistency.
 
 
-## [5.5.0] - 2025-09-08 - REMOVED
-
-!!! THIS VERSION HAS BEEN REMOVED DUE TO POTENTIAL ISSUES WITH TRACKING API. USE VERSION 5.6.1 !!!
+## [5.5.0] - 2025-09-08
 
 ### Added
 - `SRInApp.internalMethod` method to JS interface in the in-app messaging module. This method allows to invoke the native SDK method from predefined methods. You can read more in the documentation about available methods and params you may use. 
@@ -249,9 +287,7 @@ To learn how to use the new methods and properties, see https://hub.synerise.com
 - The issue with vouchers api methods.
 
 
-## [5.4.3] - 2025-06-22 - REMOVED
-
-!!! THIS VERSION HAS BEEN REMOVED DUE TO POTENTIAL ISSUES WITH VOUCHERS API. USE VERSION 5.4.4 !!!
+## [5.4.3] - 2025-06-22
 
 ### Fixed
 - Potential issues with URL and deeplink actions when the delegate is set after SDK initialization.
@@ -259,25 +295,19 @@ To learn how to use the new methods and properties, see https://hub.synerise.com
 - The `discountValue` property in `PromotionDiscountStep` now uses the correct Objective-C type (`NSNumber`) - fixed broken compatibility.
 
 
-## [5.4.2] - 2025-06-17 - REMOVED
-
-!!! THIS VERSION HAS BEEN REMOVED DUE TO POTENTIAL ISSUES WITH VOUCHERS API. USE VERSION 5.4.4 !!!
+## [5.4.2] - 2025-06-17
 
 ### Fixed
 - Some potential issues with notification processing in `NotificationServiceExtension`.
 
 
-## [5.4.1] - 2025-06-13 - REMOVED
-
-!!! THIS VERSION HAS BEEN REMOVED DUE TO POTENTIAL ISSUES WITH VOUCHERS API. USE VERSION 5.4.4 !!!
+## [5.4.1] - 2025-06-13
 
 ### Fixed
 - Some potential issues with notification processing in `NotificationServiceExtension`.
 
 
-## [5.4.0] - 2025-06-09 - REMOVED
-
-!!! THIS VERSION HAS BEEN REMOVED DUE TO POTENTIAL ISSUES WITH VOUCHERS API. USE VERSION 5.4.4 !!!
+## [5.4.0] - 2025-06-09
 
 ### Fixed
 - InAppMessage deeplink action.

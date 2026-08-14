@@ -1,9 +1,9 @@
-# Synerise iOS SDK (v5.14.2)
+# Synerise iOS SDK (v6.0.0)
 
 [![Platform](https://img.shields.io/badge/platform-iOS-orange.svg)](https://github.com/synerise/synerise-ios-sdk)
 [![Languages](https://img.shields.io/badge/language-Objective--C%20%7C%20Swift-orange.svg)](https://github.com/synerise/synerise-ios-sdk)
 [![GitHub release](https://img.shields.io/github/release/Synerise/ios-sdk.svg)](https://github.com/Synerise/synerise-ios-sdk/releases) 
-[![CocoaPods](https://img.shields.io/badge/pod-v5.14.2-green.svg)](https://cocoapods.org/pods/SyneriseSDK)
+[![CocoaPods](https://img.shields.io/badge/pod-v6.0.0-green.svg)](https://cocoapods.org/pods/SyneriseSDK)
 [![SPM compatible](https://img.shields.io/badge/SPM-Compatible-green.svg)](https://www.swift.org/package-manager)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-green.svg)](https://github.com/Carthage/Carthage)
 [![Synerise](https://img.shields.io/badge/www-synerise-green.svg)](https://synerise.com)
@@ -37,7 +37,7 @@ gem install cocoapods
 2. Once you have CocoaPods installed you should add below code into your Podfile in Xcode:
 
 ```
-platform :ios, '14.0'
+platform :ios, '13.0'
 use_frameworks!
 
 target YOUR_PROJECT_TARGET do
@@ -65,7 +65,7 @@ Swift Package Manager (SPM) is a dependency manager built into Xcode.
 2. Click on the add button below the packages list.
 2. Enter the URL of Synerise SDK repository (**https://github.com/Synerise/synerise-ios-sdk**) in the search text field.
 3. Under the Dependency Rule section, select the SDK version. Finally, click **Add Package**.
-3. Select the package that best suits your needs and click **Add Package**.
+4. Select the package that best suits your needs and click **Add Package**.
 
 ## Installing Synerise SDK with Carthage
 
@@ -80,7 +80,7 @@ brew install carthage
 2. Once you have CocoaPods installed you should add following line to your Cartfile:
 
 ```
-github "synerise/ios-sdk"
+github "synerise/synerise-ios-sdk"
 ```
 
 3. To install the Synerise SDK, run the following command in the directory of your Xcode app project:

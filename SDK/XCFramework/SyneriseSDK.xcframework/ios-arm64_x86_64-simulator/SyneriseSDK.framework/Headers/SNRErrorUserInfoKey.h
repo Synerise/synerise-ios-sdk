@@ -6,11 +6,12 @@
 //  Copyright (c) 2024 Synerise. All rights reserved.
 //
 
-#ifndef SNRErrorUserInfoKey_h
-#define SNRErrorUserInfoKey_h
-
 NS_ASSUME_NONNULL_BEGIN
 
+/**
+ * @const SNRErrorUserInfoKey
+ */
+NS_SWIFT_NAME(SNRErrorUserInfoKey)
 typedef NSString * SNRErrorUserInfoKey;
 
 FOUNDATION_EXPORT SNRErrorUserInfoKey const SNRErrorUserInfoCodeKey;
@@ -22,5 +23,3 @@ FOUNDATION_EXPORT SNRErrorUserInfoKey const SNRErrorUserInfoRejectedValueKey;
 FOUNDATION_EXPORT SNRErrorUserInfoKey const SNRErrorUserInfoErrorsKey;
 
 NS_ASSUME_NONNULL_END
-
-#endif /* SNRErrorUserInfoKey_h */

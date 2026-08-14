@@ -6,46 +6,24 @@ import BackgroundTasks
 import CommonCrypto
 import CoreData
 import CoreLocation
+import CoreServices
 import CoreTelephony
 import CryptoKit
 import Foundation
 import SQLite3
+import Security
 import Swift
 @_exported import SyneriseSDK
 import SystemConfiguration
 import UIKit
 import UserNotifications
+import UserNotificationsUI
 import WebKit
 import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
 import os
-@_inheritsConvenienceInitializers @objc(_SNR_SyneriseFrameworkInfoProvider) public class _SNR_SyneriseFrameworkInfoProvider : ObjectiveC.NSObject {
-  @objc public static func isSharedModeEnabled() -> Swift.Bool
-  @objc public static func setSharedModeEnabled(_ enabled: Swift.Bool)
-  @objc public static func isExtensionModeEnabled() -> Swift.Bool
-  @objc public static func setExtensionModeEnabled(_ enabled: Swift.Bool)
-  @objc public static func isBackgroundModeEnabled() -> Swift.Bool
-  @objc public static func setBackgroundModeEnabled(_ enabled: Swift.Bool)
-  @objc public static func bundleIdentifier() -> Swift.String
-  @objc public static func SDKVersion() -> Swift.String
-  #if compiler(>=5.3) && $NonescapableTypes
-  @objc public static func SDKPreviousVersion() -> Swift.String?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
-  @objc public static func SDKPluginVersion() -> Swift.String?
-  #endif
-  @objc override dynamic public init()
-  @objc deinit
-}
 @objc @_inheritsConvenienceInitializers public class BasicNotificationPayload : ObjectiveC.NSObject {
-  @objc public var title: Swift.String?
-  @objc public var body: Swift.String?
-  @objc public var category: Swift.String?
-  @objc public var userInfo: [Swift.String : Any]!
-  @objc public var contentIsAvailable: Swift.Bool
-  @objc public var contentIsMutable: Swift.Bool
-  @objc public var parameters: [Swift.String : Any]
   @objc override dynamic public init()
   @objc deinit
 }
@@ -61,7 +39,7 @@ import os
     get
   }
 }
-@_inheritsConvenienceInitializers @objc(SNRTrackerAutoTrackingSettings) public class TrackerAutoTrackingSettings : ObjectiveC.NSObject {
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(SNRTrackerAutoTrackingSettings) public class TrackerAutoTrackingSettings : ObjectiveC.NSObject {
   @objc public var enabled: Swift.Bool {
     @objc get
     @objc set
@@ -78,7 +56,6 @@ import os
     @objc get
     @objc set
   }
-  @objc override dynamic public init()
   @objc deinit
 }
 @objc(SNRPromotionIdentifierType) public enum PromotionIdentifierType : Swift.Int, Swift.RawRepresentable {
@@ -98,18 +75,6 @@ import os
   @objc public init(type: SyneriseSDK.PromotionIdentifierType, value: Swift.String)
   @objc(initWithUUID:) convenience public init(uuid: Swift.String)
   @objc(initWithCode:) convenience public init(code: Swift.String)
-  @objc deinit
-}
-@_inheritsConvenienceInitializers @objc(_SNR_TimeZoneDateFormatter) public class _SNR_TimeZoneDateFormatter : ObjectiveC.NSObject {
-  #if compiler(>=5.3) && $NonescapableTypes
-  @objc(dateFromString:withFormat:timeZoneName:) public func date(from string: Swift.String, withFormat format: Swift.String, timeZoneName: Swift.String) -> Foundation.Date?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
-  @objc(dateWithISO8601FormatFromString:timeZoneName:) public func dateWithISO8601Format(from string: Swift.String, timeZoneName: Swift.String) -> Foundation.Date?
-  #endif
-  @objc(stringFromDate:withFormat:timeZoneName:) public func string(from date: Foundation.Date, withFormat format: Swift.String, timeZoneName: Swift.String) -> Swift.String
-  @objc(stringWithISO8601FormatFromDate:timeZoneName:) public func stringWithISO8601Format(from date: Foundation.Date, timeZoneName: Swift.String) -> Swift.String
-  @objc override dynamic public init()
   @objc deinit
 }
 @_hasMissingDesignatedInitializers @objc(SNRProductViewedEvent) final public class ProductViewedEvent : SyneriseSDK.Event {
@@ -154,12 +119,11 @@ import os
   #endif
   @objc deinit
 }
-@_inheritsConvenienceInitializers @objc(SNRInjectorSettings) public class InjectorSettings : ObjectiveC.NSObject {
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(SNRInjectorSettings) public class InjectorSettings : ObjectiveC.NSObject {
   @objc public var automatic: Swift.Bool {
     @objc get
     @objc set
   }
-  @objc override dynamic public init()
   @objc deinit
 }
 @objc(SNRDocumentApiQuery) public class DocumentApiQuery : ObjectiveC.NSObject {
@@ -320,15 +284,76 @@ public enum PromotionTypeString {
   }
   @objc deinit
 }
+public let SNRSyneriseDomain: Swift.String
+public let SNRSyneriseBundleIdentifier: Swift.String
+public let SNRSyneriseVersion: Swift.String
+public let SNRErrorDomain: Swift.String
+@objc(SNRSyneriseDelegate) public protocol SyneriseDelegate {
+  @objc(SNR_initialized) optional func snr_initialized()
+  @objc(SNR_initializationError:) optional func snr_initializationError(error: Foundation.NSError)
+  @objc(SNR_registerForPushNotificationsIsNeeded) optional func snr_registerForPushNotificationsIsNeeded()
+  @objc(SNR_registerForPushNotificationsIsNeededByOrigin:) optional func snr_registerForPushNotificationsIsNeeded(origin: SyneriseSDK.PushNotificationsRegistrationOrigin)
+  @objc(SNR_handledActionWithURL:) optional func snr_handledAction(url: Foundation.URL)
+  @objc(SNR_handledActionWithURL:source:) optional func snr_handledAction(url: Foundation.URL, source: SyneriseSDK.SyneriseSource)
+  @objc(SNR_handledActionWithDeepLink:) optional func snr_handledAction(deepLink: Swift.String)
+  @objc(SNR_handledActionWithDeepLink:source:) optional func snr_handledAction(deepLink: Swift.String, source: SyneriseSDK.SyneriseSource)
+}
+@objc(SNRNotificationDelegate) public protocol NotificationDelegate {
+  @objc(SNR_notificationDidReceive:) optional func snr_notificationDidReceive(notificationInfo: SyneriseSDK.NotificationInfo)
+  @objc(SNR_notificationDidDismiss:) optional func snr_notificationDidDismiss(notificationInfo: SyneriseSDK.NotificationInfo)
+  @objc(SNR_notificationClicked:) optional func snr_notificationClicked(notificationInfo: SyneriseSDK.NotificationInfo)
+  @objc(SNR_notificationActionButtonClicked:actionButton:) optional func snr_notificationClicked(notificationInfo: SyneriseSDK.NotificationInfo, actionButton: Swift.String)
+}
+@_inheritsConvenienceInitializers @objc(SNRSynerise) final public class Synerise : ObjectiveC.NSObject {
+  @objc public static var settings: SyneriseSDK.Settings {
+    @objc get
+  }
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc(setDelegate:) public static func setDelegate(_ delegate: (any SyneriseSDK.SyneriseDelegate)?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc(setNotificationDelegate:) public static func setNotificationDelegate(_ delegate: (any SyneriseSDK.NotificationDelegate)?)
+  #endif
+  @objc(initializeWithApiKey:) public static func initialize(apiKey: Swift.String)
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc(initializeWithApiKey:andBaseUrl:) public static func initialize(apiKey: Swift.String, baseUrl: Swift.String?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc(initializeWithApiKey:andBaseUrl:config:) public static func initialize(apiKey: Swift.String, baseUrl: Swift.String?, config: SyneriseSDK.InitializationConfig?)
+  #endif
+  @objc(changeApiKey:) public static func changeApiKey(_ newApiKey: Swift.String)
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc(changeApiKey:config:) public static func changeApiKey(_ newApiKey: Swift.String, config: SyneriseSDK.InitializationConfig?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc(setRequestValidationSalt:) public static func setRequestValidationSalt(_ salt: Swift.String?)
+  #endif
+  @objc(setHostApplicationType:) public static func setHostApplicationType(_ type: SyneriseSDK.HostApplicationType)
+  @objc(setHostApplicationSDKPluginVersion:) public static func setHostApplicationSDKPluginVersion(_ version: Swift.String)
+  @objc(setDebugModeEnabled:) public static func setDebugModeEnabled(_ enabled: Swift.Bool)
+  @objc(setCrashHandlingEnabled:) public static func setCrashHandlingEnabled(_ enabled: Swift.Bool)
+  @available(iOS 10.0, *)
+  @objc(setNotificationCategories:) public static func setNotificationCategories(_ notificationCategories: Swift.Set<UserNotifications.UNNotificationCategory>)
+  @objc(setBackgroundTaskIdentifiers:) public static func setBackgroundTaskIdentifiers(_ identifiers: [Swift.String])
+  @objc(isSyneriseNotification:) public static func isSyneriseNotification(_ userInfo: [Swift.AnyHashable : Any]) -> Swift.Bool
+  @objc(isSyneriseSimplePush:) public static func isSyneriseSimplePush(_ userInfo: [Swift.AnyHashable : Any]) -> Swift.Bool
+  @objc(isSyneriseSilentCommand:) public static func isSyneriseSilentCommand(_ userInfo: [Swift.AnyHashable : Any]) -> Swift.Bool
+  @objc(isSyneriseSilentSDKCommand:) public static func isSyneriseSilentSDKCommand(_ userInfo: [Swift.AnyHashable : Any]) -> Swift.Bool
+  @objc(isNotificationEncrypted:) public static func isNotificationEncrypted(_ userInfo: [Swift.AnyHashable : Any]) -> Swift.Bool
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc(decryptNotification:) public static func decryptNotification(_ userInfo: [Swift.AnyHashable : Any]) -> [Swift.AnyHashable : Any]?
+  #endif
+  @objc(handleNotification:) public static func handleNotification(_ userInfo: [Swift.AnyHashable : Any])
+  @objc(handleNotification:actionIdentifier:) public static func handleNotification(_ userInfo: [Swift.AnyHashable : Any], actionIdentifier: Swift.String)
+  @objc deinit
+  @objc override dynamic public init()
+}
 @objc(SNRNotificationInfoRepresentable) public protocol NotificationInfoRepresentable {
   #if compiler(>=5.3) && $NonescapableTypes
   @objc func toNotificationInfo() -> SyneriseSDK.NotificationInfo?
   #endif
 }
 @_hasMissingDesignatedInitializers @objc(SNRNotificationInfo) public class NotificationInfo : SyneriseSDK.BaseModel {
-  @objc final public let campaignHashId: Swift.String
-  @objc final public let campaignTitle: Swift.String
-  @objc final public let payload: [Swift.String : Any]
   @objc deinit
 }
 @_hasMissingDesignatedInitializers @objc(SNRProductAddedToFavoritesEvent) final public class ProductAddedToFavoritesEvent : SyneriseSDK.Event {
@@ -370,34 +395,6 @@ public enum PromotionTypeString {
   @objc final public let slug: Swift.String
   @objc final public let schema: Swift.String
   @objc final public let content: [Swift.String : Any]?
-  @objc deinit
-}
-@_inheritsConvenienceInitializers @objc(_SNR_MiscUtils) public class _SNR_MiscUtils : ObjectiveC.NSObject {
-  @objc public static func isApplicationInBackground() -> Swift.Bool
-  @objc public static func makeNotificationUserInfoMutable(_ userInfo: [Swift.AnyHashable : Any]) -> Foundation.NSMutableDictionary
-  #if compiler(>=5.3) && $NonescapableTypes
-  @objc(currencySymbolFromCurrencyCode:) public static func currencySymbol(from currencyCode: Swift.String?) -> Swift.String
-  #endif
-  @objc public static func cleanupDictionary(_ dictionary: [Swift.String : Any]) -> [Swift.String : Any]
-  @objc public static func cleanupLegacyDictionary(_ dictionary: Foundation.NSDictionary) -> Foundation.NSDictionary
-  #if compiler(>=5.3) && $NonescapableTypes
-  @objc public static func cleanupStringToAsciiEncoding(_ string: Swift.String?) -> Swift.String
-  #endif
-  @objc public static func escapeJavaScriptString(_ string: Swift.String) -> Swift.String
-  #if compiler(>=5.3) && $NonescapableTypes
-  @objc public static func isUUID(_ string: Swift.String?) -> Swift.Bool
-  #endif
-  @objc public static func isURL(_ string: Swift.String) -> Swift.Bool
-  #if compiler(>=5.3) && $NonescapableTypes
-  @objc public static func makeUrl(withString urlString: Swift.String, parameters: [Swift.String : Swift.String]? = nil) -> Foundation.URL?
-  #endif
-  @objc public static func usesSDKHybridPlugin() -> Swift.Bool
-  @objc public static func usesReactNativePlugin() -> Swift.Bool
-  @objc public static func usesFlutterPlugin() -> Swift.Bool
-  @objc public static func usesXamarinPlugin() -> Swift.Bool
-  @objc public static func localizedString(_ key: Swift.String) -> Swift.String
-  @objc public static func userLocalizedString(_ key: Swift.String) -> Swift.String
-  @objc override dynamic public init()
   @objc deinit
 }
 @objc(SNRClientStateDelegate) public protocol ClientStateDelegate {
@@ -461,26 +458,6 @@ public enum PromotionTypeString {
   @objc(registerForPush:success:failure:) public static func registerForPush(registrationToken: Swift.String, success: @escaping () -> Swift.Void, failure: @escaping (SyneriseSDK.SNRApiError) -> Swift.Void)
   @objc(registerForPush:mobilePushAgreement:success:failure:) public static func registerForPush(registrationToken: Swift.String, mobilePushAgreement: Swift.Bool, success: @escaping () -> Swift.Void, failure: @escaping (SyneriseSDK.SNRApiError) -> Swift.Void)
 }
-extension SyneriseSDK.Client : SyneriseSDK._SNR_SignalReceivable {
-  @objc final public func signalReceived(_ signal: SyneriseSDK._SNR_BaseSignal, parameters: [Swift.String : Any])
-}
-@_inheritsConvenienceInitializers @objc(_SNR_DeviceInfoProvider) public class _SNR_DeviceInfoProvider : ObjectiveC.NSObject {
-  @objc public static func deviceID() -> Swift.String
-  @objc public static func deviceModel() -> Swift.String
-  @objc public static func deviceManufacturer() -> Swift.String
-  @objc public static func deviceType() -> Swift.String
-  @objc public static func deviceResolution() -> Swift.String
-  @objc public static func operatingSystem() -> Swift.String
-  @objc public static func operatingSystemVersion() -> Swift.String
-  #if compiler(>=5.3) && $NonescapableTypes
-  @objc public static func operatingSystemLanguage() -> Swift.String?
-  #endif
-  @objc public static func isPhone() -> Swift.Bool
-  @objc public static func isTablet() -> Swift.Bool
-  @objc public static func isDarkModeEnabled() -> Swift.Bool
-  @objc override dynamic public init()
-  @objc deinit
-}
 @_hasMissingDesignatedInitializers @objc(SNRCrashEvent) final public class CrashEvent : SyneriseSDK.Event {
   @objc override public init(label: Swift.String)
   #if compiler(>=5.3) && $NonescapableTypes
@@ -514,12 +491,6 @@ extension SyneriseSDK.Client : SyneriseSDK._SNR_SignalReceivable {
     @objc get
   }
   #if compiler(>=5.3) && $NonescapableTypes
-  @objc public var _client: [Swift.String : Any]? {
-    @objc get
-    @objc set
-  }
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   @objc public var parameters: [Swift.String : Any]? {
     @objc get
   }
@@ -534,9 +505,9 @@ extension SyneriseSDK.Client : SyneriseSDK._SNR_SignalReceivable {
   #if compiler(>=5.3) && $NonescapableTypes
   @objc public func _setParam(_ param: Any?, forKey key: Swift.String)
   #endif
-  @objc public func _toDictionary() -> [Swift.String : Any]
   @objc deinit
 }
+public typealias SNRSyneriseApiUrl = Swift.String
 public enum SyneriseApiUrls {
   public static let SYNERISE_AZ_API_URL: Swift.String
   public static let SYNERISE_AZU_API_URL: Swift.String
@@ -555,15 +526,7 @@ public enum SyneriseApiUrls {
   @objc override dynamic public init()
   @objc deinit
 }
-@objc(SNRPromotionActivationOptions) public class PromotionActivationOptions : ObjectiveC.NSObject {
-  @objc public var pointsToUse: Swift.Int {
-    @objc get
-    @objc set
-  }
-  @objc(initWithIdentifier:) public init(identifier: SyneriseSDK.PromotionIdentifier)
-  @objc deinit
-}
-@objc(SNRRecommendationOptions) public class RecommendationOptions : ObjectiveC.NSObject {
+@objc(SNRRecommendationApiQuery) public class RecommendationApiQuery : ObjectiveC.NSObject {
   @objc final public let slug: Swift.String
   @objc public var productID: Swift.String?
   @objc public var productIDs: [Swift.String]?
@@ -581,6 +544,21 @@ public enum SyneriseApiUrls {
   @objc final public let discountValue: Foundation.NSNumber
   @objc final public let usageThreshold: Foundation.NSNumber
   @objc deinit
+}
+@objc(SNRClientIdentityProvider) public enum ClientIdentityProvider : Swift.UInt, Swift.RawRepresentable {
+  @objc(SNRClientIdentityProviderSynerise) case synerise
+  @objc(SNRClientIdentityProviderOAuth) case oauth
+  @objc(SNRClientIdentityProviderFacebook) case facebook
+  @objc(SNRClientIdentityProviderApple) case apple
+  @objc(SNRClientIdentityProviderGoogle) case google
+  @objc(SNRClientIdentityProviderUnknown) case unknown
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.UInt)
+  #endif
+  public typealias RawValue = Swift.UInt
+  public var rawValue: Swift.UInt {
+    get
+  }
 }
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(SNRTokenPayload) public class TokenPayload : ObjectiveC.NSObject {
   @objc final public let tokenString: Swift.String
@@ -608,7 +586,9 @@ public enum SyneriseApiUrls {
 }
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(SNRTracker) final public class Tracker : ObjectiveC.NSObject {
   @objc deinit
-  @objc(setDelegate:) public static func setDelegate(_ delegate: any SyneriseSDK.TrackerDelegate)
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc(setDelegate:) public static func setDelegate(_ delegate: (any SyneriseSDK.TrackerDelegate)?)
+  #endif
   #if compiler(>=5.3) && $NonescapableTypes
   @objc(setCustomIdentifier:) public static func setCustomIdentifier(_ customIdentifier: Swift.String?)
   #endif
@@ -619,9 +599,6 @@ public enum SyneriseApiUrls {
   #if compiler(>=5.3) && $NonescapableTypes
   @objc(flushEventsWithCompletionHandler:) public static func flushEvents(completionHandler: (() -> Swift.Void)? = nil)
   #endif
-}
-extension SyneriseSDK.Tracker : SyneriseSDK._SNR_SignalReceivable {
-  @objc final public func signalReceived(_ signal: SyneriseSDK._SNR_BaseSignal, parameters: [Swift.String : Any])
 }
 public let SDK_UNKNOWN_VERSION: Swift.String
 @_hasMissingDesignatedInitializers @objc(SNRAppearedInLocationEvent) public class AppearedInLocationEvent : SyneriseSDK.Event {
@@ -712,23 +689,21 @@ public enum SyneriseApiQuerySortingOrderString {
   @objc final public let items: [SyneriseSDK.Recommendation]
   @objc deinit
 }
-@_inheritsConvenienceInitializers @objc(_SNR_UTCDateFormatter) final public class _SNR_UTCDateFormatter : ObjectiveC.NSObject {
+@objc(SNRPushNotificationsRegistrationOrigin) public enum PushNotificationsRegistrationOrigin : Swift.Int, Swift.RawRepresentable {
+  @objc(SNRPushNotificationsRegistrationOriginAppStarted) case appStarted = 0
+  @objc(SNRPushNotificationsRegistrationOriginClientContextChange) case clientContextChange = 1
+  @objc(SNRPushNotificationsRegistrationOriginSecurityReason) case securityReason = 2
+  @objc(SNRPushNotificationsRegistrationOriginPeriodicJob) case periodicJob = 3
   #if compiler(>=5.3) && $NonescapableTypes
-  @objc(dateFromString:withFormat:) final public func date(from string: Swift.String?, withFormat format: Swift.String) -> Foundation.Date?
+  public init?(rawValue: Swift.Int)
   #endif
-  #if compiler(>=5.3) && $NonescapableTypes
-  @objc(dateWithISO8601FormatFromString:) final public func dateWithISO8601Format(from string: Swift.String?) -> Foundation.Date?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
-  @objc(stringFromDate:withFormat:) final public func string(from date: Foundation.Date?, withFormat format: Swift.String) -> Swift.String?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
-  @objc(stringWithISO8601FormatFromDate:) final public func stringWithISO8601Format(from date: Foundation.Date?) -> Swift.String?
-  #endif
-  @objc override dynamic public init()
-  @objc deinit
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
 }
 @_inheritsConvenienceInitializers @objc(_SNR_ImageProvider) public class _SNR_ImageProvider : ObjectiveC.NSObject {
+  @objc(sharedInstance) public static let shared: SyneriseSDK._SNR_ImageProvider
   #if compiler(>=5.3) && $NonescapableTypes
   @objc(getCachedImageForURL:) public func getCachedImage(for url: Foundation.URL) -> UIKit.UIImage?
   #endif
@@ -742,15 +717,17 @@ public enum SyneriseApiQuerySortingOrderString {
   @objc override dynamic public init()
   @objc deinit
 }
-@objc(SNRBrickworksApiQuery) public class BrickworksApiQuery : ObjectiveC.NSObject {
-  @objc final public let schemaSlug: Swift.String
-  @objc public var recordSlug: Swift.String?
-  @objc public var recordId: Swift.String?
-  @objc public var context: [Swift.String : Any]?
-  @objc public var fieldContext: [Swift.String : Any]?
-  @objc(initWithSchemaSlug:recordSlug:) public init(schemaSlug: Swift.String, recordSlug: Swift.String)
-  @objc(initWithSchemaSlug:recordId:) public init(schemaSlug: Swift.String, recordId: Swift.String)
-  @objc deinit
+@objc(SNRSyneriseSource) public enum SyneriseSource : Swift.Int, Swift.RawRepresentable {
+  @objc(SNRSyneriseSourceSimplePush) case simplePush
+  @objc(SNRSyneriseSourceInAppMessage) case inAppMessage
+  @objc(SNRSyneriseSourceInlineInAppMessage) case inlineInAppMessage
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.Int)
+  #endif
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
 }
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(SNRRecommendationEvent) public class RecommendationEvent : SyneriseSDK.Event {
   @objc override public init(label: Swift.String)
@@ -764,16 +741,6 @@ public enum SyneriseApiQuerySortingOrderString {
   @objc public var message: Swift.String?
   @objc public var code: Swift.Int
   @objc public var rejectedValue: Swift.String?
-  @objc override dynamic public init()
-  @objc deinit
-}
-@_inheritsConvenienceInitializers @objc(_SNR_DelegateUtils) public class _SNR_DelegateUtils : ObjectiveC.NSObject {
-  #if compiler(>=5.3) && $NonescapableTypes
-  @objc public static func object(_ object: Any?, conformsTo protocol: ObjectiveC.`Protocol`) -> Swift.Bool
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
-  @objc public static func delegate(_ delegate: Any?, respondsTo selector: ObjectiveC.Selector) -> Swift.Bool
-  #endif
   @objc override dynamic public init()
   @objc deinit
 }
@@ -912,114 +879,58 @@ public enum SyneriseApiQuerySortingOrderString {
   @objc final public let discountType: SyneriseSDK.PromotionDiscountTypeDetails
   @objc deinit
 }
-@_hasMissingDesignatedInitializers @objc(SNRInAppMessageData) public class InAppMessageData : SyneriseSDK.BaseModel {
-  @objc final public let campaignHash: Swift.String
-  @objc final public let variantIdentifier: Swift.String
-  @objc final public let additionalParameters: [Swift.String : Swift.String]?
-  @objc final public let isTest: Swift.Bool
-  #if compiler(>=5.3) && $NonescapableTypes
-  @objc(initWithCampaignHash:variantIdentifier:additionalParameters:isTest:) public init(campaignHash: Swift.String, variantIdentifier: Swift.String, additionalParameters: [Swift.String : Swift.String]?, isTest: Swift.Bool)
-  #endif
-  @objc deinit
-}
 public enum SNRErrorUserInfoKey {
-}
-public protocol _SNR_ClientManagerType {
-  #if compiler(>=5.3) && $NonescapableTypes
-  func setClientId(_ clientId: Swift.String?)
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
-  func setCustomIdentifier(_ customIdentifier: Swift.String?)
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
-  func setCustomEmail(_ customEmail: Swift.String?)
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
-  func setClientLogin(_ clientLogin: Swift.String?)
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
-  func setClientUUID(_ uuid: Foundation.UUID?)
-  #endif
-  func setNewAnonymousClient()
-  #if compiler(>=5.3) && $NonescapableTypes
-  func setNewAnonymousClientWithClientIdentifier(_ clientIdentifier: Swift.String?)
-  #endif
-  func setNewInitialAnonymousClient()
-  func getUUIDStringForAuthentication(withAuthID authID: Swift.String) -> Swift.String
-  #if compiler(>=5.3) && $NonescapableTypes
-  func prepareSigning(withLogin login: Swift.String?) -> Swift.String
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
-  func prepareSigning(withLogin login: Swift.String?, orUUIDString UUIDString: Swift.String?) -> Swift.String
-  #endif
-  func signingSuccess()
-  func signingFailure()
-}
-@_hasMissingDesignatedInitializers @objc(_SNR_ClientManager) public class _SNR_ClientManager : ObjectiveC.NSObject, SyneriseSDK._SNR_ClientManagerType {
-  @objc public var client: SyneriseSDK._SNR_ClientModel!
-  @objc deinit
-  #if compiler(>=5.3) && $NonescapableTypes
-  @objc public func setClientId(_ clientId: Swift.String?)
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
-  @objc public func setCustomIdentifier(_ customIdentifier: Swift.String?)
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
-  @objc public func setCustomEmail(_ customEmail: Swift.String?)
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
-  @objc public func setClientLogin(_ clientLogin: Swift.String?)
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
-  @objc public func setClientUUID(_ uuid: Foundation.UUID?)
-  #endif
-  @objc public func setNewAnonymousClient()
-  #if compiler(>=5.3) && $NonescapableTypes
-  @objc public func setNewAnonymousClientWithClientIdentifier(_ clientIdentifier: Swift.String?)
-  #endif
-  @objc public func setNewInitialAnonymousClient()
-  @objc public func setCurrentAnonymousClientWithDictionary(_ dictionary: [Swift.String : Any])
-  @objc public func getUUIDStringForAuthentication(withAuthID authID: Swift.String) -> Swift.String
-  #if compiler(>=5.3) && $NonescapableTypes
-  @objc public func prepareSigning(withLogin login: Swift.String?) -> Swift.String
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
-  @objc public func prepareSigning(withLogin login: Swift.String?, orUUIDString UUIDString: Swift.String?) -> Swift.String
-  #endif
-  @objc public func signingSuccess()
-  @objc public func signingFailure()
-}
-extension SyneriseSDK._SNR_ClientManager : SyneriseSDK._SNR_SignalReceivable {
-  @objc dynamic public func signalReceived(_ signal: SyneriseSDK._SNR_BaseSignal, parameters: [Swift.String : Any])
-}
-public enum ClientModelUUIDOrigin : Swift.String {
-  case generated
-  case injected
-  case incognito
-  #if compiler(>=5.3) && $NonescapableTypes
-  public init?(rawValue: Swift.String)
-  #endif
-  public typealias RawValue = Swift.String
-  public var rawValue: Swift.String {
-    get
-  }
-}
-@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(_SNR_ClientModel) public class _SNR_ClientModel : ObjectiveC.NSObject {
-  @objc public var clientId: Swift.String?
-  @objc public var uuid: Foundation.UUID
-  public var uuidOrigin: SyneriseSDK.ClientModelUUIDOrigin
-  @objc public var login: Swift.String?
-  @objc public var identifier: Swift.String?
-  @objc public var customIdentifier: Swift.String?
-  @objc public var customEmail: Swift.String?
-  @objc public func getUUIDString() -> Swift.String
-  @objc public func toDictionary() -> [Swift.String : Any]
-  @objc deinit
 }
 @_hasMissingDesignatedInitializers @objc(SNRSharedEvent) final public class SharedEvent : SyneriseSDK.Event {
   @objc override public init(label: Swift.String)
   #if compiler(>=5.3) && $NonescapableTypes
   @objc override public init(label: Swift.String, params: SyneriseSDK.TrackerParams?)
+  #endif
+  @objc deinit
+}
+public let SNRCarouselContentExtensionViewControllerCategoryIdentifier: Swift.String
+public let SNRCarouselContentExtensionViewControllerPreviousItemIdentifier: Swift.String
+public let SNRCarouselContentExtensionViewControllerNextItemIdentifier: Swift.String
+public let SNRCarouselContentExtensionViewControllerChooseItemIdentifier: Swift.String
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor @preconcurrency open class CarouselContentExtensionViewController : UIKit.UIViewController, UIKit.UICollectionViewDataSource, UIKit.UICollectionViewDelegateFlowLayout {
+  @_Concurrency.MainActor @preconcurrency public var imageContentMode: UIKit.UIView.ContentMode
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic open func loadView()
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic open func viewDidLoad()
+  @_Concurrency.MainActor @preconcurrency public func setDebugModeEnabled(_ enabled: Swift.Bool)
+  @_Concurrency.MainActor @preconcurrency public func setSyneriseNotification(_ notification: UserNotifications.UNNotification)
+  @_Concurrency.MainActor @preconcurrency public func setSyneriseNotificationResponse(_ response: UserNotifications.UNNotificationResponse, completionHandler: @escaping (UserNotificationsUI.UNNotificationContentExtensionResponseOption) -> Swift.Void)
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder: Foundation.NSCoder)
+  #endif
+  @objc deinit
+}
+extension SyneriseSDK.CarouselContentExtensionViewController : UIKit.UICollectionViewDelegate {
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func numberOfSections(in collectionView: UIKit.UICollectionView) -> Swift.Int
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, numberOfItemsInSection section: Swift.Int) -> Swift.Int
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, layout collectionViewLayout: UIKit.UICollectionViewLayout, minimumLineSpacingForSectionAt section: Swift.Int) -> CoreFoundation.CGFloat
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, layout collectionViewLayout: UIKit.UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Swift.Int) -> CoreFoundation.CGFloat
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, layout collectionViewLayout: UIKit.UICollectionViewLayout, insetForSectionAt section: Swift.Int) -> UIKit.UIEdgeInsets
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, layout collectionViewLayout: UIKit.UICollectionViewLayout, sizeForItemAt indexPath: Foundation.IndexPath) -> CoreFoundation.CGSize
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, cellForItemAt indexPath: Foundation.IndexPath) -> UIKit.UICollectionViewCell
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func scrollViewDidEndScrollingAnimation(_ scrollView: UIKit.UIScrollView)
+}
+public let SNRSingleMediaContentExtensionViewControllerCategoryIdentifier: Swift.String
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor @preconcurrency open class SingleMediaContentExtensionViewController : UIKit.UIViewController {
+  @_Concurrency.MainActor @preconcurrency public var contentViewIsScrollable: Swift.Bool
+  @_Concurrency.MainActor @preconcurrency public var imageContentMode: UIKit.UIView.ContentMode
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic open func loadView()
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic open func viewDidLoad()
+  @_Concurrency.MainActor @preconcurrency public func setDebugModeEnabled(_ enabled: Swift.Bool)
+  @_Concurrency.MainActor @preconcurrency public func setSyneriseNotification(_ notification: UserNotifications.UNNotification)
+  @_Concurrency.MainActor @preconcurrency public func setSyneriseNotificationResponse(_ response: UserNotifications.UNNotificationResponse, completionHandler: @escaping (UserNotificationsUI.UNNotificationContentExtensionResponseOption) -> Swift.Void)
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder: Foundation.NSCoder)
   #endif
   @objc deinit
 }
@@ -1204,25 +1115,20 @@ public enum ClientModelUUIDOrigin : Swift.String {
   @objc public var httpErrorCategory: SyneriseSDK.SNRApiErrorHttpErrorCategory {
     @objc get
   }
-  @objc final public let errors: [SyneriseSDK.SNRError]?
   #if compiler(>=5.3) && $NonescapableTypes
-  @objc(initWithDomain:code:errorBody:userInfo:errors:) public init(domain: Foundation.NSErrorDomain, code: Swift.Int, errorBody: SyneriseSDK.SNRApiErrorBody? = nil, userInfo: [Swift.String : Any]? = nil, errors: [SyneriseSDK.SNRError]? = nil)
+  @objc(initWithDomain:code:errorBody:userInfo:) public init(domain: Foundation.NSErrorDomain, code: Swift.Int, errorBody: SyneriseSDK.SNRApiErrorBody? = nil, userInfo: [Swift.String : Any]? = nil)
   #endif
   #if compiler(>=5.3) && $NonescapableTypes
   @objc override dynamic public init(domain: Swift.String, code: Swift.Int, userInfo: [Swift.String : Any]?)
   #endif
-  @available(*, deprecated, message: "Use `errorType` property instead.")
-  @objc(getType) public func getType() -> SyneriseSDK.SNRApiErrorType
-  @available(*, deprecated, message: "Use `httpCode` property instead.")
-  @objc(getHttpCode) public func getHttpCode() -> Swift.Int
-  #if compiler(>=5.3) && $NonescapableTypes
-  @available(*, deprecated, message: "Use `errorBody.internalErrorCode` property instead.")
-  @objc(getErrorCode) public func getErrorCode() -> Swift.String?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
-  @available(*, deprecated, message: "Use `errorBody` property instead.")
-  @objc(getBody) public func getBody() -> Swift.String?
-  #endif
+  @objc deinit
+}
+@objc(SNRPromotionActivationOptions) public class PromotionActivationOptions : ObjectiveC.NSObject {
+  @objc public var pointsToUse: Swift.Int {
+    @objc get
+    @objc set
+  }
+  @objc(initWithIdentifier:) public init(identifier: SyneriseSDK.PromotionIdentifier)
   @objc deinit
 }
 @objc(SNRErrorCode) public enum SNRErrorCode : Swift.Int {
@@ -1252,6 +1158,16 @@ public enum ClientModelUUIDOrigin : Swift.String {
   @objc(SNRErrorCodeJWTValidationFailedApiError) case JWTValidationFailedApiError = 3300
   @objc(SNRErrorCodeJWTProcessingFailedApiError) case JWTProcessingFailedApiError = 3310
   @objc(SNRErrorCodeMissingPublicKeyApiError) case missingPublicKeyApiError = 3320
+  @objc(SNRErrorCodeInAppNoDefinitionsError) case inAppNoDefinitionsError = 4110
+  @objc(SNRErrorCodeInAppNoDefinitionsForTriggerTypeError) case inAppNoDefinitionsForTriggerTypeError = 4115
+  @objc(SNRErrorCodeInAppEventVerificationError) case inAppEventVerificationError = 4120
+  @objc(SNRErrorCodeInAppScheduleVerificationError) case inAppScheduleVerificationError = 4130
+  @objc(SNRErrorCodeInAppCappingLimitReachedError) case inAppCappingLimitReachedError = 4140
+  @objc(SNRErrorCodeInAppControlGroupError) case inAppControlGroupError = 4141
+  @objc(SNRErrorCodeInAppGlobalControlGroupError) case inAppGlobalControlGroupError = 4142
+  @objc(SNRErrorCodeInAppRenderingVariantError) case inAppRenderingVariantError = 4150
+  @objc(SNRErrorCodeInAppLowPriorityError) case inAppLowPriorityError = 4151
+  @objc(SNRErrorCodeInAppUnknownError) case inAppUnknownError = 4160
   #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
   #endif
@@ -1305,16 +1221,6 @@ public enum ClientModelUUIDOrigin : Swift.String {
   @objc final public let updatedAt: Foundation.Date
   @objc deinit
 }
-public protocol _SNR_BackgroundTaskManagerType : AnyObject {
-  func setBackgroundTaskIdentifiers(_ identifiers: [Swift.String])
-  func registerMainBackgroundTask(handler: @escaping () -> Swift.Void)
-}
-@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @available(iOS 13, *)
-@objc(_SNR_BackgroundTaskManager) public class _SNR_BackgroundTaskManager : ObjectiveC.NSObject, SyneriseSDK._SNR_BackgroundTaskManagerType {
-  @objc deinit
-  @objc(setBackgroundTaskIdentifiers:) public func setBackgroundTaskIdentifiers(_ identifiers: [Swift.String])
-  @objc(registerMainBackgroundTaskWithHandler:) public func registerMainBackgroundTask(handler: @escaping () -> Swift.Void)
-}
 @_hasMissingDesignatedInitializers @objc(SNRLoggedOutEvent) final public class LoggedOutEvent : SyneriseSDK.Event {
   @objc override public init(label: Swift.String)
   #if compiler(>=5.3) && $NonescapableTypes
@@ -1340,7 +1246,6 @@ public protocol _SNR_BackgroundTaskManagerType : AnyObject {
     @objc get
     @objc set
   }
-  @available(iOS 10.0, *)
   @objc public var encryption: Swift.Bool {
     @objc get
     @objc set
@@ -1361,54 +1266,6 @@ public protocol _SNR_BackgroundTaskManagerType : AnyObject {
   @objc override dynamic public init()
   @objc deinit
 }
-@objc(_SNR_ServerTimeManagerType) public protocol _SNR_ServerTimeManagerType {
-  @objc func getServerTimeByCache()
-  @objc func fetchServerTimeSynchronously()
-  @objc func fetchServerTimeAsynchronously()
-  @objc func isReady() -> Swift.Bool
-  @objc(waitWhenIsReadyWithCompletion:) func waitWhenIsReady(completion: @escaping (Swift.Bool) -> Swift.Void)
-  @objc(notifyWhenIsReadyWithCompletion:) func notifyWhenIsReady(completion: @escaping (Swift.Bool) -> Swift.Void)
-  #if compiler(>=5.3) && $NonescapableTypes
-  @objc(getCurrentServerTime) func getCurrentServerTime() -> Foundation.Date?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
-  @objc(getServerTimeForDeviceTime:) func getServerTime(forDeviceTime date: Foundation.Date) -> Foundation.Date?
-  #endif
-}
-@_hasMissingDesignatedInitializers @objc(_SNR_ServerTimeManager) final public class _SNR_ServerTimeManager : ObjectiveC.NSObject, SyneriseSDK._SNR_ServerTimeManagerType {
-  @objc deinit
-  @objc final public func getServerTimeByCache()
-  @objc final public func fetchServerTimeSynchronously()
-  @objc final public func fetchServerTimeAsynchronously()
-  @objc final public func isReady() -> Swift.Bool
-  @objc(waitWhenIsReadyWithCompletion:) final public func waitWhenIsReady(completion: @escaping (Swift.Bool) -> Swift.Void)
-  @objc(notifyWhenIsReadyWithCompletion:) final public func notifyWhenIsReady(completion: @escaping (Swift.Bool) -> Swift.Void)
-  #if compiler(>=5.3) && $NonescapableTypes
-  @objc(getCurrentServerTime) final public func getCurrentServerTime() -> Foundation.Date?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
-  @objc(getServerTimeForDeviceTime:) final public func getServerTime(forDeviceTime date: Foundation.Date) -> Foundation.Date?
-  #endif
-}
-@_inheritsConvenienceInitializers @objc(_SNR_PushEventFactory) public class _SNR_PushEventFactory : ObjectiveC.NSObject {
-  #if compiler(>=5.3) && $NonescapableTypes
-  @objc public static func makePushOpenInAppEvent(_ model: Swift.AnyObject) -> SyneriseSDK.Event?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
-  @objc public static func makePushClickEvent(_ model: Swift.AnyObject, parameters: [Swift.String : Any]?) -> SyneriseSDK.Event?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
-  @objc public static func makePushViewEvent(_ model: Swift.AnyObject) -> SyneriseSDK.Event?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
-  @objc public static func makePushDismissEvent(_ model: Swift.AnyObject) -> SyneriseSDK.Event?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
-  @objc public static func makePushImageTimeoutEvent(_ model: Swift.AnyObject) -> SyneriseSDK.Event?
-  #endif
-  @objc override dynamic public init()
-  @objc deinit
-}
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(SNRPromotions) final public class Promotions : ObjectiveC.NSObject {
   @objc(getPromotionsWithSuccess:failure:) public static func getPromotions(success: @escaping (SyneriseSDK.PromotionResponse) -> Swift.Void, failure: @escaping (SyneriseSDK.SNRApiError) -> Swift.Void)
   @objc(getPromotionsWithApiQuery:success:failure:) public static func getPromotions(apiQuery: SyneriseSDK.PromotionsApiQuery, success: @escaping (SyneriseSDK.PromotionResponse) -> Swift.Void, failure: @escaping (SyneriseSDK.SNRApiError) -> Swift.Void)
@@ -1424,6 +1281,37 @@ public protocol _SNR_BackgroundTaskManagerType : AnyObject {
   @objc(getOrAssignVoucherWithPoolUUID:success:failure:) public static func getOrAssignVoucher(poolUUID: Swift.String, success: @escaping (SyneriseSDK.AssignVoucherResponse) -> Swift.Void, failure: @escaping (SyneriseSDK.SNRApiError) -> Swift.Void)
   @objc(assignVoucherCodeWithPoolUUID:success:failure:) public static func assignVoucherCode(poolUUID: Swift.String, success: @escaping (SyneriseSDK.AssignVoucherResponse) -> Swift.Void, failure: @escaping (SyneriseSDK.SNRApiError) -> Swift.Void)
   @objc(getAssignedVoucherCodesWithSuccess:failure:) public static func getAssignedVoucherCodes(success: @escaping (SyneriseSDK.VoucherCodesResponse) -> Swift.Void, failure: @escaping (SyneriseSDK.SNRApiError) -> Swift.Void)
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc(SNRInlineInAppSize) public class InlineInAppSize : SyneriseSDK.BaseModel {
+  @objc final public let widthPx: Swift.Int
+  @objc final public let heightPx: Swift.Int
+  @objc final public let widthPt: Swift.Double
+  @objc final public let heightPt: Swift.Double
+  @objc final public let widthScreenRatio: Swift.Double
+  @objc final public let heightScreenRatio: Swift.Double
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc(SNRInAppMessageData) public class InAppMessageData : SyneriseSDK.BaseModel {
+  @objc final public let campaignHash: Swift.String
+  @objc final public let variantIdentifier: Swift.String
+  @objc final public let additionalParameters: [Swift.String : Swift.String]?
+  @objc final public let isTest: Swift.Bool
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc(SNRInAppCustomMethodCompletion) final public class InAppCustomMethodCompletion : ObjectiveC.NSObject {
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc final public func success(_ result: Any?)
+  #endif
+  @objc final public func failure(_ errorMessage: Swift.String)
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc(SNRInlineInAppMessageData) public class InlineInAppMessageData : SyneriseSDK.BaseModel {
+  @objc final public let campaignHash: Swift.String
+  @objc final public let placementKey: Swift.String
+  @objc final public let variantIdentifier: Swift.String
+  @objc final public let additionalParameters: [Swift.String : Swift.String]?
+  @objc final public let isTest: Swift.Bool
   @objc deinit
 }
 public typealias SNRPromotionStatusString = Swift.String
@@ -1450,6 +1338,22 @@ public enum PromotionStatusString {
     get
   }
 }
+@objc(SNRClientSessionEndReason) public enum ClientSessionEndReason : Swift.UInt, Swift.RawRepresentable {
+  @objc(SNRClientSessionEndReasonUserSignOut) case userSignOut
+  @objc(SNRClientSessionEndReasonSystemSignOut) case systemSignOut
+  @objc(SNRClientSessionEndReasonSessionExpiration) case sessionExpiration
+  @objc(SNRClientSessionEndReasonSessionDestroyed) case sessionDestroyed
+  @objc(SNRClientSessionEndReasonSecurityException) case securityException
+  @objc(SNRClientSessionEndReasonClientRejected) case clientRejected
+  @objc(SNRClientSessionEndReasonUserAccountDeleted) case userAccountDeleted
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.UInt)
+  #endif
+  public typealias RawValue = Swift.UInt
+  public var rawValue: Swift.UInt {
+    get
+  }
+}
 @_inheritsConvenienceInitializers @objc(SNRInitializationConfig) public class InitializationConfig : ObjectiveC.NSObject {
   @objc public var initialDoNotTrack: Swift.Bool {
     @objc get
@@ -1459,21 +1363,10 @@ public enum PromotionStatusString {
   @objc override dynamic public init()
   @objc deinit
 }
-@_hasMissingDesignatedInitializers @objc(SNRApplicationStartedEvent) final public class ApplicationStartedEvent : SyneriseSDK.Event {
-  @objc(event) public static func event() -> SyneriseSDK.ApplicationStartedEvent
-  #if compiler(>=5.3) && $NonescapableTypes
-  @objc(eventWithParameters:) public static func event(with parameters: [Swift.String : Swift.String]?) -> SyneriseSDK.ApplicationStartedEvent
-  #endif
-  @objc override public init(label: Swift.String)
-  #if compiler(>=5.3) && $NonescapableTypes
-  @objc override public init(label: Swift.String, params: SyneriseSDK.TrackerParams?)
-  #endif
-  @objc deinit
-}
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(SNRContent) final public class Content : ObjectiveC.NSObject {
   @objc(generateDocument:success:failure:) public static func generateDocument(slug: Swift.String, success: @escaping (SyneriseSDK.Document) -> Swift.Void, failure: @escaping (SyneriseSDK.SNRApiError) -> Swift.Void)
   @objc(generateDocumentWithApiQuery:success:failure:) public static func generateDocument(apiQuery: SyneriseSDK.DocumentApiQuery, success: @escaping (SyneriseSDK.Document) -> Swift.Void, failure: @escaping (SyneriseSDK.SNRApiError) -> Swift.Void)
-  @objc(getRecommendationsV2:success:failure:) public static func getRecommendationsV2(options: SyneriseSDK.RecommendationOptions, success: @escaping (SyneriseSDK.RecommendationResponse) -> Swift.Void, failure: @escaping (SyneriseSDK.SNRApiError) -> Swift.Void)
+  @objc(getRecommendationsV2:success:failure:) public static func getRecommendationsV2(apiQuery: SyneriseSDK.RecommendationApiQuery, success: @escaping (SyneriseSDK.RecommendationResponse) -> Swift.Void, failure: @escaping (SyneriseSDK.SNRApiError) -> Swift.Void)
   @objc(generateScreenView:success:failure:) public static func generateScreenView(feedSlug: Swift.String, success: @escaping (SyneriseSDK.ScreenView) -> Swift.Void, failure: @escaping (SyneriseSDK.SNRApiError) -> Swift.Void)
   @objc(generateScreenViewWithApiQuery:success:failure:) public static func generateScreenView(apiQuery: SyneriseSDK.ScreenViewApiQuery, success: @escaping (SyneriseSDK.ScreenView) -> Swift.Void, failure: @escaping (SyneriseSDK.SNRApiError) -> Swift.Void)
   @objc(generateBrickworksWithApiQuery:success:failure:) public static func generateBrickworks(apiQuery: SyneriseSDK.BrickworksApiQuery, success: @escaping ([Swift.String : Any]) -> Swift.Void, failure: @escaping (SyneriseSDK.SNRApiError) -> Swift.Void)
@@ -1521,11 +1414,21 @@ public enum PromotionStatusString {
   @objc(SNR_inAppMessageContextIsNeeded:) optional func snr_inAppMessageContextIsNeeded(data: SyneriseSDK.InAppMessageData) -> [Swift.AnyHashable : Any]?
   #endif
   @objc(SNR_inAppMessageHandledURLAction:url:) optional func snr_inAppMessageHandledAction(data: SyneriseSDK.InAppMessageData, url: Foundation.URL)
-  @available(*, deprecated, message: "Use `snr_inAppMessageHandledAction(data:deepLink:)` instead.")
-  @objc(SNR_inAppMessageHandledDeeplinkAction:deeplink:) optional func snr_inAppMessageHandledAction(data: SyneriseSDK.InAppMessageData, deeplink: Swift.String)
   @objc(SNR_inAppMessageHandledDeepLinkAction:deepLink:) optional func snr_inAppMessageHandledAction(data: SyneriseSDK.InAppMessageData, deepLink: Swift.String)
   @objc(SNR_inAppMessageHandledCustomAction:name:parameters:) optional func snr_inAppMessageHandledCustomAction(data: SyneriseSDK.InAppMessageData, name: Swift.String, parameters: [Swift.AnyHashable : Any])
   @objc(SNR_inAppMessageHandledCustomMethod:name:parameters:completion:) optional func snr_inAppMessageHandledCustomMethod(data: SyneriseSDK.InAppMessageData, name: Swift.String, parameters: [Swift.AnyHashable : Any], completion: SyneriseSDK.InAppCustomMethodCompletion)
+}
+@objc(SNRInjectorInlineInAppMessageDelegate) public protocol InjectorInlineInAppMessageDelegate {
+  @objc(SNR_inlineInAppMessageDidBecomeAvailable:data:) optional func snr_inlineInAppMessageDidBecomeAvailable(view: SyneriseSDK.InlineInAppView, data: SyneriseSDK.InlineInAppMessageData)
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc(SNR_inlineInAppMessageContextIsNeeded:) optional func snr_inlineInAppMessageContextIsNeeded(data: SyneriseSDK.InlineInAppMessageData) -> [Swift.AnyHashable : Any]?
+  #endif
+  @objc(SNR_inlineInAppMessageHandledURLAction:url:) optional func snr_inlineInAppMessageHandledAction(data: SyneriseSDK.InlineInAppMessageData, url: Foundation.URL)
+  @objc(SNR_inlineInAppMessageHandledDeepLinkAction:deepLink:) optional func snr_inlineInAppMessageHandledAction(data: SyneriseSDK.InlineInAppMessageData, deepLink: Swift.String)
+  @objc(SNR_inlineInAppMessageHandledCustomAction:name:parameters:) optional func snr_inlineInAppMessageHandledCustomAction(data: SyneriseSDK.InlineInAppMessageData, name: Swift.String, parameters: [Swift.AnyHashable : Any])
+  @objc(SNR_inlineInAppMessageHandledCustomMethod:name:parameters:completion:) optional func snr_inlineInAppMessageHandledCustomMethod(data: SyneriseSDK.InlineInAppMessageData, name: Swift.String, parameters: [Swift.AnyHashable : Any], completion: SyneriseSDK.InAppCustomMethodCompletion)
+}
+@objc(SNRSyneriseActivityNotAllowed) public protocol SyneriseActivityNotAllowed {
 }
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(SNRInjector) final public class Injector : ObjectiveC.NSObject {
   @objc public static var inAppContext: [Swift.String : Any] {
@@ -1533,12 +1436,32 @@ public enum PromotionStatusString {
     @objc set
   }
   @objc deinit
-  @objc(setInAppMessageDelegate:) public static func setInAppMessageDelegate(_ delegate: any SyneriseSDK.InjectorInAppMessageDelegate)
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc(setInAppMessageDelegate:) public static func setInAppMessageDelegate(_ delegate: (any SyneriseSDK.InjectorInAppMessageDelegate)?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc(setInlineInAppMessageDelegate:) public static func setInlineInAppMessageDelegate(_ delegate: (any SyneriseSDK.InjectorInlineInAppMessageDelegate)?)
+  #endif
   @objc(notifyInAppContextChange) public static func notifyInAppContextChange()
   @objc(closeInAppMessageWithCampaignHash:) public static func closeInAppMessage(campaignHash: Swift.String)
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc(createInlineInAppViewWithPlacementKey:) public static func createInlineInAppView(placementKey: Swift.String) -> SyneriseSDK.InlineInAppView?
+  #endif
 }
-extension SyneriseSDK.Injector : SyneriseSDK._SNR_SignalReceivable {
-  @objc final public func signalReceived(_ signal: SyneriseSDK._SNR_BaseSignal, parameters: [Swift.String : Any])
+@objc(SNRHostApplicationType) public enum HostApplicationType : Swift.UInt, Swift.RawRepresentable {
+  @objc(SNRHostApplicationTypeUnknown) case unknown
+  @objc(SNRHostApplicationTypeNative) case native
+  @objc(SNRHostApplicationTypeReactNative) case reactNative
+  @objc(SNRHostApplicationTypeFlutter) case flutter
+  @objc(SNRHostApplicationTypeXamarin) case xamarin
+  @objc(SNRHostApplicationTypeOther) case other
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.UInt)
+  #endif
+  public typealias RawValue = Swift.UInt
+  public var rawValue: Swift.UInt {
+    get
+  }
 }
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(SNRToken) public class Token : ObjectiveC.NSObject {
   @objc final public let tokenString: Swift.String
@@ -1562,6 +1485,43 @@ extension SyneriseSDK.Injector : SyneriseSDK._SNR_SignalReceivable {
   @objc(initWithType:label:action:andParams:) public init(type: Swift.String, label: Swift.String, action: Swift.String, params: SyneriseSDK.TrackerParams?)
   #endif
   @objc deinit
+}
+@objc(SNRInlineInAppViewDelegate) public protocol InlineInAppViewDelegate {
+  @objc(SNR_inlineInAppViewDidLoad:data:) optional func snr_inlineInAppViewDidLoad(view: SyneriseSDK.InlineInAppView, data: SyneriseSDK.InlineInAppMessageData)
+  @objc(SNR_inlineInAppViewDidUpdate:data:) optional func snr_inlineInAppViewDidUpdate(view: SyneriseSDK.InlineInAppView, data: SyneriseSDK.InlineInAppMessageData)
+  @objc(SNR_inlineInAppViewDidFail:error:) optional func snr_inlineInAppViewDidFail(view: SyneriseSDK.InlineInAppView, error: Foundation.NSError)
+  @objc(SNR_inlineInAppViewDidStartProcessing:) optional func snr_inlineInAppViewDidStartProcessing(view: SyneriseSDK.InlineInAppView)
+  @objc(SNR_inlineInAppViewChangeSizeIsNeeded:data:size:) optional func snr_inlineInAppViewChangeSizeIsNeeded(view: SyneriseSDK.InlineInAppView, data: SyneriseSDK.InlineInAppMessageData, size: SyneriseSDK.InlineInAppSize)
+  @objc(SNR_inlineInAppViewShouldBeRemoved:data:) optional func snr_inlineInAppViewShouldBeRemoved(view: SyneriseSDK.InlineInAppView, data: SyneriseSDK.InlineInAppMessageData)
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(SNRInlineInAppView) @_Concurrency.MainActor @preconcurrency public class InlineInAppView : UIKit.UIView {
+  @objc @_Concurrency.MainActor @preconcurrency weak public var delegate: (any SyneriseSDK.InlineInAppViewDelegate)? {
+    @objc get
+    @objc set
+  }
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc @_Concurrency.MainActor @preconcurrency public var data: SyneriseSDK.InlineInAppMessageData? {
+    @objc get
+  }
+  #endif
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  @objc deinit
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public func didMoveToSuperview()
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public func removeFromSuperview()
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public func layoutSubviews()
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public func canPerformAction(_ action: ObjectiveC.Selector, withSender sender: Any?) -> Swift.Bool
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc(getIdentifier) @_Concurrency.MainActor @preconcurrency public func getIdentifier() -> Swift.String?
+  #endif
+  @objc(setIdentifier:) @_Concurrency.MainActor @preconcurrency public func setIdentifier(_ identifier: Swift.String)
+  @objc(isRendered) @_Concurrency.MainActor @preconcurrency public func isRendered() -> Swift.Bool
+  @objc(getPlacementKey) @_Concurrency.MainActor @preconcurrency public func getPlacementKey() -> Swift.String
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc(getData) @_Concurrency.MainActor @preconcurrency public func getData() -> SyneriseSDK.InlineInAppMessageData?
+  #endif
+  @objc(render) @_Concurrency.MainActor @preconcurrency public func render()
 }
 @_hasMissingDesignatedInitializers @objc(SNRRecommendationSeenEvent) final public class RecommendationSeenEvent : SyneriseSDK.RecommendationEvent {
   @objc override public init(label: Swift.String)
@@ -1604,24 +1564,6 @@ extension SyneriseSDK.Injector : SyneriseSDK._SNR_SignalReceivable {
     get
   }
 }
-@objc public enum SNRApiRequestCompletedSignalResult : Swift.Int {
-  case success = 0
-  case failure
-  #if compiler(>=5.3) && $NonescapableTypes
-  public init?(rawValue: Swift.Int)
-  #endif
-  public typealias RawValue = Swift.Int
-  public var rawValue: Swift.Int {
-    get
-  }
-}
-@_inheritsConvenienceInitializers @objc(_SNR_ApiRequestCompletedSignal) public class _SNR_ApiRequestCompletedSignal : SyneriseSDK._SNR_BaseSignal {
-  @objc final public let RESULT_KEY: Swift.String
-  @objc final public let HTTP_STATUS_CODE_KEY: Swift.String
-  @objc public func notifyApiRequestIsCompleted(isSuccess: Swift.Bool, HTTPStatusCode: Swift.Int)
-  @objc override dynamic public init()
-  @objc deinit
-}
 @_hasMissingDesignatedInitializers @objc(SNRRecommendationClickEvent) final public class RecommendationClickEvent : SyneriseSDK.RecommendationEvent {
   @objc override public init(label: Swift.String)
   #if compiler(>=5.3) && $NonescapableTypes
@@ -1633,6 +1575,17 @@ extension SyneriseSDK.Injector : SyneriseSDK._SNR_SignalReceivable {
   @objc final public func setCategory(_ category: Swift.String)
   @objc final public func setURL(_ url: Foundation.URL)
   @objc deinit
+}
+public enum CrypterDataType : Swift.UInt {
+  case `default`
+  case token
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.UInt)
+  #endif
+  public typealias RawValue = Swift.UInt
+  public var rawValue: Swift.UInt {
+    get
+  }
 }
 @objc(SNRPromotionImageType) public enum PromotionImageType : Swift.Int, Swift.RawRepresentable {
   @objc(SNRPromotionImageTypeImage) case image
@@ -1663,6 +1616,15 @@ extension SyneriseSDK.Injector : SyneriseSDK._SNR_SignalReceivable {
     get
   }
 }
+@_hasMissingDesignatedInitializers @objc(SNRPromotionVoucherData) public class PromotionVoucherData : SyneriseSDK.BaseModel {
+  @objc final public let code: Swift.String
+  @objc final public let status: SyneriseSDK.VoucherCodeStatus
+  @objc final public let autoGenerated: Swift.Bool
+  @objc final public let lastingAt: Foundation.Date?
+  @objc final public let redeemedAt: Foundation.Date?
+  @objc final public let assignedAt: Foundation.Date
+  @objc deinit
+}
 @_inheritsConvenienceInitializers @objc(_SNR_Logger) public class _SNR_Logger : ObjectiveC.NSObject {
   @objc public static func setUserDebugModeEnabled(_ enabled: Swift.Bool)
   @objc public static func setFileLoggingModeEnabled(_ enabled: Swift.Bool)
@@ -1672,6 +1634,7 @@ extension SyneriseSDK.Injector : SyneriseSDK._SNR_SignalReceivable {
   @objc public static func userWarning(_ message: Swift.String)
   @objc public static func userError(_ message: Swift.String)
   @objc public static func userFatalError(_ message: Swift.String)
+  @objc public static func developmentLog(_ message: Swift.String)
   @objc override dynamic public init()
   @objc deinit
 }
@@ -1681,6 +1644,32 @@ extension SyneriseSDK.Injector : SyneriseSDK._SNR_SignalReceivable {
   @objc final public let page: Swift.Int
   @objc final public let limit: Swift.Int
   @objc final public let code: Swift.Int
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(SNRInlineInAppViewWrapper) @_Concurrency.MainActor @preconcurrency final public class InlineInAppViewWrapper : UIKit.UIView {
+  @objc @IBInspectable @_Concurrency.MainActor @preconcurrency final public var placementKey: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor @preconcurrency weak final public var delegate: (any SyneriseSDK.InlineInAppViewDelegate)? {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor @preconcurrency final public var inlineInAppView: SyneriseSDK.InlineInAppView? {
+    get
+  }
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc @_Concurrency.MainActor @preconcurrency final public var data: SyneriseSDK.InlineInAppMessageData? {
+    @objc get
+  }
+  #endif
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder: Foundation.NSCoder)
+  #endif
+  @_Concurrency.MainActor @preconcurrency @objc override final public func didMoveToWindow()
+  @objc(configureWithPlacementKey:) @_Concurrency.MainActor @preconcurrency final public func configure(placementKey: Swift.String)
+  @objc(render) @_Concurrency.MainActor @preconcurrency final public func render()
   @objc deinit
 }
 @_hasMissingDesignatedInitializers @objc(SNRPromotionResponse) public class PromotionResponse : SyneriseSDK.BaseModel {
@@ -1739,105 +1728,11 @@ public let SNRViewTrackerEventAutotrackValueOnSelect: Swift.String
   @objc final public func setAutotrackValue(_ autotrackValue: Swift.String)
   @objc deinit
 }
-@_inheritsConvenienceInitializers @objc(SNRTrackerDeclarativeTrackingSettings) public class TrackerDeclarativeTrackingSettings : ObjectiveC.NSObject {
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(SNRTrackerDeclarativeTrackingSettings) public class TrackerDeclarativeTrackingSettings : ObjectiveC.NSObject {
   @objc public var enabled: Swift.Bool {
     @objc get
     @objc set
   }
-  @objc override dynamic public init()
-  @objc deinit
-}
-@_inheritsConvenienceInitializers @objc(_SNR_ClientSignInSignal) public class _SNR_ClientSignInSignal : SyneriseSDK._SNR_BaseSignal {
-  @objc public func notifySignIn()
-  @objc override dynamic public init()
-  @objc deinit
-}
-@_inheritsConvenienceInitializers @objc(_SNR_PushRegistrationRequiredSignal) public class _SNR_PushRegistrationRequiredSignal : SyneriseSDK._SNR_BaseSignal {
-  @objc public func notifyPushRegistrationIsNeeded()
-  @objc override dynamic public init()
-  @objc deinit
-}
-@objc public enum SNRClientUUIDChangeSignalState : Swift.Int {
-  case before = 0
-  case after
-  #if compiler(>=5.3) && $NonescapableTypes
-  public init?(rawValue: Swift.Int)
-  #endif
-  public typealias RawValue = Swift.Int
-  public var rawValue: Swift.Int {
-    get
-  }
-}
-@objc public enum SNRClientUUIDChangeSignalReason : Swift.Int {
-  case authentication = 0
-  case regeneration
-  case initial
-  #if compiler(>=5.3) && $NonescapableTypes
-  public init?(rawValue: Swift.Int)
-  #endif
-  public typealias RawValue = Swift.Int
-  public var rawValue: Swift.Int {
-    get
-  }
-}
-@_inheritsConvenienceInitializers @objc(_SNR_ClientUUIDChangeSignal) public class _SNR_ClientUUIDChangeSignal : SyneriseSDK._SNR_BaseSignal {
-  @objc final public let STATE_KEY: Swift.String
-  @objc final public let CURRENT_UUID_KEY: Swift.String
-  @objc final public let REASON_KEY: Swift.String
-  @objc public func notifyUUIDChangedIsBefore(currentUUIDString: Swift.String)
-  @objc public func notifyUUIDChanged(withReason reason: SyneriseSDK.SNRClientUUIDChangeSignalReason)
-  @objc override dynamic public init()
-  @objc deinit
-}
-@_inheritsConvenienceInitializers @objc(_SNR_ClientSignOutSignal) public class _SNR_ClientSignOutSignal : SyneriseSDK._SNR_BaseSignal {
-  @objc final public let REASON_KEY: Swift.String
-  @objc public func notifySignOut(withReason reason: SyneriseSDK.ClientSessionEndReason)
-  @objc override dynamic public init()
-  @objc deinit
-}
-@_inheritsConvenienceInitializers @objc(_SNR_DataInconsistencySignal) public class _SNR_DataInconsistencySignal : SyneriseSDK._SNR_BaseSignal {
-  @objc public func notifyDataInconsistency()
-  @objc override dynamic public init()
-  @objc deinit
-}
-@objc public enum SNRSyneriseReinitializationSignalState : Swift.Int {
-  case before = 0
-  case after
-  #if compiler(>=5.3) && $NonescapableTypes
-  public init?(rawValue: Swift.Int)
-  #endif
-  public typealias RawValue = Swift.Int
-  public var rawValue: Swift.Int {
-    get
-  }
-}
-@_inheritsConvenienceInitializers @objc(_SNR_SyneriseReinitializationSignal) public class _SNR_SyneriseReinitializationSignal : SyneriseSDK._SNR_BaseSignal {
-  @objc final public let STATE_KEY: Swift.String
-  @objc public func notifyReinitializationIsBefore()
-  @objc public func notifyReinitializationIsAfter()
-  @objc override dynamic public init()
-  @objc deinit
-}
-@objc(_SNR_SignalReceivable) public protocol _SNR_SignalReceivable {
-  @objc func signalReceived(_: SyneriseSDK._SNR_BaseSignal, parameters: [Swift.String : Any])
-}
-@objc public enum _SNR_BaseSignalPriority : Swift.Int {
-  case high
-  case normal
-  case low
-  #if compiler(>=5.3) && $NonescapableTypes
-  public init?(rawValue: Swift.Int)
-  #endif
-  public typealias RawValue = Swift.Int
-  public var rawValue: Swift.Int {
-    get
-  }
-}
-@_inheritsConvenienceInitializers @objc(_SNR_BaseSignal) public class _SNR_BaseSignal : ObjectiveC.NSObject {
-  @objc public func addReceiver(_ receiver: Swift.AnyObject)
-  @objc public func addReceiver(_ receiver: Swift.AnyObject, priority: SyneriseSDK._SNR_BaseSignalPriority = .normal)
-  @objc public func removeReceiver(_ receiver: Swift.AnyObject)
-  @objc override dynamic public init()
   @objc deinit
 }
 @objc(SNRScreenViewApiQuery) public class ScreenViewApiQuery : ObjectiveC.NSObject {
@@ -1850,7 +1745,16 @@ public let SNRViewTrackerEventAutotrackValueOnSelect: Swift.String
 @objc(SNRTrackerParams) final public class TrackerParams : ObjectiveC.NSObject {
   @objc(makeWithBuilder:) public static func make(with handler: (SyneriseSDK.TrackerParamsBuilder) -> Swift.Void) -> SyneriseSDK.TrackerParams
   @objc public init(builder: SyneriseSDK.TrackerParamsBuilder)
-  final public func _toDictionary() -> [Swift.String : Any]
+  @objc deinit
+}
+@objc(SNRBrickworksApiQuery) public class BrickworksApiQuery : ObjectiveC.NSObject {
+  @objc final public let schemaSlug: Swift.String
+  @objc public var recordSlug: Swift.String?
+  @objc public var recordId: Swift.String?
+  @objc public var context: [Swift.String : Any]?
+  @objc public var fieldContext: [Swift.String : Any]?
+  @objc(initWithSchemaSlug:recordSlug:) public init(schemaSlug: Swift.String, recordSlug: Swift.String)
+  @objc(initWithSchemaSlug:recordId:) public init(schemaSlug: Swift.String, recordId: Swift.String)
   @objc deinit
 }
 @_hasMissingDesignatedInitializers @objc(SNRRecommendationResponseExtrasSlot) public class RecommendationResponseExtrasSlot : SyneriseSDK.BaseModel {
@@ -1880,6 +1784,33 @@ public let SNRViewTrackerEventAutotrackValueOnSelect: Swift.String
   #endif
   @objc deinit
 }
+public typealias SNRNotificationServiceExtensionOptionsKey = Swift.String
+public enum NotificationServiceExtensionOptionsKey {
+  public static let pushDismissProcessing: Swift.String
+}
+@objc(SNRNotificationServiceExtensionDelegate) public protocol NotificationServiceExtensionDelegate {
+  @objc(notificationServiceExtensionDidFailProcessingWithError:) optional func notificationServiceExtensionDidFailProcessing(error: Foundation.NSError)
+  @objc(notificationServiceExtensionDidFailDecryptionWithError:) optional func notificationServiceExtensionDidFailDecryption(error: Foundation.NSError)
+}
+@_inheritsConvenienceInitializers @objc(SNRNotificationServiceExtension) public class NotificationServiceExtension : ObjectiveC.NSObject {
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc(setDelegate:) public static func setDelegate(_ delegate: (any SyneriseSDK.NotificationServiceExtensionDelegate)?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc(setNotificationDelegate:) public static func setNotificationDelegate(_ delegate: (any SyneriseSDK.NotificationDelegate)?)
+  #endif
+  @objc(setDebugModeEnabled:) public static func setDebugModeEnabled(_ enabled: Swift.Bool)
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc(setDecryptionFallbackNotificationTitle:andBody:) public static func setDecryptionFallbackNotificationTitleAndBody(title: Swift.String?, body: Swift.String?)
+  #endif
+  @objc(didReceiveNotificationExtensionRequest:withMutableNotificationContent:) public static func didReceiveNotificationExtensionRequest(_ request: UserNotifications.UNNotificationRequest, withMutableNotificationContent notificationContent: UserNotifications.UNMutableNotificationContent)
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc(didReceiveNotificationExtensionRequest:withMutableNotificationContent:options:) public static func didReceiveNotificationExtensionRequest(_ request: UserNotifications.UNNotificationRequest, withMutableNotificationContent notificationContent: UserNotifications.UNMutableNotificationContent, options: [SyneriseSDK.SNRNotificationServiceExtensionOptionsKey : Any]?)
+  #endif
+  @objc(serviceExtensionTimeWillExpireRequest:withMutableNotificationContent:) public static func serviceExtensionTimeWillExpireRequest(_ request: UserNotifications.UNNotificationRequest, withMutableNotificationContent notificationContent: UserNotifications.UNMutableNotificationContent)
+  @objc override dynamic public init()
+  @objc deinit
+}
 @_hasMissingDesignatedInitializers @objc(SNRPushCancelledEvent) final public class PushCancelledEvent : SyneriseSDK.Event {
   @objc override public init(label: Swift.String)
   #if compiler(>=5.3) && $NonescapableTypes
@@ -1902,33 +1833,22 @@ public let SNRViewTrackerEventAutotrackValueOnSelect: Swift.String
     get
   }
 }
-@_hasMissingDesignatedInitializers @objc(SNRInAppCustomMethodCompletion) final public class InAppCustomMethodCompletion : ObjectiveC.NSObject {
+@objc(SNRClientSignOutMode) public enum ClientSignOutMode : Swift.UInt, Swift.RawRepresentable {
+  @objc(SNRClientSignOutModeSignOut) case signOut
+  @objc(SNRClientSignOutModeSignOutWithSessionDestroy) case signOutWithSessionDestroy
   #if compiler(>=5.3) && $NonescapableTypes
-  @objc final public func success(_ result: Any?)
+  public init?(rawValue: Swift.UInt)
   #endif
-  @objc final public func failure(_ errorMessage: Swift.String)
-  @objc deinit
+  public typealias RawValue = Swift.UInt
+  public var rawValue: Swift.UInt {
+    get
+  }
 }
 @_hasMissingDesignatedInitializers @objc(SNRPushViewedEvent) final public class PushViewedEvent : SyneriseSDK.Event {
   @objc override public init(label: Swift.String)
   #if compiler(>=5.3) && $NonescapableTypes
   @objc override public init(label: Swift.String, params: SyneriseSDK.TrackerParams?)
   #endif
-  @objc deinit
-}
-@_inheritsConvenienceInitializers @objc(_SNR_ClientApplicationInfoProvider) public class _SNR_ClientApplicationInfoProvider : ObjectiveC.NSObject {
-  #if compiler(>=5.3) && $NonescapableTypes
-  @objc public static func applicationName() -> Swift.String?
-  #endif
-  @objc public static func applicationType() -> Swift.String
-  #if compiler(>=5.3) && $NonescapableTypes
-  @objc public static func applicationVersion() -> Swift.String?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
-  @objc public static func build() -> Swift.String?
-  #endif
-  @objc public static func arePushNotificationsEnabled() -> Swift.Bool
-  @objc override dynamic public init()
   @objc deinit
 }
 @_hasMissingDesignatedInitializers @objc(SNRRecognizeClientEvent) final public class RecognizeClientEvent : SyneriseSDK.Event {
@@ -1958,83 +1878,10 @@ public let SNRViewTrackerEventAutotrackValueOnSelect: Swift.String
   @objc public static var Logger: SyneriseSDK._SNR_Logger.Type {
     @objc get
   }
-  @objc public static var SyneriseFrameworkInfoProvider: SyneriseSDK._SNR_SyneriseFrameworkInfoProvider.Type {
-    @objc get
-  }
-  @objc public static var ClientApplicationInfoProvider: SyneriseSDK._SNR_ClientApplicationInfoProvider.Type {
-    @objc get
-  }
-  @objc public static var DeviceInfoProvider: SyneriseSDK._SNR_DeviceInfoProvider.Type {
-    @objc get
-  }
-  @objc public static var ImageProviderSingleton: SyneriseSDK._SNR_ImageProvider {
-    @objc get
-  }
-  @objc public static var ImageProviderNewInstance: SyneriseSDK._SNR_ImageProvider {
-    @objc get
-  }
-  @objc public static var ClientSignInSignalSingleton: SyneriseSDK._SNR_ClientSignInSignal {
-    @objc get
-  }
-  @objc public static var ClientSignOutSignalSingleton: SyneriseSDK._SNR_ClientSignOutSignal {
-    @objc get
-  }
-  @objc public static var ClientUUIDChangeSignalSingleton: SyneriseSDK._SNR_ClientUUIDChangeSignal {
-    @objc get
-  }
-  @objc public static var DataInconsistencySignalSingleton: SyneriseSDK._SNR_DataInconsistencySignal {
-    @objc get
-  }
-  @objc public static var PushRegistrationRequiredSignalSingleton: SyneriseSDK._SNR_PushRegistrationRequiredSignal {
-    @objc get
-  }
-  @objc public static var SyneriseReinitializationSignalSingleton: SyneriseSDK._SNR_SyneriseReinitializationSignal {
-    @objc get
-  }
-  @objc public static var ApiRequestCompletedSignalSingleton: SyneriseSDK._SNR_ApiRequestCompletedSignal {
-    @objc get
-  }
-  @objc public static var DispatchUtils: SyneriseSDK._SNR_DispatchUtils.Type {
-    @objc get
-  }
-  @objc public static var DelegateUtils: SyneriseSDK._SNR_DelegateUtils.Type {
-    @objc get
-  }
-  @objc public static var MiscUtils: SyneriseSDK._SNR_MiscUtils.Type {
-    @objc get
-  }
-  @objc public static var PushEventFactory: SyneriseSDK._SNR_PushEventFactory.Type {
-    @objc get
-  }
-  @objc public static var TimeZoneDateFormatterInstance: SyneriseSDK._SNR_TimeZoneDateFormatter {
-    @objc get
-  }
-  @objc public static var UTCDateFormatterInstance: SyneriseSDK._SNR_UTCDateFormatter {
-    @objc get
-  }
-  @objc public static var PriceFormatterInstance: SyneriseSDK._SNR_PriceFormatter {
-    @objc get
-  }
-  @objc public static var ClientManagerSingleton: SyneriseSDK._SNR_ClientManager {
-    @objc get
-  }
-  @objc public static var ClientManagerNewInstance: SyneriseSDK._SNR_ClientManager {
-    @objc get
-  }
-  @objc public static var ServerTimeManagerSingleton: SyneriseSDK._SNR_ServerTimeManager {
-    @objc get
-  }
-  @available(iOS 13, *)
-  @objc public static var BackgroundTaskManagerSingleton: SyneriseSDK._SNR_BackgroundTaskManager {
-    @objc get
-  }
-  @objc public static var ClientModelNewInstance: SyneriseSDK._SNR_ClientModel {
-    @objc get
-  }
   @objc override dynamic public init()
   @objc deinit
 }
-@_inheritsConvenienceInitializers @objc(SNRInAppMessagingSettings) public class InAppMessagingSettings : ObjectiveC.NSObject {
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(SNRInAppMessagingSettings) public class InAppMessagingSettings : ObjectiveC.NSObject {
   @objc public var checkGlobalControlGroupsOnDefinitionsFetch: Swift.Bool {
     @objc get
     @objc set
@@ -2057,7 +1904,6 @@ public let SNRViewTrackerEventAutotrackValueOnSelect: Swift.String
     @objc get
     @objc set
   }
-  @objc override dynamic public init()
   @objc deinit
 }
 @_hasMissingDesignatedInitializers @objc(SNRRegisteredEvent) final public class RegisteredEvent : SyneriseSDK.Event {
@@ -2087,15 +1933,6 @@ public let SNRViewTrackerEventAutotrackValueOnSelect: Swift.String
   #endif
   @objc deinit
 }
-@_hasMissingDesignatedInitializers @objc(SNRPromotionVoucherData) public class PromotionVoucherData : SyneriseSDK.BaseModel {
-  @objc final public let code: Swift.String
-  @objc final public let status: SyneriseSDK.VoucherCodeStatus
-  @objc final public let autoGenerated: Swift.Bool
-  @objc final public let lastingAt: Foundation.Date?
-  @objc final public let redeemedAt: Foundation.Date?
-  @objc final public let assignedAt: Foundation.Date
-  @objc deinit
-}
 @_hasMissingDesignatedInitializers @objc(SNRCartEvent) public class CartEvent : SyneriseSDK.Event {
   @objc override public init(label: Swift.String)
   #if compiler(>=5.3) && $NonescapableTypes
@@ -2118,23 +1955,6 @@ public let SNRViewTrackerEventAutotrackValueOnSelect: Swift.String
   @objc final public func setFloat(_ floatValue: Swift.Float, forKey key: Swift.String)
   @objc final public func setDouble(_ doubleValue: Swift.Double, forKey key: Swift.String)
   @objc final public func setBool(_ boolValue: Swift.Bool, forKey key: Swift.String)
-  @objc final public func _toDictionary() -> [Swift.String : Any]
-  @objc override dynamic public init()
-  @objc deinit
-}
-@_inheritsConvenienceInitializers @objc(_SNR_DispatchUtils) public class _SNR_DispatchUtils : ObjectiveC.NSObject {
-  @objc public static func getKeychainProcessingQueue() -> Dispatch.DispatchQueue
-  @discardableResult
-  public static func synchronized<T>(_ lock: Swift.AnyObject, closure: () -> T) -> T
-  @objc public static func dispatchSyncBlockOnMainThread(_ block: @escaping () -> Swift.Void)
-  @objc public static func dispatchSyncBlockOnMainThread(_ block: @escaping () -> Swift.Void, ifMetCondition condition: Swift.Bool)
-  @objc public static func dispatchSyncBlock(_ block: @escaping () -> Swift.Void, onQueue queue: Dispatch.DispatchQueue)
-  @objc public static func dispatchAsyncBlockOnMainThread(_ block: @escaping () -> Swift.Void)
-  @objc public static func dispatchAsyncBlockOnMainThread(_ block: @escaping () -> Swift.Void, ifMetCondition condition: Swift.Bool)
-  @objc public static func dispatchAsyncBlock(_ block: @escaping () -> Swift.Void, onQueue queue: Dispatch.DispatchQueue)
-  @objc public static func dispatchAsyncBlockOnMainThread(_ block: @escaping () -> Swift.Void, withDelay delay: Foundation.TimeInterval)
-  @objc public static func dispatchAsyncBlockOnBackgroundThread(_ block: @escaping () -> Swift.Void)
-  @objc public static func dispatchAsyncBlockOnBackgroundThread(_ block: @escaping () -> Swift.Void, ifMetCondition condition: Swift.Bool)
   @objc override dynamic public init()
   @objc deinit
 }
@@ -2169,15 +1989,18 @@ extension SyneriseSDK.PromotionType : Swift.Equatable {}
 extension SyneriseSDK.PromotionType : Swift.Hashable {}
 extension SyneriseSDK.TokenOrigin : Swift.Equatable {}
 extension SyneriseSDK.TokenOrigin : Swift.Hashable {}
+extension SyneriseSDK.ClientIdentityProvider : Swift.Equatable {}
+extension SyneriseSDK.ClientIdentityProvider : Swift.Hashable {}
+extension SyneriseSDK.PushNotificationsRegistrationOrigin : Swift.Equatable {}
+extension SyneriseSDK.PushNotificationsRegistrationOrigin : Swift.Hashable {}
+extension SyneriseSDK.SyneriseSource : Swift.Equatable {}
+extension SyneriseSDK.SyneriseSource : Swift.Hashable {}
 extension SyneriseSDK.ClientSex : Swift.Equatable {}
 extension SyneriseSDK.ClientSex : Swift.Hashable {}
 extension SyneriseSDK.ClientSex : Swift.RawRepresentable {}
 extension SyneriseSDK.ClientConditionalAuthStatus : Swift.Equatable {}
 extension SyneriseSDK.ClientConditionalAuthStatus : Swift.Hashable {}
 extension SyneriseSDK.ClientConditionalAuthStatus : Swift.RawRepresentable {}
-extension SyneriseSDK.ClientModelUUIDOrigin : Swift.Equatable {}
-extension SyneriseSDK.ClientModelUUIDOrigin : Swift.Hashable {}
-extension SyneriseSDK.ClientModelUUIDOrigin : Swift.RawRepresentable {}
 extension SyneriseSDK.SNRApiErrorType : Swift.Equatable {}
 extension SyneriseSDK.SNRApiErrorType : Swift.Hashable {}
 extension SyneriseSDK.SNRApiErrorType : Swift.RawRepresentable {}
@@ -2189,13 +2012,17 @@ extension SyneriseSDK.SNRErrorCode : Swift.Hashable {}
 extension SyneriseSDK.SNRErrorCode : Swift.RawRepresentable {}
 extension SyneriseSDK.PromotionStatus : Swift.Equatable {}
 extension SyneriseSDK.PromotionStatus : Swift.Hashable {}
+extension SyneriseSDK.ClientSessionEndReason : Swift.Equatable {}
+extension SyneriseSDK.ClientSessionEndReason : Swift.Hashable {}
 extension SyneriseSDK.VoucherCodeStatus : Swift.Equatable {}
 extension SyneriseSDK.VoucherCodeStatus : Swift.Hashable {}
+extension SyneriseSDK.HostApplicationType : Swift.Equatable {}
+extension SyneriseSDK.HostApplicationType : Swift.Hashable {}
 extension SyneriseSDK.PromotionItemScope : Swift.Equatable {}
 extension SyneriseSDK.PromotionItemScope : Swift.Hashable {}
-extension SyneriseSDK.SNRApiRequestCompletedSignalResult : Swift.Equatable {}
-extension SyneriseSDK.SNRApiRequestCompletedSignalResult : Swift.Hashable {}
-extension SyneriseSDK.SNRApiRequestCompletedSignalResult : Swift.RawRepresentable {}
+extension SyneriseSDK.CrypterDataType : Swift.Equatable {}
+extension SyneriseSDK.CrypterDataType : Swift.Hashable {}
+extension SyneriseSDK.CrypterDataType : Swift.RawRepresentable {}
 extension SyneriseSDK.PromotionImageType : Swift.Equatable {}
 extension SyneriseSDK.PromotionImageType : Swift.Hashable {}
 extension SyneriseSDK.RecommendationFiltersJoinerRule : Swift.Equatable {}
@@ -2206,19 +2033,9 @@ extension SyneriseSDK.ViewTrackerEventViewActionType : Swift.RawRepresentable {}
 extension SyneriseSDK.ViewTrackerEventViewInteraction : Swift.Equatable {}
 extension SyneriseSDK.ViewTrackerEventViewInteraction : Swift.Hashable {}
 extension SyneriseSDK.ViewTrackerEventViewInteraction : Swift.RawRepresentable {}
-extension SyneriseSDK.SNRClientUUIDChangeSignalState : Swift.Equatable {}
-extension SyneriseSDK.SNRClientUUIDChangeSignalState : Swift.Hashable {}
-extension SyneriseSDK.SNRClientUUIDChangeSignalState : Swift.RawRepresentable {}
-extension SyneriseSDK.SNRClientUUIDChangeSignalReason : Swift.Equatable {}
-extension SyneriseSDK.SNRClientUUIDChangeSignalReason : Swift.Hashable {}
-extension SyneriseSDK.SNRClientUUIDChangeSignalReason : Swift.RawRepresentable {}
-extension SyneriseSDK.SNRSyneriseReinitializationSignalState : Swift.Equatable {}
-extension SyneriseSDK.SNRSyneriseReinitializationSignalState : Swift.Hashable {}
-extension SyneriseSDK.SNRSyneriseReinitializationSignalState : Swift.RawRepresentable {}
-extension SyneriseSDK._SNR_BaseSignalPriority : Swift.Equatable {}
-extension SyneriseSDK._SNR_BaseSignalPriority : Swift.Hashable {}
-extension SyneriseSDK._SNR_BaseSignalPriority : Swift.RawRepresentable {}
 extension SyneriseSDK.PromotionDiscountUsageTrigger : Swift.Equatable {}
 extension SyneriseSDK.PromotionDiscountUsageTrigger : Swift.Hashable {}
 extension SyneriseSDK.PromotionDiscountMode : Swift.Equatable {}
 extension SyneriseSDK.PromotionDiscountMode : Swift.Hashable {}
+extension SyneriseSDK.ClientSignOutMode : Swift.Equatable {}
+extension SyneriseSDK.ClientSignOutMode : Swift.Hashable {}

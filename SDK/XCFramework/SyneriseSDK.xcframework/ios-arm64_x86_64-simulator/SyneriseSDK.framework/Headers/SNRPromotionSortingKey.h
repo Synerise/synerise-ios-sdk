@@ -8,6 +8,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/**
+ * @const SNRPromotionSortingKey
+ */
+
 typedef NSString * SNRPromotionSortingKey;
 
 FOUNDATION_EXPORT SNRPromotionSortingKey const SNR_PROMOTION_SORTING_KEY_EXPIRE_AT;
