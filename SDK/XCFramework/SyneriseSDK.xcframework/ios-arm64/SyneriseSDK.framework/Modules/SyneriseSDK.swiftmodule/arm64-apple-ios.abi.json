@@ -51353,6 +51353,16 @@
       },
       {
         "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "SyneriseSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
         "name": "WebKit",
         "printedName": "WebKit",
         "declKind": "Import",
@@ -74143,7 +74153,7 @@
       "kind": "StringLiteral",
       "offset": 287,
       "length": 7,
-      "value": "\"6.0.0\""
+      "value": "\"6.0.1\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Synerise.swift",
@@ -79891,6 +79901,13 @@
       "offset": 202,
       "length": 16,
       "value": "\"snr.ClientData\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Helpers\/Signals\/InAppExternalStorageChangedSignal.swift",
+      "kind": "StringLiteral",
+      "offset": 243,
+      "length": 47,
+      "value": "\"SNRInAppExternalStorageChangedSignalSenderKey\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataManagement\/DataSource\/DataProviders\/AuthCredentialProvider.swift",
