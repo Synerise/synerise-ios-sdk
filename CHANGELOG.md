@@ -3,6 +3,15 @@ All notable changes to this project will be documented in this file.
 
 Note that Objective-C class names are prefixed by `SNR`. In the changelog below, these are names used in Swift, without the prefix.
 
+## [6.0.1] - 2026-08-25
+
+### Fixed
+- Potential issue that could have caused late availability of in-app storage, device data and in-app context in the JS interface of the in-app messaging module. The issue correlated to `SRInApp.storage.getItem(key)`, `SRInApp.getDeviceData()` and `SRInApp.getInAppContext()`.
+
+### Changed
+- Improvements to stability.
+
+
 ## [6.0.0] - 2026-08-14
 
 IMPORTANT:
@@ -1714,7 +1723,7 @@ Remember, that the old way of distributing fat framework is still available and 
 ## [3.5.4] - 2019-08-19
 
 ### Added
-- Sale price as a additional feature to `ContentWidge`.
+- Sale price as a additional feature to `ContentWidget`.
 - Optional button action as a additional feature to `ContentWidget`.
 
 
