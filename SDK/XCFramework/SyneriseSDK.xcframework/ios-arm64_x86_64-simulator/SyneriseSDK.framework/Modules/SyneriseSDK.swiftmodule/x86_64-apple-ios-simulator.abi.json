@@ -74153,7 +74153,7 @@
       "kind": "StringLiteral",
       "offset": 287,
       "length": 7,
-      "value": "\"6.0.1\""
+      "value": "\"6.0.2\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Synerise.swift",
@@ -77952,42 +77952,49 @@
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Security\/Crypters\/BaseCrypter.swift",
       "kind": "StringLiteral",
-      "offset": 607,
+      "offset": 611,
+      "length": 43,
+      "value": "\"Failed to obtain necessary security data!\""
+    },
+    {
+      "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Security\/Crypters\/BaseCrypter.swift",
+      "kind": "StringLiteral",
+      "offset": 699,
       "length": 21,
       "value": "\"Invalid key length!\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Security\/Crypters\/BaseCrypter.swift",
       "kind": "StringLiteral",
-      "offset": 683,
+      "offset": 775,
       "length": 36,
       "value": "\"Invalid input initializing vector!\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Security\/Crypters\/BaseCrypter.swift",
       "kind": "StringLiteral",
-      "offset": 767,
+      "offset": 859,
       "length": 23,
       "value": "\"Invalid input string!\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Security\/Crypters\/BaseCrypter.swift",
       "kind": "StringLiteral",
-      "offset": 847,
+      "offset": 939,
       "length": 33,
       "value": "\"Invalid encrypted input string!\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Security\/Crypters\/BaseCrypter.swift",
       "kind": "StringLiteral",
-      "offset": 932,
+      "offset": 1024,
       "length": 27,
       "value": "\"Encrypt operation failed!\""
     },
     {
       "filePath": "\/Users\/kurzy\/Desktop\/synerise-ios-sdk\/builds\/EfLSNyAz\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Security\/Crypters\/BaseCrypter.swift",
       "kind": "StringLiteral",
-      "offset": 1011,
+      "offset": 1103,
       "length": 27,
       "value": "\"Decrypt operation failed!\""
     },

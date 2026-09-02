@@ -118,11 +118,11 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		xbEbLQWTlv6Z2TXl6Y1k9fY8t6o=
+		muZLxv2CPTEjcyEZdk9W+bSbM0Q=
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		q7dY2TP2441r9RJevimQ3E9NYH0=
+		rovg1XFpv39rMNTFneU4txdY2Ak=
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -138,11 +138,11 @@
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		kBZAfUTqOe18XIc1s7GEEsdvCC0=
+		GSbRl8Vby4ESbStfu2u6//DgpVw=
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		q7dY2TP2441r9RJevimQ3E9NYH0=
+		rovg1XFpv39rMNTFneU4txdY2Ak=
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -158,7 +158,7 @@
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		WTVbV6rNO6OCiu8PC/Dosp2Lf+A=
+		+t0uGk/WX37Fe1iXJl9hZZp61CQ=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -405,7 +405,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			aDJ1GFdKoP5CfUvXP+rtxnD1vHq0lD86Rrq3k2Y5EY8=
+			/5dNT1CzvKTTZMz4E9qbzVmfEZAIXRfgUyvi1uVVwF0=
 			</data>
 		</dict>
 		<key>Modules/SyneriseSDK.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
@@ -433,14 +433,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			B14i/tnNszKiCGFTwqnamJ4ff06lw4NqDJP42szuUEE=
+			xmsc5kgcrrTs/SzoSmVnZwkG2nb3CzKaBTABunqOxeY=
 			</data>
 		</dict>
 		<key>Modules/SyneriseSDK.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			aDJ1GFdKoP5CfUvXP+rtxnD1vHq0lD86Rrq3k2Y5EY8=
+			/5dNT1CzvKTTZMz4E9qbzVmfEZAIXRfgUyvi1uVVwF0=
 			</data>
 		</dict>
 		<key>Modules/SyneriseSDK.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
@@ -468,7 +468,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			aOFwV4xi0nh7cAyLl71yVbNkdrVD1vahlCQHyKaQZxU=
+			s5SrV9ImCJkpRkt38VM0cNwBTO6q7EUbXMZpjS573q8=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
