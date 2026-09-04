@@ -118,11 +118,11 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		muZLxv2CPTEjcyEZdk9W+bSbM0Q=
+		k3gaBxbm7LwekotCtng8ZFckirI=
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		rovg1XFpv39rMNTFneU4txdY2Ak=
+		hOZPq8qRD8bDZoc33VSBRVaHijQ=
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -138,11 +138,11 @@
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		GSbRl8Vby4ESbStfu2u6//DgpVw=
+		sV+6ay9r/bQJ8UOVb74AYTt57JM=
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		rovg1XFpv39rMNTFneU4txdY2Ak=
+		hOZPq8qRD8bDZoc33VSBRVaHijQ=
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -158,7 +158,7 @@
 		</data>
 		<key>Modules/SyneriseSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		+t0uGk/WX37Fe1iXJl9hZZp61CQ=
+		zZ+x12DAbSIamCkb2TGsWCNVQxI=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -405,7 +405,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			/5dNT1CzvKTTZMz4E9qbzVmfEZAIXRfgUyvi1uVVwF0=
+			bBRjxr4pUpXzrd6vA/3HKdxDMTUjOXLqKAFDeLatXd8=
 			</data>
 		</dict>
 		<key>Modules/SyneriseSDK.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
@@ -433,14 +433,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			xmsc5kgcrrTs/SzoSmVnZwkG2nb3CzKaBTABunqOxeY=
+			F+l5VxB3od+y031ROufKw1sc/kusGS5xlnqU2KVTjDY=
 			</data>
 		</dict>
 		<key>Modules/SyneriseSDK.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			/5dNT1CzvKTTZMz4E9qbzVmfEZAIXRfgUyvi1uVVwF0=
+			bBRjxr4pUpXzrd6vA/3HKdxDMTUjOXLqKAFDeLatXd8=
 			</data>
 		</dict>
 		<key>Modules/SyneriseSDK.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
@@ -468,7 +468,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			s5SrV9ImCJkpRkt38VM0cNwBTO6q7EUbXMZpjS573q8=
+			zc757bRMeg7u41ODbdcBjQlwyUCJU301/9F8c5BAlpc=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
