@@ -3,6 +3,16 @@ All notable changes to this project will be documented in this file.
 
 Note that Objective-C class names are prefixed by `SNR`. In the changelog below, these are names used in Swift, without the prefix.
 
+## [6.0.4] - 2026-09-14
+
+### Fixed
+- Some potential issues with notification processing in `NotificationServiceExtension`.
+- Potential issue with downloading images when Simple Push campaign contains Rich Media (Carousel).
+
+### Changed
+- Improvements to stability.
+
+
 ## [6.0.3] - 2026-09-04
 
 ### Changed
