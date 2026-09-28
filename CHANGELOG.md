@@ -3,6 +3,17 @@ All notable changes to this project will be documented in this file.
 
 Note that Objective-C class names are prefixed by `SNR`. In the changelog below, these are names used in Swift, without the prefix.
 
+## [6.0.5] - 2026-09-28
+
+### Fixed
+- Potential issue that could have caused late availability of in-app component size in the JS interface of the in-app messaging module. The issue correlated to `SRInApp.getComponentSize()`.
+- Issue that could have caused problems with re-authorizing anonymous tokens when the app was removed and installed again. The problem occurred since version 6.0.0.
+
+
+### Changed
+- Improvements to stability.
+
+
 ## [6.0.4] - 2026-09-14
 
 ### Fixed
