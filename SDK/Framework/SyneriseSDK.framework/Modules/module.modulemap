@@ -7,5 +7,4 @@ framework module SyneriseSDK {
 
 module SyneriseSDK.Swift {
   header "SyneriseSDK-Swift.h"
-  requires objc
 }
