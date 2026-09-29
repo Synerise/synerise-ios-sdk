@@ -9,7 +9,6 @@ Note that Objective-C class names are prefixed by `SNR`. In the changelog below,
 - Potential issue that could have caused late availability of in-app component size in the JS interface of the in-app messaging module. The issue correlated to `SRInApp.getComponentSize()`.
 - Issue that could have caused problems with re-authorizing anonymous tokens when the app was removed and installed again. The problem occurred since version 6.0.0.
 
-
 ### Changed
 - Improvements to stability.
 
