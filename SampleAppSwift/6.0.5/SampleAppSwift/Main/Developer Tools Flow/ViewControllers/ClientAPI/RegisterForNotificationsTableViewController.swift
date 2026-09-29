@@ -16,15 +16,19 @@ class RegisterForNotificationsTableViewController: DefaultTableViewController {
   // MARK: - IBAction
 
   @IBAction func registerForNotificationsButtonWasPressed(_ sender: DefaultButton) {
-    guard let token = Messaging.messaging().fcmToken else { return }
-
-    showLoading()
-    Client.registerForPush(registrationToken: token, mobilePushAgreement: mobilePushAgreementSwitch.isOn) {
-      self.hideLoading()
-      self.showSuccessInfo()
-    } failure: { error in
-      self.showErrorInfo(error as NSError)
-      self.hideLoading()
+    Messaging.messaging().token { [weak self] token, error in
+      guard let fcmToken = token, !fcmToken.isEmpty else {
+        return
+      }
+      
+      let mobilePushAgreement = true // true or false, should depend on device permissions and customer's agreement in the application
+      Client.registerForPush(registrationToken:fcmToken, mobilePushAgreement:mobilePushAgreement, success: { (success) in
+        self.hideLoading()
+        self.showSuccessInfo()
+      } failure: { error in
+        self.showErrorInfo(error as NSError)
+        self.hideLoading()
+      }
     }
   }
 
