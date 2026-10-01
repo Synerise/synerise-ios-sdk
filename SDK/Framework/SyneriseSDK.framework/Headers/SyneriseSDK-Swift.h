@@ -421,11 +421,6 @@ SWIFT_CLASS_NAMED("AssignVoucherResponse")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
-SWIFT_CLASS("_TtC11SyneriseSDK24BasicNotificationPayload")
-@interface BasicNotificationPayload : NSObject
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
 /// <code>BrickworksApiQuery</code> class.
 SWIFT_CLASS_NAMED("BrickworksApiQuery")
 @interface SNRBrickworksApiQuery : NSObject
@@ -1614,6 +1609,9 @@ SWIFT_PROTOCOL_NAMED("NotificationDelegate")
 
 SWIFT_CLASS_NAMED("NotificationInfo")
 @interface SNRNotificationInfo : SNRBaseModel
+@property (nonatomic, readonly, copy) NSString * _Nonnull campaignHashId;
+@property (nonatomic, readonly, copy) NSString * _Nonnull campaignTitle;
+@property (nonatomic, readonly, copy) NSDictionary * _Nonnull payload;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
