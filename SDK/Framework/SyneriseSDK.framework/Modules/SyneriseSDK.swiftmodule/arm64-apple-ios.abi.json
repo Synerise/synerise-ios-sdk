@@ -35,117 +35,6 @@
         ]
       },
       {
-        "kind": "TypeDecl",
-        "name": "BasicNotificationPayload",
-        "printedName": "BasicNotificationPayload",
-        "children": [
-          {
-            "kind": "Constructor",
-            "name": "init",
-            "printedName": "init()",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "BasicNotificationPayload",
-                "printedName": "SyneriseSDK.BasicNotificationPayload",
-                "usr": "c:@M@SyneriseSDK@objc(cs)BasicNotificationPayload"
-              }
-            ],
-            "declKind": "Constructor",
-            "usr": "c:@M@SyneriseSDK@objc(cs)BasicNotificationPayload(im)init",
-            "mangledName": "$s11SyneriseSDK24BasicNotificationPayloadCACycfc",
-            "moduleName": "SyneriseSDK",
-            "overriding": true,
-            "implicit": true,
-            "objc_name": "init",
-            "declAttributes": [
-              "Dynamic",
-              "ObjC",
-              "Override"
-            ],
-            "init_kind": "Designated"
-          }
-        ],
-        "declKind": "Class",
-        "usr": "c:@M@SyneriseSDK@objc(cs)BasicNotificationPayload",
-        "mangledName": "$s11SyneriseSDK24BasicNotificationPayloadC",
-        "moduleName": "SyneriseSDK",
-        "declAttributes": [
-          "AccessControl",
-          "ObjC"
-        ],
-        "superclassUsr": "c:objc(cs)NSObject",
-        "inheritsConvenienceInitializers": true,
-        "superclassNames": [
-          "ObjectiveC.NSObject"
-        ],
-        "conformances": [
-          {
-            "kind": "Conformance",
-            "name": "_KeyValueCodingAndObserving",
-            "printedName": "_KeyValueCodingAndObserving",
-            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
-            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "_KeyValueCodingAndObservingPublishing",
-            "printedName": "_KeyValueCodingAndObservingPublishing",
-            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
-            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "CVarArg",
-            "printedName": "CVarArg",
-            "usr": "s:s7CVarArgP",
-            "mangledName": "$ss7CVarArgP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Copyable",
-            "printedName": "Copyable",
-            "usr": "s:s8CopyableP",
-            "mangledName": "$ss8CopyableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "CustomDebugStringConvertible",
-            "printedName": "CustomDebugStringConvertible",
-            "usr": "s:s28CustomDebugStringConvertibleP",
-            "mangledName": "$ss28CustomDebugStringConvertibleP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "CustomStringConvertible",
-            "printedName": "CustomStringConvertible",
-            "usr": "s:s23CustomStringConvertibleP",
-            "mangledName": "$ss23CustomStringConvertibleP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Equatable",
-            "printedName": "Equatable",
-            "usr": "s:SQ",
-            "mangledName": "$sSQ"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Hashable",
-            "printedName": "Hashable",
-            "usr": "s:SH",
-            "mangledName": "$sSH"
-          }
-        ]
-      },
-      {
         "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
@@ -9954,6 +9843,182 @@
         "name": "NotificationInfo",
         "printedName": "NotificationInfo",
         "children": [
+          {
+            "kind": "Var",
+            "name": "campaignHashId",
+            "printedName": "campaignHashId",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@SyneriseSDK@objc(cs)SNRNotificationInfo(py)campaignHashId",
+            "mangledName": "$s11SyneriseSDK16NotificationInfoC14campaignHashIdSSvp",
+            "moduleName": "SyneriseSDK",
+            "declAttributes": [
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@SyneriseSDK@objc(cs)SNRNotificationInfo(im)campaignHashId",
+                "mangledName": "$s11SyneriseSDK16NotificationInfoC14campaignHashIdSSvg",
+                "moduleName": "SyneriseSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "campaignTitle",
+            "printedName": "campaignTitle",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@SyneriseSDK@objc(cs)SNRNotificationInfo(py)campaignTitle",
+            "mangledName": "$s11SyneriseSDK16NotificationInfoC13campaignTitleSSvp",
+            "moduleName": "SyneriseSDK",
+            "declAttributes": [
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@SyneriseSDK@objc(cs)SNRNotificationInfo(im)campaignTitle",
+                "mangledName": "$s11SyneriseSDK16NotificationInfoC13campaignTitleSSvg",
+                "moduleName": "SyneriseSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "payload",
+            "printedName": "payload",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Dictionary",
+                "printedName": "[Swift.AnyHashable : Any]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AnyHashable",
+                    "printedName": "Swift.AnyHashable",
+                    "usr": "s:s11AnyHashableV"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ],
+                "usr": "s:SD"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@SyneriseSDK@objc(cs)SNRNotificationInfo(py)payload",
+            "mangledName": "$s11SyneriseSDK16NotificationInfoC7payloadSDys11AnyHashableVypGvp",
+            "moduleName": "SyneriseSDK",
+            "declAttributes": [
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Dictionary",
+                    "printedName": "[Swift.AnyHashable : Any]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "AnyHashable",
+                        "printedName": "Swift.AnyHashable",
+                        "usr": "s:s11AnyHashableV"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ProtocolComposition",
+                        "printedName": "Any"
+                      }
+                    ],
+                    "usr": "s:SD"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@SyneriseSDK@objc(cs)SNRNotificationInfo(im)payload",
+                "mangledName": "$s11SyneriseSDK16NotificationInfoC7payloadSDys11AnyHashableVypGvg",
+                "moduleName": "SyneriseSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
           {
             "kind": "Constructor",
             "name": "init",
@@ -73702,21 +73767,21 @@
     {
       "filePath": "\/Users\/krzysztofkurzawa\/builds\/OyC4WqP4v\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Services\/NotificationService\/Models\/NotificationPayload\/BasicNotificationPayload.swift",
       "kind": "BooleanLiteral",
-      "offset": 1299,
+      "offset": 1292,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/krzysztofkurzawa\/builds\/OyC4WqP4v\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Services\/NotificationService\/Models\/NotificationPayload\/BasicNotificationPayload.swift",
       "kind": "BooleanLiteral",
-      "offset": 1336,
+      "offset": 1329,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/krzysztofkurzawa\/builds\/OyC4WqP4v\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Services\/NotificationService\/Models\/NotificationPayload\/BasicNotificationPayload.swift",
       "kind": "Dictionary",
-      "offset": 1377,
+      "offset": 1370,
       "length": 3,
       "value": "[]"
     },
@@ -74173,7 +74238,7 @@
       "kind": "StringLiteral",
       "offset": 287,
       "length": 7,
-      "value": "\"6.0.5\""
+      "value": "\"6.0.6\""
     },
     {
       "filePath": "\/Users\/krzysztofkurzawa\/builds\/OyC4WqP4v\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Synerise.swift",

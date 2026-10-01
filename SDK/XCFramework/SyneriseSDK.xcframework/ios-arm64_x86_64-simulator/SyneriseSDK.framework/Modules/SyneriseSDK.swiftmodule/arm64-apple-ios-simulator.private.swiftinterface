@@ -23,10 +23,6 @@ import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
 import os
-@objc @_inheritsConvenienceInitializers public class BasicNotificationPayload : ObjectiveC.NSObject {
-  @objc override dynamic public init()
-  @objc deinit
-}
 @objc(SNRTrackerAutoTrackMode) public enum TrackerAutoTrackMode : Swift.Int {
   case plain
   case fine
@@ -304,6 +300,9 @@ public let SNRErrorDomain: Swift.String
   @objc func toNotificationInfo() -> SyneriseSDK.NotificationInfo?
 }
 @_hasMissingDesignatedInitializers @objc(SNRNotificationInfo) public class NotificationInfo : SyneriseSDK.BaseModel {
+  @objc final public let campaignHashId: Swift.String
+  @objc final public let campaignTitle: Swift.String
+  @objc final public let payload: [Swift.AnyHashable : Any]
   @objc deinit
 }
 @_hasMissingDesignatedInitializers @objc(SNRProductAddedToFavoritesEvent) final public class ProductAddedToFavoritesEvent : SyneriseSDK.Event {

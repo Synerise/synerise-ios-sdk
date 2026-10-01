@@ -3,6 +3,12 @@ All notable changes to this project will be documented in this file.
 
 Note that Objective-C class names are prefixed by `SNR`. In the changelog below, these are names used in Swift, without the prefix.
 
+## [6.0.6] - 2026-10-01
+
+### Fixed
+- `NotificationInfo` properties (`campaignHashId`, `campaignTitle`, `payload`) visibility to public. The problem occurred since version 6.0.0.
+
+
 ## [6.0.5] - 2026-09-28
 
 ### Fixed
