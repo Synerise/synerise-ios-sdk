@@ -285,6 +285,8 @@ public let SNRErrorDomain: Swift.String
   @available(iOS 10.0, *)
   @objc(setNotificationCategories:) public static func setNotificationCategories(_ notificationCategories: Swift.Set<UserNotifications.UNNotificationCategory>)
   @objc(setBackgroundTaskIdentifiers:) public static func setBackgroundTaskIdentifiers(_ identifiers: [Swift.String])
+  @objc(setMainBackgroundTaskIdentifier:) public static func setMainBackgroundTaskIdentifier(_ identifier: Swift.String)
+  @objc(setRequestRetryBackgroundTaskIdentifier:) public static func setRequestRetryBackgroundTaskIdentifier(_ identifier: Swift.String)
   @objc(isSyneriseNotification:) public static func isSyneriseNotification(_ userInfo: [Swift.AnyHashable : Any]) -> Swift.Bool
   @objc(isSyneriseSimplePush:) public static func isSyneriseSimplePush(_ userInfo: [Swift.AnyHashable : Any]) -> Swift.Bool
   @objc(isSyneriseSilentCommand:) public static func isSyneriseSilentCommand(_ userInfo: [Swift.AnyHashable : Any]) -> Swift.Bool
@@ -583,6 +585,7 @@ public enum SyneriseApiQuerySortingOrderString {
   @objc(SNRPushNotificationsRegistrationOriginClientContextChange) case clientContextChange = 1
   @objc(SNRPushNotificationsRegistrationOriginSecurityReason) case securityReason = 2
   @objc(SNRPushNotificationsRegistrationOriginPeriodicJob) case periodicJob = 3
+  @objc(SNRPushNotificationsRegistrationOriginRequestRetry) case requestRetry = 4
   public init?(rawValue: Swift.Int)
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
@@ -945,6 +948,9 @@ public let SNRSingleMediaContentExtensionViewControllerCategoryIdentifier: Swift
 }
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(SNRApiError) public class SNRApiError : SyneriseSDK.SNRError, @unchecked Swift.Sendable {
   @objc final public let errorBody: SyneriseSDK.SNRApiErrorBody?
+  @objc public var isBackgroundRetryScheduled: Swift.Bool {
+    get
+  }
   @objc public var errorType: SyneriseSDK.SNRApiErrorType {
     @objc get
   }

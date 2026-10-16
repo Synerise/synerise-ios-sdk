@@ -3,6 +3,19 @@ All notable changes to this project will be documented in this file.
 
 Note that Objective-C class names are prefixed by `SNR`. In the changelog below, these are names used in Swift, without the prefix.
 
+## [6.1.0] - 2026-10-16
+
+### Added
+- `Synerise.setMainBackgroundTaskIdentifier(_:)` method. The new method registers the main Background Task in the SDK, which enables registration for push notifications every 20 days when the application is not launched. It is equivalent to passing the identifier as the first element to `Synerise.setBackgroundTaskIdentifiers(_:)`.
+- `Synerise.setRequestRetryBackgroundTaskIdentifier(_:)` method. The new method registers the Background Task in the SDK, which sends requests that failed because of a network error (e.g. push notifications registration) again when the device is connected to the network.
+- `isBackgroundRetryScheduled` property in `SNRApiError`. The property indicates that the request which failed (e.g. push notifications registration) will be sent again in the background when the device is connected to the network.
+- `requestRetry` value in `PushNotificationsRegistrationOrigin` enum. The value is passed to `snr_registerForPushNotificationsIsNeeded(origin:)` when the Request Retry Background Task asks for registration for push notifications again.
+
+### Changed
+- `Synerise.setBackgroundTaskIdentifiers(_:)` method accepts the identifier of the Request Retry Background Task as the second element of the array.
+- Improvements to stability.
+
+
 ## [6.0.6] - 2026-10-01
 
 ### Fixed
