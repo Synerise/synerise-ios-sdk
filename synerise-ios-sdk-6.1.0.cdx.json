@@ -1,10 +1,10 @@
 {
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
-  "serialNumber": "urn:uuid:dc6572f3-ac14-400d-8601-57d2c8c9a8be",
+  "serialNumber": "urn:uuid:380d9eed-44e2-47d0-8104-c8cb37eee9a4",
   "version": 1,
   "metadata": {
-    "timestamp": "2026-10-01T13:45:36Z",
+    "timestamp": "2026-10-16T14:04:27Z",
     "authors": [
       {
         "name": "Synerise",
@@ -13,10 +13,10 @@
     ],
     "component": {
       "type": "library",
-      "bom-ref": "pkg:github/Synerise/synerise-ios-sdk@6.0.6",
+      "bom-ref": "pkg:github/Synerise/synerise-ios-sdk@6.1.0",
       "name": "SyneriseSDK",
-      "version": "6.0.6",
-      "description": "This is the Synerise iOS SDK (v. 6.0.6) for Synerise platform.",
+      "version": "6.1.0",
+      "description": "This is the Synerise iOS SDK (v. 6.1.0) for Synerise platform.",
       "supplier": {
         "name": "Synerise S.A.",
         "url": ["https://www.synerise.com"]
@@ -29,7 +29,7 @@
           }
         }
       ],
-      "purl": "pkg:github/Synerise/synerise-ios-sdk@6.0.6",
+      "purl": "pkg:github/Synerise/synerise-ios-sdk@6.1.0",
       "externalReferences": [
         {
           "type": "website",
@@ -162,7 +162,7 @@
   ],
   "dependencies": [
     {
-      "ref": "pkg:github/Synerise/synerise-ios-sdk@6.0.6",
+      "ref": "pkg:github/Synerise/synerise-ios-sdk@6.1.0",
       "dependsOn": [
         "pkg:github/AFNetworking/AFNetworking@3.2.1",
         "pkg:github/steipete/Aspects@1.4.2",

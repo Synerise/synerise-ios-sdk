@@ -2059,6 +2059,7 @@ typedef SWIFT_ENUM_NAMED(NSInteger, SNRPushNotificationsRegistrationOrigin, "Pus
   SNRPushNotificationsRegistrationOriginClientContextChange SWIFT_COMPILE_NAME("clientContextChange") = 1,
   SNRPushNotificationsRegistrationOriginSecurityReason SWIFT_COMPILE_NAME("securityReason") = 2,
   SNRPushNotificationsRegistrationOriginPeriodicJob SWIFT_COMPILE_NAME("periodicJob") = 3,
+  SNRPushNotificationsRegistrationOriginRequestRetry SWIFT_COMPILE_NAME("requestRetry") = 4,
 };
 
 SWIFT_CLASS_NAMED("PushViewedEvent")
@@ -2208,6 +2209,7 @@ SWIFT_ENUM_FWD_DECL(NSInteger, SNRApiErrorHttpErrorCategory)
 SWIFT_CLASS_NAMED("SNRApiError")
 @interface SNRApiError : SNRError
 @property (nonatomic, readonly, strong) SNRApiErrorBody * _Nullable errorBody;
+@property (nonatomic, readonly) BOOL isBackgroundRetryScheduled;
 @property (nonatomic, readonly) enum SNRApiErrorType errorType;
 @property (nonatomic, readonly) NSInteger httpCode;
 @property (nonatomic, readonly) enum SNRApiErrorHttpErrorCategory httpErrorCategory;
@@ -2459,9 +2461,29 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) SNRSettings 
 ///
 + (void)setNotificationCategories:(NSSet<UNNotificationCategory *> * _Nonnull)notificationCategories SWIFT_AVAILABILITY(ios,introduced=10.0);
 /// This method sets identifiers for Background Tasks processing.
-/// \param identifiers Identifiers for background task registered in the host appliaction.
+/// note:
+/// The identifiers must be listed in <code>BGTaskSchedulerPermittedIdentifiers</code> and the <code>processing</code> background mode must be enabled in Info.plist.
+/// note:
+/// Invoke this method before the application finishes launching.
+/// \param identifiers Identifiers for background tasks registered in the host application. The first identifier is used for the main Background Task, the second one (optional) for the Background Task that retries failed requests. A Background Task without an identifier in the array is unregistered.
 ///
 + (void)setBackgroundTaskIdentifiers:(NSArray<NSString *> * _Nonnull)identifiers;
+/// This method sets the identifier for the main Background Task.
+/// note:
+/// The identifier must be listed in <code>BGTaskSchedulerPermittedIdentifiers</code> and the <code>processing</code> background mode must be enabled in Info.plist.
+/// note:
+/// Invoke this method before the application finishes launching.
+/// \param identifier Identifier for the background task registered in the host application.
+///
++ (void)setMainBackgroundTaskIdentifier:(NSString * _Nonnull)identifier;
+/// This method sets the identifier for the Background Task that retries failed requests (e.g. push registration) when the network is available again.
+/// note:
+/// The identifier must be listed in <code>BGTaskSchedulerPermittedIdentifiers</code> and the <code>processing</code> background mode must be enabled in Info.plist.
+/// note:
+/// Invoke this method before the application finishes launching.
+/// \param identifier Identifier for the background task registered in the host application.
+///
++ (void)setRequestRetryBackgroundTaskIdentifier:(NSString * _Nonnull)identifier;
 /// This method verifies if a notification was sent by Synerise.
 /// \param userInfo Key-Value map of data.
 ///
@@ -4907,6 +4929,7 @@ typedef SWIFT_ENUM_NAMED(NSInteger, SNRPushNotificationsRegistrationOrigin, "Pus
   SNRPushNotificationsRegistrationOriginClientContextChange SWIFT_COMPILE_NAME("clientContextChange") = 1,
   SNRPushNotificationsRegistrationOriginSecurityReason SWIFT_COMPILE_NAME("securityReason") = 2,
   SNRPushNotificationsRegistrationOriginPeriodicJob SWIFT_COMPILE_NAME("periodicJob") = 3,
+  SNRPushNotificationsRegistrationOriginRequestRetry SWIFT_COMPILE_NAME("requestRetry") = 4,
 };
 
 SWIFT_CLASS_NAMED("PushViewedEvent")
@@ -5056,6 +5079,7 @@ SWIFT_ENUM_FWD_DECL(NSInteger, SNRApiErrorHttpErrorCategory)
 SWIFT_CLASS_NAMED("SNRApiError")
 @interface SNRApiError : SNRError
 @property (nonatomic, readonly, strong) SNRApiErrorBody * _Nullable errorBody;
+@property (nonatomic, readonly) BOOL isBackgroundRetryScheduled;
 @property (nonatomic, readonly) enum SNRApiErrorType errorType;
 @property (nonatomic, readonly) NSInteger httpCode;
 @property (nonatomic, readonly) enum SNRApiErrorHttpErrorCategory httpErrorCategory;
@@ -5307,9 +5331,29 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) SNRSettings 
 ///
 + (void)setNotificationCategories:(NSSet<UNNotificationCategory *> * _Nonnull)notificationCategories SWIFT_AVAILABILITY(ios,introduced=10.0);
 /// This method sets identifiers for Background Tasks processing.
-/// \param identifiers Identifiers for background task registered in the host appliaction.
+/// note:
+/// The identifiers must be listed in <code>BGTaskSchedulerPermittedIdentifiers</code> and the <code>processing</code> background mode must be enabled in Info.plist.
+/// note:
+/// Invoke this method before the application finishes launching.
+/// \param identifiers Identifiers for background tasks registered in the host application. The first identifier is used for the main Background Task, the second one (optional) for the Background Task that retries failed requests. A Background Task without an identifier in the array is unregistered.
 ///
 + (void)setBackgroundTaskIdentifiers:(NSArray<NSString *> * _Nonnull)identifiers;
+/// This method sets the identifier for the main Background Task.
+/// note:
+/// The identifier must be listed in <code>BGTaskSchedulerPermittedIdentifiers</code> and the <code>processing</code> background mode must be enabled in Info.plist.
+/// note:
+/// Invoke this method before the application finishes launching.
+/// \param identifier Identifier for the background task registered in the host application.
+///
++ (void)setMainBackgroundTaskIdentifier:(NSString * _Nonnull)identifier;
+/// This method sets the identifier for the Background Task that retries failed requests (e.g. push registration) when the network is available again.
+/// note:
+/// The identifier must be listed in <code>BGTaskSchedulerPermittedIdentifiers</code> and the <code>processing</code> background mode must be enabled in Info.plist.
+/// note:
+/// Invoke this method before the application finishes launching.
+/// \param identifier Identifier for the background task registered in the host application.
+///
++ (void)setRequestRetryBackgroundTaskIdentifier:(NSString * _Nonnull)identifier;
 /// This method verifies if a notification was sent by Synerise.
 /// \param userInfo Key-Value map of data.
 ///
