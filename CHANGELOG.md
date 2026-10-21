@@ -3,6 +3,18 @@ All notable changes to this project will be documented in this file.
 
 Note that Objective-C class names are prefixed by `SNR`. In the changelog below, these are names used in Swift, without the prefix.
 
+## [6.1.1] - 2026-10-21
+
+### Fixed
+- Issue with sending the control group event (`inApp.controlGroup`) for in-app messages with a global control group and a segment checked in real time. The event was sent to every client assigned to the global control group, even when the client did not match the campaign segment. The problem occurred since version 4.15.0.
+- Issue with displaying in-app messages that use global control groups when the backend did not recognize the client yet (for example, a new anonymous profile). Such messages were displayed without checking whether the client was assigned to the global control group. The problem occurred since version 6.0.0.
+- Issue with missing additional parameters (`additionalParameters`) and the test message flag (`test_message`) in events of overlay in-app messages (`inApp.show`, `inApp.hide`, `inApp.discard`, `inApp.click`, `inApp.customHook`, `inApp.renderFail`). The problem occurred since version 6.0.0.
+
+### Changed
+- Optimization of the in-app messaging module.
+- Improvements to stability.
+
+
 ## [6.1.0] - 2026-10-16
 
 ### Added

@@ -74438,7 +74438,7 @@
       "kind": "StringLiteral",
       "offset": 287,
       "length": 7,
-      "value": "\"6.1.0\""
+      "value": "\"6.1.1\""
     },
     {
       "filePath": "\/Users\/krzysztofkurzawa\/Desktop\/GITLAB\/synerise-ios-sdk\/builds\/OyC4WqP4v\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Synerise.swift",
@@ -79889,7 +79889,7 @@
     {
       "filePath": "\/Users\/krzysztofkurzawa\/Desktop\/GITLAB\/synerise-ios-sdk\/builds\/OyC4WqP4v\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Services\/InAppService\/Triggering\/Main\/InAppVariantRenderer.swift",
       "kind": "BooleanLiteral",
-      "offset": 5712,
+      "offset": 6961,
       "length": 5,
       "value": "false"
     },
@@ -81275,21 +81275,28 @@
     {
       "filePath": "\/Users\/krzysztofkurzawa\/Desktop\/GITLAB\/synerise-ios-sdk\/builds\/OyC4WqP4v\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Services\/InAppService\/Triggering\/Main\/InAppGlobalControlGroupChecker.swift",
       "kind": "BooleanLiteral",
-      "offset": 374,
+      "offset": 368,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/krzysztofkurzawa\/Desktop\/GITLAB\/synerise-ios-sdk\/builds\/OyC4WqP4v\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Services\/InAppService\/Triggering\/Main\/InAppGlobalControlGroupChecker.swift",
       "kind": "BooleanLiteral",
-      "offset": 447,
+      "offset": 445,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/krzysztofkurzawa\/Desktop\/GITLAB\/synerise-ios-sdk\/builds\/OyC4WqP4v\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Services\/InAppService\/Triggering\/Main\/InAppGlobalControlGroupChecker.swift",
       "kind": "BooleanLiteral",
-      "offset": 482,
+      "offset": 518,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/krzysztofkurzawa\/Desktop\/GITLAB\/synerise-ios-sdk\/builds\/OyC4WqP4v\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Services\/InAppService\/Triggering\/Main\/InAppGlobalControlGroupChecker.swift",
+      "kind": "BooleanLiteral",
+      "offset": 553,
       "length": 5,
       "value": "false"
     },
