@@ -3,6 +3,17 @@ All notable changes to this project will be documented in this file.
 
 Note that Objective-C class names are prefixed by `SNR`. In the changelog below, these are names used in Swift, without the prefix.
 
+## [6.1.2] - 2026-11-03
+
+### Fixed
+- Potential issue with in-app messaging database execute operations which caused crash when the SDK could not open persistent store for the database.
+- Potential issue with in-app messaging database when the application was launched in the background while the device was locked and the files were protected by Data Protection. The database is now opened again when protected data becomes available, without restarting the application.
+- Potential issue with high memory usage and long processing time on the main thread when the `screen.content` event was created for a large screen view response. The problem could cause a crash.
+
+### Changed
+- Improvements to stability.
+
+
 ## [6.1.1] - 2026-10-21
 
 ### Fixed

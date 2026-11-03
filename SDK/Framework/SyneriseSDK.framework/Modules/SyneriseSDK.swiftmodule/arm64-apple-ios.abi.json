@@ -51347,13 +51347,6 @@
       },
       {
         "kind": "Import",
-        "name": "SQLite3",
-        "printedName": "SQLite3",
-        "declKind": "Import",
-        "moduleName": "SyneriseSDK"
-      },
-      {
-        "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
         "declKind": "Import",
@@ -59157,13 +59150,6 @@
         "kind": "Import",
         "name": "CoreData",
         "printedName": "CoreData",
-        "declKind": "Import",
-        "moduleName": "SyneriseSDK"
-      },
-      {
-        "kind": "Import",
-        "name": "SQLite3",
-        "printedName": "SQLite3",
         "declKind": "Import",
         "moduleName": "SyneriseSDK"
       },
@@ -73566,6 +73552,30 @@
         ]
       },
       {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "SyneriseSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "CoreData",
+        "printedName": "CoreData",
+        "declKind": "Import",
+        "moduleName": "SyneriseSDK"
+      },
+      {
+        "kind": "Import",
+        "name": "SQLite3",
+        "printedName": "SQLite3",
+        "declKind": "Import",
+        "moduleName": "SyneriseSDK"
+      },
+      {
         "kind": "TypeDecl",
         "name": "Optional",
         "printedName": "Optional",
@@ -74438,7 +74448,7 @@
       "kind": "StringLiteral",
       "offset": 287,
       "length": 7,
-      "value": "\"6.1.1\""
+      "value": "\"6.1.2\""
     },
     {
       "filePath": "\/Users\/krzysztofkurzawa\/Desktop\/GITLAB\/synerise-ios-sdk\/builds\/OyC4WqP4v\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Synerise.swift",
@@ -80092,28 +80102,28 @@
     {
       "filePath": "\/Users\/krzysztofkurzawa\/Desktop\/GITLAB\/synerise-ios-sdk\/builds\/OyC4WqP4v\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Services\/InAppService\/Database\/InAppDatabase.swift",
       "kind": "StringLiteral",
-      "offset": 239,
+      "offset": 224,
       "length": 25,
       "value": "\"SNRInAppDataModelScheme\""
     },
     {
       "filePath": "\/Users\/krzysztofkurzawa\/Desktop\/GITLAB\/synerise-ios-sdk\/builds\/OyC4WqP4v\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Services\/InAppService\/Database\/InAppDatabase.swift",
       "kind": "StringLiteral",
-      "offset": 309,
+      "offset": 294,
       "length": 10,
       "value": "\"Synerise\""
     },
     {
       "filePath": "\/Users\/krzysztofkurzawa\/Desktop\/GITLAB\/synerise-ios-sdk\/builds\/OyC4WqP4v\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Services\/InAppService\/Database\/InAppDatabase.swift",
       "kind": "StringLiteral",
-      "offset": 359,
+      "offset": 344,
       "length": 12,
       "value": "\"snr_inapps\""
     },
     {
       "filePath": "\/Users\/krzysztofkurzawa\/Desktop\/GITLAB\/synerise-ios-sdk\/builds\/OyC4WqP4v\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/Services\/InAppService\/Database\/InAppDatabase.swift",
       "kind": "StringLiteral",
-      "offset": 416,
+      "offset": 401,
       "length": 8,
       "value": "\"sqlite\""
     },
@@ -81961,28 +81971,28 @@
     {
       "filePath": "\/Users\/krzysztofkurzawa\/Desktop\/GITLAB\/synerise-ios-sdk\/builds\/OyC4WqP4v\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataManagement\/Databases\/CoreDatabase\/CoreDatabase.swift",
       "kind": "StringLiteral",
-      "offset": 237,
+      "offset": 222,
       "length": 20,
       "value": "\"CoreDatabaseSchema\""
     },
     {
       "filePath": "\/Users\/krzysztofkurzawa\/Desktop\/GITLAB\/synerise-ios-sdk\/builds\/OyC4WqP4v\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataManagement\/Databases\/CoreDatabase\/CoreDatabase.swift",
       "kind": "StringLiteral",
-      "offset": 302,
+      "offset": 287,
       "length": 10,
       "value": "\"Synerise\""
     },
     {
       "filePath": "\/Users\/krzysztofkurzawa\/Desktop\/GITLAB\/synerise-ios-sdk\/builds\/OyC4WqP4v\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataManagement\/Databases\/CoreDatabase\/CoreDatabase.swift",
       "kind": "StringLiteral",
-      "offset": 352,
+      "offset": 337,
       "length": 10,
       "value": "\"snr_core\""
     },
     {
       "filePath": "\/Users\/krzysztofkurzawa\/Desktop\/GITLAB\/synerise-ios-sdk\/builds\/OyC4WqP4v\/0\/Mobile\/synerise-ios-sdk\/SyneriseSDK\/SyneriseSDK\/Core\/DataManagement\/Databases\/CoreDatabase\/CoreDatabase.swift",
       "kind": "StringLiteral",
-      "offset": 407,
+      "offset": 392,
       "length": 8,
       "value": "\"sqlite\""
     },
