@@ -3,6 +3,17 @@ All notable changes to this project will be documented in this file.
 
 Note that Objective-C class names are prefixed by `SNR`. In the changelog below, these are names used in Swift, without the prefix.
 
+## [6.1.3] - 2026-11-25
+
+### Fixed
+- Issue with in-app messages that are triggered by more than one event. After the in-app messaging data was read again (for example, after the application restart, sign-in or definitions refresh), only one random event trigger was kept for each campaign. The problem occurred since version 6.0.0.
+- Issue with inline in-app messages that are assigned to more than one placement. After the in-app messaging data was read again, only one random placement was kept for each campaign. The problem occurred since version 6.0.0.
+
+### Changed
+- Optimization of the in-app messaging module.
+- Improvements to stability.
+
+
 ## [6.1.2] - 2026-11-03
 
 ### Fixed
